@@ -14,11 +14,11 @@
 
 ### 内容
 - .gitignore
-    - secret*：外部漏れがダメなファイルにはこれを付ける。
+    - secret*：トークンや秘密鍵など Git 管理不可のファイル名にはコレを付ける。
 - .zsh.d
     - zshrc を小分けにしたファイルを格納するためのディレクトリ。
     - `***.zsh` という名称にすることで、zsh を起動した際に .zshrc へと読み込まれる。
-    - 今のところ discordbot-mdn 用のトークンなどを記述した `secret.zsh` のみ（ alias とか増え始めたら分けていきたい）
+    - 今のところ discordbot-mdn 用のトークンなどを記述した `secret.zsh` のみ（ alias とか各アプリの設定ファイルとか分けていきたい）
 
 ## 参考サイト
 - [ようこそdotfilesの世界へ](https://qiita.com/yutakatay/items/c6c7584d9795799ee164)
