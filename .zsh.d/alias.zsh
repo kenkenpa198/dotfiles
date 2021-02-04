@@ -5,22 +5,24 @@ alias ll="ls -la"
 
 # Docker
 alias d="docker"
-alias d-c="docker-compose"
+alias dc="docker-compose"
 
 # Git
 alias gb="git branch"
 alias gc="git checkout"
-alias gs="git status -s"
+alias gm="git merge"
+alias gs="git status"
+alias gss="git status -s"
 alias ga="git add"
 alias gaa="git add -A"
 alias gcm="git commit -m"
-alias gm="git merge"
-alias gpsh="git push"
-alias gpsho="git push origin"
+alias gp="git push"
+alias gpo="git push origin"
+alias gpom="git push origin main"
 alias gf="git fetch"
 alias gpl="git pull"
 alias gl="git log"
-alias glo="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # 参考：https://qiita.com/pugiemonn/items/da04a422cc7da548632e
 
