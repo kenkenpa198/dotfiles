@@ -24,9 +24,7 @@ alias gpl="git pull"
 alias gl="git log"
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-# 参考：https://qiita.com/pugiemonn/items/da04a422cc7da548632e
 
 ##### Homebrew #####
-alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin brew"
 # brew doctor 実行時の警告「 Homebrew 管理外の config ファイルがあると衝突するかも？」の回避
-# 参考：https://qiita.com/yutoman027/items/ae11bf22bdbcd645c92a
+alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin brew"
