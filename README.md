@@ -14,13 +14,17 @@
 
 ### 内容
 - .gitignore
-    - secret*：トークンや秘密鍵など Git 管理不可のファイル名にはコレを付ける。
-- .zsh.d
+    - ホワイトリスト形式で記述。
+    - トークンや秘密鍵など Git 管理不可のファイル名等を除外する。
+- .zsh
     - zshrc を小分けにしたファイルを格納するためのディレクトリ。
-    - `***.zsh` という名称にすることで、zsh を起動した際に .zshrc へと読み込まれる。
-    - 今のところ discordbot-mdn 用のトークンなどを記述した `secret.zsh` のみ（ alias とか各アプリの設定ファイルとか分けていきたい）
+    - 子供を `***.zsh` という名称にすることで、zsh を起動した際に .zshrc へと読み込まれる。
+    - alias.zsh secret.zsh など。
 
 ## 参考サイト
-- [ようこそdotfilesの世界へ](https://qiita.com/yutakatay/items/c6c7584d9795799ee164)
-- [zsh設定ファイル（.zshrc）を分割する](http://fnwiya.hatenablog.com/entry/2015/11/03/191902)
-- [brew doctor したら Warning: "config" scripts exist outside your system or Homebrew directories.と出た時の解決法初心者的理解](https://qiita.com/yutoman027/items/ae11bf22bdbcd645c92a)
+- [ようこそdotfilesの世界へ - Qiita](https://qiita.com/yutakatay/items/c6c7584d9795799ee164)
+- [zsh設定ファイル（.zshrc）を分割する - fnwiya's quine](http://fnwiya.hatenablog.com/entry/2015/11/03/191902)
+- [brew doctor したら Warning: "config" scripts exist outside your system or Homebrew directories.と出た時の解決法初心者的理解 - Qiita](https://qiita.com/yutoman027/items/ae11bf22bdbcd645c92a)
+- [gitignoreのホワイトリストの書き方 - Qiita](https://qiita.com/sventouz/items/574bd67c7e43fff10546)
+- [gitignore に書くべきでないものは gitignore_global へ - Qiita](https://qiita.com/elzup/items/4c92a2abdab56db3fb4e)
+- [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)

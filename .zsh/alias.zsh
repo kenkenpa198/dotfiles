@@ -1,5 +1,5 @@
 ##### Commands #####
-# LINUX
+# Linux Command
 alias la="ls -la"
 alias ll="ls -la"
 
