@@ -1,1 +1,26 @@
-secret*
+##### 初期設定 #####
+# 全てを ignore
+*
+*/
+# 全てのディレクトリをホワイトリストへ追加
+!*/
+
+##### ホワイトリスト #####
+# 管理対象のファイルを追記
+!/.bin/
+!/.bin/**
+
+!/.config/
+!/.config/**
+
+!/.config/Code/
+!/.config/Code/**
+!/.config/Code/User/
+!/.config/Code/User/**
+
+!/.zshrc
+!/.zsh/alias.zsh
+
+!/README.md
+!/.gitignore
+!/.gitignore_global

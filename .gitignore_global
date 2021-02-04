@@ -1,0 +1,11 @@
+##### General #####
+.DS_Store
+
+##### App #####
+# Visual Studio Code
+.vscode
+
+# vim
+*.swp
+*~
+*.u~
