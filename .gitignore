@@ -20,6 +20,7 @@
 
 !/.zshrc
 !/.zsh/alias.zsh
+!/.zsh/option.zsh
 
 !/README.md
 !/.gitignore
