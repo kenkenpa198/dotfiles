@@ -5,5 +5,12 @@
     "editor.fontFamily": "'Ricty Diminished' ,Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 16,
     "terminal.integrated.fontSize": 16,
-    "terminal.integrated.shell.osx": "/bin/zsh"
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "terminal.integrated.fontFamily": "Ricty for Powerline",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "dotfiles.repository": "https://github.com/kenkenpa198/dotfiles.git",
+    "dotfiles.targetPath": "~/dotfiles",
+    "dotfiles.installCommand": "~/dotfiles/install.sh"
 }
+

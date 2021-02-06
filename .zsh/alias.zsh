@@ -1,5 +1,4 @@
-##### zsh Arias #####
-# Linux Command
+##### Linux Command #####
 alias src="source ~/.zshrc"
 alias la="ls -la"
 alias ll="ls -la"
@@ -9,11 +8,11 @@ alias h="history"
 alias hg="history | grep"
 
 
-# Docker
+##### Docker #####
 alias d="docker"
 alias dc="docker-compose"
 
-# Git
+##### Git #####
 alias g="git"
 alias gs="git status"
 alias gb="git branch"

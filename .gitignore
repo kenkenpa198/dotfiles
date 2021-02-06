@@ -22,6 +22,8 @@
 !/.zsh/alias.zsh
 !/.zsh/option.zsh
 
+!/install.sh
+
 !/README.md
 !/.gitignore
 !/.gitignore_global
