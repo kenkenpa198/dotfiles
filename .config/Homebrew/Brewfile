@@ -1,0 +1,46 @@
+tap "beeftornado/rmtree"
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "sanemat/font"
+brew "cask"
+brew "docker"
+brew "git"
+brew "mas"
+brew "pyenv"
+brew "sip"
+brew "tree"
+brew "zsh"
+brew "heroku/brew/heroku"
+cask "alfred"
+cask "alt-tab"
+cask "clipy"
+cask "cyberduck"
+cask "discord"
+cask "gimp"
+cask "google-chrome"
+cask "imageoptim"
+cask "iterm2"
+cask "kindle"
+cask "loopback"
+cask "obs"
+cask "sketch"
+cask "sketch-toolbox"
+cask "sourcetree"
+mas "AdGuard for Safari", id: 1440147259
+mas "Bear", id: 1091189122
+mas "CotEditor", id: 1024640650
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "LINE", id: 539883307
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "RunCat", id: 1429033973
+mas "The Unarchiver", id: 425424353
+mas "Twitter", id: 1482454543
+mas "VirusBarrier Scanner", id: 1200445649
+mas "Yoink", id: 457622435
