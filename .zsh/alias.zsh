@@ -2,8 +2,6 @@
 alias src="source ~/.zshrc"
 alias la="ls -la"
 alias ll="ls -la"
-alias ...="cd ../.."
-alias ....="cd ../../.."
 alias h="history"
 alias hg="history | grep"
 
@@ -11,6 +9,7 @@ alias hg="history | grep"
 ##### Docker #####
 alias d="docker"
 alias dc="docker-compose"
+
 
 ##### Git #####
 alias g="git"

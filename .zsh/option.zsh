@@ -11,6 +11,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ##### Setting Theme #####
 # プロンプトをカッコよくする
 export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
 echo Hello!
 autoload -Uz compinit && compinit  # Gitの補完を有効化
 
