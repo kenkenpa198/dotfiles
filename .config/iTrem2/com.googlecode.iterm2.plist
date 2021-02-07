@@ -30,6 +30,8 @@
 	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>524288</integer>
+	<key>IRMemory</key>
+	<integer>4</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -185,12 +187,16 @@
 			<true/>
 			<key>Background Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.16470588235294117</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.14117647058823529</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.13725490196078433</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -199,7 +205,7 @@
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
-			<real>4.1507444086763039</real>
+			<real>4.6061166664988713</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -223,6 +229,8 @@
 			<integer>130</integer>
 			<key>Command</key>
 			<string></string>
+			<key>Cursor Boost</key>
+			<real>0.0</real>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -586,25 +594,29 @@
 			<integer>1000</integer>
 			<key>Selected Text Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.7803921568627451</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.7803921568627451</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.7803921568627451</real>
 			</dict>
 			<key>Selection Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.58876514434814453</real>
+				<real>0.23058325991598849</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.51793164838294892</real>
+				<real>0.24882936477661133</real>
 				<key>Red Component</key>
-				<real>0.4572804235294825</real>
+				<real>0.24332548728526823</real>
 			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
@@ -621,7 +633,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.13258147878745166</real>
+			<real>0.076566070871254832</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
