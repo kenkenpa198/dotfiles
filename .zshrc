@@ -1,7 +1,9 @@
 ##### $PATH #####
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.pyenv/shims"
-# 基本（ls コマンドなど）：/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-# pyenv                  ：$HOME/.pyenv/shims
+# Linux Commands
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+
+# pyenv
+export PATH="$PATH:$HOME/.pyenv/shims"
 
 
 ##### .zsh ディレクトリ内ファイルの読み込み #####

@@ -2,6 +2,7 @@
 alias src="source ~/.zshrc"
 alias la="ls -la"
 alias ll="ls -la"
+alias lg="ls -la | grep"
 alias h="history"
 alias hg="history | grep"
 
@@ -39,3 +40,9 @@ alias gstp="git stash pop"
 ##### Homebrew #####
 # brew doctor 実行時の警告「 Homebrew 管理外の config ファイルがあると衝突するかも？」の回避
 alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin brew"
+
+
+##### Apps #####
+alias v="vim"
+alias e="emacs"
+alias c="code"
