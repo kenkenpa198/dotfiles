@@ -11,6 +11,7 @@
     "terminal.integrated.shell.linux": "/bin/zsh",
     "dotfiles.repository": "https://github.com/kenkenpa198/dotfiles.git",
     "dotfiles.targetPath": "~/dotfiles",
-    "dotfiles.installCommand": "~/dotfiles/install.sh"
+    "dotfiles.installCommand": "~/dotfiles/install.sh",
+    "window.newWindowDimensions": "inherit"
 }
 
