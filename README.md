@@ -7,7 +7,7 @@
 2. 元々ホームディレクトリに存在している .zshrc の代わりに、  
 リポジトリ内の .zshrc をシンボリックリンクとしてホームディレクトリ直下に配置。
     ```
-    % ln -s ~/dotfiles/.zshrc ~
+    % ln -s ~/dotfiles/.zshrc ~/
     ```
 3. zsh を起動した際に、その .zshrc が読み込まれるようになる。
 4. その他 .config 配下の設定ファイルなどもそれぞれシンボリックリンクで繋げる。
@@ -29,8 +29,8 @@
     - VSCode の設定ファイル用ディレクトリ。
     - 直下 User 内のファイルを VSCode のディレクトリへシンボリックリンクとして配置する。
         ```
-        % ln -s ~/dotfiles/.config/Code/User/settings.json ~/Library/"Application Support"/Code/User
-        % ln -s ~/dotfiles/.config/Code/User/keybindings.json ~/Library/"Application Support"/Code/User
+        % ln -s ~/dotfiles/.config/Code/User/settings.json ~/Library/"Application Support"/Code/User/
+        % ln -s ~/dotfiles/.config/Code/User/keybindings.json ~/Library/"Application Support"/Code/User/
         ```
 - iTerm2
     - iTerm2 用の設定ファイルを読込・出力するディレクトリ。
@@ -87,7 +87,7 @@ Git 管理不可のファイル名は記述しないようにする。
 Windows 用の設定も記述している（ブランチ切って別で作成したほうがいい希ガス） 。
 - シンボリックリンクはホームディレクトリに作成し、git config で読込先として登録する。
     ```
-    % ln -s ~/dotfiles/.gitignore_global ~
+    % ln -s ~/dotfiles/.gitignore_global ~/
     % git config --global core.excludesfile ~/.gitignore_global
     ```
 #### 参考
