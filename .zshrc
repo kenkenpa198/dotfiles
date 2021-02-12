@@ -1,6 +1,6 @@
 ##### $PATH #####
-# Linux Commands
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+# bin
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 # pyenv
 export PATH="$PATH:$HOME/.pyenv/shims"
