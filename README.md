@@ -18,7 +18,13 @@
 
 ## メモメモメリメロ
 ### .bin
-スクリプトとかを格納するディレクトリ。とりあえずつくった。
+スクリプトなどを格納するディレクトリ。
+- install_rc.sh
+    - VSCode の拡張機能 Remote Containers で dotfiles を反映する時に用いるファイル。調整中。
+
+#### 参考
+- [VSCode Remote Containerが良い - Qiita](https://qiita.com/d0ne1s/items/d2649801c6f804019db7)
+- [VSCode Remote Containersに自分のdotfilesを持ち込む - Kesinの知見置き場](http://kesin.hatenablog.com/entry/2020/07/10/083000)
 
 ---
 
@@ -94,13 +100,3 @@ Windows 用の設定も記述している（ブランチ切って別で作成し
 - [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
 - [gitignore に書くべきでないものは gitignore_global へ - Qiita](https://qiita.com/elzup/items/4c92a2abdab56db3fb4e)
 - [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
-
----
-
-### install.sh
-VSCode の拡張機能 Remote Containers で dotfiles を反映する時に用いるファイル。  
-作成中。
-
-#### 参考
-- [VSCode Remote Containerが良い - Qiita](https://qiita.com/d0ne1s/items/d2649801c6f804019db7)
-- [VSCode Remote Containersに自分のdotfilesを持ち込む - Kesinの知見置き場](http://kesin.hatenablog.com/entry/2020/07/10/083000)

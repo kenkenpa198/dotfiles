@@ -4,14 +4,14 @@
     "workbench.colorTheme": "Solarized Dark",
     "editor.fontFamily": "'Ricty Discord' ,Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 16,
-    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontSize": 15,
     "terminal.integrated.shell.osx": "/bin/zsh",
     "terminal.integrated.fontFamily": "Ricty Discord for Powerline",
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.shell.linux": "/bin/zsh",
     "dotfiles.repository": "https://github.com/kenkenpa198/dotfiles.git",
-    "dotfiles.targetPath": "~/dotfiles",
-    "dotfiles.installCommand": "~/dotfiles/install.sh",
+    "dotfiles.installCommand": "~/dotfiles/.bin/install_rc.sh",
     "window.newWindowDimensions": "inherit"
+
 }
 

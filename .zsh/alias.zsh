@@ -7,6 +7,16 @@ alias h="history"
 alias hg="history | grep"
 
 
+##### Homebrew #####
+alias b="brew"
+alias bl="brew list"
+alias bs="brew search"
+alias bi="brew info"
+alias bbd="brew bundle dump --force --file '~/dotfiles/.config/Homebrew/Brewfile'"
+alias bbl="brew bundle list --all --force --file '~/dotfiles/.config/Homebrew/Brewfile'"
+alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"
+
+
 ##### Docker #####
 alias d="docker"
 alias dc="docker-compose"
