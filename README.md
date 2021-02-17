@@ -7,7 +7,7 @@
 2. 元々ホームディレクトリに存在している .zshrc の代わりに、  
 リポジトリ内の .zshrc をシンボリックリンクとしてホームディレクトリ直下に配置。
     ```
-    % ln -s ~/dotfiles/.zshrc ~/
+    > ln -s ~/dotfiles/.zshrc ~/
     ```
 3. zsh を起動した際に、その .zshrc が読み込まれるようになる。
 4. その他 .config 配下の設定ファイルなどもそれぞれシンボリックリンクで繋げる。
@@ -35,8 +35,8 @@
     - VSCode の設定ファイル用ディレクトリ。
     - 直下 User 内のファイルを VSCode のディレクトリへシンボリックリンクとして配置する。
         ```
-        % ln -s ~/dotfiles/.config/Code/User/settings.json ~/Library/"Application Support"/Code/User/
-        % ln -s ~/dotfiles/.config/Code/User/keybindings.json ~/Library/"Application Support"/Code/User/
+        > ln -s ~/dotfiles/.config/Code/User/settings.json ~/Library/"Application Support"/Code/User/
+        > ln -s ~/dotfiles/.config/Code/User/keybindings.json ~/Library/"Application Support"/Code/User/
         ```
 - iTerm2
     - iTerm2 用の設定ファイルを読込・出力するディレクトリ。
@@ -49,14 +49,14 @@
     - brew bundle コマンドで保存・読込を行う。
         ```
         # リストの保存
-        % brew bundle dump --force --file "~/dotfiles/.config/Homebrew/Brewfile"
+        > brew bundle dump --force --file "~/dotfiles/.config/Homebrew/Brewfile"
 
         # リスト内容の確認
         # --all を —cask, —taps, —mas, --brews に変更で表示内容の指定
-        % brew bundle list --all --force --file "~/dotfiles/.config/Homebrew/Brewfile"
+        > brew bundle list --all --force --file "~/dotfiles/.config/Homebrew/Brewfile"
 
         # 一括インストール
-        % brew bundle --file "~/dotfiles/.config/Homebrew/Brewfile"
+        > brew bundle --file "~/dotfiles/.config/Homebrew/Brewfile"
         ```
 
 #### 参考
@@ -89,14 +89,38 @@ Git 管理不可のファイル名は記述しないようにする。
 ---
 
 ### .gitignore_global
-グローバルな .gitignore 。  
-Windows 用の設定も記述している（ブランチ切って別で作成したほうがいい希ガス） 。
+グローバルな .gitignore 。
 - シンボリックリンクはホームディレクトリに作成し、git config で読込先として登録する。
     ```
-    % ln -s ~/dotfiles/.gitignore_global ~/
-    % git config --global core.excludesfile ~/.gitignore_global
+    > ln -s ~/dotfiles/.gitignore_global ~/
+    > git config --global core.excludesfile ~/.gitignore_global
     ```
 #### 参考
 - [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
 - [gitignore に書くべきでないものは gitignore_global へ - Qiita](https://qiita.com/elzup/items/4c92a2abdab56db3fb4e)
 - [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
+
+
+### for_wsl
+Win10 WSL 環境用に各ファイルの記述を調整したブランチ。  
+Windows Terminal 用の設定なども追加している。
+
+#### WSL 環境構築メモ
+1. 参考 URL を元に、Windows Terminal ～ zsh までインストールする。
+2. dotfiles を clone する。
+2. .zshrc 等のシンボリックリンクを作成して読み込む。
+3. Win10 の GUI から環境変数へ下記を追加する。
+    ```
+    変数名：WSLENV
+    変数値：Path/pu:USERPROFILE/pu
+    ```
+4. Shell を再起動し、エクスプローラー等が zsh 上で使えるか確認する。
+    ```
+    > explorer.exe .
+    > code .
+    ```
+
+#### 参考
+- [Windows Terminal + WSL 2 + Homebrew + Zsh - Qiita](https://qiita.com/okayurisotto/items/36f6f9df499a74e62bff)
+- [WSL その128 - Windowsの環境変数とLinuxの環境変数を相互に引き継ぎ可能に - kledgeb](https://kledgeb.blogspot.com/2017/12/wsl-128-windowslinux.html)
+- [【WSL】パスのフォーマットを変換する wslpath コマンドの使い方 – ラボラジアン](https://laboradian.com/wslpath-command-for-wsl/)
