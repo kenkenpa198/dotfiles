@@ -21,6 +21,7 @@
 !/.zshrc
 !/.zsh/alias.zsh
 !/.zsh/option.zsh
+!/.zsh/theme.zsh
 
 !/install.sh
 

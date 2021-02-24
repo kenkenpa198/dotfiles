@@ -8,6 +8,32 @@ export PATH="$PATH:$HOME/.pyenv/shims"
 # Postgres.app
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
+
+##### 環境ごとの読込 #####
+case ${OSTYPE} in
+    darwin*)
+        # echo 'for MacOS'
+        # MacOS 向け設定
+
+        ;;
+    linux*)
+        # echo 'fot Linux'
+        # Linux 向け設定
+
+        if uname -r | grep -i 'microsoft' > /dev/null ; then
+            # echo 'for WSL'
+            # WSL 向け設定
+            
+            # Win 環境の環境変数を WSL 環境へ複製
+            export PATH="$PATH:$Path"
+
+            # Linuxbrew
+            export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+        fi
+        ;;
+esac
+
+
 ##### .zsh ディレクトリ内ファイルの読み込み #####
 # .zsh ディレクトリ内の *.zsh を読み込む
 ZSHHOME="${HOME}/dotfiles/.zsh"
