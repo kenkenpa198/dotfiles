@@ -5,6 +5,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 # pyenv
 export PATH="$PATH:$HOME/.pyenv/shims"
 
+# Postgres.app
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 ##### .zsh ディレクトリ内ファイルの読み込み #####
 # .zsh ディレクトリ内の *.zsh を読み込む
