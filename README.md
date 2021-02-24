@@ -58,6 +58,8 @@
         # 一括インストール
         > brew bundle --file "~/dotfiles/.config/Homebrew/Brewfile"
         ```
+- Windows Terminal
+    - WSL 環境で用いる WT 用の設定ファイルを格納。
 
 #### 参考
 - [dotfiles管理にhomebrew-bundleを導入する - Qiita](https://qiita.com/so-heee/items/351f0ea4e79196754e52)
@@ -69,7 +71,7 @@
 .zshrc を小分けにしたファイルを格納するディレクトリ。  
 子供を `**.zsh` という名称にすることで、zsh を起動した際に .zshrc へと読み込まれる。  
 - secret.zsh
-    - もだねちゃんのトークン等、セ±キュアなものを記述したファイル。
+    - もだねちゃんのトークン等、セキュアなものを記述したファイル。
     - Git で除外するためホワイトリストには登録していない。
 #### 参考
 - [zsh設定ファイル（.zshrc）を分割する - fnwiya's quine](http://fnwiya.hatenablog.com/entry/2015/11/03/191902)
@@ -101,9 +103,9 @@ Git 管理不可のファイル名は記述しないようにする。
 - [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
 
 
-### for_wsl
-Win10 WSL 環境用に各ファイルの記述を調整したブランチ。  
-Windows Terminal 用の設定なども追加している。
+### for WSL
+Win10 WSL 環境の構築方法。  
+.zshrc などの記述は OS で判別し使い分けできるようにしている。
 
 #### WSL 環境構築メモ
 1. 参考 URL を元に、Windows Terminal ～ zsh までインストールする。
@@ -124,3 +126,5 @@ Windows Terminal 用の設定なども追加している。
 - [Windows Terminal + WSL 2 + Homebrew + Zsh - Qiita](https://qiita.com/okayurisotto/items/36f6f9df499a74e62bff)
 - [WSL その128 - Windowsの環境変数とLinuxの環境変数を相互に引き継ぎ可能に - kledgeb](https://kledgeb.blogspot.com/2017/12/wsl-128-windowslinux.html)
 - [【WSL】パスのフォーマットを変換する wslpath コマンドの使い方 – ラボラジアン](https://laboradian.com/wslpath-command-for-wsl/)
+- [Windows と Mac で開発環境を揃える Tips 集 - Neo's World](https://neos21.net/tech/windows-mac-environment.html)
+- [Cygwinでgo入門を諦めてWSL環境を作ったがCygwinでも大丈夫だった - exits](https://yuelab82.hatenablog.com/entry/go_on_cygwin_and_wsl)
