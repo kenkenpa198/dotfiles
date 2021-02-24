@@ -19,7 +19,14 @@ alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"
 
 ##### Docker #####
 alias d="docker"
+alias drn="docker rmi $(docker images -f 'dangling=true' -q)"
+
 alias dc="docker-compose"
+alias dcu="docker-compose up"
+alias dcud="docker-compose up -d"
+alias dcub="docker-compose up --build"
+alias dcs="docker-compose stop"
+alias dcd="docker-compose down"
 
 
 ##### Git #####
@@ -36,8 +43,7 @@ alias gm="git merge"
 alias gss="git status -s"
 alias gp="git push"
 alias gpo="git push origin"
-alias gpom="git push origin main"
-alias gpod="git push origin develop"
+alias gpoh="git push origin HEAD"
 alias gf="git fetch"
 alias gpl="git pull"
 alias gl="git log"
