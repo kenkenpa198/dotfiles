@@ -102,10 +102,11 @@ Git 管理不可のファイル名は記述しないようにする。
 - [gitignore に書くべきでないものは gitignore_global へ - Qiita](https://qiita.com/elzup/items/4c92a2abdab56db3fb4e)
 - [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
 
+---
 
 ### for WSL
 Win10 WSL 環境の構築方法。  
-.zshrc などの記述は OS で判別し使い分けできるようにしている。
+alias などの記述は OS で判別し使い分けできるようにしている。
 
 #### WSL 環境構築メモ
 1. 参考 URL を元に、Windows Terminal ～ zsh までインストールする。
