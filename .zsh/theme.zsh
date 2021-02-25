@@ -99,6 +99,11 @@ case ${OSTYPE} in
             # WSL 向け設定
             
             ##### プロンプト #####
+            export CLICOLOR=1
+            export LSCOLORS=gxfxcxdxbxegedabagacad
+            echo Hello!
+            autoload -Uz compinit && compinit    # Gitの補完を有効化
+
             function left-prompt {
                 name_t='179m%}'            # user name text clolr
                 name_b='000m%}'            # user name background color
