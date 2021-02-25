@@ -57,4 +57,25 @@ alias gstp="git stash pop"
 alias v="vim"
 alias e="emacs"
 alias c="code"
-alias ex="explorer.exe"
+
+
+##### 環境ごとの読込 #####
+case ${OSTYPE} in
+    darwin*)
+        # echo 'for MacOS'
+        # MacOS 向け設定
+
+        ;;
+    linux*)
+        # echo 'fot Linux'
+        # Linux 向け設定
+
+        if uname -r | grep -i 'microsoft' > /dev/null ; then
+            # echo 'for WSL'
+            # WSL 向け設定
+            alias cdc="cd $USERPROFILE"
+            alias ex="explorer.exe"
+            
+        fi
+        ;;
+esac
