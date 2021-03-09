@@ -10,14 +10,16 @@ tap "sanemat/font"
 brew "carthage"
 brew "cask"
 brew "docker"
-brew "docker-compose"
+brew "docker-compose", link: false
 brew "git"
 brew "mas"
+brew "postgresql", restart_service: true
 brew "pyenv"
 brew "tree"
 brew "zsh"
 brew "heroku/brew/heroku"
 brew "sanemat/font/ricty", args: ["with-powerline"]
+cask "adguard"
 cask "alfred"
 cask "alt-tab"
 cask "appcleaner"
@@ -29,12 +31,14 @@ cask "discord"
 cask "docker"
 cask "gimp"
 cask "google-chrome"
+cask "hiddenbar"
 cask "imageoptim"
 cask "intel-power-gadget"
 cask "iterm2"
 cask "kindle"
 cask "loopback"
 cask "obs"
+cask "postgres"
 cask "sip"
 cask "sketch"
 cask "sketch-toolbox"
@@ -42,11 +46,13 @@ cask "sourcetree"
 cask "visual-studio-code"
 cask "wacom-tablet"
 mas "Bear", id: 1091189122
+mas "CopyLinkToPasteboard", id: 1551527433
 mas "CotEditor", id: 1024640650
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Redacted", id: 984968384
 mas "RunCat", id: 1429033973
 mas "The Unarchiver", id: 425424353
 mas "VirusBarrier Scanner", id: 1200445649
