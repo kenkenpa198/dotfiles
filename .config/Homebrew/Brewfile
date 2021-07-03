@@ -36,6 +36,7 @@ cask "imageoptim"
 cask "intel-power-gadget"
 cask "iterm2"
 cask "kindle"
+cask "logitech-options"
 cask "loopback"
 cask "obs"
 cask "postgres"
@@ -45,6 +46,7 @@ cask "sketch-toolbox"
 cask "sourcetree"
 cask "visual-studio-code"
 cask "wacom-tablet"
+mas "Adblock Plus", id: 1432731683
 mas "Bear", id: 1091189122
 mas "CopyLinkToPasteboard", id: 1551527433
 mas "CotEditor", id: 1024640650
