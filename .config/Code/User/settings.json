@@ -11,7 +11,11 @@
     "terminal.integrated.shell.linux": "/bin/zsh",
     "dotfiles.repository": "https://github.com/kenkenpa198/dotfiles.git",
     "dotfiles.installCommand": "~/dotfiles/.bin/install_rc.sh",
-    "window.newWindowDimensions": "inherit"
+    "window.newWindowDimensions": "inherit",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "python.defaultInterpreterPath": "/Users/.pyenv/shims/python"
 
 }
 
