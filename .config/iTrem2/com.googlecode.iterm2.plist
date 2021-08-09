@@ -23,7 +23,7 @@
 	<key>HideTab</key>
 	<true/>
 	<key>Hotkey</key>
-	<true/>
+	<false/>
 	<key>HotkeyChar</key>
 	<integer>32</integer>
 	<key>HotkeyCode</key>
@@ -203,9 +203,9 @@
 				<real>0.066666666666666666</real>
 			</dict>
 			<key>Background Image Mode</key>
-			<integer>3</integer>
+			<integer>2</integer>
 			<key>Blend</key>
-			<real>0.48385450752617798</real>
+			<real>0.58153775999059232</real>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -1951,6 +1951,8 @@
 			<string>/Users/kem198</string>
 		</dict>
 	</array>
+	<key>OnlyWhenMoreTabs</key>
+	<false/>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenBookmark</key>
@@ -1992,6 +1994,8 @@
 	</dict>
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
 	<false/>
+	<key>PromptOnQuit</key>
+	<true/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>TabStyleWithAutomaticOption</key>
