@@ -34,6 +34,10 @@
 	<integer>524288</integer>
 	<key>IRMemory</key>
 	<integer>4</integer>
+	<key>NeverWarnAboutShortLivedSessions_2D9CDB80-B8B9-4A0C-8868-E6585735C676</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_2D9CDB80-B8B9-4A0C-8868-E6585735C676_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>

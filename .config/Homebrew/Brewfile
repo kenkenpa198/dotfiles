@@ -9,8 +9,6 @@ tap "homebrew/services"
 tap "sanemat/font"
 brew "carthage"
 brew "cask"
-brew "docker"
-brew "docker-compose", link: false
 brew "git"
 brew "mas"
 brew "postgresql", restart_service: true
@@ -23,6 +21,7 @@ cask "adguard"
 cask "alfred"
 cask "alt-tab"
 cask "appcleaner"
+cask "blender"
 cask "clip-studio-paint"
 cask "clipy"
 cask "cmd-eikana"
@@ -33,14 +32,12 @@ cask "gimp"
 cask "google-chrome"
 cask "hiddenbar"
 cask "imageoptim"
-cask "intel-power-gadget"
 cask "iterm2"
 cask "kindle"
 cask "logitech-options"
 cask "loopback"
 cask "mos"
 cask "obs"
-cask "postgres"
 cask "sip"
 cask "sketch"
 cask "sketch-toolbox"
@@ -51,6 +48,8 @@ mas "Adblock Plus", id: 1432731683
 mas "Bear", id: 1091189122
 mas "CopyLinkToPasteboard", id: 1551527433
 mas "CotEditor", id: 1024640650
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
@@ -59,5 +58,4 @@ mas "Redacted", id: 984968384
 mas "RunCat", id: 1429033973
 mas "The Unarchiver", id: 425424353
 mas "VirusBarrier Scanner", id: 1200445649
-mas "Xcode", id: 497799835
 mas "Yoink", id: 457622435

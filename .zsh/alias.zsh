@@ -17,6 +17,11 @@ alias bbl="brew bundle list --all --force --file '~/dotfiles/.config/Homebrew/Br
 alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"
 
 
+##### zmv #####
+alias zmvnw="noglob zmv -nW" # 置換プレビュー
+alias zmvw="noglob zmv -W" # 置換
+
+
 ##### Docker #####
 alias d="docker"
 alias drn="docker rmi $(docker images -f 'dangling=true' -q)"

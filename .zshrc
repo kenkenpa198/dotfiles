@@ -1,6 +1,9 @@
 ##### $PATH #####
+# bin_M1
+export PATH="$PATH:/opt/homebrew/bin:/opt/homebrew/sbin"
+
 # bin
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 # pyenv
 export PATH="$PATH:$HOME/.pyenv/shims"
@@ -8,6 +11,9 @@ export PATH="$PATH:$HOME/.pyenv/shims"
 # Postgres.app
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
+##### コマンドの設定 #####
+# zmv コマンドを使用可能にする
+autoload -U zmv
 
 ##### 環境ごとの読込 #####
 case ${OSTYPE} in
