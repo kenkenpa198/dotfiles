@@ -29,13 +29,17 @@ case ${OSTYPE} in
         if uname -r | grep -i 'microsoft' > /dev/null ; then
             # echo 'for WSL'
             # WSL 向け設定
-            
-            # Win 環境の環境変数を WSL 環境へ複製
-            export PATH="$PATH:$Path"
 
             # Linuxbrew
             export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+
+            # Linuxbrew の実行パス
+            # pyenv の設定ファイルと競合して警告が出るのでエイリアスで指定。
+            alias brew='PATH=/home/linuxbrew/.linuxbrew/bin:/bin:/home/linuxbrew/.linuxbrew/sbin:/sbin brew'
         fi
+            
+            # Win 環境の環境変数を WSL 環境へ複製
+            export PATH="$PATH:$Path"
         ;;
 esac
 
