@@ -18,6 +18,10 @@
 !/.config/Code/User/
 !/.config/Code/User/**
 
+!/.bashrc
+!/.bash/alias.bash
+!/.inputrc
+
 !/.zshrc
 !/.zsh/alias.zsh
 !/.zsh/option.zsh

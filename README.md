@@ -9,10 +9,13 @@
 
 1. ホームディレクトリに、本リポジトリを git clone 。
 2. 元々ホームディレクトリに存在している .zshrc の代わりに、  
-リポジトリ内の .zshrc をシンボリックリンクとしてホームディレクトリ直下に配置。
+リポジトリ内の .bashrc, .zshrc 等をシンボリックリンクとしてホームディレクトリ直下に配置。
 
     ```shell
-    > ln -s ~/dotfiles/.zshrc ~/
+    mv ~/.bashrc ~/.bashrc_bk &&
+    ln -sf ~/dotfiles/.bashrc ~/ &&
+    ln -sf ~/dotfiles/.inputrc ~/ &&
+    ln -sf ~/dotfiles/.zshrc ~/
     ```
 
 3. zsh を起動した際に、その .zshrc が読み込まれるようになる。
