@@ -23,7 +23,7 @@ alias zmvw="noglob zmv -W" # 置換
 
 
 ##### venv #####
-alias vmk="python -m venv .venv"                       # カレントディレクトリへ仮想環境を作成
+alias vmk="python3 -m venv .venv"                      # カレントディレクトリへ仮想環境を作成
 # alias vmk="sudo python3 -m venv --without-pip .venv" # システムの py を使う場合はこちら
 alias va="source .venv/bin/activate"                   # 仮想環境の有効化
 alias vd="deactivate"                                  # 仮想環境の無効化
@@ -71,7 +71,7 @@ alias gstp="git stash pop"
 
 ##### Apps #####
 alias c="code"
-
+alias go="python3 /mnt/c/Users/kenkenpa198/Documents/Works/Develop/GrepOffice/GrepOffice.py"
 
 ##### 環境ごとの読込 #####
 case ${OSTYPE} in
