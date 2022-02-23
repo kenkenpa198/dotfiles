@@ -71,7 +71,8 @@ alias gstp="git stash pop"
 
 ##### Apps #####
 alias c="code"
-alias go="python3 /mnt/c/Users/kenkenpa198/Documents/Works/Develop/GrepOffice/GrepOffice.py"
+alias gg="python3 /mnt/c/Users/kenkenpa198/Documents/Works/Develop/GuruGuruGrep/GGGrep.py"
+alias ggg="python3 /mnt/c/Users/kenkenpa198/Documents/Works/Develop/GuruGuruGrep/GGGrep.py"
 alias cl="clip.exe"
 alias clip="clip.exe"
 
