@@ -5,6 +5,7 @@ alias ll="ls -la"
 alias lg="ls -la | grep"
 alias h="history"
 alias hg="history | grep"
+alias ip="ip a | grep eth0 | grep inet | clip.exe" # WSL2 の IP アドレスを取得 & クリップボードへ格納
 
 
 ##### Homebrew #####
@@ -31,9 +32,17 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 
 ##### Docker #####
+# Dcoker そのものを起動 / 停止するコマンド
+# 起動時には Azure Data Studio 空の接続用に WSL2 の IP アドレスもクリップボードへ格納する
+alias dst="sudo service docker status"
+alias dsta="sudo service docker start ; sudo service docker status"
+alias dsto="sudo service docker stop ; sudo service docker status"
+
+# Docker コマンド
 alias d="docker"
 alias drn="docker rmi $(docker images -f 'dangling=true' -q)"
 
+# Docker Compose コマンド
 alias dc="docker-compose"
 alias dcu="docker-compose up"
 alias dcud="docker-compose up -d"
