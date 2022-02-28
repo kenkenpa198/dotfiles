@@ -76,6 +76,7 @@ alias ggr="python3 $USERPROFILE/Documents/Works/Develop/GuruGuruGrep/GGGrep.py -
 alias cl="clip.exe"
 alias clip="clip.exe"
 
+
 ##### 環境ごとの読込 #####
 case ${OSTYPE} in
     darwin*)

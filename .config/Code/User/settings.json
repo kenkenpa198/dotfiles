@@ -2,7 +2,7 @@
     // "python.pythonPath": "/usr/local/bin/python3"
     "python.pythonPath": "/Users/.pyenv/shims/python", 
     "workbench.colorTheme": "Solarized Dark",
-    "editor.fontFamily": "'Ricty Discord' ,Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'Ricty Diminished Discord' ,Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 16,
     "terminal.integrated.fontSize": 15,
     "terminal.integrated.shell.osx": "/bin/zsh",
@@ -15,7 +15,10 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
-    "python.defaultInterpreterPath": "/Users/.pyenv/shims/python"
+    "python.defaultInterpreterPath": "/Users/.pyenv/shims/python",
+    "editor.renderWhitespace": "trailing",
+    "explorer.confirmDragAndDrop": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "redhat.telemetry.enabled": true
 
 }
-
