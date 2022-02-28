@@ -1,0 +1,12 @@
+# 参考: https://qiita.com/hayamofu/items/d8103e789196bcd8b489
+
+[core]
+        excludesfile = ~/.gitignore_global # .gitignore_global をあらかじめ設定しておく
+        ignorecase = false                 # false   : ファイルの大文字・小文字を区別して認識する
+        quotepath = false                  # false   : git status で日本語のファイル名が文字化けしない
+        safecrlf = true                    # true    : 改行コードが混在している場合は変換しない
+        autocrlf = false                   # false   : コミット・チェックアウト時に改行コードの変換を行わない
+[push]
+        default = simple                   # simple  : カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
+[credential]
+        helper = wincred                   # wincred : ID PASS を聞かれる頻度を減らすためキャッシュしておく設定
