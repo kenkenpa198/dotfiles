@@ -22,7 +22,7 @@ case ${OSTYPE} in
             back_color='%{\e[30;48;5;' # set background color
             reset='%{\e[0m%}'          # reset
             sharp='\uE0B0'             # triangle
-            
+
             user="${back_color}${name_b}${text_color}${name_t}"
             dir="${back_color}${path_b}${text_color}${path_t}"
             echo "${user}%n%#@%m${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp}${reset}\n${text_color}${arrow}> ${reset}"
@@ -44,7 +44,7 @@ case ${OSTYPE} in
         ##### git ブランチ名を色付きで表示させるメソッド #####
         function rprompt-git-current-branch {
             local branch_name st branch_status
-            
+
             branch='\ue0a0'
             color='%{\e[38;5;' # 文字色を設定
             green='114m%}'
@@ -52,7 +52,7 @@ case ${OSTYPE} in
             yellow='227m%}'
             blue='033m%}'
             reset='%{\e[0m%}'  # reset
-            
+
             if [ ! -e    ".git" ]; then
                 # git 管理されていないディレクトリは何も返さない
                 return
@@ -82,10 +82,10 @@ case ${OSTYPE} in
             # ブランチ名を色付きで表示する
             echo "${branch_status}$branch_name${reset}"
         }
-        
+
         # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
         setopt prompt_subst
-        
+
         # プロンプトの右側にメソッドの結果を表示させる
         RPROMPT='`rprompt-git-current-branch`'
 
@@ -97,7 +97,7 @@ case ${OSTYPE} in
         if uname -r | grep -i 'microsoft' > /dev/null ; then
             # echo 'for WSL'
             # WSL 向け設定
-            
+
             ##### プロンプト #####
             export CLICOLOR=1
             export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -114,7 +114,7 @@ case ${OSTYPE} in
                 back_color='%{\e[30;48;5;' # set background color
                 reset='%{\e[0m%}'          # reset
                 sharp='\uE0B0'             # triangle
-                
+
                 user="${back_color}${name_b}${text_color}${name_t}"
                 dir="${back_color}${path_b}${text_color}${path_t}"
                 echo "${user}%n%#@%m${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp} ${reset}\n${text_color}${arrow}> ${reset}"
@@ -136,7 +136,7 @@ case ${OSTYPE} in
             ##### git ブランチ名を色付きで表示させるメソッド #####
             function rprompt-git-current-branch {
                 local branch_name st branch_status
-                
+
                 branch='\ue0a0'
                 color='%{\e[38;5;' # 文字色を設定
                 green='114m%}'
@@ -144,7 +144,7 @@ case ${OSTYPE} in
                 yellow='227m%}'
                 blue='033m%}'
                 reset='%{\e[0m%}'  # reset
-                
+
                 if [ ! -e    ".git" ]; then
                     # git 管理されていないディレクトリは何も返さない
                     return
@@ -177,7 +177,7 @@ case ${OSTYPE} in
 
         # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
         setopt prompt_subst
-        
+
         # プロンプトの右側にメソッドの結果を表示させる
         RPROMPT='`rprompt-git-current-branch`'
         fi

@@ -80,20 +80,19 @@ alias clip="clip.exe"
 ##### 環境ごとの読込 #####
 case ${OSTYPE} in
     darwin*)
-        # echo 'for MacOS'
         # MacOS 向け設定
 
         ;;
     linux*)
-        # echo 'fot Linux'
         # Linux 向け設定
 
         if uname -r | grep -i 'microsoft' > /dev/null ; then
             # echo 'for WSL'
             # WSL 向け設定
             alias cdc="cd $USERPROFILE"
+            alias cdd="cd $USERPROFILE/Documents/Works/Develop"
             alias ex="explorer.exe"
-            
+
         fi
         ;;
 esac
