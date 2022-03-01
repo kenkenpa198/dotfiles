@@ -24,7 +24,7 @@ function src(){
     powershell.exe $PROFILE
 }
 function cdd(){
-    cd $env:USERPROFILE\Documents\Works\Develop
+    cd $env:USERPROFILE\Works\Develop
 }
 
 ##### venv #####
@@ -46,6 +46,6 @@ Set-Alias vd deactivate
 ##### Apps #####
 # GGGrep
 
-function gg(){
-    python3 $env:USERPROFILE\Documents\Works\Develop\GuruGuruGrep\GGGrep.py $args
+function ggg(){
+    python3 $env:USERPROFILE\Works\Develop\GuruGuruGrep\GGGrep.py $args
 }
