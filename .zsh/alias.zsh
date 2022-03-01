@@ -1,10 +1,12 @@
 ##### Linux Command #####
-alias src="source ~/.zshrc"
-alias la="ls -la"
-alias ll="ls -la"
-alias lg="ls -la | grep"
+alias cd.="cd ~/dotfiles"
+alias ll="ls -lahG --file-type --time-style=long-iso"
+alias llg="ls -lahG --file-type --time-style=long-iso --group-directories-first"
 alias h="history"
 alias hg="history | grep"
+
+alias src="source"
+alias srcrc="source ~/.zshrc"
 alias ip="ip a | grep eth0 | grep inet && ip a | grep eth0 | grep inet | clip.exe && echo 'Passed to Clipboard.'" # WSL2 の IP アドレスを取得 & クリップボードへ格納
 
 
@@ -40,7 +42,7 @@ alias dsto="sudo service docker stop ; sudo service docker status"
 
 # Docker コマンド
 alias d="docker"
-alias drn="docker rmi $(docker images -f 'dangling=true' -q)"
+alias drmn="docker rmi $(docker images -f 'dangling=true' -q)"
 
 # Docker Compose コマンド
 alias dc="docker-compose"
@@ -59,7 +61,6 @@ alias gsw="git switch"
 alias gc="git checkout"
 alias gswc="git switch -c"
 alias gcm="git commit -m"
-alias gg="git grep"
 alias ga="git add"
 alias gaa="git add -A"
 alias gr="git restore"
@@ -80,27 +81,45 @@ alias gstp="git stash pop"
 
 ##### Apps #####
 alias c="code"
-alias gg="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py"
-alias ggr="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py -r"
-alias cl="clip.exe"
-alias clip="clip.exe"
 
 
 ##### 環境ごとの読込 #####
 case ${OSTYPE} in
+
+    # MacOS 向け設定
     darwin*)
-        # MacOS 向け設定
 
         ;;
-    linux*)
-        # Linux 向け設定
 
+    # Linux 向け設定
+    linux*)
+
+        # WSL 向け設定
         if uname -r | grep -i 'microsoft' > /dev/null ; then
-            # echo 'for WSL'
-            # WSL 向け設定
+            # cd 系
             alias cdc="cd $USERPROFILE"
             alias cdd="cd $USERPROFILE/Works/Develop"
+
+            # アプリ系
             alias ex="explorer.exe"
+            alias clip="clip.exe"
+            alias ggg="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py"
+            alias gggr="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py -r"
+
+            # WSL2 の zsh からググる
+            # https://osa.hatenablog.jp/entry/2020/02/24/121725
+            # https://www.iplab.cs.tsukuba.ac.jp/~takakura/blog/20200715/
+            gg() {
+                local str opt
+                # $str が値ありの場合は検索ワードを + 記号でつなぐ（AND 検索）
+                if [ $# != 0 ]; then
+                    for i in $*; do
+                        str="${str}${str:++}${i}"
+                    done
+                fi
+                cmd.exe /c start chrome.exe "http://www.google.co.jp/search?q=${str}"
+            }
+
 
         fi
         ;;
