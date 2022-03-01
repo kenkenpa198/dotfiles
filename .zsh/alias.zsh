@@ -1,7 +1,7 @@
 ##### Linux Command #####
 alias cd.="cd ~/dotfiles"
-alias ll="ls -lahG --file-type --time-style=long-iso"
-alias llg="ls -lahG --file-type --time-style=long-iso --group-directories-first"
+alias ll="ls -lahG --file-type --color=auto --time-style=long-iso"
+alias llg="ls -lahG --file-type --color=auto --time-style=long-iso --group-directories-first"
 alias h="history"
 alias hg="history | grep"
 
