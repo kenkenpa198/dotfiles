@@ -5,7 +5,7 @@ alias ll="ls -la"
 alias lg="ls -la | grep"
 alias h="history"
 alias hg="history | grep"
-alias ip="ip a | grep eth0 | grep inet | clip.exe" # WSL2 の IP アドレスを取得 & クリップボードへ格納
+alias ip="ip a | grep eth0 | grep inet && ip a | grep eth0 | grep inet | clip.exe && echo 'Passed to Clipboard.'" # WSL2 の IP アドレスを取得 & クリップボードへ格納
 
 
 ##### Homebrew #####
@@ -80,8 +80,8 @@ alias gstp="git stash pop"
 
 ##### Apps #####
 alias c="code"
-alias gg="python3 $USERPROFILE/Documents/Works/Develop/GuruGuruGrep/GGGrep.py"
-alias ggr="python3 $USERPROFILE/Documents/Works/Develop/GuruGuruGrep/GGGrep.py -r"
+alias gg="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py"
+alias ggr="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py -r"
 alias cl="clip.exe"
 alias clip="clip.exe"
 
@@ -99,7 +99,7 @@ case ${OSTYPE} in
             # echo 'for WSL'
             # WSL 向け設定
             alias cdc="cd $USERPROFILE"
-            alias cdd="cd $USERPROFILE/Documents/Works/Develop"
+            alias cdd="cd $USERPROFILE/Works/Develop"
             alias ex="explorer.exe"
 
         fi
