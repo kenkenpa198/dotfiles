@@ -1,13 +1,23 @@
 ##### Linux Command #####
-alias cd.="cd ~/dotfiles"
 alias ll="ls -lahG --file-type --color=auto --time-style=long-iso"
-alias llg="ls -lahG --file-type --color=auto --time-style=long-iso --group-directories-first"
+alias ld="ls -lahG --file-type --color=auto --time-style=long-iso --group-directories-first"
+alias lg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
+
 alias h="history"
 alias hg="history | grep"
 
-alias src="source"
-alias srcrc="source ~/.zshrc"
-alias ip="ip a | grep eth0 | grep inet && ip a | grep eth0 | grep inet | clip.exe && echo 'Passed to Clipboard.'" # WSL2 の IP アドレスを取得 & クリップボードへ格納
+alias s="source"
+alias ss="source ~/.zshrc"
+
+# 公開鍵を取得 & クリップボードへ格納
+alias pubkey="cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | clip.exe && echo 'Passed to Clipboard.'"
+
+# WSL2 の IP アドレスを取得 & クリップボードへ格納
+alias ip="ip a | grep eth0 | grep inet && ip a | grep eth0 | grep inet | clip.exe && echo 'Passed to Clipboard.'"
+
+# edit dotfiles
+alias cddf="cd ~/dotfiles && code ~/dotfiles"
+alias vdf="cd ~/dotfiles && vim ~/dotfiles"
 
 
 ##### Homebrew #####
@@ -55,28 +65,28 @@ alias dcd="docker-compose down"
 
 ##### Git #####
 alias g="git"
-alias gs="git status"
-alias gb="git branch"
-alias gsw="git switch"
-alias gc="git checkout"
-alias gswc="git switch -c"
-alias gcm="git commit -m"
 alias ga="git add"
 alias gaa="git add -A"
-alias gr="git restore"
+alias gb="git branch"
+alias gc="git checkout"
+alias gcm="git commit -m"
 alias gd="git diff"
-alias gm="git merge"
-alias gss="git status -s"
-alias gp="git push"
-alias gpo="git push origin"
-alias gpoh="git push origin HEAD"
 alias gf="git fetch"
-alias gpl="git pull"
 alias gl="git log"
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gm="git merge"
+alias gr="git restore"
+alias gp="git push"
+alias gpl="git pull"
+alias gpo="git push origin"
+alias gpoh="git push origin HEAD"
+alias gs="git status"
+alias gss="git status -s"
 alias gst="git stash"
-alias gsts="git stash save"
 alias gstp="git stash pop"
+alias gsts="git stash save"
+alias gsw="git switch"
+alias gswc="git switch -c"
 
 
 ##### Apps #####
@@ -101,7 +111,7 @@ case ${OSTYPE} in
             alias cdd="cd $USERPROFILE/Works/Develop"
 
             # アプリ系
-            alias ex="explorer.exe"
+            alias open="explorer.exe"
             alias clip="clip.exe"
             alias ggg="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py"
             alias gggr="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py -r"
