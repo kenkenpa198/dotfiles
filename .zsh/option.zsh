@@ -10,3 +10,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # zmv コマンドを使用可能にする
 autoload -U zmv
+
+# 移動したディレクトリを記録しておく。"cd -[Tab]"で移動履歴を一覧表示
+setopt auto_pushd

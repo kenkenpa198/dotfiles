@@ -1,15 +1,16 @@
 :: 管理者として実行してね
 :: 先に Microsoft Store へログインしておいてね
-:: ほんで「アプリインストーラー」をダウンロードしておいてね
 
 :: winget からインストール
 winget install Microsoft.VisualStudioCode
-winget install Microsoft.WindowsTerminal
+winget install Microsoft.AzureDataStudio
 winget install --force Google.Chrome
 winget install Lexikos.AutoHotkey
 winget install QL-Win.QuickLook
 winget install Discord.Discord
 winget install OBSProject.OBSStudio
+winget install Avidemux.Avidemux
+winget install Screenpresso
 winget install Valve.Steam
 winget install WinMerge.WinMerge
 winget install Apple.iTunes
@@ -23,9 +24,6 @@ winget install Logitech.Options
 :: Microsoft Store からインストール
 winget install iCloud
 winget install Python 3.10
-
-:: WSL環境のインストール
-wsl --install -d Ubuntu
 
 :: 下記は手動インストール！！
 :: alt-ime-ahk / https://github.com/karakaram/alt-ime-ahk/releases

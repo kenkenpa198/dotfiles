@@ -9,3 +9,7 @@ mklink %USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps
 :: VSCode
 mklink %USERPROFILE%\AppData\Roaming\Code\User\settings.json \\wsl.localhost\Ubuntu\home\<<username>>\dotfiles\.config\Code\User\settings.json
 mklink %USERPROFILE%\AppData\Roaming\Code\User\keybindings.json \\wsl.localhost\Ubuntu\home\<<username>>\dotfiles\.config\Code\User\keybindings.json
+
+:: Git Bash
+:: alias.zsh を .bashrc として直接読み込む
+mklink %USERPROFILE%\.bashrc \\wsl.localhost\Ubuntu\home\<<username>>\dotfiles\.zsh\alias.zsh
