@@ -1,6 +1,6 @@
 ##### Linux Command #####
-alias ll="ls -lahG --file-type --color=auto --time-style=long-iso"
-alias ld="ls -lahG --file-type --color=auto --time-style=long-iso --group-directories-first"
+alias ll="ls -lahG --file-type --color=auto --time-style=long-iso --group-directories-first"
+alias ldng="ls -lahG --file-type --color=auto --time-style=long-iso"
 alias lg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
 
 alias h="history"

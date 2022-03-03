@@ -26,6 +26,7 @@
 !/.zsh/alias.zsh
 !/.zsh/option.zsh
 !/.zsh/theme.zsh
+!/.dircolors
 
 !/install.sh
 
