@@ -40,7 +40,7 @@ Set-Alias open Invoke-Item
 # 仮想環境の削除
 
 function vmk(){
-    python3 -m venv .venv
+    python -m venv .venv
 }
 function vrm(){
     Remove-Item .venv -Recurse
@@ -53,5 +53,5 @@ Set-Alias vd deactivate
 # GGGrep
 
 function ggg(){
-    python3 $env:USERPROFILE\Works\Develop\GuruGuruGrep\GGGrep.py $args
+    python $env:USERPROFILE\Works\Develop\GuruGuruGrep\GGGrep.py $args
 }

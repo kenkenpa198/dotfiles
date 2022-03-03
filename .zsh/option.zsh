@@ -7,3 +7,6 @@ autoload -Uz compinit && compinit
 
 # 小文字でも大文字のディレクトリ・ファイルを補完できるようにする
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# zmv コマンドを使用可能にする
+autoload -U zmv
