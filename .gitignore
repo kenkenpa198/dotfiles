@@ -29,9 +29,10 @@
 !/.zsh/theme.zsh
 !/.dircolors
 
-!/install.sh
-
-!/README.md
 !/.gitignore
 !/.gitignore_global
 !/.gitconfig_shared
+
+!/.wslconfig
+
+!/README.md
