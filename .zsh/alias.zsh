@@ -65,7 +65,7 @@ alias dcd="docker-compose down"
 ##### Git #####
 alias g="git"
 alias ga="git add"
-alias gaa="git add -A"
+alias gaa="git status -s && echo '↓' && git add -A && git status -s"
 alias gb="git branch"
 alias gc="git checkout"
 alias gcm="git commit -m"
