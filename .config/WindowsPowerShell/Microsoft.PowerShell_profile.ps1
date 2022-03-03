@@ -17,15 +17,21 @@
 
 
 ##### 基本 #####
-# 開発ディレクトリへ移動
 # エイリアスを再読み込み
+# 開発ディレクトリへ移動
+# which コマンド（https://tex2e.github.io/blog/powershell/which）
+# open コマンド（https://tex2e.github.io/blog/powershell/open）
 
-function src(){
+function ss(){
     powershell.exe $PROFILE
 }
 function cdd(){
     cd $env:USERPROFILE\Works\Develop
 }
+function which($cmdname) {
+    Get-Command $cmdname | Select-Object -ExpandProperty Definition
+}
+Set-Alias open Invoke-Item
 
 ##### venv #####
 # 仮想環境の作成

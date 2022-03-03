@@ -37,7 +37,7 @@
             {
                 // Make changes here to the Ubuntu zsh profile.
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "name": "Ubuntu zsh",
+                "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
                 "hidden": false,
                 "tabColor": "#242529",
