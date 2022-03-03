@@ -1,6 +1,6 @@
 ##### Linux Command #####
 alias ll="ls -lahG --file-type --color=auto --time-style=long-iso --group-directories-first"
-alias ldng="ls -lahG --file-type --color=auto --time-style=long-iso"
+alias llng="ls -lahG --file-type --color=auto --time-style=long-iso"
 alias lg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
 
 alias h="history"
@@ -64,8 +64,8 @@ alias dcd="docker-compose down"
 
 ##### Git #####
 alias g="git"
-alias ga="git add"
-alias gaa="git status -s && echo '-- ------------------------------------------------------------------------ Staged.' && git add -A && git status -s"
+alias ga="git add -v"
+alias gaa="git status -s && echo '-- ------------------------------------------------------------------------ ↓Staged.' && git add -A && git status -s"
 alias gb="git branch"
 alias gc="git checkout"
 alias gcm="git commit -m"
@@ -76,7 +76,7 @@ alias gl="git log"
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # ログを見やすい形で出力
 alias gm="git merge"
 alias gr="git restore"
-alias grs="git status -s && echo '-- ------------------------------------------------------------------------ Unstaged.' && git restore --staged . && git status -s"
+alias grs="git status -s && echo '-- ------------------------------------------------------------------------ ↓Unstaged.' && git restore --staged . && git status -s"
 alias gp="git push"
 alias gpl="git pull"
 alias gpo="git push origin"

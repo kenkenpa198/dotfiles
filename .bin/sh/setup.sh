@@ -1,26 +1,24 @@
 ##### dotfiles の git clone #####
-# cd
-# git clone https://github.com/kenkenpa198/dotfiles.git
-# cd ~/dotfiles
-# source ./.bin/shell/setting.sh で実行開始！
+# 1. cd
+# 2. git clone https://github.com/kenkenpa198/dotfiles.git
+# 3. source ~/dotfiles/.bin/sh/setup.sh で実行開始！
 
 
-##### 環境のアップデート #####
+echo '\n環境のアップデート'
 cd
 clear
 sudo apt update && sudo apt upgrade -y
 
 
-##### SSH キーの生成 #####
+echo '\nSSH キーの生成'
 cd
 mkdir ~/.ssh
 cd .ssh
 ssh-keygen -t rsa # 3回すべてエンターキー
 ls -la            # id_rsa（秘密鍵）と id_rsa.pub（公開鍵）が存在するか確認
-# cat ~/.ssh/id_rsa.pub で確認できた公開鍵を各サービスへ登録
 
 
-##### アプリインストール #####
+echo '\nアプリインストール'
 cd
 
 # zsh
@@ -44,18 +42,27 @@ sudo apt install python3-pip -y
 # 別ファイルへ記載
 
 
-##### 環境構築 #####
-# zsh をデフォルトシェルにする
+echo '\ngit 関連の設定'
+cd
+ln -s ~/dotfiles/.gitignore_global ~/                # .gitignore_global のシンボリックリンクを作成
+ln -s ~/dotfiles/.gitconfig_shared ~/                # .gitconfig_shared のシンボリックリンクを作成
+git config --global include.path ~/.gitconfig_shared  # .gitconfig へ .gitconfig_shared を外部読み込み設定
+
+
+echo '\nshell の設定ファイルのシンボリックリンクを配置'
+cd
+# bash
+mkdir ~/backup
+mv .bashrc ~/backup
+ln -s ~/dotfiles/.bashrc ~/
+
+# zsh
+ln -s ~/dotfiles/.zshrc ~/
+
+
+echo 'zsh をデフォルトシェルにする'
 echo $SHELL
 chsh -s $(which zsh)
-echo $SHELL # 後で再起動して確認？ 初期設定は 0 で OK
 
-
-##### .zshrc #####
-ln -sf ~/dotfiles/.zshrc ~/ # .zshrc のシンボリックリンクを作成
-
-
-##### .git 関連の設定 #####
-ln -sf ~/dotfiles/.gitignore_global ~/                # .gitignore_global のシンボリックリンクを作成
-ln -sf ~/dotfiles/.gitconfig_shared ~/                # .gitconfig_shared のシンボリックリンクを作成
-git config --global include.path ~/.gitconfig_shared  # .gitconfig へ .gitconfig_shared を外部読み込み設定
+echo '\nsetup.sh を完了しました'
+echo '再起動してデフォルトシェルが変わっているか確認してください: echo $SHELL'
