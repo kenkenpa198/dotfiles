@@ -37,7 +37,11 @@ git --version
 sudo apt install tree
 tree --version
 
+# Python
+sudo apt install python3-pip -y
+
 # Docker
+# 別ファイルへ記載
 
 
 ##### 環境構築 #####

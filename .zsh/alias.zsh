@@ -37,7 +37,7 @@ alias zmvw="noglob zmv -W" # 置換
 
 ##### venv #####
 alias vmk="python3 -m venv .venv"                      # カレントディレクトリへ仮想環境を作成
-# alias vmk="sudo python3 -m venv --without-pip .venv" # システムの py を使う場合はこちら
+alias vmks="sudo python3 -m venv --without-pip .venv"  # システムの py を使う場合はこちら
 alias va="source .venv/bin/activate"                   # 仮想環境の有効化
 alias vd="deactivate"                                  # 仮想環境の無効化
 alias vrm="rm -r .venv"                                # 仮想環境の削除
@@ -45,14 +45,13 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 ##### Docker #####
 # Dcoker そのものを起動 / 停止するコマンド
-# 起動時には Azure Data Studio 空の接続用に WSL2 の IP アドレスもクリップボードへ格納する
 alias dst="sudo service docker status"
 alias dsta="sudo service docker start ; sudo service docker status"
 alias dsto="sudo service docker stop ; sudo service docker status"
 
 # Docker コマンド
 alias d="docker"
-alias drmn="docker rmi $(docker images -f 'dangling=true' -q)"
+alias drmn="docker rmi $(docker images -f 'dangling=true' -q)" # None なイメージを一括削除（https://suin.io/537）
 
 # Docker Compose コマンド
 alias dc="docker-compose"
@@ -73,7 +72,7 @@ alias gcm="git commit -m"
 alias gd="git diff"
 alias gf="git fetch"
 alias gl="git log"
-alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # ログを見やすい形で出力
 alias gm="git merge"
 alias gr="git restore"
 alias gp="git push"
@@ -99,7 +98,7 @@ case ${OSTYPE} in
     # MacOS 向け設定
     darwin*)
 
-        ;;
+    ;;
 
     # Linux 向け設定
     linux*)
@@ -132,5 +131,5 @@ case ${OSTYPE} in
 
 
         fi
-        ;;
+    ;;
 esac
