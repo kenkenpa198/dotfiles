@@ -1,6 +1,7 @@
 ##### プロンプトの設定 #####
 export CLICOLOR=1
-export LSCOLORS=gxfxcxdxbxegedabagacad
+eval $(dircolors -b ~/dotfiles/.dircolors)
+
 echo Hello!
 autoload -Uz compinit && compinit    # Gitの補完を有効化
 
