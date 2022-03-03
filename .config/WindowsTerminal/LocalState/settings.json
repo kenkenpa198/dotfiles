@@ -4,14 +4,6 @@
     "actions": 
     [
         {
-            "command": "unbound",
-            "keys": "ctrl+shift+w"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+t"
-        },
-        {
             "command": 
             {
                 "action": "copy",
@@ -20,11 +12,19 @@
             "keys": "ctrl+c"
         },
         {
+            "command": "unbound",
+            "keys": "ctrl+t"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+w"
+        },
+        {
             "command": 
             {
                 "action": "newTab"
             },
-            "keys": "ctrl+t"
+            "keys": "ctrl+shift+t"
         },
         {
             "command": "paste",
@@ -54,7 +54,7 @@
             {
                 "action": "closeTab"
             },
-            "keys": "ctrl+w"
+            "keys": "ctrl+shift+w"
         },
         {
             "command": "closePane",
