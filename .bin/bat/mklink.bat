@@ -1,6 +1,8 @@
 :: CMD を管理者権限で開いてコマンドを実行
 :: <<username>> は WSL2 のユーザー名へ変更（echo $USER で調べられる）
 
+:: .wslconfig はユーザーディレクトリ直下にそのままコピーして配置。リンボリックリンクにすると起動できなくなる（そもそも起動するためのファイルだから）
+
 :: PowerShell
 mklink %USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 \\wsl.localhost\Ubuntu\home\<<username>>\dotfiles\.config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 
