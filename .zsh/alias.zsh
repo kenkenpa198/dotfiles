@@ -10,7 +10,7 @@ alias s="source"
 alias ss="source ~/.zshrc"
 
 # 公開鍵を取得 & クリップボードへ格納
-alias pubkey="cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | clip.exe && echo 'Passed to Clipboard.'"
+alias sshpub="cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | clip.exe && echo 'Passed to Clipboard.'"
 
 # WSL2 の IP アドレスを取得 & クリップボードへ格納
 alias ip="ip a | grep eth0 | grep inet && ip a | grep eth0 | grep inet | clip.exe && echo 'Passed to Clipboard.'"
