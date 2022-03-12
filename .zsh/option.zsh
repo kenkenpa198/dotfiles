@@ -19,10 +19,10 @@ setopt auto_pushd
 HISTFILE=~/.zsh_history
 
 # メモリに保存される履歴の件数を設定
-export HISTSIZE=1000
+export HISTSIZE=100
 
 # 履歴ファイルに保存される履歴の件数
-export SAVEHIST=1000
+export SAVEHIST=800
 
 # 同時に起動しているzshの間で history を共有する
 setopt share_history
