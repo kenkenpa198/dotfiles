@@ -1,3 +1,5 @@
+# 参考: https://tomiylab.com/2020/03/prompt/
+
 ##### プロンプトの設定 #####
 export CLICOLOR=1
 eval $(dircolors -b ~/dotfiles/.dircolors)
@@ -26,7 +28,7 @@ function left-prompt {
         ;;
         # Linux（WSL2）向け設定
         linux*)
-            echo "${user}%n%#@%m${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp} ${reset}\n${text_color}${arrow}> ${reset}"
+            echo "${user}%n%#@%m${back_color}${path_b}${text_color}${name_b}${sharp}  ${dir}%~${reset}${text_color}${path_b}${sharp} ${reset}\n${text_color}${arrow}> ${reset}"
         ;;
     esac
 }
