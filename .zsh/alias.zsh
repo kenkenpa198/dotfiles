@@ -12,13 +12,13 @@ alias ss="source ~/.zshrc"
 alias update="sudo apt update && sudo apt upgrade -y"
 
 # 現在日時を取得 & クリップボードへ格納
-alias dt="date +'%Y-%m-%d %I:%M:%S' && date +'%Y-%m-%d %I:%M:%S' | clip.exe && echo 'Passed to Clipboard.'"
+alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(clip.exe)"
 
 # 公開鍵を取得 & クリップボードへ格納
-alias sshpub="cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | clip.exe && echo 'Passed to Clipboard.'"
+alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"
 
 # WSL2 の IP アドレスを取得 & クリップボードへ格納
-alias ip="ip a | grep eth0 | grep inet && ip a | grep eth0 | grep inet | clip.exe && echo 'Passed to Clipboard.'"
+alias ip="ip a | grep eth0 | grep inet | tee >(clip.exe)"
 
 # edit dotfiles
 alias cddf="cd ~/dotfiles && code ~/dotfiles"
