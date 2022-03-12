@@ -21,16 +21,11 @@ function left-prompt {
     user="${back_color}${name_b}${text_color}${name_t}"
     dir="${back_color}${path_b}${text_color}${path_t}"
 
-    case ${OSTYPE} in
-        # Mac 向け設定
-        darwin*)
-            echo "${user}%n%#@%m${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp}${reset}\n${text_color}${arrow}> ${reset}"
-        ;;
-        # Linux（WSL2）向け設定
-        linux*)
-            echo "${user}%n%#@%m${back_color}${path_b}${text_color}${name_b}${sharp}  ${dir}%~${reset}${text_color}${path_b}${sharp} ${reset}\n${text_color}${arrow}> ${reset}"
-        ;;
-    esac
+    # HackGenNerd Console などパワーライン記号が半角の場合はこちら
+    echo "${user}%n@%m${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp}${reset}\n${text_color}${arrow}> ${reset}"
+
+    # Ricty Diminished for Powerline などパワーライン記号が全角の場合はこちら
+    # echo "${user}%n@%m${back_color}${path_b}${text_color}${name_b}${sharp}  ${dir}%~${reset}${text_color}${path_b}${sharp} ${reset}\n${text_color}${arrow}> ${reset}"
 }
 
 PROMPT=`left-prompt`
@@ -67,55 +62,49 @@ function rprompt-git-current-branch {
     branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
     st=`git status 2> /dev/null`
 
-    case ${OSTYPE} in
-        # Mac 向け設定
-        darwin*)
-            if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-                # 全て commit されてクリーンな状態
-                branch_status="${color}${green}${branch}"
-            elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
-                # git 管理されていないファイルがある状態
-                branch_status="${color}${red}${branch}?"
-            elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
-                # git add されていないファイルがある状態
-                branch_status="${color}${red}${branch}+"
-            elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
-                # git commit されていないファイルがある状態
-                branch_status="${color}${yellow}${branch}!"
-            elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
-                # コンフリクトが起こった状態
-                echo "${color}${red}${branch}!(no branch)${reset}"
-                return
-            else
-                # 上記以外の状態の場合
-                branch_status="${color}${blue}${branch}"
-            fi
-        ;;
+    # HackGenNerd Console などパワーライン記号が半角の場合はこちら
+    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+        # 全て commit されてクリーンな状態
+        branch_status="${color}${green}${branch}"
+    elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
+        # git 管理されていないファイルがある状態
+        branch_status="${color}${red}${branch}?"
+    elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
+        # git add されていないファイルがある状態
+        branch_status="${color}${red}${branch}+"
+    elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
+        # git commit されていないファイルがある状態
+        branch_status="${color}${yellow}${branch}!"
+    elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
+        # コンフリクトが起こった状態
+        echo "${color}${red}${branch}!(no branch)${reset}"
+        return
+    else
+        # 上記以外の状態の場合
+        branch_status="${color}${blue}${branch}"
+    fi
 
-        # Linux（WSL2）向け設定
-        linux*)
-            if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-                # 全て commit されてクリーンな状態
-                branch_status="${color}${green}${branch} "
-            elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
-                # git 管理されていないファイルがある状態
-                branch_status="${color}${red}${branch} ?"
-            elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
-                # git add されていないファイルがある状態
-                branch_status="${color}${red}${branch} +"
-            elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
-                # git commit されていないファイルがある状態
-                branch_status="${color}${yellow}${branch} !"
-            elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
-                # コンフリクトが起こった状態
-                echo "${color}${red}${branch} !(no branch)${reset}"
-                return
-            else
-                # 上記以外の状態の場合
-                branch_status="${color}${blue}${branch} "
-            fi
-        ;;
-    esac
+    # Ricty Diminished for Powerline など記号が全角の場合はこちら
+    # if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+    #     # 全て commit されてクリーンな状態
+    #     branch_status="${color}${green}${branch} "
+    # elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
+    #     # git 管理されていないファイルがある状態
+    #     branch_status="${color}${red}${branch} ?"
+    # elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
+    #     # git add されていないファイルがある状態
+    #     branch_status="${color}${red}${branch} +"
+    # elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
+    #     # git commit されていないファイルがある状態
+    #     branch_status="${color}${yellow}${branch} !"
+    # elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
+    #     # コンフリクトが起こった状態
+    #     echo "${color}${red}${branch} !(no branch)${reset}"
+    #     return
+    # else
+    #     # 上記以外の状態の場合
+    #     branch_status="${color}${blue}${branch} "
+    # fi
 
     # ブランチ名を色付きで表示する
     echo "${branch_status}$branch_name${reset}"

@@ -9,6 +9,11 @@ alias hg="history | grep"
 alias s="source"
 alias ss="source ~/.zshrc"
 
+alias update="sudo apt update && sudo apt upgrade -y"
+
+# 現在日時を取得 & クリップボードへ格納
+alias dt="date +'%Y-%m-%d %I:%M:%S' && date +'%Y-%m-%d %I:%M:%S' | clip.exe && echo 'Passed to Clipboard.'"
+
 # 公開鍵を取得 & クリップボードへ格納
 alias sshpub="cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | clip.exe && echo 'Passed to Clipboard.'"
 
@@ -93,6 +98,12 @@ alias gswc="git switch -c"
 ##### Apps #####
 alias c="code"
 
+##### Others #####
+# 天気を見る（https://linuxfan.info/wttr-in）
+wttr() {
+  location=${1:-'福岡'}
+  curl ja.wttr.in/$location
+}
 
 ##### 環境ごとの読込 #####
 case ${OSTYPE} in

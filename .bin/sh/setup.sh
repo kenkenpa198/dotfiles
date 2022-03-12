@@ -35,8 +35,13 @@ git --version
 sudo apt install tree
 tree --version
 
+# neofetch
+sudo apt install neofetch -y
+neofetch --version
+
 # Python
 sudo apt install python3-pip -y
+pip3 --version
 
 # Docker
 # 別ファイルへ記載
