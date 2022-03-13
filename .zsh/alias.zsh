@@ -1,43 +1,26 @@
-##### Linux Command #####
-alias ll="ls -lahG --file-type --color=auto --time-style=long-iso --group-directories-first"
-alias llng="ls -lahG --file-type --color=auto --time-style=long-iso"
-alias lg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
+##### Linux #####
+# alias
+alias a="alias"
+alias ag="alias | grep"
+alias ac="cat ~/dotfiles/.zsh/alias.zsh"         # alias を cat で確認（コメント付き）
+alias acg="cat ~/dotfiles/.zsh/alias.zsh | grep" # ↑を grep で
 
+# history
 alias h="history"
 alias hg="history | grep"
 
+# source
 alias s="source"
 alias ss="source ~/.zshrc"
 
-alias update="sudo apt update && sudo apt upgrade -y"
-
-# 現在日時を取得 & クリップボードへ格納
-alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(clip.exe)"
-
-# 公開鍵を取得 & クリップボードへ格納
-alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"
-
-# WSL2 の IP アドレスを取得 & クリップボードへ格納
-alias ip="ip a | grep eth0 | grep inet | tee >(clip.exe)"
-
-# edit dotfiles
-alias cddf="cd ~/dotfiles && code ~/dotfiles"
-alias vdf="cd ~/dotfiles && vim ~/dotfiles"
+# cd
+alias cddf="cd ~/dotfiles"
 
 
-##### Homebrew #####
-alias b="brew"
-alias bl="brew list"
-alias bs="brew search"
-alias bi="brew info"
-alias bbd="brew bundle dump --force --file '~/dotfiles/.config/Homebrew/Brewfile'"
-alias bbl="brew bundle list --all --force --file '~/dotfiles/.config/Homebrew/Brewfile'"
-alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"
-
-
-##### zmv #####
+##### zsh #####
+# zmv
 alias zmvnw="noglob zmv -nW" # 置換プレビュー
-alias zmvw="noglob zmv -W" # 置換
+alias zmvw="noglob zmv -W"   # 置換
 
 
 ##### venv #####
@@ -49,10 +32,10 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 
 ##### Docker #####
-# Dcoker そのものを起動 / 停止するコマンド
-alias dst="sudo service docker status"
-alias dsta="sudo service docker start ; sudo service docker status"
-alias dsto="sudo service docker stop ; sudo service docker status"
+# Dcoker アプリ立ち上げ系
+alias dst="sudo service docker status"                              # Docker の起動状況を確認
+alias dsta="sudo service docker start ; sudo service docker status" # Docker を起動
+alias dsto="sudo service docker stop ; sudo service docker status"  # Docker を停止
 
 # Docker コマンド
 alias d="docker"
@@ -60,43 +43,44 @@ alias drmn="docker rmi $(docker images -f 'dangling=true' -q)" # None なイメ�
 
 # Docker Compose コマンド
 alias dc="docker-compose"
-alias dcu="docker-compose up"
-alias dcud="docker-compose up -d"
-alias dcub="docker-compose up --build"
-alias dcs="docker-compose stop"
-alias dcd="docker-compose down"
+alias dcu="docker-compose up"          # up    / コンテナを立ち上げ
+alias dcud="docker-compose up -d"      # d     / バックグラウンドで立ち上げ
+alias dcub="docker-compose up --build" # build / キャッシュを使わずにビルドして立ち上げ
+alias dcs="docker-compose stop"        # stop  / コンテナを停止
+alias dcd="docker-compose down"        # down  / コンテナを削除
 
 
 ##### Git #####
 alias g="git"
-alias ga="git add -v"
-alias gaa="git add -Av"
+alias ga="git add -v"              # -v         / add の内容を表示する
+alias gaa="git add -Av"            # -A         / 変更のあるファイルをすべてステージングする
 alias gb="git branch"
 alias gc="git checkout"
 alias gcm="git commit -m"
 alias gd="git diff"
-alias gds="git diff --stat"
+alias gds="git diff --stat"        # --stat     / diff のあるファイルのみを表示
 alias gf="git fetch"
 alias gl="git log"
-alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # ログを見やすい形で出力
+alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # ログを見やすい形で出力（https://prograshi.com/general/git/how-to-use-c-in-pretty-format/）
 alias gm="git merge"
 alias gr="git restore"
-alias grs="git restore --staged ."
+alias grs="git restore --staged ." # --staged . / ステージングをすべて元に戻す
 alias gp="git push"
 alias gpl="git pull"
 alias gpo="git push origin"
 alias gpoh="git push origin HEAD"
 alias gs="git status"
-alias gss="git status -s"
+alias gss="git status -s"          # -s         / 短縮表示
 alias gst="git stash"
 alias gstp="git stash pop"
 alias gsts="git stash save"
 alias gsw="git switch"
-alias gswc="git switch -c"
+alias gswc="git switch -c"         # -c         / ブランチを作成する
 
 
 ##### Apps #####
 alias c="code"
+
 
 ##### Others #####
 # 天気を見る（https://linuxfan.info/wttr-in）
@@ -105,22 +89,34 @@ wttr() {
   curl ja.wttr.in/$location
 }
 
+
 ##### 環境ごとの読込 #####
 case ${OSTYPE} in
 
-    # MacOS 向け設定
-    darwin*)
-
-    ;;
-
-    # Linux 向け設定
+    ### Linux 向け設定 ###
     linux*)
+        # ls
+        alias ll="ls -lahG --file-type --color=auto --time-style=long-iso --group-directories-first"
+        alias llng="ls -lahG --file-type --color=auto --time-style=long-iso"
+        alias lg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
 
-        # WSL 向け設定
+        # update
+        alias update="sudo apt update && sudo apt upgrade -y"
+
+        ### WSL 向け設定 ###
         if uname -r | grep -i 'microsoft' > /dev/null ; then
-            # cd 系
+            # cd
             alias cdc="cd $USERPROFILE"
             alias cdd="cd $USERPROFILE/Works/Develop"
+
+            # 現在日時を取得 & クリップボードへ格納
+            alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(clip.exe)"
+
+            # 公開鍵を取得 & クリップボードへ格納
+            alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"
+
+            # WSL2 の IP アドレスを取得 & クリップボードへ格納
+            alias ip="ip a | grep eth0 | grep inet | tee >(clip.exe)"
 
             # アプリ系
             alias open="explorer.exe"
@@ -141,8 +137,29 @@ case ${OSTYPE} in
                 fi
                 cmd.exe /c start chrome.exe "http://www.google.co.jp/search?q=${str}"
             }
-
-
         fi
     ;;
+
+    ### MacOS 向け設定 ###
+    darwin*)
+        # ls
+        alias ll="ls -oaF"
+        alias lg="ls -oaF | grep"
+
+        # 現在日時を取得 & クリップボードへ格納
+        alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(pbcopy)"
+
+        # 公開鍵を取得 & クリップボードへ格納
+        alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(pbcopy)"
+
+        # Homebrew
+        alias b="brew"
+        alias bl="brew list"
+        alias bs="brew search"
+        alias bi="brew info"
+        alias bbd="brew bundle dump --force --file '~/dotfiles/.config/Homebrew/Brewfile'"       # Brewfile ファイルの生成
+        alias bbl="brew bundle list --all --force --file '~/dotfiles/.config/Homebrew/Brewfile'" # Brewfile ファイルから一括インストール
+        alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"                                     # Brewfile ファイルの表示
+    ;;
+
 esac

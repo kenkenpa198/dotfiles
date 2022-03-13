@@ -3,7 +3,6 @@
     "python.pythonPath": "/Users/.pyenv/shims/python", 
     "workbench.colorTheme": "Solarized Dark",
     "editor.fontFamily": "'Ricty Diminished Discord' ,Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 16,
     "terminal.integrated.fontSize": 15,
     "terminal.integrated.shell.osx": "/bin/zsh",
     "terminal.integrated.fontFamily": "HackGenNerd Console",
