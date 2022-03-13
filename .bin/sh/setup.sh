@@ -39,6 +39,10 @@ tree --version
 sudo apt install neofetch -y
 neofetch --version
 
+# keygen
+sudo apt install keygen -y
+keygen --version
+
 # Python
 sudo apt install python3-pip -y
 pip3 --version
@@ -49,8 +53,8 @@ pip3 --version
 
 echo '\ngit 関連の設定'
 cd
-ln -s ~/dotfiles/.gitignore_global ~/                # .gitignore_global のシンボリックリンクを作成
-ln -s ~/dotfiles/.gitconfig_shared ~/                # .gitconfig_shared のシンボリックリンクを作成
+ln -s ~/dotfiles/.gitignore_global ~/                 # .gitignore_global のシンボリックリンクを作成
+ln -s ~/dotfiles/.gitconfig_shared ~/                 # .gitconfig_shared のシンボリックリンクを作成
 git config --global include.path ~/.gitconfig_shared  # .gitconfig へ .gitconfig_shared を外部読み込み設定
 
 

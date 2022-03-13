@@ -5,8 +5,13 @@ alias ag="alias | grep"
 alias ac="cat ~/dotfiles/.zsh/alias.zsh"         # alias を cat で確認（コメント付き）
 alias acg="cat ~/dotfiles/.zsh/alias.zsh | grep" # ↑を grep で
 
-# cd
-alias cddf="cd ~/dotfiles"
+# clear
+alias c="clear"
+
+# grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # history
 alias h="history"
@@ -15,6 +20,17 @@ alias hg="history | grep"
 # source
 alias s="source"
 alias ss="source ~/.zshrc"
+
+# confirm
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+
+
+##### dotfiles #####
+alias dot="cd ~/dotfiles"
+alias dotv="cd ~/dotfiles && vim ~/dotfiles"
+alias dotc="cd ~/dotfiles && code ~/dotfiles"
 
 
 ##### zsh #####
@@ -31,7 +47,7 @@ alias gb="git branch"
 alias gc="git checkout"
 alias gcm="git commit -m"
 alias gd="git diff"
-alias gds="git diff --stat"        # --stat     / diff のあるファイルのみを表示
+alias gds="git diff --stat"        # --stat     / diff のあるファイル名のみを表示
 alias gf="git fetch"
 alias gl="git log"
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # ログを見やすい形で出力（https://prograshi.com/general/git/how-to-use-c-in-pretty-format/）
@@ -52,7 +68,7 @@ alias gswc="git switch -c"         # -c         / ブランチを作成する
 
 
 ##### Docker #####
-# Dcoker アプリ立ち上げ系
+# Dcoker アプリ立ち上げ
 alias dst="sudo service docker status"                              # Docker の起動状況を確認
 alias dsta="sudo service docker start ; sudo service docker status" # Docker を起動
 alias dsto="sudo service docker stop ; sudo service docker status"  # Docker を停止
@@ -79,7 +95,9 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 
 ##### Apps #####
-alias c="code"
+alias pg8="pwgen -c -n -y -B -1 8 8"
+alias pg12="pwgen -c -n -y -B -1 12 8"
+alias pg32="pwgen -c -n -y -B -1 32 8"
 
 
 ##### Others #####
@@ -110,8 +128,8 @@ case ${OSTYPE} in
             alias cdd="cd $USERPROFILE/Works/Develop"
 
             # Apps
-            alias open="explorer.exe"
             alias clip="clip.exe"
+            alias open="explorer.exe"
             alias ggg="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py"
             alias gggr="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py -r"
 
@@ -127,12 +145,12 @@ case ${OSTYPE} in
                     done
                 fi
                 cmd.exe /c start chrome.exe "http://www.google.co.jp/search?q=${str}"
+            }
 
             # Others
-            alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(clip.exe)"    # 現在日時を表示 & クリップボードへ格納
-            alias ip="ip a | grep eth0 | grep inet | tee >(clip.exe)" # WSL2 の IP アドレスを表示 & クリップボードへ格納
-            alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"    # 公開鍵を表示 & クリップボードへ格納
-            }
+            alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(clip.exe)"      # 現在日時を表示 & クリップボードへ格納
+            alias ipp="ip a | grep eth0 | grep inet | tee >(clip.exe)" # WSL2 の IP アドレスを表示 & クリップボードへ格納
+            alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"      # 公開鍵を表示 & クリップボードへ格納
         fi
     ;;
 
