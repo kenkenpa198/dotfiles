@@ -5,6 +5,9 @@ alias ag="alias | grep"
 alias ac="cat ~/dotfiles/.zsh/alias.zsh"         # alias を cat で確認（コメント付き）
 alias acg="cat ~/dotfiles/.zsh/alias.zsh | grep" # ↑を grep で
 
+# cd
+alias cddf="cd ~/dotfiles"
+
 # history
 alias h="history"
 alias hg="history | grep"
@@ -13,41 +16,11 @@ alias hg="history | grep"
 alias s="source"
 alias ss="source ~/.zshrc"
 
-# cd
-alias cddf="cd ~/dotfiles"
-
 
 ##### zsh #####
 # zmv
 alias zmvnw="noglob zmv -nW" # 置換プレビュー
 alias zmvw="noglob zmv -W"   # 置換
-
-
-##### venv #####
-alias vmk="python3 -m venv .venv"                      # カレントディレクトリへ仮想環境を作成
-alias vmks="sudo python3 -m venv --without-pip .venv"  # システムの py を使う場合はこちら
-alias va="source .venv/bin/activate"                   # 仮想環境の有効化
-alias vd="deactivate"                                  # 仮想環境の無効化
-alias vrm="rm -r .venv"                                # 仮想環境の削除
-
-
-##### Docker #####
-# Dcoker アプリ立ち上げ系
-alias dst="sudo service docker status"                              # Docker の起動状況を確認
-alias dsta="sudo service docker start ; sudo service docker status" # Docker を起動
-alias dsto="sudo service docker stop ; sudo service docker status"  # Docker を停止
-
-# Docker コマンド
-alias d="docker"
-alias drmn="docker rmi $(docker images -f 'dangling=true' -q)" # None なイメージを一括削除（https://suin.io/537）
-
-# Docker Compose コマンド
-alias dc="docker-compose"
-alias dcu="docker-compose up"          # up    / コンテナを立ち上げ
-alias dcud="docker-compose up -d"      # d     / バックグラウンドで立ち上げ
-alias dcub="docker-compose up --build" # build / キャッシュを使わずにビルドして立ち上げ
-alias dcs="docker-compose stop"        # stop  / コンテナを停止
-alias dcd="docker-compose down"        # down  / コンテナを削除
 
 
 ##### Git #####
@@ -78,6 +51,33 @@ alias gsw="git switch"
 alias gswc="git switch -c"         # -c         / ブランチを作成する
 
 
+##### Docker #####
+# Dcoker アプリ立ち上げ系
+alias dst="sudo service docker status"                              # Docker の起動状況を確認
+alias dsta="sudo service docker start ; sudo service docker status" # Docker を起動
+alias dsto="sudo service docker stop ; sudo service docker status"  # Docker を停止
+
+# Docker コマンド
+alias d="docker"
+alias drmn="docker rmi $(docker images -f 'dangling=true' -q)" # None なイメージを一括削除（https://suin.io/537）
+
+# Docker Compose コマンド
+alias dc="docker-compose"
+alias dcu="docker-compose up"          # up    / コンテナを立ち上げ
+alias dcud="docker-compose up -d"      # d     / バックグラウンドで立ち上げ
+alias dcub="docker-compose up --build" # build / キャッシュを使わずにビルドして立ち上げ
+alias dcs="docker-compose stop"        # stop  / コンテナを停止
+alias dcd="docker-compose down"        # down  / コンテナを削除
+
+
+##### venv #####
+alias vmk="python3 -m venv .venv"                      # カレントディレクトリへ仮想環境を作成
+alias vmks="sudo python3 -m venv --without-pip .venv"  # システムの py を使う場合はこちら
+alias va="source .venv/bin/activate"                   # 仮想環境の有効化
+alias vd="deactivate"                                  # 仮想環境の無効化
+alias vrm="rm -r .venv"                                # 仮想環境の削除
+
+
 ##### Apps #####
 alias c="code"
 
@@ -100,8 +100,8 @@ case ${OSTYPE} in
         alias llng="ls -lahG --file-type --color=auto --time-style=long-iso"
         alias lg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
 
-        # update
-        alias update="sudo apt update && sudo apt upgrade -y"
+        # Ubuntu
+        alias update="sudo apt update && sudo apt upgrade -y" # Ubuntu 環境のアップデート & アプリの一括アップグレード
 
         ### WSL 向け設定 ###
         if uname -r | grep -i 'microsoft' > /dev/null ; then
@@ -109,22 +109,13 @@ case ${OSTYPE} in
             alias cdc="cd $USERPROFILE"
             alias cdd="cd $USERPROFILE/Works/Develop"
 
-            # 現在日時を取得 & クリップボードへ格納
-            alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(clip.exe)"
-
-            # 公開鍵を取得 & クリップボードへ格納
-            alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"
-
-            # WSL2 の IP アドレスを取得 & クリップボードへ格納
-            alias ip="ip a | grep eth0 | grep inet | tee >(clip.exe)"
-
-            # アプリ系
+            # Apps
             alias open="explorer.exe"
             alias clip="clip.exe"
             alias ggg="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py"
             alias gggr="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py -r"
 
-            # WSL2 の zsh からググる
+            # ググる
             # https://osa.hatenablog.jp/entry/2020/02/24/121725
             # https://www.iplab.cs.tsukuba.ac.jp/~takakura/blog/20200715/
             gg() {
@@ -136,6 +127,11 @@ case ${OSTYPE} in
                     done
                 fi
                 cmd.exe /c start chrome.exe "http://www.google.co.jp/search?q=${str}"
+
+            # Others
+            alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(clip.exe)"    # 現在日時を表示 & クリップボードへ格納
+            alias ip="ip a | grep eth0 | grep inet | tee >(clip.exe)" # WSL2 の IP アドレスを表示 & クリップボードへ格納
+            alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"    # 公開鍵を表示 & クリップボードへ格納
             }
         fi
     ;;
@@ -146,12 +142,6 @@ case ${OSTYPE} in
         alias ll="ls -oaF"
         alias lg="ls -oaF | grep"
 
-        # 現在日時を取得 & クリップボードへ格納
-        alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(pbcopy)"
-
-        # 公開鍵を取得 & クリップボードへ格納
-        alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(pbcopy)"
-
         # Homebrew
         alias b="brew"
         alias bl="brew list"
@@ -160,6 +150,11 @@ case ${OSTYPE} in
         alias bbd="brew bundle dump --force --file '~/dotfiles/.config/Homebrew/Brewfile'"       # Brewfile ファイルの生成
         alias bbl="brew bundle list --all --force --file '~/dotfiles/.config/Homebrew/Brewfile'" # Brewfile ファイルから一括インストール
         alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"                                     # Brewfile ファイルの表示
+
+        # Others
+        alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(pbcopy)" # 現在日時を表示 & クリップボードへ格納
+        alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(pbcopy)" # 公開鍵を表示 & クリップボードへ格納
+
     ;;
 
 esac

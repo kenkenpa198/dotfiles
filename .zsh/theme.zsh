@@ -5,7 +5,7 @@ export CLICOLOR=1
 eval $(dircolors -b ~/dotfiles/.dircolors)
 
 echo Hello!
-autoload -Uz compinit && compinit    # Gitの補完を有効化
+autoload -Uz compinit && compinit # Gitの補完を有効化
 
 function left-prompt {
     name_t='179m%}'            # user name text clolr

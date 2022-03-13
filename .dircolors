@@ -1,3 +1,19 @@
+##### .dircolors #####
+# WSL2 環境用に準備した zsh の色設定ファイル。
+# 未設定だと Win 側のディレクトリがの色がめちゃ見づらいので、以下の設定をちょびっと変更している。
+#    - OTHER_WRITABLE
+#    - EXEC
+#
+# .zsh/theme.zsh の eval $(dircolors -b ~/dotfiles/.dircolors) で読み込んでいる。
+# ファイルそのものは dircolors -p > ~/.colorrc で出力できる。
+#
+# 参考:
+# https://www.kwbtblog.com/entry/2019/04/27/023411
+# https://blue-red.ddo.jp/~ao/wiki/wiki.cgi?page=ls%A5%B3%A5%DE%A5%F3%A5%C9%A4%CE%BF%A7%A4%F2%CA%D1%B9%B9%A4%B9%A4%EB
+# https://www.fulldigit.co.jp/server_env/ls_colors.html
+
+##### ------- ここから本文 ------- #####
+
 # Configuration file for dircolors, a utility to help you set the
 # LS_COLORS environment variable used by GNU ls with the --color option.
 # Copyright (C) 1996-2018 Free Software Foundation, Inc.
@@ -57,10 +73,10 @@ SETUID 37;41 # file that is setuid (u+s)
 SETGID 30;43 # file that is setgid (g+s)
 CAPABILITY 30;41 # file with capability
 STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
-OTHER_WRITABLE 01;32 # dir that is other-writable (o+w) and not sticky # デフォルトの 34;42 から変更 WSL2 で Win 側のディレクトリを開いたら背景色のせいで見づらいため
+OTHER_WRITABLE 01;32 # dir that is other-writable (o+w) and not sticky # デフォルトの 34;42 から変更。WSL2 で Win 側のディレクトリを開いたら背景色のせいで見づらいため
 STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 # This is for files with execute permission:
-EXEC 01;00                                                             # デフォルトの 01;32 から変更 WSL2 で Win 側のファイルを緑色から白色にする
+EXEC 01;00                                                             # デフォルトの 01;32 から変更。WSL2 で Win 側のファイルを緑色から白色にする
 # List any file extensions like '.gz' or '.tar' that you would like ls
 # to colorize below. Put the extension, a space, and the color init string.
 # (and any comments you want to add after a '#')

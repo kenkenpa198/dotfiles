@@ -1,3 +1,6 @@
+# .gitignore_global
+# https://github.com/github/gitignore からそのまんまいただいております。
+
 ##### Linux.gitignore #####
 *~
 
