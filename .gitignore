@@ -19,8 +19,6 @@
 !/.config/Code/User/**
 
 !/.bashrc
-!/.bash/alias.bash
-!/.inputrc
 
 !/.zshrc
 !/.zsh/alias.zsh
@@ -35,4 +33,4 @@
 
 !/.wslconfig
 
-!/README.md
+!/Documents/**
