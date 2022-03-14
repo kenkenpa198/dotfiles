@@ -9,9 +9,9 @@ alias acg="cat ~/dotfiles/.zsh/alias.zsh | grep" # ↑を grep で
 alias c="clear"
 
 # grep
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
 
 # history
 alias h="history"
@@ -126,6 +126,15 @@ case ${OSTYPE} in
             # cd
             alias cdc="cd $USERPROFILE"
             alias cdd="cd $USERPROFILE/Works/Develop"
+
+            # cd 'C:\Windows\path'
+            cdw() {
+                cd $(wslpath -u ${1})
+            }
+
+            # wslpath
+            alias wpu="wslpath -u" # パス変換: Windows → WSL（Win のパスは '' で囲んでね）
+            alias wpw="wslpath -w" # パス変換: WSL → Windows
 
             # Apps
             alias clip="clip.exe"
