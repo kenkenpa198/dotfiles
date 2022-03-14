@@ -17,7 +17,7 @@ kenkenpa198 の dotfiles 。
 1. 冒頭のコマンドを実行してクローン & セットアップ。
 2. その後シンボリックリンクなどを .setup 配下のスクリプトや README を参考に色々つなげる。
 
-Windows 環境の場合は先に [WSL2 環境の構築](Documents/Install_WSL2.md) をしよう。  
+Windows 環境の場合は先に [WSL2 環境の構築](.documents/Install_WSL2.md) をしよう。  
 
 ## 3. 構成
 
