@@ -1,7 +1,5 @@
-##### .zshrc #####
-
-# .zsh ディレクトリ内の *.zsh を読み込む
-ZSHHOME="${HOME}/dotfiles/.zsh"
+# .zsh/rc ディレクトリ内の *.zsh を読み込む
+ZSHHOME="${HOME}/dotfiles/.zsh/rc"
 if [ -d $ZSHHOME -a -r $ZSHHOME -a -x $ZSHHOME ]; then
     for i in $ZSHHOME/*; do
         [[ ${i##*/} = *.zsh ]] &&
@@ -9,3 +7,6 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a -x $ZSHHOME ]; then
         . $i
     done
 fi
+
+# .zsh/ ディレクトリ内の .dircolors を読み込む
+eval $(dircolors -b ${HOME}/dotfiles/.zsh/.dircolors)
