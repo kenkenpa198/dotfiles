@@ -1,3 +1,15 @@
+
+// VSCode の設定ファイル。
+// User 内のファイルを VSCode のディレクトリへシンボリックリンクとして配置する。
+
+// ▼ Windows
+// CMD の mklink コマンドで設定。.setup/bat/mklink.bat にまとめて記載。
+
+// ▼ Mac
+// > ln -sf ~/dotfiles/.config/Code/User/settings.json ~/Library/"Application Support"/Code/User/
+// > ln -sf ~/dotfiles/.config/Code/User/keybindings.json ~/Library/"Application Support"/Code/User/
+// > ln -sf ~/dotfiles/.config/Code/Markdown_Preview_Enhanced/style.less ~/.local/state/mume/
+
 {
     // "python.pythonPath": "/usr/local/bin/python3"
     "python.pythonPath": "/Users/.pyenv/shims/python", 

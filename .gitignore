@@ -33,5 +33,5 @@
 
 !/.wslconfig
 
-!/Documents/**
+!/.documents/**
 !/README.md
