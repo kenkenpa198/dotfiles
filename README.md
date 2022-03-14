@@ -4,7 +4,7 @@
 ```shell
 > cd
 > git clone https://github.com/kenkenpa198/dotfiles.git
-> source ~/dotfiles/.bin/sh/setup.sh
+> source ~/dotfiles/.setup/sh/setup.sh
 ```
 
 ## 1. 概要
