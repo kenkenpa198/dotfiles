@@ -119,7 +119,7 @@ CLI 版のみか、Win 環境に Docker Desktop もインストールされて�
 
 ### 6.1. Docker のインストール（Docker Desktop なしの場合）
 
-[setup_docker.sh](Documents/Install_WSL2.md) に書いているコマンドを順に送信してインストールする。  
+[setup_docker.sh](.setup/sh/setup_docker.sh) に書いているコマンドを順に送信してインストールする。  
 スクリプトとして実行すると「3. Docker の公式 GPG キーを追加」で止まるぽいので手動でやった方がいいかも。
 
 ### 6.2. Docker のインストール（Docker Desktop ありの場合）
