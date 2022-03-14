@@ -39,9 +39,9 @@ tree --version
 sudo apt install neofetch -y
 neofetch --version
 
-# keygen
-sudo apt install keygen -y
-keygen --version
+# pwgen
+sudo apt install pwgen -y
+pwgen --version
 
 # Python
 sudo apt install python3-pip -y
