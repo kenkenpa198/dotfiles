@@ -1,5 +1,3 @@
-# 参考: https://qiita.com/hayamofu/items/d8103e789196bcd8b489
-
 [core]
         excludesfile = ~/.gitignore_global # .gitignore_global をあらかじめ設定しておく
         ignorecase = false                 # false   : ファイルの大文字・小文字を区別して認識する
