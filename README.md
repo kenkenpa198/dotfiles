@@ -31,13 +31,14 @@ dotfiles の構成を記載。
 ```shell
 .
 ├── .bashrc
-├── .dircolors
 ├── .zsh
-│   ├── alias.zsh
-│   ├── option.zsh
-│   ├── path.zsh
-│   ├── theme.zsh
-│   └── secret.zsh（Git 管理外）
+│   ├── .dircolors
+│   └── rc
+│       ├── alias.zsh
+│       ├── env.zsh
+│       ├── option.zsh
+│       ├── theme.zsh
+│       └── secret.zsh（Git 管理外）
 └── .zshrc
 ```
 
@@ -46,7 +47,7 @@ dotfiles の構成を記載。
 .zshrc へは .zsh ディレクトリ配下の `**.zsh` を読み込むコードのみを記述し、エイリアスなどは .zsh ディレクトリ配下の各設定ファイルへ分けて記述する。  
 こうすることで、使い勝手は変わりないまま設定ファイルを整理することができる（すごい）。
 
-同じような感じで .bashrc も alias.zsh を使いまわしている。
+同じような感じで .bashrc も alias.zsh env.zsh を使いまわしている。
 
 secret.zsh はトークンの環境変数等、セキュアな情報を記述したファイル。  
 ホワイトリストには記述していないため Git 上には登録されない。  
@@ -59,7 +60,6 @@ secret.zsh はトークンの環境変数等、セキュアな情報を記述し
 └── .config
      ├── ***
      └── ***
-
 ```
 
 .config ディレクトリ配下には VSCode や Homebrew などアプリごとの設定ファイルを保管。  
@@ -121,7 +121,8 @@ WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。
 ### 3.6. setup
 
 ```shell
-├── .setup
+.
+└── .setup
      ├── bat
      │   ├── ***.bat
      │   └── ***.bat
