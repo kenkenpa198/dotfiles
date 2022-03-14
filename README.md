@@ -1,94 +1,109 @@
 <!-- omit in toc -->
 # dotfiles
 
-## 1. 概要
-
-設定とかいろいろ保管しておくリポジトリだよ。
-
-### 1.1. 使い方
-
-1. ホームディレクトリに、本リポジトリを git clone 。
-2. 元々ホームディレクトリに存在している .zshrc の代わりに、  
-リポジトリ内の .zshrc 等をシンボリックリンクとしてホームディレクトリ直下に配置。
-
-    ```shell
-    > ln -sf ~/dotfiles/.zshrc ~/
-    ```
-
-3. zsh を起動した際に、その .zshrc が読み込まれるようになる。
-4. その他 .config 配下の設定ファイルなどもそれぞれシンボリックリンクで繋げる。
-5. 環境変数の追加やアプリの設定変更があったら Git で検知されるので、ちまちまプッシュする。
-
-#### 1.1.1. 参考にしたサイト
-
-- [ようこそdotfilesの世界へ - Qiita](https://qiita.com/yutakatay/items/c6c7584d9795799ee164)
-- [【初心者版】必要最小限のdotfilesを運用する - Qiita](https://qiita.com/ganariya/items/d9adffc6535dfca6784b)
-
-## 2. シェル設定関連
-
-.zshrc 用のファイルを .zsh ディレクトリ以下に格納。
-
-.zshrc へ読み込みに関する設定値を記述しておいた上で .zshrc を小分けにしたファイルを .zsh ディレクトリへ格納している。  
-子供を `**.zsh` という名称にすることで、zsh を起動した際に .zshrc へと読み込まれる。  
-
-### 2.1. secret.zsh
-
-もだねちゃんのトークン等、セキュアなものを記述したファイル。
-ホワイトリストには登録していないためGit上には登録されない。
-
-未来の自分は環境変えた時に移行し忘れないようにしてね。
-
-#### 2.1.1. 参考にしたサイト
-
-- [zsh設定ファイル（.zshrc）を分割する - fnwiya's quine](http://fnwiya.hatenablog.com/entry/2015/11/03/191902)
-- [【.zshrc解説】コピペで簡単zshカスタマイズ【設定方法】](https://suwaru.tokyo/【-zshrc解説】コピペで簡単zshカスタマイズ【設定方法/)
-- [zshで大文字小文字を区別しないで補完 - Qiita](https://qiita.com/kenta4327/items/8faaa83f6a5bf595a4bc)
-- [zshのプロンプトをカッコよくしてGitのブランチを表示させる | とみぃ研究所](https://tomiylab.com/2020/03/prompt/)
-
-## 3. Git 設定関連
-
-Git に関する設定。ディレクトリは今の所直下。  
-設定する前にコミットなどしちゃうと面倒くさいので早めに設定しておく。
-
-### 3.1. .gitignore
-
-本リポジトリ用の Git 除外設定を**ホワイトリスト形式**で記述。  
-Git 管理不可のファイル名は記述しないようにする。
-
-#### 3.1.1. 参考にしたサイト
-
-- [gitignoreのホワイトリストの書き方 - Qiita](https://qiita.com/sventouz/items/574bd67c7e43fff10546)
-
-### 3.2. .gitignore_global
-
-グローバルな .gitignore 。
-シンボリックリンクはホームディレクトリに作成し、git config で読込先として登録する。
-
 ```shell
-> ln -sf ~/dotfiles/.gitignore_global ~/                    # シンボリックリンクを作成
-> git config --global core.excludesfile ~/.gitignore_global # git config へ設定
+> cd
+> git clone https://github.com/kenkenpa198/dotfiles.git
+> source ~/dotfiles/.bin/sh/setup.sh
 ```
 
-誤って .gitignore_global を設定する前にコミットしたりしてキャッシュが作成された場合は  
-dotfiles ディレクトリ上で下記を実行してキャッシュをクリアする。
+## 1. 概要
+
+kenkenpa198 の dotfiles 。  
+シンボリックリンクで色々つなげて、設定の変更を Git で検知して管理する。  
+
+.gitignore をホワイトリスト形式にすることで、.gitignore で指定したファイルのみしか Git の管理下に入らないようにしている。  
+こうすることで誤ってコミットしてしまうミスを防げる（なるほど～）。
+
+## 2. 構築
+
+1. 冒頭のコマンドを実行する。
+2. その他シンボリックリンクなどを .setup 配下のスクリプトや README を参考に色々つなげる。
+
+Windows 環境の場合は先に WSL2 の環境を構築することが必要。
+
+## 3. Shell
+
+```shell
+.
+├── .bashrc
+├── .dircolors
+├── .zsh
+│   ├── alias.zsh
+│   ├── option.zsh
+│   ├── path.zsh
+│   ├── theme.zsh
+│   └── secret.zsh（Git 管理外）
+└── .zshrc
+```
+
+シェル用の設定ファイル等を管理。
+
+.zshrc へ .zsh ディレクトリ配下の `**.zsh` を読み込むコードを記述し、各設定ファイルを .zsh ディレクトリへ格納。  
+zsh を起動した際に .zshrc へ読み込まれる（すごい）。  
+同じような感じで .bashrc も alias.zsh を使いまわしている。
+
+secret.zsh はトークンの環境変数等、セキュアな情報を記述したファイル。  
+ホワイトリストには記述していないため Git 上には登録されない。  
+未来の自分は環境を変えた時に移行し忘れないようにしてね！！！
+
+## 4. Git
+
+```shell
+.
+├── .gitconfig_shared
+└── .gitignore_global
+```
+
+.gitconfig の基本設定やグローバルな除外設定を管理。
+
+.gitignore_global を設定する前にコミットなどしちゃうとだいぶ面倒くさいので注意。  
+やらかしたら下記コマンドでキャッシュを削除して改めてコミットする。
 
 ```shell
 > git rm -r --cached .
 ```
 
-#### 3.2.1. 参考にしたサイト
+.gitconfig の基本設定は .gitconfig_shared に切り分け、.gitignore_global と同様に .gitconfig へ外部読み込み設定を行うような運用にしている。  
+.gitconfig にはメアドとユーザー名を記述する必要があり、Git 管理の対象にしたくなかったため。
 
-- [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
-- [gitignore に書くべきでないものは gitignore_global へ - Qiita](https://qiita.com/elzup/items/4c92a2abdab56db3fb4e)
-- [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
-- [.gitignoreに記載したのに反映されない件 - Qiita](https://qiita.com/fuwamaki/items/3ed021163e50beab7154)
 
-## 4. アプリ設定関連
+## 5. Config
 
-.config ディレクトリより以下にアプリごとの設定を保管。
+```shell
+.
+└── .config
+     ├── Code
+     .
+     .
+     .
+     └── WSL2
+
+```
+
+.config ディレクトリ配下にはアプリごとの設定を保管している。  
 それぞれシンボリックリンクを繋げる。
 
-### 4.1. Homebrew
+以下特記が必要なものを記載。
+
+### 5.1. Code ディレクトリ
+
+VSCode の設定ファイル用ディレクトリ。  
+User 内のファイルを VSCode のディレクトリへシンボリックリンクとして配置する。
+
+```shell
+# Win
+.setup/bat/
+
+# Mac
+> ln -sf ~/dotfiles/.config/Code/User/settings.json ~/Library/"Application Support"/Code/User/
+> ln -sf ~/dotfiles/.config/Code/User/keybindings.json ~/Library/"Application Support"/Code/User/
+> ln -sf ~/dotfiles/.config/Code/Markdown_Preview_Enhanced/style.less ~/.local/state/mume/
+```
+
+他に拡張機能の設定ファイルがあったら別個にディレクトリを作ってシンボリックリンクを繋げる。
+
+### 5.2. Homebrew ディレクトリ
 
 Homebrew の インストール済みアプリのリストファイル Brewfile を保管するディレクトリ。  
 brew bundle コマンドで保存・読込を行う。
@@ -105,66 +120,49 @@ brew bundle コマンドで保存・読込を行う。
 > brew bundle --file "~/dotfiles/.config/Homebrew/Brewfile"
 ```
 
-#### 4.1.1. 参考にしたサイト
+### 5.3. WindowsPowerShell ディレクトリ
 
-- [dotfiles管理にhomebrew-bundleを導入する - Qiita](https://qiita.com/so-heee/items/351f0ea4e79196754e52)
-- [Brew Bundleの使い方](https://gist.github.com/yoshimana/43b9205ddedad0ad65f2dee00c6f4261)
+PowerShell 用のエイリアス設定ファイル等を格納。  
+mklink.bat に mklink コマンドを記載。
 
-### 4.2. Code
+### 5.4. WindowsTerminal ディレクトリ
 
-VSCode の設定ファイル用ディレクトリ。  
-直下 User 内のファイルを VSCode のディレクトリへシンボリックリンクとして配置する。
+Windows Terminal 用の設定ファイルを格納。  
+これもシンボリックリンクで繋げたいところだけど、繋げると読み込みに失敗してしまうようなのでコピペで対応。
+
+WSL2 の GUID 設定を上書きしないよう注意。  
+上書きしちゃったら `設定 > 新しいプロファイルを追加します > プロファイルを複製する` から該当のプロファイルを選んで複製 → 複製されたプロファイルの GUID で設定しなおす。
+
+### 5.5. WSL2 ディレクトリ
+
+格納されている .wslconfig は WSL2 そのものの設定ファイルのため、 WT と同様にシンボリックリンクで繋げると読み込みに失敗してしまう。  
+そのため Win 環境のホームディレクトリへはファイルを複製して配置する。
+
+## 6. Setup
 
 ```shell
-# VSC の標準設定系
-> ln -sf ~/dotfiles/.config/Code/User/settings.json ~/Library/"Application Support"/Code/User/
-> ln -sf ~/dotfiles/.config/Code/User/keybindings.json ~/Library/"Application Support"/Code/User/
-
-# Markdown Preview Enhanced
-> ln -sf ~/dotfiles/.config/Code/Markdown_Preview_Enhanced/style.less ~/.local/state/mume/
+├── .setup
+     ├── bat
+     │   ├── mklink.bat
+     │   ├── setup_wsl.bat
+     │   └── winget.bat
+     └── sh
+         ├── setup.sh
+         ├── setup_bash_only.sh
+         └── setup_docker.sh
 ```
 
-### 4.3. iTerm2
+セットアップ用のスクリプトファイル関連を保管。  
+こちらを実行したり、記述を拾ったりしつつ環境を整える。
 
-iTerm2 用の設定ファイルを読込・出力するディレクトリ。  
-iTerm2 の終了時にこのディレクトリへ設定を保存する設定にしている。
-設定手順は下記。（今はもう使ってない）
+## 7. WSL2 の構築について
 
-1. Preferences > General タブ > Preferences タブ
-2. Load preferenses from ... をチェック、パスの入力欄にローカルリポジトリのパスを指定。
-3. Save Changes to ... を両方ともチェック。
-
-### 4.4. Windows PowerShell
-
-PowerShell 用のエイリアス設定ファイル等を格納。
-
-### 4.5. Windows Terminal
-
-WSL 環境で用いる WT 用の設定ファイルを格納。
-
-## 5. スクリプト関連
-
-.bin ディレクトリにはスクリプトなどを格納する。
-
-### 5.1. install_rc.sh
-
-VSCode の拡張機能 Remote Containers で dotfiles を反映する時に用いるファイル。調整中でそのまま放置。
-
-#### 5.1.1. 参考にしたサイト
-
-- [VSCode Remote Containerが良い - Qiita](https://qiita.com/d0ne1s/items/d2649801c6f804019db7)
-- [VSCode Remote Containersに自分のdotfilesを持ち込む - Kesinの知見置き場](http://kesin.hatenablog.com/entry/2020/07/10/083000)
-
-## 6. その他
-
-### 6.1. WSL の構築について
-
-Win10 WSL 環境の構築方法。  
+Win10 WSL2 環境の構築方法。  
 alias などの記述は OS で判別し使い分けできるようにしている。
 
-#### 6.1.1. WSL 環境構築メモ
+### 7.1. WSL 環境構築メモ
 
-1. 参考にしたサイト URL を元に、Windows Terminal ～ zsh までインストールする。
+1. 参考にしたサイトを元に、Windows Terminal ～ zsh までインストールする。
 2. dotfiles を clone する。
 3. .zshrc 等のシンボリックリンクを作成して読み込む。
 4. Win10 の GUI から環境変数へ下記を追加する。
@@ -181,10 +179,52 @@ alias などの記述は OS で判別し使い分けできるようにしてい�
     > code .
     ```
 
-#### 6.1.2. 参考にしたサイト
+
+## 8. 参考文献
+
+### 8.1. dotfiles の構成
+
+- [ようこそdotfilesの世界へ - Qiita](https://qiita.com/yutakatay/items/c6c7584d9795799ee164)
+- [【初心者版】必要最小限のdotfilesを運用する - Qiita](https://qiita.com/ganariya/items/d9adffc6535dfca6784b)
+- [gitignoreのホワイトリストの書き方 - Qiita](https://qiita.com/sventouz/items/574bd67c7e43fff10546)
+
+### 8.2. zsh
+
+- [zsh設定ファイル（.zshrc）を分割する - fnwiya's quine](http://fnwiya.hatenablog.com/entry/2015/11/03/191902)
+- [【.zshrc解説】コピペで簡単zshカスタマイズ【設定方法】](https://suwaru.tokyo/【-zshrc解説】コピペで簡単zshカスタマイズ【設定方法/)
+- [zshで大文字小文字を区別しないで補完 - Qiita](https://qiita.com/kenta4327/items/8faaa83f6a5bf595a4bc)
+- [zshのプロンプトをカッコよくしてGitのブランチを表示させる | とみぃ研究所](https://tomiylab.com/2020/03/prompt/)
+
+### 8.3. Git
+
+- [最低限しておくといいgitconfigの設定 - Qiita](https://qiita.com/hayamofu/items/d8103e789196bcd8b489)
+- [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
+- [gitignore に書くべきでないものは gitignore_global へ - Qiita](https://qiita.com/elzup/items/4c92a2abdab56db3fb4e)
+- [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
+- [.gitignoreに記載したのに反映されない件 - Qiita](https://qiita.com/fuwamaki/items/3ed021163e50beab7154)
+
+### 8.4. Homebrew
+
+- [dotfiles管理にhomebrew-bundleを導入する - Qiita](https://qiita.com/so-heee/items/351f0ea4e79196754e52)
+- [Brew Bundleの使い方](https://gist.github.com/yoshimana/43b9205ddedad0ad65f2dee00c6f4261)
+
+### 8.5. WSL2
 
 - [Windows Terminal + WSL 2 + Homebrew + Zsh - Qiita](https://qiita.com/okayurisotto/items/36f6f9df499a74e62bff)
 - [WSL その128 - Windowsの環境変数とLinuxの環境変数を相互に引き継ぎ可能に - kledgeb](https://kledgeb.blogspot.com/2017/12/wsl-128-windowslinux.html)
 - [【WSL】パスのフォーマットを変換する wslpath コマンドの使い方 – ラボラジアン](https://laboradian.com/wslpath-command-for-wsl/)
 - [Windows と Mac で開発環境を揃える Tips 集 - Neo's World](https://neos21.net/tech/windows-mac-environment.html)
 - [Cygwinでgo入門を諦めてWSL環境を作ったがCygwinでも大丈夫だった - exits](https://yuelab82.hatenablog.com/entry/go_on_cygwin_and_wsl)
+
+## 9. アーカイブ
+
+もう使ってない設定のメモなどを記載。
+
+### 9.1. iTerm2
+
+iTerm2 用の設定ファイルを読込・出力するディレクトリ（今はもう削除した）。  
+いちおう設定手順は下記。
+
+1. Preferences > General タブ > Preferences タブ
+2. Load preferenses from ... をチェック、パスの入力欄にローカルリポジトリのパスを指定。
+3. Save Changes to ... を両方ともチェック。
