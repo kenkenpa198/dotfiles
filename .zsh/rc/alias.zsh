@@ -2,11 +2,37 @@
 # alias
 alias a="alias"
 alias ag="alias | grep"
-alias ac="cat ~/dotfiles/.zsh/alias.zsh"         # alias を cat で確認（コメント付き）
-alias acg="cat ~/dotfiles/.zsh/alias.zsh | grep" # ↑を grep で
+alias ac="cat ~/dotfiles/.zsh/rc/alias.zsh"         # alias を cat で確認（コメント付き）
+alias acg="cat ~/dotfiles/.zsh/rc/alias.zsh | grep" # ↑を grep で
 
 # clear
 alias c="clear"
+
+# date
+alias date="date +'%Y-%m-%d (%a) %H:%M:%S'" # 現在日時をフォーマットして表示
+alias dt="date"                             # 現在日時をフォーマットして表示
+alias dtd="date -d"                         # 日付計算オプション
+# 現在日から3日後: > dtd '3 days'
+# 指定日から3日前: > dtd '2022-02-02 -3 days'
+
+# JST to CST
+# 現在の日本時間（JST）に対する米国中部標準時（CST）の日時を表示（サマータイム等は考慮無しで単純に -15h する）
+# 引数（'yyyy-MM-dd hh:mm:ss'）が与えられた場合はそれを基準に計算する
+jtc() {
+    if [ $# != 0 ]; then
+        jst=`date -d ${1}`
+        cst_arg=$1' 15 hours ago'
+    else
+        jst=`date`
+        cst_arg='15 hours ago'
+    fi
+
+    cst=`date -d ${cst_arg}`
+
+    echo JST: $jst
+    echo CST: $cst
+}
+
 
 # grep
 alias grep="grep --color=auto"
@@ -101,11 +127,6 @@ alias pg32="pwgen -c -n -y -B -1 32 8"
 
 
 ##### Others #####
-# 天気を見る（https://linuxfan.info/wttr-in）
-wttr() {
-  location=${1:-'福岡'}
-  curl ja.wttr.in/$location
-}
 
 
 ##### 環境ごとの読込 #####
@@ -132,6 +153,10 @@ case ${OSTYPE} in
                 cd $(wslpath -u ${1})
             }
 
+            # date & copy
+            alias dts="\date +'%Y-%m-%d %H:%M:%S' | tee >(clip.exe)" # 現在日時を表示（日付～時間 / ハイフンあり） & クリップボードへ格納
+            alias dtss="\date +'%Y%m%d' | tee >(clip.exe)"           # 現在日時を表示（日付のみ / ハイフンなし） & クリップボードへ格納
+
             # wslpath
             alias wpu="wslpath -u" # パス変換: Windows → WSL（Win のパスは '' で囲んでね）
             alias wpw="wslpath -w" # パス変換: WSL → Windows
@@ -157,7 +182,6 @@ case ${OSTYPE} in
             }
 
             # Others
-            alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(clip.exe)"      # 現在日時を表示 & クリップボードへ格納
             alias ipp="ip a | grep eth0 | grep inet | tee >(clip.exe)" # WSL2 の IP アドレスを表示 & クリップボードへ格納
             alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"      # 公開鍵を表示 & クリップボードへ格納
         fi
@@ -178,10 +202,12 @@ case ${OSTYPE} in
         alias bbl="brew bundle list --all --force --file '~/dotfiles/.config/Homebrew/Brewfile'" # Brewfile ファイルから一括インストール
         alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"                                     # Brewfile ファイルの表示
 
-        # Others
-        alias dt="date +'%Y-%m-%d %I:%M:%S' | tee >(pbcopy)" # 現在日時を表示 & クリップボードへ格納
-        alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(pbcopy)" # 公開鍵を表示 & クリップボードへ格納
+        # date & copy
+        alias dts="\date +'%Y-%m-%d %H:%M:%S' | tee >(pbcopy)" # 現在日時を表示 & クリップボードへ格納
+        alias dtss="\date +'%Y%m%d' | tee >(pbcopy)"   # 現在日時を表示 & クリップボードへ格納
 
+        # Others
+        alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(pbcopy)" # 公開鍵を表示 & クリップボードへ格納
     ;;
 
 esac
