@@ -27,7 +27,7 @@ case ${OSTYPE} in
         ### WSL 向け設定 ###
         if uname -r | grep -i 'microsoft' > /dev/null ; then
             # Win 環境の環境変数を WSL 環境へ複製
-            export PATH="$PATH:$Path"
+            # export PATH="$PATH:$Path"
         fi
     ;;
 esac
