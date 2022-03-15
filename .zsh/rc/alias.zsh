@@ -15,22 +15,90 @@ alias dtd="date -d"                         # 日付計算オプション
 # 現在日から3日後: > dtd '3 days'
 # 指定日から3日前: > dtd '2022-02-02 -3 days'
 
-# JST to CST
-# 現在の日本時間（JST）に対する米国中部標準時（CST）の日時を表示（サマータイム等は考慮無しで単純に -15h する）
-# 引数（'yyyy-MM-dd hh:mm:ss'）が与えられた場合はそれを基準に計算する
-jtc() {
-    if [ $# != 0 ]; then
-        jst=`date -d ${1}`
-        cst_arg=$1' 15 hours ago'
+# CST to JST
+# CST（日本標準時）と JST（米国中部標準時）を出力・計算する関数
+# サマータイム等は考慮無しで時差を 15h として計算する
+
+# > cj -c '日付時間' : 与えられた日付時間を CST とした場合の JST を出力する
+# > cj -j '日付時間' : 与えられた日付時間を JST とした場合の CST を出力する
+# > cj               : 現在の CST と JST を表示する
+# > cj --help        : コマンド一覧を表示する
+
+cj() {
+
+    # 引数が無ければ現在の UTC から CST と UTC を計算する
+    if [ $# = 0 ]; then
+
+        # 現在の UTC 日時を取得
+        utc_dt=`date -u`
+
+        # UTC から CST を計算
+        cst_arg=${utc_dt}' 6 hours ago'
+        cst_dt=`date -d ${cst_arg}`
+
+        # UTC から JST を計算
+        jst_arg=${utc_dt}' 9 hours'
+        jst_dt=`date -d ${jst_arg}`
+
+        # 出力用の表示を設定
+        display_msg='Display current CST and JST.'
+        cst_mark='  '
+        jst_mark='  '
+
+    # -c 引数を受け取った場合は第2引数を CST として JST を計算する
+    elif [ $1 = '-c' ]; then
+
+        # 与えられた日付をフォーマットして CST として格納
+        cst_dt=`date -d ${2}`
+
+        # CST から JST を計算
+        jst_arg=${cst_dt}' 15 hours'
+        jst_dt=`date -d ${jst_arg}`
+
+        # 出力用の表示を設定
+        display_msg='Converted CST to JST.'
+        cst_mark='* '
+        jst_mark='  '
+
+    # -j 引数を受け取った場合は第2引数を JST として CST を計算する
+    elif [ $1 = '-j' ]; then
+
+        # 与えられた日付をフォーマットして JST として格納
+        jst_dt=`date -d ${2}`
+
+        # JST から CST を計算
+        cst_arg=${jst_dt}' 15 hours ago'
+        cst_dt=`date -d ${cst_arg}`
+
+        # 出力用の表示を設定
+        display_msg='Converted JST to CST.'
+        cst_mark='  '
+        jst_mark='* '
+
+    # --help -h の場合はコマンド一覧を表示
+    elif [ $1 = '--help' ] || [ $1 = '-h' ]; then
+
+        echo '--------------------------------------------------'
+        echo '                    CST to JST                    '
+        echo '--------------------------------------------------'
+        echo '> cj               : Display current CST and JST.'
+        echo '> cj -c '\''datetime'\'' : Convert CST to JST.'
+        echo '> cj -j '\''datetime'\'' : Convert JST to CST.'
+        echo '> cj --help        : Display command list.'
+        return
+
+    # 引数指定に当てはまらなかったらエラー分を表示して終了
     else
-        jst=`date`
-        cst_arg='15 hours ago'
+        echo 'Argument error.'
+        echo 'Please submit "cj --help" .'
+        return
     fi
 
-    cst=`date -d ${cst_arg}`
-
-    echo JST: $jst
-    echo CST: $cst
+    # 結果の出力
+    echo $display_msg
+    echo '--------------------------------'
+    echo $cst_mark'CST: '$cst_dt
+    echo $jst_mark'JST: '$jst_dt
 }
 
 
