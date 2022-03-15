@@ -19,10 +19,10 @@ alias dtd="date -d"                         # 日付計算オプション
 # CST（日本標準時）と JST（米国中部標準時）を出力・計算する関数
 # サマータイム等は考慮無しで時差を 15h として計算する
 
-# > cj -c '日付時間' : 与えられた日付時間を CST とした場合の JST を出力する
-# > cj -j '日付時間' : 与えられた日付時間を JST とした場合の CST を出力する
-# > cj               : 現在の CST と JST を表示する
-# > cj --help        : コマンド一覧を表示する
+# cj               : 現在の CST と JST を表示する
+# cj -c '日付時間' : 与えられた日付時間を CST とした場合の JST を出力する
+# cj -j '日付時間' : 与えられた日付時間を JST とした場合の CST を出力する
+# cj --help        : コマンド一覧を表示する
 
 cj() {
 
@@ -33,72 +33,71 @@ cj() {
         utc_dt=`date -u`
 
         # UTC から CST を計算
-        cst_arg=${utc_dt}' 6 hours ago'
-        cst_dt=`date -d ${cst_arg}`
+        cst_dt=`date -d "${utc_dt} 6 hours ago"`
 
         # UTC から JST を計算
-        jst_arg=${utc_dt}' 9 hours'
-        jst_dt=`date -d ${jst_arg}`
+        jst_dt=`date -d "${utc_dt} 9 hours"`
 
         # 出力用の表示を設定
-        display_msg='Display current CST and JST.'
-        cst_mark='  '
-        jst_mark='  '
+        display_msg="Display current CST and JST."
+        cst_mark=" "
+        jst_mark=" "
 
     # -c 引数を受け取った場合は第2引数を CST として JST を計算する
-    elif [ $1 = '-c' ]; then
+    elif [ $1 = "-c" ] && [ $# = 2 ]; then
 
         # 与えられた日付をフォーマットして CST として格納
-        cst_dt=`date -d ${2}`
+        cst_dt=`date -d "${2}"`
 
         # CST から JST を計算
-        jst_arg=${cst_dt}' 15 hours'
-        jst_dt=`date -d ${jst_arg}`
+        jst_dt=`date -d "${cst_dt} 15 hours"`
 
         # 出力用の表示を設定
-        display_msg='Converted CST to JST.'
-        cst_mark='* '
-        jst_mark='  '
+        display_msg="Converted CST to JST."
+        cst_mark="*"
+        jst_mark=" "
 
     # -j 引数を受け取った場合は第2引数を JST として CST を計算する
-    elif [ $1 = '-j' ]; then
+    elif [ $1 = "-j" ] && [ $# = 2 ]; then
 
         # 与えられた日付をフォーマットして JST として格納
-        jst_dt=`date -d ${2}`
+        jst_dt=`date -d "${2}"`
 
         # JST から CST を計算
-        cst_arg=${jst_dt}' 15 hours ago'
-        cst_dt=`date -d ${cst_arg}`
+        cst_dt=`date -d "${jst_dt} 15 hours ago"`
 
         # 出力用の表示を設定
-        display_msg='Converted JST to CST.'
-        cst_mark='  '
-        jst_mark='* '
+        display_msg="Converted JST to CST."
+        cst_mark=" "
+        jst_mark="*"
 
-    # --help -h の場合はコマンド一覧を表示
-    elif [ $1 = '--help' ] || [ $1 = '-h' ]; then
+    # --help -h の場合はコマンド一覧を表示して終了
+    elif [ $1 = "--help" ] || [ $1 = "-h" ]; then
 
-        echo '--------------------------------------------------'
-        echo '                    CST to JST                    '
-        echo '--------------------------------------------------'
-        echo '> cj               : Display current CST and JST.'
-        echo '> cj -c '\''datetime'\'' : Convert CST to JST.'
-        echo '> cj -j '\''datetime'\'' : Convert JST to CST.'
-        echo '> cj --help        : Display command list.'
+        echo "----------------------------------------------------------------------"
+        echo "                              CST to JST"
+        echo "----------------------------------------------------------------------"
+        echo "CST（米国中部標準時）と JST（日本標準時）を表示します。"
+        echo "時差は 15h として計算します。"
+        echo
+        echo "  引数なし      : 現在の CST と JST を表示します。"
+        echo "  -c "\'"datetime"\'" : 指定日時を CST として JST を計算します（CST - 15h）。"
+        echo "  -j "\'"datetime"\'" : 指定日時を JST として CST を計算します（JST + 15h）。"
+        echo "  --help        : コマンド一覧を表示します。"
         return
 
-    # 引数指定に当てはまらなかったらエラー分を表示して終了
+    # 引数指定に当てはまらなかったらエラー文を表示して終了
     else
-        echo 'Argument error.'
-        echo 'Please submit "cj --help" .'
+        echo "引数を受け取れませんでした。"
+        echo "使い方を確認するには "\'"cj --help"\'" を送信してください。"
         return
     fi
 
     # 結果の出力
-    echo $display_msg
-    echo '--------------------------------'
-    echo $cst_mark'CST: '$cst_dt
-    echo $jst_mark'JST: '$jst_dt
+    echo "${display_msg}"
+    echo "--------------------------------"
+    echo "${cst_mark} CST: ${cst_dt}"
+    echo "${jst_mark} JST: ${jst_dt}"
 }
 
 
@@ -251,7 +250,7 @@ case ${OSTYPE} in
 
             # Others
             alias ipp="ip a | grep eth0 | grep inet | tee >(clip.exe)" # WSL2 の IP アドレスを表示 & クリップボードへ格納
-            alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"      # 公開鍵を表示 & クリップボードへ格納
+            alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"     # 公開鍵を表示 & クリップボードへ格納
         fi
     ;;
 
@@ -272,7 +271,7 @@ case ${OSTYPE} in
 
         # date & copy
         alias dts="\date +'%Y-%m-%d %H:%M:%S' | tee >(pbcopy)" # 現在日時を表示 & クリップボードへ格納
-        alias dtss="\date +'%Y%m%d' | tee >(pbcopy)"   # 現在日時を表示 & クリップボードへ格納
+        alias dtss="\date +'%Y%m%d' | tee >(pbcopy)"           # 現在日時を表示 & クリップボードへ格納
 
         # Others
         alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(pbcopy)" # 公開鍵を表示 & クリップボードへ格納
