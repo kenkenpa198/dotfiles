@@ -14,10 +14,10 @@
     // "python.pythonPath": "/usr/local/bin/python3"
     "python.pythonPath": "/Users/.pyenv/shims/python", 
     "workbench.colorTheme": "Solarized Dark",
-    "editor.fontFamily": "'Ricty Diminished Discord' ,Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'HackGenNerd', 'Ricty Diminished Discord', 'Ricty Discord', Menlo, Monaco, 'Courier New', monospace",
     "terminal.integrated.fontSize": 15,
     "terminal.integrated.shell.osx": "/bin/zsh",
-    "terminal.integrated.fontFamily": "HackGenNerd Console",
+    "terminal.integrated.fontFamily": "'HackGenNerd Console', 'Ricty Diminished Discord for Powerline', 'Ricty Discord for Powerline'",
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.shell.linux": "/bin/zsh",
     "dotfiles.repository": "https://github.com/kenkenpa198/dotfiles.git",
@@ -31,6 +31,7 @@
     "explorer.confirmDragAndDrop": false,
     "security.workspace.trust.untrustedFiles": "open",
     "redhat.telemetry.enabled": true,
-    "editor.fontSize": 16
+    "editor.fontSize": 15,
+    "editor.lineHeight": "1.3em"
 
 }

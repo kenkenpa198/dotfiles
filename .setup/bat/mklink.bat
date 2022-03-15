@@ -12,4 +12,4 @@ mklink %USERPROFILE%\AppData\Roaming\Code\User\keybindings.json \\wsl.localhost\
 
 :: Git Bash
 :: alias.zsh を .bashrc として直接読み込む
-mklink %USERPROFILE%\.bashrc \\wsl.localhost\Ubuntu\home\<<username>>\dotfiles\.zsh\alias.zsh
+mklink %USERPROFILE%\.bashrc \\wsl.localhost\Ubuntu\home\<<username>>\dotfiles\.zsh\rc\alias.zsh
