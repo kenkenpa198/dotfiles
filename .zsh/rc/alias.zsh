@@ -9,67 +9,56 @@ alias acg="cat ~/dotfiles/.zsh/rc/alias.zsh | grep" # ↑を grep で
 alias c="clear"
 
 # date
-alias date="date +'%Y-%m-%d (%a) %H:%M:%S'" # 現在日時をフォーマットして表示
-alias dt="date"                             # 現在日時をフォーマットして表示
-alias dtd="date -d"                         # 日付計算オプション
-# 現在日から3日後: > dtd '3 days'
-# 指定日から3日前: > dtd '2022-02-02 -3 days'
+alias dt="date +'%F (%a) %T'" # 現在日時を yyyy-MM-dd (A) hh:mm:ss 形式で表示
 
 # CST to JST
 # CST（日本標準時）と JST（米国中部標準時）を出力・計算する関数
-# サマータイム等は考慮無しで時差を 15h として計算する
-
-# cj               : 現在の CST と JST を表示する
-# cj -c '日付時間' : 与えられた日付時間を CST とした場合の JST を出力する
-# cj -j '日付時間' : 与えられた日付時間を JST とした場合の CST を出力する
-# cj --help        : コマンド一覧を表示する
-
 cj() {
 
     # 引数が無ければ現在の UTC から CST と UTC を計算する
     if [ $# = 0 ]; then
-
-        # 現在の UTC 日時を取得
-        utc_dt=`date -u`
-
-        # UTC から CST を計算
-        cst_dt=`date -d "${utc_dt} 6 hours ago"`
-
-        # UTC から JST を計算
-        jst_dt=`date -d "${utc_dt} 9 hours"`
 
         # 出力用の表示を設定
         display_msg="Display current CST and JST."
         cst_mark=" "
         jst_mark=" "
 
+        # 現在の UTC 日時を取得
+        utc_dt=`date -u`
+
+        # UTC から CST を計算
+        cst_dt=`date +'%F (%a) %T' -d "${utc_dt} 6 hours ago"`
+
+        # UTC から JST を計算
+        jst_dt=`date +'%F (%a) %T' -d "${utc_dt} 9 hours"`
+
     # -c 引数を受け取った場合は第2引数を CST として JST を計算する
     elif [ $1 = "-c" ] && [ $# = 2 ]; then
-
-        # 与えられた日付をフォーマットして CST として格納
-        cst_dt=`date -d "${2}"`
-
-        # CST から JST を計算
-        jst_dt=`date -d "${cst_dt} 15 hours"`
 
         # 出力用の表示を設定
         display_msg="Converted CST to JST."
         cst_mark="*"
         jst_mark=" "
 
+        # 与えられた日付をフォーマットして CST として格納
+        cst_dt=`date +'%F (%a) %T' -d "${2}"`
+
+        # CST から JST を計算
+        jst_dt=`date +'%F (%a) %T' -d "${cst_dt} 15 hours"`
+
     # -j 引数を受け取った場合は第2引数を JST として CST を計算する
     elif [ $1 = "-j" ] && [ $# = 2 ]; then
-
-        # 与えられた日付をフォーマットして JST として格納
-        jst_dt=`date -d "${2}"`
-
-        # JST から CST を計算
-        cst_dt=`date -d "${jst_dt} 15 hours ago"`
 
         # 出力用の表示を設定
         display_msg="Converted JST to CST."
         cst_mark=" "
         jst_mark="*"
+
+        # 与えられた日付をフォーマットして JST として格納
+        jst_dt=`date +'%F (%a) %T' -d "${2}"`
+
+        # JST から CST を計算
+        cst_dt=`date +'%F (%a) %T' -d "${jst_dt} 15 hours ago"`
 
     # --help -h の場合はコマンド一覧を表示して終了
     elif [ $1 = "--help" ] || [ $1 = "-h" ]; then
@@ -241,8 +230,8 @@ case ${OSTYPE} in
             }
 
             # date & copy
-            alias dts="\date +'%Y-%m-%d %H:%M:%S' | tee >(clip.exe)" # 現在日時を表示（日付～時間 / ハイフンあり） & クリップボードへ格納
-            alias dtss="\date +'%Y%m%d' | tee >(clip.exe)"           # 現在日時を表示（日付のみ / ハイフンなし） & クリップボードへ格納
+            alias dtt="\date +'%Y-%m-%d %H:%M:%S' | tee >(clip.exe)" # 現在日時を表示（日付～時間 / ハイフンあり） & クリップボードへ格納
+            alias dttt="\date +'%Y%m%d' | tee >(clip.exe)"           # 現在日時を表示（日付のみ / ハイフンなし） & クリップボードへ格納
 
             # wslpath
             alias wpu="wslpath -u" # パス変換: Windows → WSL（Win のパスは '' で囲んでね）
@@ -290,8 +279,8 @@ case ${OSTYPE} in
         alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"                                     # Brewfile ファイルの表示
 
         # date & copy
-        alias dts="\date +'%Y-%m-%d %H:%M:%S' | tee >(pbcopy)" # 現在日時を表示 & クリップボードへ格納
-        alias dtss="\date +'%Y%m%d' | tee >(pbcopy)"           # 現在日時を表示 & クリップボードへ格納
+        alias dtt="\date +'%Y-%m-%d %H:%M:%S' | tee >(pbcopy)" # 現在日時を表示 & クリップボードへ格納
+        alias dttt="\date +'%Y%m%d' | tee >(pbcopy)"           # 現在日時を表示 & クリップボードへ格納
 
         # Others
         alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(pbcopy)" # 公開鍵を表示 & クリップボードへ格納
