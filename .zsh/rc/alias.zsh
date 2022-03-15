@@ -15,6 +15,15 @@ alias dt="date +'%F (%a) %T'" # 現在日時を yyyy-MM-dd (A) hh:mm:ss 形式�
 # CST（日本標準時）と JST（米国中部標準時）を出力・計算する関数
 cj() {
 
+    # local 変数の指定
+    local \
+        display_msg \
+        cst_mark \
+        jst_mark \
+        utc_dt \
+        cst_dt \
+        jst_dt
+
     # 引数が無ければ現在の UTC から CST と UTC を計算する
     if [ $# = 0 ]; then
 
@@ -247,7 +256,7 @@ case ${OSTYPE} in
             # https://osa.hatenablog.jp/entry/2020/02/24/121725
             # https://www.iplab.cs.tsukuba.ac.jp/~takakura/blog/20200715/
             gg() {
-                local str opt
+                local str
                 # $str が値ありの場合は検索ワードを + 記号でつなぐ（AND 検索）
                 if [ $# != 0 ]; then
                     for i in $*; do
