@@ -14,7 +14,7 @@
     // "python.pythonPath": "/usr/local/bin/python3"
     "python.pythonPath": "/Users/.pyenv/shims/python", 
     "workbench.colorTheme": "Solarized Dark",
-    "editor.fontFamily": "'HackGenNerd', 'Ricty Diminished Discord', 'Ricty Discord', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'HackGen', 'Ricty Diminished Discord', 'Ricty Discord', Menlo, Monaco, 'Courier New', monospace",
     "terminal.integrated.fontSize": 15,
     "terminal.integrated.shell.osx": "/bin/zsh",
     "terminal.integrated.fontFamily": "'HackGenNerd Console', 'Ricty Diminished Discord for Powerline', 'Ricty Discord for Powerline'",
