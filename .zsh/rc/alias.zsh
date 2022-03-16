@@ -24,7 +24,7 @@ cj() {
         cst_dt \
         jst_dt
 
-    # 引数が無ければ現在の UTC から CST と UTC を計算する
+    # 引数が無ければ現在の CST と UTC を計算する
     if [ $# = 0 ]; then
 
         # 出力用の表示を設定
@@ -32,7 +32,8 @@ cj() {
         cst_mark=" "
         jst_mark=" "
 
-        # 現在の UTC 日時を取得
+        # 計算の基準となる現在の UTC 日時を取得
+        # 実行環境によるタイムゾーンの違いを考慮するため、UTC 日時を現在の CST と UTC を計算する基準としている
         utc_dt=`date -u`
 
         # UTC から CST を計算
@@ -232,6 +233,7 @@ case ${OSTYPE} in
             # cd
             alias cdc="cd $USERPROFILE"
             alias cdd="cd $USERPROFILE/Works/Develop"
+            alias dev="cdd"
 
             # cd 'C:\Windows\path'
             cdw() {
@@ -249,6 +251,9 @@ case ${OSTYPE} in
             # Apps
             alias clip="clip.exe"
             alias open="explorer.exe"
+            alias notepad="notepad.exe"
+            alias sakura="sakura.exe"
+            alias wm="WinMergeU.exe"
             alias ggg="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py"
             alias gggr="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py -r"
 
