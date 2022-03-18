@@ -5,6 +5,10 @@ alias ag="alias | grep"
 alias ac="cat ~/dotfiles/.zsh/rc/alias.zsh"         # alias を cat で確認（コメント付き）
 alias acg="cat ~/dotfiles/.zsh/rc/alias.zsh | grep" # ↑を grep で
 
+# cd
+alias cdd="cd ~/Works/Develop"
+alias dev="cdd"
+
 # clear
 alias c="clear"
 
@@ -133,11 +137,6 @@ alias hg="history | grep"
 alias s="source"
 alias ss="source ~/.zshrc"
 
-# confirm
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
-
 
 ##### dotfiles #####
 alias dot="cd ~/dotfiles"
@@ -230,10 +229,9 @@ case ${OSTYPE} in
 
         ### WSL 向け設定 ###
         if uname -r | grep -i 'microsoft' > /dev/null ; then
-            # cd
+
+            # Win 環境のホームへ cd
             alias cdc="cd $USERPROFILE"
-            alias cdd="cd $USERPROFILE/Works/Develop"
-            alias dev="cdd"
 
             # cd 'C:\Windows\path'
             cdw() {
@@ -254,8 +252,9 @@ case ${OSTYPE} in
             alias notepad="notepad.exe"
             alias sakura="sakura.exe"
             alias wm="WinMergeU.exe"
-            alias ggg="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py"
-            alias gggr="python3 $USERPROFILE/Works/Develop/GuruGuruGrep/GGGrep.py -r"
+            alias ggg="python3 ~/Works/Develop/GuruGuruGrep/GGGrep.py"
+            alias gggr="python3 ~/Works/Develop/GuruGuruGrep/GGGrep.py -r"
+            alias gdd="python3 ~/Works/Develop/GenerateDummyData/GenerateDummyData.py"
 
             # ググる
             # https://osa.hatenablog.jp/entry/2020/02/24/121725
