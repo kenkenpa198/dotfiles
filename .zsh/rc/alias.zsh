@@ -119,10 +119,10 @@ case ${OSTYPE} in
     linux*)
         # ls
         alias ll="ls -lhG --file-type --color=auto --time-style=long-iso --group-directories-first"
-        alias la="ls -lhaG --file-type --color=auto --time-style=long-iso --group-directories-first"
+        alias lla="ls -lhaG --file-type --color=auto --time-style=long-iso --group-directories-first"
         alias llng="ls -lhG --file-type --color=auto --time-style=long-iso"
-        alias lang="ls -lahG --file-type --color=auto --time-style=long-iso"
-        alias lg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
+        alias llang="ls -lahG --file-type --color=auto --time-style=long-iso"
+        alias llg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
 
         # Ubuntu
         alias update="sudo apt update && sudo apt upgrade -y" # Ubuntu 環境のアップデート & アプリの一括アップグレード
@@ -179,8 +179,9 @@ case ${OSTYPE} in
     ### MacOS 向け設定 ###
     darwin*)
         # ls
-        alias ll="ls -oaF"
-        alias lg="ls -oaF | grep"
+        alias ll="ls -oF"
+        alias lla="ls -oaF"
+        alias llg="ls -oaF | grep"
 
         # Homebrew
         alias b="brew"
