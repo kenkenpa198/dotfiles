@@ -118,8 +118,10 @@ case ${OSTYPE} in
     ### Linux 向け設定 ###
     linux*)
         # ls
-        alias ll="ls -lahG --file-type --color=auto --time-style=long-iso --group-directories-first"
-        alias llng="ls -lahG --file-type --color=auto --time-style=long-iso"
+        alias la="ls -lhaG --file-type --color=auto --time-style=long-iso --group-directories-first"
+        alias ll="ls -lhG --file-type --color=auto --time-style=long-iso --group-directories-first"
+        alias llng="ls -lhG --file-type --color=auto --time-style=long-iso"
+        alias lang="ls -lahG --file-type --color=auto --time-style=long-iso"
         alias lg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
 
         # Ubuntu
