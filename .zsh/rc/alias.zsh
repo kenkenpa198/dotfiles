@@ -150,6 +150,12 @@ alias zmvnw="noglob zmv -nW" # 置換プレビュー
 alias zmvw="noglob zmv -W"   # 置換
 
 
+##### tree #####
+alias tr="tree 	--dirsfirst -I '__pycache__'"
+alias tra="tree -a --dirsfirst -I '__pycache__|.venv|.git'"
+alias traa="tree -a --dirsfirst"
+
+
 ##### Git #####
 alias g="git"
 alias ga="git add -v"              # -v         / add の内容を表示する
