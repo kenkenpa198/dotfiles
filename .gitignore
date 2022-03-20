@@ -21,11 +21,12 @@
 !/.bashrc
 
 !/.zshrc
-!/.zsh/alias.zsh
-!/.zsh/option.zsh
-!/.zsh/path.zsh
-!/.zsh/theme.zsh
-!/.dircolors
+!/.zsh/rc/alias.zsh
+!/.zsh/rc/alias_cj.zsh
+!/.zsh/rc/option.zsh
+!/.zsh/rc/path.zsh
+!/.zsh/rc/theme.zsh
+!/.zsh/.dircolors
 
 !/.gitignore
 !/.gitignore_global
