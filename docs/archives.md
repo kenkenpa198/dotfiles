@@ -28,4 +28,7 @@ mklink /D %USERPROFILE%\Works\Develop \\wsl.localhost\Ubuntu\home\%USERNAME%\Wor
 
 :: Videos > Capture ディレクトリ ---> D ドライブ上の Videos > Capture ディレクトリ
 mklink /D %USERPROFILE%\Videos\Capture D:\%USERNAME%\Videos\Capture
+
+:: Win ホームディレクトリ > dotfiles ---> WSL2 環境上のホームディレクトリ > dotfiles
+mklink /D %USERPROFILE%\dotfiles \\wsl.localhost\Ubuntu\home\%USERNAME%\dotfiles
 ```
