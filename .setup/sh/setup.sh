@@ -53,10 +53,10 @@ pip3 --version
 
 echo '\ngit 関連の設定'
 cd
-ln -s ~/dotfiles/.gitignore_global ~/                 # .gitignore_global のシンボリックリンクを作成
-ln -s ~/dotfiles/.gitconfig_shared ~/                 # .gitconfig_shared のシンボリックリンクを作成
-git config --global include.path ~/.gitconfig_shared  # .gitconfig へ .gitconfig_shared を外部読み込み設定
-
+ln -s ~/dotfiles/.gitignore_global ~/                     # .gitignore_global のシンボリックリンクを作成
+ln -s ~/dotfiles/.gitconfig_shared ~/                     # .gitconfig_shared のシンボリックリンクを作成
+git config --global core.excludesfile ~/.gitignore_global # .gitconfig へ .gitconfig_global を読み込み設定
+git config --global include.path ~/.gitconfig_shared      # .gitconfig へ .gitconfig_shared を外部読み込み設定
 
 echo '\nshell の設定ファイルのシンボリックリンクを配置'
 cd
