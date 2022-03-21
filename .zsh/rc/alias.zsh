@@ -116,12 +116,14 @@ alias pg32="pwgen -c -n -y -B -1 32 8"
 case ${OSTYPE} in
 
     ### Linux 向け設定 ###
-    linux*)
+    # msys は Win 環境上で Git Bash を立ち上げたときの $OSTYPE
+    linux* | msys*)
         # ls
         alias ll="ls -lhG --file-type --color=auto --time-style=long-iso --group-directories-first"
         alias lla="ls -lhaG --file-type --color=auto --time-style=long-iso --group-directories-first"
         alias llng="ls -lhG --file-type --color=auto --time-style=long-iso"
         alias llang="ls -lahG --file-type --color=auto --time-style=long-iso"
+        alias llnga="llang"
         alias llg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
 
         # Ubuntu
