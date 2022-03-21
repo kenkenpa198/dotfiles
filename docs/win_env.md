@@ -15,9 +15,6 @@
 ### 2.1. Path
 
 ``` bat
-:: KeM-AHKs
-%USERPROFILE%\Documents\Apps\KeM-AHKs\Assets
-
 :: Win Merge
 %USERPROFILE%\AppData\Local\Programs\WinMerge
 
