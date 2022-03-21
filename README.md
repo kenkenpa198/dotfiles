@@ -18,6 +18,7 @@ kenkenpa198 の dotfiles 。
 2. その後シンボリックリンクなどを .setup 配下のスクリプトや README を参考に色々つなげる。
 
 Windows 環境の場合は先に [WSL2 環境の構築](.documents/Install_WSL2.md) をしよう。  
+その他補足資料やメモは [docs ディレクトリ](https://github.com/kenkenpa198/dotfiles/tree/main/docs) で管理。
 
 ## 3. 構成
 
@@ -71,22 +72,7 @@ WSL2 が立ち上がる前に WSL2 内のファイルを読み込もうとして
 WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。  
 上書きしちゃったら `設定 > 新しいプロファイルを追加します > プロファイルを複製する` から該当のプロファイルを選んで複製 → 複製されたプロファイルの GUID で設定しなおす。
 
-### 3.3. document
-
-```shell
-.
-├── .document
-│   ├── ***.md
-│   └── ***.md
-└── README.md
-```
-
-環境構築のメモ類などを格納。  
-ドットなファイルである必要が無いけどとりあえず置いている。
-
-本当は README も .document に突っ込みたいけど GitHub 上の表示が見づらくなったので仕方なく root に置いてる。
-
-### 3.4. git
+### 3.3. git
 
 ```shell
 .
@@ -106,7 +92,7 @@ WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。
 .gitconfig の基本設定は .gitconfig_shared に切り分け、.gitignore_global と同様に .gitconfig へ外部読み込み設定を行うような運用にしている。  
 .gitconfig にはメアドとユーザー名を記述する必要があり、Git 管理の対象にしたくなかったため。
 
-### 3.5. gitignore
+### 3.4. gitignore
 
 ```shell
 .
@@ -118,7 +104,7 @@ WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。
 ホワイトリスト形式にすることで、.gitignore で指定したファイルのみしか Git の管理下に入らないようにしている。  
 こうすることで誤ってコミットしてしまうミスを防げる（なるほど～）。
 
-### 3.6. setup
+### 3.5. setup
 
 ```shell
 .
