@@ -23,6 +23,7 @@ winget install Atlassian.Sourcetree %y%
 winget install Git.Git %y%
 winget install -e --id BlenderFoundation.Blender %y%
 winget install Logitech.Options %y%
+winget install xanderfrangos.twinkletray %y%
 
 :: Microsoft Store からインストール
 winget install iCloud %y%
