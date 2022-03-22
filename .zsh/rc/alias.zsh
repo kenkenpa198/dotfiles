@@ -151,6 +151,7 @@ case ${OSTYPE} in
             # Apps
             alias clip="clip.exe"
             alias open="explorer.exe"
+            alias op="open"
             alias notepad="notepad.exe"
             alias sakura="sakura.exe"
             alias wm="WinMergeU.exe"
@@ -199,6 +200,7 @@ case ${OSTYPE} in
         alias dttt="\date +'%Y%m%d' | tee >(pbcopy)"           # 現在日時を表示 & クリップボードへ格納
 
         # Others
+        alias op="open"
         alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(pbcopy)" # 公開鍵を表示 & クリップボードへ格納
     ;;
 
