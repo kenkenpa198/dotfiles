@@ -25,10 +25,10 @@ cj() {
         utc_dt=`date -u`
 
         # UTC から CST を計算
-        cst_dt=`date +'%F (%a) %T' -d "${utc_dt} 6 hours ago"`
+        cst_dt=`date +'%F (%a) %T' -d "${utc_dt} 6 hours ago" -u`
 
         # UTC から JST を計算
-        jst_dt=`date +'%F (%a) %T' -d "${utc_dt} 9 hours"`
+        jst_dt=`date +'%F (%a) %T' -d "${utc_dt} 9 hours" -u`
 
     # -c 引数を受け取った場合は第2引数を CST として JST を計算する
     elif [ $1 = "-c" ] && [ $# = 2 ]; then
