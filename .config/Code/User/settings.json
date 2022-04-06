@@ -12,8 +12,8 @@
 
 {
     // "python.pythonPath": "/usr/local/bin/python3"
-    "python.pythonPath": "/Users/.pyenv/shims/python", 
-    "workbench.colorTheme": "Solarized Dark",
+    "python.pythonPath": "/Users/.pyenv/shims/python",
+    "workbench.colorTheme": "GitHub Dark",
     "editor.fontFamily": "'HackGen', 'Ricty Diminished Discord', 'Ricty Discord', Menlo, Monaco, 'Courier New', monospace",
     "terminal.integrated.fontSize": 15,
     "terminal.integrated.shell.osx": "/bin/zsh",
@@ -32,6 +32,8 @@
     "security.workspace.trust.untrustedFiles": "open",
     "redhat.telemetry.enabled": true,
     "editor.fontSize": 15,
-    "editor.lineHeight": "1.3em"
+    "editor.lineHeight": "1.3em",
+    "workbench.iconTheme": "material-icon-theme",
+    "files.trimTrailingWhitespace": true
 
 }
