@@ -40,5 +40,8 @@ mklink %USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps
 mklink %USERPROFILE%\AppData\Roaming\Code\User\settings.json %USERPROFILE%\dotfiles\.config\Code\User\settings.json
 mklink %USERPROFILE%\AppData\Roaming\Code\User\keybindings.json %USERPROFILE%\dotfiles\.config\Code\User\keybindings.json
 
+:: Azure Data Studio 設定ファイル
+mklink %USERPROFILE%\AppData\Roaming\azuredatastudio\User\settings.json %USERPROFILE%\dotfiles\.config\azuredatastudio\User\settings.json
+
 :: Git Bash
 mklink %USERPROFILE%\.bashrc %USERPROFILE%\dotfiles\.bashrc
