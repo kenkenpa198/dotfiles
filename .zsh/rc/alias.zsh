@@ -176,6 +176,7 @@ case ${OSTYPE} in
             # Others
             alias ipp="ip a | grep eth0 | grep inet | tee >(clip.exe)" # WSL2 の IP アドレスを表示 & クリップボードへ格納
             alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"     # 公開鍵を表示 & クリップボードへ格納
+            alias shutdown="cmd.exe /c start wsl.exe '--shutdown'"     # WSL2 をシャットダウンする
         fi
     ;;
 
