@@ -33,7 +33,5 @@
     "redhat.telemetry.enabled": true,
     "editor.fontSize": 15,
     "editor.lineHeight": "1.3em",
-    "workbench.iconTheme": "material-icon-theme",
-    "files.trimTrailingWhitespace": true
-
+    "workbench.iconTheme": "material-icon-theme"
 }
