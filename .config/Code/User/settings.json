@@ -33,5 +33,7 @@
     "redhat.telemetry.enabled": true,
     "editor.fontSize": 15,
     "editor.lineHeight": "1.3em",
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "files.autoGuessEncoding": true,
+    "files.insertFinalNewline": true
 }

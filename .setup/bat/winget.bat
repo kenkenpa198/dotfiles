@@ -8,6 +8,7 @@ set y="--accept-package-agreements"
 ::::: winget からインストール :::::
 winget install Microsoft.VisualStudioCode %y%
 winget install Microsoft.AzureDataStudio %y%
+winget install WinSCP.WinSCP %y%
 winget install --force Google.Chrome %y%
 winget install Lexikos.AutoHotkey %y%
 winget install QL-Win.QuickLook %y%
