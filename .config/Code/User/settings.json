@@ -35,5 +35,4 @@
     "editor.lineHeight": "1.3em",
     "workbench.iconTheme": "material-icon-theme",
     "files.autoGuessEncoding": true,
-    "files.insertFinalNewline": true
 }
