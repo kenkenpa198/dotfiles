@@ -15,7 +15,6 @@ alias c="clear"
 # date
 alias dt="date +'%F (%a) %T'" # 現在日時を yyyy-MM-dd (A) hh:mm:ss 形式で表示
 
-
 # grep
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
@@ -53,6 +52,7 @@ alias g="git"
 alias ga="git add -v"              # -v         / add の内容を表示する
 alias gaa="git add -Av"            # -A         / 変更のあるファイルをすべてステージングする
 alias gb="git branch"
+alias gba="git branch -a"
 alias gc="git checkout"
 alias gcm="git commit -m"
 alias gd="git diff"
