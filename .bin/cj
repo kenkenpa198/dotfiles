@@ -1,0 +1,146 @@
+#!/bin/bash
+
+##### CST to JST #####
+# CST（日本標準時）と JST（米国中部標準時）を出力・計算するコマンド
+
+# 参考:
+# [bash によるオプション解析 - Qiita](https://qiita.com/b4b4r07/items/dcd6be0bb9c9185475bb)
+# [プログラマーの君！ 騙されるな！ シェルスクリプトはそう書いちゃ駄目だ！！ という話 - Qiita](https://qiita.com/piroor/items/77233173707a0baa6360)
+
+
+##### 関数 #####
+
+# コマンド一覧を表示する関数
+function display_usage {
+    cat << EOM
+----------------------------------------------------------------
+                           CST to JST
+----------------------------------------------------------------
+CST（米国中部標準時）と JST（日本標準時）を計算して出力します。
+時差は一律 15h として計算します。サマータイムは考慮しません。
+
+  引数なし : 現在の CST と JST を出力します。
+  -c       : 指定日時を CST とした場合の JST を出力します。
+  -j       : 指定日時を JST とした場合の CST を出力します。
+  -h       : コマンド一覧を出力します。
+
+
+  使用例
+----------
+オプションなしの実行で現在の CST と JST を出力します。
+  $ cj
+
+オプション + 日時指定 で計算を行えます。日時は ' ' で囲んでください。
+  $ cj -c '2022-03-15 12:00:00'
+  $ cj -j '2022-03-15 12:00:00'
+
+計算時の日時形式はいろいろ対応しています。
+  $ cj -c '2022/3/15 8:30:00 PM'
+  $ cj -j 'Tue Mar 15 20:17:45 2022'
+
+日付や時間は省略可能です。省略部分には当日0時を基準にした値が入ります。
+  $ cj -j '2022-03-15'
+  $ cj -j '4/15'
+  $ cj -j '12:00:00'
+  $ cj -j '11:50'
+EOM
+}
+
+# 結果を表示する関数
+function display_result() {
+    cat << EOM
+${1}
+--------------------------------
+${2} CST: ${3}
+${4} JST: ${5}
+EOM
+}
+
+# 現在の CST と UTC を計算・表示する関数
+function display_current_CST_and_JST() {
+    # 出力用の表示を設定
+    local display_msg="Current CST and JST."
+    local cst_mark=" "
+    local jst_mark=" "
+
+    # 計算の基準となる現在の UTC 日時を取得
+    # 実行環境によるタイムゾーンの違いを考慮するため、UTC 日時を現在の CST と UTC を計算する基準としている
+    local utc_dt=`date -u`
+
+    # UTC から CST を計算
+    local cst_dt=`date +'%F (%a) %T' -d "${utc_dt} 6 hours ago" -u`
+
+    # UTC から JST を計算
+    local jst_dt=`date +'%F (%a) %T' -d "${utc_dt} 9 hours" -u`
+
+    # 結果を表示する
+    display_result "$display_msg" "$cst_mark" "$cst_dt" "$jst_mark" "$jst_dt"
+}
+
+# 受け取った引数を CST として JST を計算・表示する関数
+function display_converted_CST_to_JST() {
+    # 出力用の表示を設定
+    local display_msg="Converted CST to JST."
+    local cst_mark="*"
+    local jst_mark=" "
+
+    # 引数で受け取った日付をフォーマットして CST として格納
+    local cst_dt=`date +'%F (%a) %T' -d "${1}"`
+
+    # CST から JST を計算
+    local jst_dt=`date +'%F (%a) %T' -d "${cst_dt} 15 hours"`
+
+    # 結果を表示する
+    display_result "$display_msg" "$cst_mark" "$cst_dt" "$jst_mark" "$jst_dt"
+}
+
+# 受け取った引数を JST として CST を計算・表示する関数
+function display_converted_JST_to_CST() {
+    # 出力用の表示を設定
+    local display_msg="Converted JST to CST."
+    local cst_mark=" "
+    local jst_mark="*"
+
+    # 引数で受け取った日付をフォーマットして JST として格納
+    local jst_dt=`date +'%F (%a) %T' -d "${1}"`
+
+    # JST から CST を計算
+    local cst_dt=`date +'%F (%a) %T' -d "${jst_dt} 15 hours ago"`
+
+    # 結果を表示する
+    display_result "$display_msg" "$cst_mark" "$cst_dt" "$jst_mark" "$jst_dt"
+}
+
+
+##### メイン処理 #####
+
+# 引数が無ければ現在の CST と UTC を表示する
+if [ $# = 0 ]; then
+    display_current_CST_and_JST
+fi
+
+# オプションを指定された場合は処理を場合分けする
+while getopts :c:j:h opt_key
+do
+    case $opt_key in
+        c)
+            # -c 引数を受け取った場合は第2引数を CST として JST を計算する
+            display_converted_CST_to_JST "$OPTARG"
+            ;;
+        j)
+            # -j 引数を受け取った場合は第2引数を JST として CST を計算する
+            display_converted_JST_to_CST "$OPTARG"
+            ;;
+        h)
+            # -h の場合はコマンド一覧を表示して終了
+            display_usage
+            exit 2
+            ;;
+        *)
+            # 引数エラーの場合はメッセージを表示して終了
+            echo "引数を受け取れませんでした。"
+            echo "使い方を確認するには "\'"cj -h"\'" を送信してください。"
+            exit 2
+            ;;
+    esac
+done

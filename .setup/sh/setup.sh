@@ -68,6 +68,9 @@ ln -s ~/dotfiles/.bashrc ~/
 # zsh
 ln -s ~/dotfiles/.zshrc ~/
 
+# bin
+ln -s ~/dotfiles/.bin ~/
+
 
 echo 'zsh をデフォルトシェルにする'
 echo $SHELL
