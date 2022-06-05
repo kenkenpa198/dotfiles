@@ -43,12 +43,33 @@ neofetch --version
 sudo apt install pwgen -y
 pwgen --version
 
+# GNU Compiler Collection
+sudo apt install gcc -y
+gcc --version
+
 # Python
 sudo apt install python3-pip -y
 pip3 --version
 
 # Docker
 # 別ファイルへ記載
+
+# nvm, Node.js
+<< comment
+apt で Node.js を直接インストールできるが、
+古いバージョン（v10系）しかインストールできないため nvm でインストールする。
+
+nvm のインストール確認以降がうまくいかなかったら再起動して nvm --version から再開する。
+
+参考: https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-wsl
+comment
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm --version
+
+nvm ls            # バージョン一覧を表示して N/A と出ることを確認
+nvm install --lts # Node.jsの安定板をインストール
+nvm ls            # 安定バージョンが入っていることを確認
 
 
 echo '\ngit 関連の設定'

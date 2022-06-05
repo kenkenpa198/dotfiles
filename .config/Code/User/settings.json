@@ -35,4 +35,13 @@
     "editor.lineHeight": "1.3em",
     "workbench.iconTheme": "material-icon-theme",
     "files.autoGuessEncoding": true,
+    "cSpell.ignoreWords": [
+        "CODEPREP",
+        "Qiita",
+        "dotfiles",
+        "kenkenpa",
+        "moda",
+        "modane",
+        "unchi"
+    ],
 }
