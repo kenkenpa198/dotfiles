@@ -1,7 +1,7 @@
 ##### dotfiles の git clone #####
 # 1. cd
 # 2. git clone https://github.com/kenkenpa198/dotfiles.git
-# 3. source ~/dotfiles/.bin/sh/setup.sh で実行開始！
+# 3. source ~/dotfiles/.bin/Linux/setup.sh で実行開始！
 
 
 echo '\n環境のアップデート'
