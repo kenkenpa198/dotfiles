@@ -120,9 +120,7 @@ WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。
 セットアップ用のスクリプトファイル関連を保管。  
 こちらを実行したり、記述を拾ったりしつつ環境を整える。
 
-## 4. 参考サイト様
-
-下記以外にもコメントで引用させていただいております🙇‍♂️
+## 4. 参考サイト
 
 ### 4.1. dotfiles の構成
 
@@ -150,3 +148,12 @@ WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。
 
 - [dotfiles管理にhomebrew-bundleを導入する - Qiita](https://qiita.com/so-heee/items/351f0ea4e79196754e52)
 - [Brew Bundleの使い方](https://gist.github.com/yoshimana/43b9205ddedad0ad65f2dee00c6f4261)
+
+### 4.5 GCC
+
+- [Windows10 でのC言語開発環境の作り方 - Qiita](https://qiita.com/fumigoro/items/a07f1e6f059ad4b2b3d2)
+- [gccっていったいなんなんだ - Qiita](https://qiita.com/chihiro/items/1725f9dbb51942534641)
+
+### 4.6 Node.js
+
+- [WSL 2 上で Node.js を設定する | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-wsl)
