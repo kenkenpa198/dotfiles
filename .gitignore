@@ -13,10 +13,8 @@
 !/.config/
 !/.config/**
 
-!/.config/Code/
-!/.config/Code/**
-!/.config/Code/User/
-!/.config/Code/User/**
+!/.setup/
+!/.setup/**
 
 !/.bashrc
 
@@ -29,10 +27,9 @@
 !/.zsh/.dircolors
 
 !/.gitignore
-!/.gitignore_global
+
 !/.gitconfig_shared
+!/.gitignore_global
 
-!/.wslconfig
-
-!/.documents/**
+!/docs/**
 !/README.md

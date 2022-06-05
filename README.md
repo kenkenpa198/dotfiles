@@ -4,7 +4,7 @@
 ```shell
 > cd
 > git clone https://github.com/kenkenpa198/dotfiles.git
-> source ~/dotfiles/.setup/sh/setup.sh
+> source ~/dotfiles/.setup/Linux/setup.sh
 ```
 
 ## 1. 概要
@@ -109,12 +109,12 @@ WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。
 ```shell
 .
 └── .setup
-     ├── bat
-     │   ├── ***.bat
-     │   └── ***.bat
-     └── sh
-         ├── ***.sh
-         └── ***.sh
+     ├── Linux
+     │   ├── ***.sh
+     │   └── ***.sh
+     └── Windows
+         ├── ***.bat
+         └── ***.bat
 ```
 
 セットアップ用のスクリプトファイル関連を保管。  
