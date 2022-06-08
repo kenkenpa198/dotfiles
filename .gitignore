@@ -22,6 +22,7 @@
 !/.zsh/rc/alias.zsh
 !/.zsh/rc/env.zsh
 !/.zsh/rc/func_cj.zsh
+!/.zsh/rc/func_moda.zsh
 !/.zsh/rc/option.zsh
 !/.zsh/rc/theme.zsh
 !/.zsh/.dircolors
