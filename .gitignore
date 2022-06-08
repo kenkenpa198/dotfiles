@@ -20,9 +20,9 @@
 
 !/.zshrc
 !/.zsh/rc/alias.zsh
-!/.zsh/rc/alias_cj.zsh
+!/.zsh/rc/env.zsh
+!/.zsh/rc/func_cj.zsh
 !/.zsh/rc/option.zsh
-!/.zsh/rc/path.zsh
 !/.zsh/rc/theme.zsh
 !/.zsh/.dircolors
 
