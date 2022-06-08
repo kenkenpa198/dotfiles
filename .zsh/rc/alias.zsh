@@ -1,9 +1,4 @@
 ##### Linux #####
-# alias
-alias a="alias"
-alias ag="alias | grep"
-alias ac="cat ~/dotfiles/.zsh/rc/alias.zsh"         # alias を cat で確認（コメント付き）
-alias acg="cat ~/dotfiles/.zsh/rc/alias.zsh | grep" # ↑を grep で
 
 # cd
 alias cdd="cd ~/Works/Develop"
@@ -101,6 +96,10 @@ alias vmks="sudo python3 -m venv --without-pip .venv"  # システムの py を�
 alias va="source .venv/bin/activate"                   # 仮想環境の有効化
 alias vd="deactivate"                                  # 仮想環境の無効化
 alias vrm="rm -r .venv"                                # 仮想環境の削除
+
+
+##### C #####
+alias a="./a.out"
 
 
 ##### Apps #####
