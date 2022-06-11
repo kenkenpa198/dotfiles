@@ -38,11 +38,17 @@
     "cSpell.ignoreWords": [
         "CODEPREP",
         "Qiita",
+        "atoi",
         "dotfiles",
         "elif",
         "kenkenpa",
         "moda",
         "modane",
+        "scanf",
+        "srand",
+        "stdbool",
+        "stdlib",
         "unchi"
     ],
+    "window.zoomLevel": 1,
 }
