@@ -35,6 +35,12 @@
     "editor.lineHeight": "1.3em",
     "workbench.iconTheme": "material-icon-theme",
     "files.autoGuessEncoding": true,
+    "editor.mouseWheelZoom": true,
+    "workbench.editor.tabSizing": "shrink",
+    "window.restoreWindows": "none",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editor.untitled.hint": "hidden",
+    "extensions.autoUpdate": "onlyEnabledExtensions",
     "cSpell.ignoreWords": [
         "CODEPREP",
         "Qiita",
@@ -50,5 +56,5 @@
         "stdlib",
         "unchi"
     ],
-    "window.zoomLevel": 1,
+    "clock.dateFormat": "yyyy-mm-dd (ddd) HH:MM"
 }
