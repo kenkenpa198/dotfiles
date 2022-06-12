@@ -109,6 +109,7 @@ alias pg32="pwgen -c -n -y -B -1 32 8"
 
 
 ##### Others #####
+alias mc="~/Works/Develop/ModaneClock/a.out"
 
 
 ##### 環境ごとの読込 #####
