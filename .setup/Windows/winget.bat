@@ -6,27 +6,29 @@ set y="--accept-package-agreements"
 
 
 ::::: winget からインストール :::::
+winget install 7zip.7zip %y%
+winget install Avidemux.Avidemux %y%
+winget install -e --id BlenderFoundation.Blender %y%
+winget install Lexikos.AutoHotkey %y%
+winget install File-New-Project.EarTrumpet %y%
+winget install Git.Git %y%
+winget install Google.Chrome --force %y%
+winget install Apple.iTunes %y%
+winget install Discord.Discord %y%
+winget install Docker.DockerDesktop %y%
+winget install Logitech.Options %y%
+winget install LINE.LINE %y%
 winget install Microsoft.VisualStudioCode %y%
 winget install Microsoft.AzureDataStudio %y%
-winget install WinSCP.WinSCP %y%
-winget install --force Google.Chrome %y%
-winget install Lexikos.AutoHotkey %y%
-winget install QL-Win.QuickLook %y%
-winget install Discord.Discord %y%
-winget install LINE.LINE %y%
+winget install Mintty.WSLtty %y%
 winget install OBSProject.OBSStudio %y%
-winget install Avidemux.Avidemux %y%
+winget install QL-Win.QuickLook %y%
+winget install Atlassian.Sourcetree %y%
+winget install xanderfrangos.twinkletray %y%
 winget install Valve.Steam %y%
 winget install WinMerge.WinMerge %y%
-winget install Apple.iTunes %y%
-winget install 7zip.7zip %y%
-winget install Docker.DockerDesktop %y%
-winget install Atlassian.Sourcetree %y%
-winget install Git.Git %y%
-winget install -e --id BlenderFoundation.Blender %y%
-winget install Logitech.Options %y%
-winget install xanderfrangos.twinkletray %y%
-winget install File-New-Project.EarTrumpet %y%
+winget install WinSCP.WinSCP %y%
+
 
 
 ::::: Microsoft Store からインストール :::::
