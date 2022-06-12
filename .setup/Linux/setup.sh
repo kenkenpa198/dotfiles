@@ -10,6 +10,12 @@ clear
 sudo apt update && sudo apt upgrade -y
 
 
+echo '\n環境を日本語化'
+sudo apt install language-pack-ja -y
+sudo update-locale LANG=ja_JP.UTF8
+sudo apt install manpages-ja manpages-ja-dev -y
+
+
 echo '\nSSH キーの生成'
 cd
 mkdir ~/.ssh
