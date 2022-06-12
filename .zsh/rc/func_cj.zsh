@@ -22,7 +22,7 @@ cj() {
 
         # 計算の基準となる現在の UTC 日時を取得
         # 実行環境によるタイムゾーンの違いを考慮するため、UTC 日時を現在の CST と UTC を計算する基準としている
-        utc_dt=`date -u`
+        utc_dt=`date +'%F (%a) %T' -u`
 
         # UTC から CST を計算
         cst_dt=`date +'%F (%a) %T' -d "${utc_dt} 6 hours ago" -u`
