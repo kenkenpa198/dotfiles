@@ -1,6 +1,10 @@
 ##### moda #####
 # もだねちゃんが来てくれる関数！！
 
+# 参考:
+# [bashでコマンドが無い時にやる夫が動いて煽ってくるcommand_not_found_handle() | 俺的備忘録 〜なんかいろいろ〜](https://orebibou.com/ja/home/201810/20181005_001/)
+# [bash をウザくする - とりあえず暇だったし何となくはじめたブログ](https://khiker.hatenablog.jp/entry/20070814/bash_yaruo)
+
 moda() {
 
     # 引数が無ければミニもだねちゃんを出力
