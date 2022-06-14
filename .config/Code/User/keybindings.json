@@ -1,0 +1,8 @@
+[
+    {
+        "key":"alt+o",
+        "command":"type",
+        "args":{"text":"<!-- omit in toc -->"},
+        "when": "editorTextFocus"
+    }
+]
