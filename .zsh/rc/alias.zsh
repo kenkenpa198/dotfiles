@@ -109,7 +109,9 @@ alias pg32="pwgen -c -n -y -B -1 32 8"
 
 
 ##### Others #####
-alias mc="~/Works/Develop/ModaneClock/a.out"
+alias mc="~/Works/Develop/ModaClock/a.out"
+alias wttr="curl wttr.in/Fukuoka"
+alias wttrs="curl 'wttr.in/Fukuoka?0Q'"
 
 
 ##### 環境ごとの読込 #####
