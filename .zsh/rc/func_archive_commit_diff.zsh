@@ -12,7 +12,7 @@ acd() {
     # コマンド実行エラー表示関数
     function display_cmd_err() {
         echo "git archive コマンドの実行中にエラーが発生しました。"
-        echo "ブランチ名の指定などが正しいか確認してください。"
+        echo "コミットの指定方法が正しいか確認してください。"
         echo "使い方を確認するには "\'"acd --help"\'" を送信してください。"
     }
 
@@ -78,7 +78,7 @@ help_msg
         to_commit \
         out_file_path="archive.zip" # デフォルトの出力ファイル名
 
-    # 引数が 0 のときは引数エラーを表示して終了
+    # 引数が0個のときは引数エラーを表示して終了
     if [ $# = 0 ]; then
         display_args_err
         return 1
@@ -88,7 +88,7 @@ help_msg
         display_help
         return 0
 
-    # 引数が3つの場合
+    # 引数が3個の場合
     elif [ $# = 3 ]; then
         # 第1引数を「変更前のコミット」、第2引数を「変更後のコミット」として格納
         from_commit=$1
@@ -97,7 +97,7 @@ help_msg
         # 第3引数を「出力する ZIP のファイルパス」として格納
         out_file_path=$3
 
-    # 引数が2つの場合
+    # 引数が2個の場合
     elif [ $# = 2 ]; then
         # 第1引数を「変更前のコミット」、第2引数を「変更後のコミット」として格納
         from_commit=$1
@@ -122,6 +122,4 @@ help_msg
         echo "差分ファイルを出力しました。"
         echo $out_file_path
     fi
-
-    return 0
 }
