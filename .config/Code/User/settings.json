@@ -54,7 +54,8 @@
         "srand",
         "stdbool",
         "stdlib",
-        "unchi"
+        "unchi",
+        "wttr"
     ],
     "clock.dateFormat": "yyyy-mm-dd (ddd) HH:MM"
 }
