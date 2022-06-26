@@ -17,7 +17,7 @@ kenkenpa198 の dotfiles 。
 1. 冒頭のコマンドを実行してクローン & セットアップ。
 2. その後シンボリックリンクなどを .setup 配下のスクリプトや README を参考に色々つなげる。
 
-Windows 環境の場合は先に [WSL2 環境の構築](.documents/Install_WSL2.md) をしよう。  
+Windows 環境の場合は先に [WSL2 環境の構築](docs/Install_WSL2.md) をしよう。  
 その他補足資料やメモは [docs ディレクトリ](https://github.com/kenkenpa198/dotfiles/tree/main/docs) で管理。
 
 ## 3. 構成
@@ -55,7 +55,7 @@ secret.zsh はトークンの環境変数等、セキュアな情報を記述し
 ホワイトリストには記述していないため Git 上には登録されない。  
 未来の自分は環境を変えた時に移行し忘れないようにしてね！
 
-頭に `func_` が付いているファイルは、alias.zsh から切り離した自作のシェル関数ファイル。  
+頭に `func_` が付いているファイルは alias.zsh から切り離した自作のシェル関数ファイル。  
 それぞれの関数については [4. シェル関数](#4-シェル関数) セクションに記載。  
 もっとファイルが増えてきそうだったら別ディレクトリで管理したい。
 
@@ -69,7 +69,7 @@ secret.zsh はトークンの環境変数等、セキュアな情報を記述し
 ```
 
 .config ディレクトリ配下には VSCode や Homebrew などアプリごとの設定ファイルを保管。  
-基本的には各設定ファイルのコメントや [mklink.bat](.setup/bat/mklink.bat) などを参考にそれぞれシンボリックリンクを繋げる。
+基本的には各設定ファイルのコメントや [mklink.bat](.setup/Windows/mklink.bat) などを参考にそれぞれシンボリックリンクを繋げる。
 
 Windows Terminal の settings.json と WSL2 用の .wslconfig のみ、シンボリックリンクではなくコピペや複製で対応する。  
 WSL2 が立ち上がる前に WSL2 内のファイルを読み込もうとして失敗してしまうようなため。
@@ -140,7 +140,7 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
 指定にはコミット ID やブランチ名が使えます。  
 名前は「Archive Commit Diff」の略。
 
-example :
+Example :
 
 ```shell
 > acd main feature/add_tsukune
@@ -156,7 +156,7 @@ archive.zip
 CST（米国中部標準時）と JST（日本標準時）を計算して出力する関数。  
 名前は「CST to JST」の略。
 
-example :
+Example :
 
 ```shell
 > cj -c 'Sun, 22 Dec 2021 11:56:26'
@@ -171,7 +171,7 @@ Converted CST to JST.
 もだねちゃんが来てくれる関数。  
 引数指定で大きくなったりアニメーションしたりします。
 
-example :
+Example :
 
 ```shell
 > moda
