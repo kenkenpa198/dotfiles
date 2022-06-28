@@ -17,6 +17,21 @@ function left-prompt {
     reset='%{\e[0m%}'          # reset
     sharp='\uE0B0'             # triangle
 
+    # 実行環境によってパスの背景色を変更
+    DistributorId=`lsb_release --id`
+    case ${DistributorId} in
+
+        # Ubuntu
+        # *Ubuntu)
+        #     path_b='202m%}'
+        # ;;
+
+        # Raspberry Pi OS
+        *Raspbian)
+            path_b='203m%}'
+        ;;
+    esac
+
     user="${back_color}${name_b}${text_color}${name_t}"
     dir="${back_color}${path_b}${text_color}${path_t}"
 
