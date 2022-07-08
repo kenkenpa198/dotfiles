@@ -223,3 +223,8 @@ Example :
 ### 5.7. Node.js
 
 - [WSL 2 上で Node.js を設定する | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-wsl)
+
+### 5.8. VSCode
+
+- [【小ネタ】Visual Studio Code で Markdown All in One 機能拡張のインデントを 4 スペースに変更する | DevelopersIO](https://dev.classmethod.jp/articles/201906-vscode-markdown-customize-indent-size-settings/)
+- [markdownlint のインデント調整 - public note](https://ts223.hatenablog.com/entry/vscode-mdl)

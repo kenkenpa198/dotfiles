@@ -154,6 +154,7 @@ case ${OSTYPE} in
             alias clip="clip.exe"
             alias open="explorer.exe"
             alias op="open"
+            alias opr="open README.md"
             alias notepad="notepad.exe"
             alias sakura="sakura.exe"
             alias wm="WinMergeU.exe"

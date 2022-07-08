@@ -57,5 +57,13 @@
         "unchi",
         "wttr"
     ],
-    "clock.dateFormat": "yyyy-mm-dd (ddd) HH:MM"
+    "clock.dateFormat": "yyyy-mm-dd (ddd) HH:MM",
+    "markdown.extension.list.indentationSize": "inherit",
+    "markdownlint.focusMode": false,
+    "markdownlint.config": {
+        "default": true,
+        "MD007": {
+            "indent": 4
+        }
+    }
 }
