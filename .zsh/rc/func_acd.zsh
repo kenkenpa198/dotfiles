@@ -58,13 +58,13 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
  注意
 ------
 - 指定されたコミットが見つからなかった場合はエラーメッセージを表示しますが、
-  その際に空の差分ファイルも出力されてしまいます。
+  その際に空の ZIP ファイルも出力されてしまいます。
   確認して削除をお願いします。
 help_msg
     }
 
     # git archive コマンドの実行関数
-    function run_git_archive() {
+    function do_git_archive() {
         # $1 : 変更前のコミット
         # $2 : 変更後のコミット
         # $3 : 出力するファイルパス
@@ -114,7 +114,7 @@ help_msg
     fi
 
     # git archive コマンドを実行
-    run_git_archive $from_commit $to_commit $out_file_path
+    do_git_archive $from_commit $to_commit $out_file_path
 
     # 終了ステータスのチェック
     if [ $? -gt 0 ]; then
