@@ -1,6 +1,10 @@
 ##### Archive Commit Diff #####
 # Gir リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェル関数
 
+# 参考 :
+# [git コマンドで差分納品 zipを作る (かつ、不要ファイルは含めないようにしたい) ｜ Tips Note by TAM](https://www.tam-tam.co.jp/tipsnote/program/post12992.html)
+# 同僚の方のコード（ありがとうございました！！）
+
 acd() {
     ##### 関数の定義 #####
     # 引数エラー表示関数
