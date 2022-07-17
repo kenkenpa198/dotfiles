@@ -1,6 +1,10 @@
 ##### CST to JST #####
 # CST（日本標準時）と JST（米国中部標準時）を出力・計算するシェル関数
 
+# 参考 :
+# [date コマンド | コマンドの使い方(Linux) | hydroculのメモ](https://hydrocul.github.io/wiki/commands/date.html)
+# [日付を取得する | UNIX & Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/date.html)
+
 cj() {
     ##### 関数の定義 #####
     # ヘルプ表示関数

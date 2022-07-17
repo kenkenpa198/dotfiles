@@ -18,7 +18,7 @@ kenkenpa198 の dotfiles 。
 2. その後シンボリックリンクなどを .setup 配下のスクリプトや README を参考に色々つなげる。
 
 Windows 環境の場合は先に [WSL2 環境の構築](docs/Install_WSL2.md) をしよう。  
-その他補足資料やメモは [docs ディレクトリ](https://github.com/kenkenpa198/dotfiles/tree/main/docs) で管理。
+その他補足資料やメモは [docs ディレクトリ](docs) で管理。
 
 ## 3. 構成
 
@@ -36,7 +36,7 @@ dotfiles の構成を記載。
 │   ├── .dircolors
 │   └── rc
 │       ├── alias.zsh
-│       ├── func_*.zsh
+│       ├── func_***.zsh
 │       ├── env.zsh
 │       ├── option.zsh
 │       ├── theme.zsh
@@ -87,15 +87,15 @@ WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。
 
 環境用の .gitconfig の基本設定やグローバルな除外設定を管理。
 
+.gitconfig の基本設定は .gitconfig_shared に切り分け、.gitignore_global と同様に .gitconfig へ外部読み込み設定を行うような運用にしている。  
+.gitconfig にはメアドとユーザー名を記述する必要があり、Git 管理の対象にしたくなかったため。
+
 .gitignore_global を設定する前にコミットなどしちゃうと、コミット済みのファイルには適用されなくなるので注意。  
-やらかしたら下記コマンドでキャッシュを削除して改めてコミットする。
+やらかしたら下記コマンドでキャッシュを削除してから改めてコミットする。
 
 ```shell
 > git rm -r --cached .
 ```
-
-.gitconfig の基本設定は .gitconfig_shared に切り分け、.gitignore_global と同様に .gitconfig へ外部読み込み設定を行うような運用にしている。  
-.gitconfig にはメアドとユーザー名を記述する必要があり、Git 管理の対象にしたくなかったため。
 
 ### 3.4. gitignore
 
@@ -129,12 +129,12 @@ WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。
 
 ## 4. シェル関数
 
-`.zsh/rc/` 配下に保存している自作の各シェル関数を紹介。
+[.zsh/rc/](.zsh/rc) 配下に保存している自作の各シェル関数を紹介。
 
 使ってみたい場合は内容をそのまま .bashrc などに記述してもらえれば動くと思います。  
 それぞれ `-h` オプションでヘルプを表示します。
 
-### 4.1. acd 関数
+### 4.1. [acd 関数](.zsh/rc/func_acd.zsh)
 
 Git リポジトリ上で指定したコミット間の差分ファイルを ZIP 形式で出力する関数。  
 指定にはコミット ID やブランチ名が使えます。  
@@ -151,7 +151,7 @@ Example :
 archive.zip
 ```
 
-### 4.2. cj 関数
+### 4.2. [cj 関数](.zsh/rc/func_cj.zsh)
 
 CST（米国中部標準時）と JST（日本標準時）を計算して出力する関数。  
 名前は「CST to JST」の略。
@@ -166,7 +166,7 @@ Converted CST to JST.
   JST: 2021-12-23 (Thu) 02:56:26
 ```
 
-### 4.3. moda 関数
+### 4.3. [moda 関数](.zsh/rc/func_moda.zsh)
 
 もだねちゃんが来てくれる関数。  
 引数指定で大きくなったりアニメーションしたりします。
@@ -202,7 +202,19 @@ Example :
 - [LinuxのOS名やバージョンを調べる（CentOS/Ubuntu） | pc.casey.jp](https://pc.casey.jp/archives/153904342)
 - [bash/zshで16色(ANSI カラーコード)と256色のカラーパレットを表示 - よんちゅBlog](https://yonchu.hatenablog.com/entry/2012/10/20/044603)
 
-### 5.4. Git
+### 5.4. シェル関数
+
+- acd 関数
+    - [git コマンドで差分納品 zipを作る (かつ、不要ファイルは含めないようにしたい) ｜ Tips Note by TAM](https://www.tam-tam.co.jp/tipsnote/program/post12992.html)
+    - 同僚の方のコード（ありがとうございました！！）
+- cj 関数
+    - [date コマンド | コマンドの使い方(Linux) | hydroculのメモ](https://hydrocul.github.io/wiki/commands/date.html)
+    - [日付を取得する | UNIX & Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/date.html)
+- moda 関数
+    - [bashでコマンドが無い時にやる夫が動いて煽ってくるcommand_not_found_handle() | 俺的備忘録 〜なんかいろいろ〜](https://orebibou.com/ja/home/201810/20181005_001/)
+    - [bash をウザくする - とりあえず暇だったし何となくはじめたブログ](https://khiker.hatenablog.jp/entry/20070814/bash_yaruo)
+
+### 5.5. Git
 
 - [最低限しておくといいgitconfigの設定 - Qiita](https://qiita.com/hayamofu/items/d8103e789196bcd8b489)
 - [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
@@ -210,21 +222,23 @@ Example :
 - [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
 - [.gitignoreに記載したのに反映されない件 - Qiita](https://qiita.com/fuwamaki/items/3ed021163e50beab7154)
 
-### 5.5. Homebrew
+### 5.6. Homebrew
 
 - [dotfiles管理にhomebrew-bundleを導入する - Qiita](https://qiita.com/so-heee/items/351f0ea4e79196754e52)
 - [Brew Bundleの使い方](https://gist.github.com/yoshimana/43b9205ddedad0ad65f2dee00c6f4261)
 
-### 5.6. GCC
+### 5.7. GCC
 
 - [Windows10 でのC言語開発環境の作り方 - Qiita](https://qiita.com/fumigoro/items/a07f1e6f059ad4b2b3d2)
 - [gccっていったいなんなんだ - Qiita](https://qiita.com/chihiro/items/1725f9dbb51942534641)
 
-### 5.7. Node.js
+### 5.8. Node.js
 
 - [WSL 2 上で Node.js を設定する | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-wsl)
 
-### 5.8. VSCode
+### 5.9. VSCode
 
-- [【小ネタ】Visual Studio Code で Markdown All in One 機能拡張のインデントを 4 スペースに変更する | DevelopersIO](https://dev.classmethod.jp/articles/201906-vscode-markdown-customize-indent-size-settings/)
-- [markdownlint のインデント調整 - public note](https://ts223.hatenablog.com/entry/vscode-mdl)
+- マークダウン
+    - [自己流の手順書フォーマットを公開してみた | DevelopersIO](https://dev.classmethod.jp/articles/non-97-operation-manual/)
+    - [【小ネタ】Visual Studio Code で Markdown All in One 機能拡張のインデントを 4 スペースに変更する | DevelopersIO](https://dev.classmethod.jp/articles/201906-vscode-markdown-customize-indent-size-settings/)
+    - [markdownlint のインデント調整 - public note](https://ts223.hatenablog.com/entry/vscode-mdl)
