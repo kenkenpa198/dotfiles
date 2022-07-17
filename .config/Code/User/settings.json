@@ -64,6 +64,7 @@
         "default": true,
         "MD007": {
             "indent": 4
-        }
+        },
+        "MD014": false
     }
 }
