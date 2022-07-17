@@ -2,9 +2,9 @@
 # dotfiles
 
 ```shell
-> cd
-> git clone https://github.com/kenkenpa198/dotfiles.git
-> source ~/dotfiles/.setup/Linux/setup.sh
+$ cd
+$ git clone https://github.com/kenkenpa198/dotfiles.git
+$ source ~/dotfiles/.setup/Linux/setup.sh
 ```
 
 ## 1. 概要
@@ -75,7 +75,7 @@ Windows Terminal の settings.json と WSL2 用の .wslconfig のみ、シンボ
 WSL2 が立ち上がる前に WSL2 内のファイルを読み込もうとして失敗してしまうようなため。
 
 WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。  
-上書きしちゃったら `設定 > 新しいプロファイルを追加します > プロファイルを複製する` から該当のプロファイルを選んで複製 → 複製されたプロファイルの GUID で設定しなおす。
+上書きしちゃったら `設定 $ 新しいプロファイルを追加します $ プロファイルを複製する` から該当のプロファイルを選んで複製 → 複製されたプロファイルの GUID で設定しなおす。
 
 ### 3.3. git
 
@@ -94,7 +94,7 @@ WSL2 の設定ファイルは GUID 設定を上書きしないよう注意。
 やらかしたら下記コマンドでキャッシュを削除してから改めてコミットする。
 
 ```shell
-> git rm -r --cached .
+$ git rm -r --cached .
 ```
 
 ### 3.4. gitignore
@@ -143,7 +143,7 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
 Example :
 
 ```shell
-> acd main feature/add_tsukune
+$ acd main feature/add_tsukune
 変更前のコミット : main
 変更後のコミット : feature/add_tsukune
 
@@ -159,7 +159,7 @@ CST（米国中部標準時）と JST（日本標準時）を計算して出力�
 Example :
 
 ```shell
-> cj -c 'Sun, 22 Dec 2021 11:56:26'
+$ cj -c 'Sun, 22 Dec 2021 11:56:26'
 Converted CST to JST.
 --------------------------------
 * CST: 2021-12-22 (Wed) 11:56:26
@@ -174,7 +174,7 @@ Converted CST to JST.
 Example :
 
 ```shell
-> moda
+$ moda
    ( ),
 \(^_^) moda!
 ```
@@ -242,3 +242,5 @@ Example :
     - [自己流の手順書フォーマットを公開してみた | DevelopersIO](https://dev.classmethod.jp/articles/non-97-operation-manual/)
     - [【小ネタ】Visual Studio Code で Markdown All in One 機能拡張のインデントを 4 スペースに変更する | DevelopersIO](https://dev.classmethod.jp/articles/201906-vscode-markdown-customize-indent-size-settings/)
     - [markdownlint のインデント調整 - public note](https://ts223.hatenablog.com/entry/vscode-mdl)
+    - [「markdownlint」を使ってメンテナブルなMarkdownを目指してみる - 憂鬱な世界にネコパンチ！](https://nekopunch.hatenablog.com/entry/2018/10/16/230529)
+    - [VSCode の markdownlint プラグインを特定ルールを無視する設定を行う | らくがきちょう v3](https://sig9.org/archives/4456)
