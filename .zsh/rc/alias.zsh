@@ -53,6 +53,7 @@ alias gcm="git commit -m"
 alias gd="git diff"
 alias gds="git diff --stat"        # --stat     / diff のあるファイル名のみを表示
 alias gf="git fetch"
+alias gfp="git fetch --prune"
 alias gl="git log"
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # ログを見やすい形で出力（https://prograshi.com/general/git/how-to-use-c-in-pretty-format/）
 alias gm="git merge"
@@ -103,13 +104,12 @@ alias a="./a.out"
 
 
 ##### Apps #####
-alias pg8="pwgen -c -n -y -B -1 8 8"
-alias pg12="pwgen -c -n -y -B -1 12 8"
-alias pg32="pwgen -c -n -y -B -1 32 8"
+alias pw8="pwgen -c -n -y -B -1 8 8"
+alias pw12="pwgen -c -n -y -B -1 12 8"
+alias pw32="pwgen -c -n -y -B -1 32 8"
 
 
 ##### Others #####
-alias mc="~/Works/Develop/ModaClock/a.out"
 alias wttr="curl wttr.in/${WTTR_LOCALE}"
 alias wttrs="curl 'wttr.in/${WTTR_LOCALE}?0Q'"
 
@@ -177,9 +177,8 @@ case ${OSTYPE} in
             }
 
             # Others
-            alias ipp="ip a | grep eth0 | grep inet | tee >(clip.exe)" # WSL2 の IP アドレスを表示 & クリップボードへ格納
-            alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(clip.exe)"     # 公開鍵を表示 & クリップボードへ格納
-            alias shutdown="cmd.exe /c start wsl.exe '--shutdown'"     # WSL2 をシャットダウンする
+            alias ipc="hostname -I | tee >(clip.exe)" # WSL2 の IP アドレスを表示 & クリップボードへ格納
+            alias shutdown="cmd.exe /c start wsl.exe '--shutdown'" # WSL2 をシャットダウンする
         fi
     ;;
 
