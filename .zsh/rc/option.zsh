@@ -22,7 +22,7 @@ HISTFILE=~/.zsh_history
 export HISTSIZE=100
 
 # 履歴ファイルに保存される履歴の件数
-export SAVEHIST=800
+export SAVEHIST=4000
 
 # 同時に起動しているzshの間で history を共有する
 setopt share_history

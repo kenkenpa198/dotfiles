@@ -53,6 +53,10 @@ pwgen --version
 sudo apt install gcc -y
 gcc --version
 
+# GNU Compiler Collection
+sudo apt install cppcheck -y
+cppcheck --version
+
 # Python
 sudo apt install python3-pip -y
 pip3 --version
