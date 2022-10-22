@@ -1,22 +1,22 @@
-##### dotfiles の git clone #####
-# 1. cd
-# 2. git clone https://github.com/kenkenpa198/dotfiles.git
-# 3. source ~/dotfiles/.bin/Linux/setup.sh で実行開始！
+#!/bin/sh -x
 
-
-echo '\n環境のアップデート'
-cd
 clear
+cd
+
+##### 環境のアップデート #####
+echo '環境のアップデート'
 sudo apt update && sudo apt upgrade -y
 
 
-echo '\n環境を日本語化'
+##### 環境を日本語化 #####
+echo '環境を日本語化'
 sudo apt install language-pack-ja -y
 sudo update-locale LANG=ja_JP.UTF8
 sudo apt install manpages-ja manpages-ja-dev -y
 
 
-echo '\nSSH キーの生成'
+##### SSH キーの生成 #####
+echo 'SSH キーの生成'
 cd
 mkdir ~/.ssh
 cd .ssh
@@ -24,30 +24,14 @@ ssh-keygen -t rsa # 3回すべてエンターキー
 ls -la            # id_rsa（秘密鍵）と id_rsa.pub（公開鍵）が存在するか確認
 
 
-echo '\nアプリインストール'
-cd
-
-# zsh
-sudo apt install zsh -y
-zsh --version
+##### apt インストール #####
+echo 'apt インストール'
 
 # git
 sudo apt install git -y
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt upgrade -y
 git --version
-
-# tree
-sudo apt install tree
-tree --version
-
-# neofetch
-sudo apt install neofetch -y
-neofetch --version
-
-# pwgen
-sudo apt install pwgen -y
-pwgen --version
 
 # GNU Compiler Collection
 sudo apt install gcc -y
@@ -57,12 +41,9 @@ gcc --version
 sudo apt install cppcheck -y
 cppcheck --version
 
-# Python
-sudo apt install python3-pip -y
-pip3 --version
-
-# Docker
-# 別ファイルへ記載
+# neofetch
+sudo apt install neofetch -y
+neofetch --version
 
 # nvm, Node.js
 << comment
@@ -81,15 +62,39 @@ nvm ls            # バージョン一覧を表示して N/A と出ることを�
 nvm install --lts # Node.jsの安定板をインストール
 nvm ls            # 安定バージョンが入っていることを確認
 
+# pwgen
+sudo apt install pwgen -y
+pwgen --version
 
-echo '\ngit 関連の設定'
+# Python
+sudo apt install python3-pip -y
+pip3 --version
+
+# tree
+sudo apt install tree
+tree --version
+
+# zsh
+sudo apt install zsh -y
+zsh --version
+
+# 最後にパッケージキャッシュを削除
+sudo apt clean -y
+
+
+##### git 関連の設定 #####
+echo 'git 関連の設定'
+
 cd
 ln -s ~/dotfiles/.gitignore_global ~/                     # .gitignore_global のシンボリックリンクを作成
 ln -s ~/dotfiles/.gitconfig_shared ~/                     # .gitconfig_shared のシンボリックリンクを作成
 git config --global core.excludesfile ~/.gitignore_global # .gitconfig へ .gitconfig_global を読み込み設定
 git config --global include.path ~/.gitconfig_shared      # .gitconfig へ .gitconfig_shared を外部読み込み設定
 
-echo '\nshell の設定ファイルのシンボリックリンクを配置'
+
+##### shell の設定ファイルのシンボリックリンクを配置 #####
+echo 'shell の設定ファイルのシンボリックリンクを配置'
+
 cd
 # bash
 mkdir ~/backup
@@ -103,9 +108,10 @@ ln -s ~/dotfiles/.zshrc ~/
 ln -s ~/dotfiles/.bin ~/
 
 
+##### zsh の設定 #####
 echo 'zsh をデフォルトシェルにする'
 echo $SHELL
 chsh -s $(which zsh)
 
-echo '\nsetup.sh を完了しました'
+echo 'setup.sh を完了しました'
 echo '再起動してデフォルトシェルが変わっているか確認してください: echo $SHELL'
