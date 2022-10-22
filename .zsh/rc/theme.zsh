@@ -36,10 +36,10 @@ function left-prompt {
     dir="${back_color}${path_b}${text_color}${path_t}"
 
     # HackGenNerd Console などパワーライン記号が半角の場合はこちら
-    echo "${user}%n@%m${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp}${reset}\n${text_color}${arrow}> ${reset}"
+    echo "${user}%n@%m${back_color}${path_b}${text_color}${name_b}${sharp} ${dir}%~${reset}${text_color}${path_b}${sharp}${reset}\n${text_color}${arrow}$ ${reset}"
 
     # Ricty Diminished for Powerline などパワーライン記号が全角の場合はこちら
-    # echo "${user}%n@%m${back_color}${path_b}${text_color}${name_b}${sharp}  ${dir}%~${reset}${text_color}${path_b}${sharp} ${reset}\n${text_color}${arrow}> ${reset}"
+    # echo "${user}%n@%m${back_color}${path_b}${text_color}${name_b}${sharp}  ${dir}%~${reset}${text_color}${path_b}${sharp} ${reset}\n${text_color}${arrow}$ ${reset}"
 }
 
 PROMPT=`left-prompt`

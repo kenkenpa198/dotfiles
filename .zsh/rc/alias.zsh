@@ -1,8 +1,7 @@
-##### Linux #####
-
+##### Linux Commands #####
 # cd
-alias cdd="cd ~/Works/Develop"
-alias dev="cdd"
+alias dev="cd ~/Works/Develop"
+alias dot="cd ~/dotfiles"
 
 # clear
 alias c="clear"
@@ -24,34 +23,34 @@ alias s="source"
 alias ss="source ~/.zshrc"
 
 
-##### dotfiles #####
-alias dot="cd ~/dotfiles"
-alias dotv="cd ~/dotfiles && vim ~/dotfiles"
-alias dotc="cd ~/dotfiles && code ~/dotfiles"
+##### C #####
+alias a="./a.out"
 
 
-##### zsh #####
-# zmv
-alias zmvnw="noglob zmv -nW" # 置換プレビュー
-alias zmvw="noglob zmv -W"   # 置換
+##### curl #####
+alias wttr="curl wttr.in/${WTTR_LOCALE}"
+alias wttrs="curl 'wttr.in/${WTTR_LOCALE}?0Q'"
 
 
-##### tree #####
-alias tr="tree 	--dirsfirst -I '__pycache__'"
-alias tra="tree -a --dirsfirst -I '__pycache__|.venv|.git'"
-alias traa="tree -a --dirsfirst"
+##### Docker #####
+alias dst="sudo service docker status"                              # Docker の起動状況を確認
+alias dsta="sudo service docker start ; sudo service docker status" # Docker を起動
+alias dsto="sudo service docker stop ; sudo service docker status"  # Docker を停止
+
+alias d="docker"
+alias dc="docker-compose"
+alias drmn="docker rmi $(docker images -f 'dangling=true' -q)"      # None なイメージを一括削除（https://suin.io/537）
 
 
 ##### Git #####
-alias g="git"
-alias ga="git add -v"              # -v         / add の内容を表示する
-alias gaa="git add -Av"            # -A         / 変更のあるファイルをすべてステージングする
+alias ga="git add -v" # -v / add の内容を表示する
+alias gaa="git add -Av" # -A / 変更のあるファイルをすべてステージングする
 alias gb="git branch"
 alias gba="git branch -a"
 alias gc="git checkout"
 alias gcm="git commit -m"
 alias gd="git diff"
-alias gds="git diff --stat"        # --stat     / diff のあるファイル名のみを表示
+alias gds="git diff --stat" # --stat / diff のあるファイル名のみを表示
 alias gf="git fetch"
 alias gfp="git fetch --prune"
 alias gl="git log"
@@ -59,36 +58,23 @@ alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset 
 alias gm="git merge"
 alias gr="git restore"
 alias grs="git restore --staged ." # --staged . / ステージングをすべて元に戻す
-alias gp="git push"
-alias gpl="git pull"
-alias gpo="git push origin"
 alias gpoh="git push origin HEAD"
 alias gs="git status"
-alias gss="git status -s"          # -s         / 短縮表示
-alias gst="git stash"
-alias gstp="git stash pop"
-alias gsts="git stash save"
+alias gss="git status -s" # -s / 短縮表示
 alias gsw="git switch"
-alias gswc="git switch -c"         # -c         / ブランチを作成する
+alias gswc="git switch -c" # -c / ブランチを作成する
 
 
-##### Docker #####
-# Dcoker アプリ立ち上げ
-alias dst="sudo service docker status"                              # Docker の起動状況を確認
-alias dsta="sudo service docker start ; sudo service docker status" # Docker を起動
-alias dsto="sudo service docker stop ; sudo service docker status"  # Docker を停止
+##### pwgen #####
+alias pw8="pwgen -c -n -y -B -1 8 8"
+alias pw12="pwgen -c -n -y -B -1 12 8"
+alias pw32="pwgen -c -n -y -B -1 32 8"
 
-# Docker コマンド
-alias d="docker"
-alias drmn="docker rmi $(docker images -f 'dangling=true' -q)" # None なイメージを一括削除（https://suin.io/537）
 
-# Docker Compose コマンド
-alias dc="docker-compose"
-alias dcu="docker-compose up"          # up    / コンテナを立ち上げ
-alias dcud="docker-compose up -d"      # d     / バックグラウンドで立ち上げ
-alias dcub="docker-compose up --build" # build / キャッシュを使わずにビルドして立ち上げ
-alias dcs="docker-compose stop"        # stop  / コンテナを停止
-alias dcd="docker-compose down"        # down  / コンテナを削除
+##### tree #####
+alias tr="tree 	--dirsfirst -I '__pycache__'"               # 隠しファイル以外を表示
+alias tra="tree -a --dirsfirst -I '__pycache__|.venv|.git'" # 隠しファイルを含めて表示（設定系のファイルは除外）
+alias traa="tree -a --dirsfirst"                            # とにかくすべて表示
 
 
 ##### venv #####
@@ -99,19 +85,10 @@ alias vd="deactivate"                                  # 仮想環境の無効�
 alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 
-##### C #####
-alias a="./a.out"
-
-
-##### Apps #####
-alias pw8="pwgen -c -n -y -B -1 8 8"
-alias pw12="pwgen -c -n -y -B -1 12 8"
-alias pw32="pwgen -c -n -y -B -1 32 8"
-
-
-##### Others #####
-alias wttr="curl wttr.in/${WTTR_LOCALE}"
-alias wttrs="curl 'wttr.in/${WTTR_LOCALE}?0Q'"
+##### zsh #####
+# zmv
+alias zmvnw="noglob zmv -nW" # 置換プレビュー
+alias zmvw="noglob zmv -W"   # 置換
 
 
 ##### 環境ごとの読込 #####
@@ -155,12 +132,6 @@ case ${OSTYPE} in
             alias open="explorer.exe"
             alias op="open"
             alias opr="open README.md"
-            alias notepad="notepad.exe"
-            alias sakura="sakura.exe"
-            alias wm="WinMergeU.exe"
-            alias ggg="python3 ~/Works/Develop/GuruGuruGrep/GGGrep.py"
-            alias gggr="python3 ~/Works/Develop/GuruGuruGrep/GGGrep.py -r"
-            alias gdd="python3 ~/Works/Develop/GenerateDummyData/GenerateDummyData.py"
 
             # ググる
             # https://osa.hatenablog.jp/entry/2020/02/24/121725
