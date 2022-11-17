@@ -66,9 +66,9 @@ alias gswc="git switch -c" # -c / ブランチを作成する
 
 
 ##### pwgen #####
-alias pw8="pwgen -c -n -y -B -1 8 8"
-alias pw12="pwgen -c -n -y -B -1 12 8"
-alias pw32="pwgen -c -n -y -B -1 32 8"
+alias pg8="pwgen -c -n -y -B -1 8 8"
+alias pg12="pwgen -c -n -y -B -1 12 8"
+alias pg32="pwgen -c -n -y -B -1 32 8"
 
 
 ##### tree #####
