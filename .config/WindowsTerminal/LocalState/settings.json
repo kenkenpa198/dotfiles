@@ -4,6 +4,10 @@
     "actions": 
     [
         {
+            "command": "closePane",
+            "keys": "alt+shift+w"
+        },
+        {
             "command": "unbound",
             "keys": "ctrl+t"
         },
@@ -20,6 +24,14 @@
             "keys": "ctrl+c"
         },
         {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
             "command": 
             {
                 "action": "newTab"
@@ -27,12 +39,11 @@
             "keys": "ctrl+shift+t"
         },
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": 
+            {
+                "action": "closeTab"
+            },
+            "keys": "ctrl+shift+w"
         },
         {
             "command": 
@@ -48,17 +59,6 @@
                 "action": "splitPane"
             },
             "keys": "alt+shift+d"
-        },
-        {
-            "command": 
-            {
-                "action": "closeTab"
-            },
-            "keys": "ctrl+shift+w"
-        },
-        {
-            "command": "closePane",
-            "keys": "alt+shift+w"
         }
     ],
     "alwaysShowTabs": true,
@@ -77,7 +77,8 @@
             {
                 "face": "HackGenNerd Console",
                 "size": 11
-            }
+            },
+            "historySize": 16000
         },
         "list": 
         [
