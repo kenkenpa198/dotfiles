@@ -66,5 +66,6 @@
             "indent": 4
         },
         "MD014": false
-    }
+    },
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"
 }
