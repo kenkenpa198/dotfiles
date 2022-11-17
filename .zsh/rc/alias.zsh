@@ -39,7 +39,7 @@ alias dsto="sudo service docker stop ; sudo service docker status"  # Docker を
 
 alias d="docker"
 alias dc="docker-compose"
-alias drmn="docker rmi $(docker images -f 'dangling=true' -q)"      # None なイメージを一括削除（https://suin.io/537）
+alias drmn="docker image prune -f" # <none> イメージを一括削除 https://codechord.com/2019/08/docker-images-none-dangling/
 
 
 ##### Git #####
