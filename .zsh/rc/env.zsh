@@ -14,6 +14,12 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
+# ruby
+# Install Ruby Gems to ~/gems
+# http://jekyllrb-ja.github.io/docs/installation/ubuntu/
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
 # 自作コマンドのパス
 export PATH="$PATH:$HOME/.bin"
 
