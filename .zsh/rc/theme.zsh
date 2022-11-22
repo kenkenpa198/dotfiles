@@ -19,21 +19,19 @@ function precmd() {
 function prompt-git-current-branch {
     local branch_name st branch_status
 
-    color='%{\e[38;5;' # 文字色を設定
-    green='114m%}'
-    red='001m%}'
-    yellow='227m%}'
-    blue='033m%}'
-    reset='%{\e[0m%}'  # reset
+        color='%{\e[38;5;' # 文字色を設定
+        green='114m%}'
+        red='001m%}'
+        yellow='227m%}'
+        blue='033m%}'
+        reset='%{\e[0m%}'  # reset
 
-    if [ ! -e    ".git" ]; then
+    if [ ! -e ".git" ]; then
         # git 管理されていないディレクトリは何も返さない
         return
     fi
     branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
     st=`git status 2> /dev/null`
-
-    # HackGenNerd Console などパワーライン記号が半角の場合はこちら
     if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
         # 全て commit されてクリーンな状態
         branch_status="${color}${green}"
@@ -45,9 +43,9 @@ function prompt-git-current-branch {
         branch_status="${color}${red}+"
     elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
         # git commit されていないファイルがある状態
-        branch_status="${color}${yellow}!"
+    branch_status="${color}${yellow}!"
     elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
-        # コンフリクトが起こった状態
+    # コンフリクトが起こった状態
         echo "${color}${red}!(no branch)${reset}"
         return
     else
@@ -56,8 +54,9 @@ function prompt-git-current-branch {
     fi
 
     # ブランチ名を色付きで表示する
-    echo "${branch_status}$branch_name${reset}"
+    echo "[${branch_status}$branch_name${reset}]"
 }
+
 
 
 ##### プロンプト表示を実行 #####
@@ -68,5 +67,5 @@ echo Hello!
 setopt prompt_subst
 
 # プロンプトを表示
-PROMPT='%F{179m%}%n@%m%F %F{white}[%B%~%b]%F `prompt-git-current-branch`
+PROMPT='%F{179m%}%n@%m%F{white}: %B%~%b `prompt-git-current-branch`
 %F{087m%}$%F{white} '
