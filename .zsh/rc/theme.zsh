@@ -66,5 +66,5 @@ echo Hello!
 setopt prompt_subst
 
 # プロンプトを表示
-PROMPT='%F{179m%}%n@%m%F{white}: %~ `prompt-git-current-branch`
+PROMPT='%F{179m%}%n@%m%F{white}: %B%~%b `prompt-git-current-branch`
 %F{087m%}$%F{white} '
