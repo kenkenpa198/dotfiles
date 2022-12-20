@@ -1,6 +1,6 @@
 ##### .dircolors #####
 # WSL2 環境用に準備した zsh の色設定ファイル。
-# 未設定だと Win 側のディレクトリがの色がめちゃ見づらいので、以下の設定をちょびっと変更している。
+# 未設定だと Win 側のディレクトリがの色が見づらいので、以下の設定のみを変更している。
 #    - OTHER_WRITABLE
 #    - EXEC
 #
@@ -12,7 +12,7 @@
 # https://blue-red.ddo.jp/~ao/wiki/wiki.cgi?page=ls%A5%B3%A5%DE%A5%F3%A5%C9%A4%CE%BF%A7%A4%F2%CA%D1%B9%B9%A4%B9%A4%EB
 # https://www.fulldigit.co.jp/server_env/ls_colors.html
 
-##### ------- ここから本文 ------- #####
+##### ここから本文 #####
 
 # Configuration file for dircolors, a utility to help you set the
 # LS_COLORS environment variable used by GNU ls with the --color option.

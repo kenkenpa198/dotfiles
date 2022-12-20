@@ -1,5 +1,3 @@
-##### Options #####
-
 # ビープ音停止
 setopt no_beep
 
@@ -17,6 +15,10 @@ setopt auto_pushd
 
 # 履歴の保存先ファイル指定
 HISTFILE=~/.zsh_history
+
+# ファイルの種類で色分け
+# Mac の場合はデフォルトで色分けがされないため設定
+export CLICOLOR=1
 
 # メモリに保存される履歴の件数を設定
 export HISTSIZE=1000

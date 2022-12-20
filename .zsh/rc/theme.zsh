@@ -3,10 +3,10 @@
 # https://tomiylab.com/2020/03/prompt/
 
 
-##### コマンドの実行ごとに改行 #####
+##### 関数定義 #####
+
+# コマンドの実行ごとに改行する
 function precmd() {
-    # Print a newline before the prompt, unless it's the
-    # first prompt in the process.
     if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
         NEW_LINE_BEFORE_PROMPT=1
     elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
@@ -14,8 +14,7 @@ function precmd() {
     fi
 }
 
-
-##### git ブランチ名を色付きで表示させるメソッド #####
+# git ブランチ名を色付きで表示する
 function prompt-git-current-branch {
     local branch_name st branch_status
 
@@ -58,11 +57,9 @@ function prompt-git-current-branch {
 }
 
 
-##### プロンプト表示を実行 #####
-export CLICOLOR=1
-echo Hello!
+##### メイン処理 #####
 
-# プロンプトが表示されるたびにプロンプト文字列を評価し置換する
+# プロンプトが表示されるたびにプロンプト文字列を評価して置換する設定
 setopt prompt_subst
 
 # プロンプトを表示
