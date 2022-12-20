@@ -81,6 +81,7 @@ winget install Valve.Steam %y%
 :: alt-ime-ahk / https://github.com/karakaram/alt-ime-ahk/releases
 :: サクラエディタ / https://sakura-editor.github.io/
 :: Free Video Compressor / https://www.gigafree.net/media/me/FreeVideoCompressor.html
+:: DaVinci Resolve / https://www.blackmagicdesign.com/jp/products/davinciresolve
 
 :: Wacom driver / https://tablet.wacom.co.jp/download/
 :: Vroid Studio / https://vroid.com/
