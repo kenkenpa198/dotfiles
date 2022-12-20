@@ -1,6 +1,6 @@
-# ------------------
+# --------------
 #    link.ps1
-# ------------------
+# --------------
 # シンボリックリンク作成用 PowerShell スクリプト。
 # クラウド環境や WSL 環境のディレクトリ・設定ファイルを Win 環境から利用できるようにする。
 # WSL2 のディレクトリ上にある bat ファイルを Win 側から実行する場合、このシンボリックリンク設定を行った上で Win 側からその bat ファイルを実行したりショートカットを作成する。
@@ -22,7 +22,7 @@ $value = "\\wsl.localhost\Ubuntu\home\" + $env:USERNAME + "\Works\Develop"
 New-Item -Value $value -Path '~\Works' -Name 'Develop' -ItemType SymbolicLink
 
 # [Win] ~\Videos\Capture ---> [D ドライブ] ~\Videos\Capture
-$value = "D:\" + $env:USERNAME + "\Videos\Capture"
+$value = "D:\" + $env:USERNAME + "\Videos\Capture" # -Value "" 内で変数の展開ができなかったため、初期化してから引数へ指定
 New-Item -Value $value -Path '~\Videos' -Name 'Capture' -ItemType SymbolicLink
 
 # [Win] ~/dotfiles ---> [WSL2] ~/dotfiles
