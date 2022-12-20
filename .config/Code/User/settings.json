@@ -1,63 +1,25 @@
-
-// VSCode の設定ファイル。
-// User 内のファイルを VSCode のディレクトリへシンボリックリンクとして配置する。
-
-// ▼ Windows
-// CMD の mklink コマンドで設定。.setup/bat/mklink.bat にまとめて記載。
-
-// ▼ Mac
-// > ln -sf ~/dotfiles/.config/Code/User/settings.json ~/Library/"Application Support"/Code/User/
-// > ln -sf ~/dotfiles/.config/Code/User/keybindings.json ~/Library/"Application Support"/Code/User/
-// > ln -sf ~/dotfiles/.config/Code/Markdown_Preview_Enhanced/style.less ~/.local/state/mume/
-
 {
-    // "python.pythonPath": "/usr/local/bin/python3"
-    "python.pythonPath": "/Users/.pyenv/shims/python",
-    "workbench.colorTheme": "GitHub Dark",
-    "editor.fontFamily": "'HackGen', 'Ricty Diminished Discord', 'Ricty Discord', Menlo, Monaco, 'Courier New', monospace",
-    "terminal.integrated.fontSize": 15,
-    "terminal.integrated.shell.osx": "/bin/zsh",
-    "terminal.integrated.fontFamily": "'HackGenNerd Console', 'Ricty Diminished Discord for Powerline', 'Ricty Discord for Powerline'",
-    "terminal.external.osxExec": "iTerm.app",
-    "terminal.integrated.shell.linux": "/bin/zsh",
-    "dotfiles.repository": "https://github.com/kenkenpa198/dotfiles.git",
-    "dotfiles.installCommand": "~/dotfiles/.bin/install_rc.sh",
-    "window.newWindowDimensions": "inherit",
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
-    "python.defaultInterpreterPath": "/Users/.pyenv/shims/python",
+    // VSCode
+    "editor.fontFamily": "'HackGen', 'Ricty Diminished Discord', 'Ricty Discord', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 15,
+    "editor.lineHeight": 1.3,
+    "editor.mouseWheelZoom": true,
     "editor.renderWhitespace": "trailing",
     "explorer.confirmDragAndDrop": false,
-    "security.workspace.trust.untrustedFiles": "open",
-    "redhat.telemetry.enabled": true,
-    "editor.fontSize": 15,
-    "editor.lineHeight": "1.3em",
-    "workbench.iconTheme": "material-icon-theme",
+    "extensions.autoUpdate": "onlyEnabledExtensions",
     "files.autoGuessEncoding": true,
-    "editor.mouseWheelZoom": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.fontFamily": "'HackGenNerd Console', 'HackGen Console', 'Ricty Diminished Discord for Powerline', 'Ricty Discord for Powerline'",
+    "workbench.colorTheme": "GitHub Dark",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.editor.tabSizing": "shrink",
-    "window.restoreWindows": "none",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.editor.untitled.hint": "hidden",
-    "extensions.autoUpdate": "onlyEnabledExtensions",
-    "cSpell.ignoreWords": [
-        "CODEPREP",
-        "Qiita",
-        "atoi",
-        "dotfiles",
-        "elif",
-        "kenkenpa",
-        "moda",
-        "modane",
-        "scanf",
-        "srand",
-        "stdbool",
-        "stdlib",
-        "unchi",
-        "wttr"
-    ],
-    "clock.dateFormat": "yyyy-mm-dd (ddd) HH:MM",
+    "window.newWindowDimensions": "inherit",
+    "window.restoreWindows": "none",
+
+    // Extensions
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
     "markdown.extension.list.indentationSize": "inherit",
     "markdownlint.focusMode": false,
     "markdownlint.config": {
@@ -67,7 +29,13 @@
         },
         "MD014": false
     },
-    "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
+    "mcfs.notifications": {
+        "hasOpenedConnectionManager": false,
+        "hasConnectedToMC": false,
+        "dontShowConnectionManagerAlert": false,
+        "hasShownChangelog": false,
+        "hasSeenPromoForVersion": "3.0"
+    },
     "trailing-spaces.backgroundColor": "rgba(255,255,0,0.3)",
     "trailing-spaces.borderColor": "rgba(255,255,100,0.15)"
 }
