@@ -53,16 +53,14 @@ alias gd="git diff"
 alias gds="git diff --stat" # --stat / diff のあるファイル名のみを表示
 alias gf="git fetch"
 alias gfp="git fetch --prune"
-alias gl="git log"
+alias gl="git log --graph"
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # ログを見やすい形で出力（https://prograshi.com/general/git/how-to-use-c-in-pretty-format/）
-alias gm="git merge"
 alias gr="git restore"
 alias grs="git restore --staged ." # --staged . / ステージングをすべて元に戻す
 alias gpoh="git push origin HEAD"
 alias gs="git status"
 alias gss="git status -s" # -s / 短縮表示
 alias gsw="git switch"
-alias gswc="git switch -c" # -c / ブランチを作成する
 
 
 ##### pwgen #####
