@@ -1,10 +1,12 @@
 [core]
         editor = vim
-        ignorecase = false                 # false   : ファイルの大文字・小文字を区別して認識する
-        quotepath = false                  # false   : git status で日本語のファイル名が文字化けしない
-        safecrlf = true                    # true    : 改行コードが混在している場合は変換しない
-        autocrlf = false                   # false   : コミット・チェックアウト時に改行コードの変換を行わない
+        ignorecase = false # ファイルの大文字・小文字を区別して認識する
+        quotepath = false  # 2バイト文字列のエスケープ処理を行わない（git status 送信時に日本語のファイル名を正常に表示させる）
+        safecrlf = true    # 改行コードが混在している場合に変換しない
+        autocrlf = false   # コミット・チェックアウト時に改行コードの変換を行わない
 [push]
-        default = simple                   # simple  : カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
+        default = simple   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
 [credential]
-        helper = wincred                   # wincred : ID PASS を聞かれる頻度を減らすためキャッシュしておく設定
+        helper = wincred   # ID, PASS を聞かれる頻度を減らすためキャッシュしておく設定
+[grep]
+        lineNumber = true  # git grep 実行時に行番号を表示する
