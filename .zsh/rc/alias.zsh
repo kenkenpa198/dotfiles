@@ -2,6 +2,7 @@
 # cd
 alias dev="cd ~/Works/Develop"
 alias dot="cd ~/dotfiles"
+alias obs="cd /mnt/c/Users/${USERNAME}/GoogleDrive/Documents/Obsidian"
 
 # clear
 alias c="clear"

@@ -97,6 +97,9 @@ winget install --accept-package-agreements -e --id Git.Git
 # Google Chrome
 winget install --accept-package-agreements -e --id Google.Chrome
 
+# Obsidian
+winget install --accept-package-agreements -e --id Obsidian.Obsidian
+
 # Steam
 winget install --accept-package-agreements -e --id Valve.Steam
 
