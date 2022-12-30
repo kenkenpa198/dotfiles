@@ -4,18 +4,20 @@
 # シンボリックリンク作成用 PowerShell スクリプト。
 # クラウド環境や WSL 環境のディレクトリ・設定ファイルを Win 環境から利用できるようにする。
 # WSL2 のディレクトリ上にある bat ファイルを Win 側から実行する場合、このシンボリックリンク設定を行った上で Win 側からその bat ファイルを実行したりショートカットを作成する。
-# 参考: [PowerShellで苦労して作るシンボリックリンク - Qiita](https://qiita.com/tokky_se/items/128a04e861b2863e2c99)
+# 参考:
+# [PowerShellで苦労して作るシンボリックリンク - Qiita](https://qiita.com/tokky_se/items/128a04e861b2863e2c99)
+# [Googleドライブのパスを英語に変更したい - 日日是好日](https://siromiuo.hateblo.jp/entry/2021/11/03/133144)
 
 
 ##### ディレクトリのリンク設定 #####
-# [Win] ~\Documents\Files ---> [iCloud Drive] ~/Documents/Files
-New-Item -Value '~\iCloudDrive\Documents\Files' -Path '~\Documents' -Name 'Files' -ItemType SymbolicLink
+# [Win] ~\Documents\Files ---> [Google Drive] ~/Documents/Files
+New-Item -Value '~\GoogleDrive\Documents\Files' -Path '~\Documents' -Name 'Files' -ItemType SymbolicLink
 
-# [Win] ~\Works\Create ---> [iCloud Drive] ~/Works/Create
-New-Item -Value '~\iCloudDrive\Works\Create' -Path '~\Works' -Name 'Create' -ItemType SymbolicLink
+# [Win] ~\Works\Create ---> [Google Drive] ~/Works/Create
+New-Item -Value '~\GoogleDrive\Works\Create' -Path '~\Works' -Name 'Create' -ItemType SymbolicLink
 
-# [Win] ~\Works\Others ---> [iCloud Drive] ~/Works/Others
-New-Item -Value '~\iCloudDrive\Works\Others' -Path '~\Works' -Name 'Others' -ItemType SymbolicLink
+# [Win] ~\Works\Others ---> [Google Drive] ~/Works/Others
+New-Item -Value '~\GoogleDrive\Works\Others' -Path '~\Works' -Name 'Others' -ItemType SymbolicLink
 
 # [Win] ~\Works\Develop ---> [WSL2] ~/Works/Develop
 $value = "\\wsl.localhost\Ubuntu\home\" + $env:USERNAME + "\Works\Develop"
