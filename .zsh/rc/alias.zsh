@@ -110,7 +110,7 @@ case ${OSTYPE} in
         if uname -r | grep -i 'microsoft' > /dev/null ; then
 
             # Win 環境のホームへ cd
-            alias cdc="cd $USERPROFILE"
+            alias cdc="cd /mnt/c/Users/${USERNAME}"
 
             # cd 'C:\Windows\path'
             cdw() {
