@@ -73,29 +73,32 @@ winget install --accept-package-agreements -s msstore XP9KHM4BK9FZ7Q
 # -e   : クエリで正確な文字列を使用するオプション
 # --id : インストールをアプリケーションの ID に限定するオプション
 
-# 4KCaptureUtility
-winget install --accept-package-agreements -e --id Elgato.4KCaptureUtility
-
 # AutoHotKey
 winget install --accept-package-agreements -e --id Lexikos.AutoHotkey
 
 # Avidemux
 winget install --accept-package-agreements -e --id Avidemux.Avidemux
 
-# Google Chrome
-winget install --accept-package-agreements -e --id Google.Chrome
+# Azure Data Studio
+winget install --accept-package-agreements -e --id Microsoft.AzureDataStudio
 
 # Caesium Image Compressor
 winget install --accept-package-agreements -e --id SaeraSoft.CaesiumImageCompressor
 
-# DockerDesktop
+# Docker Desktop
 winget install --accept-package-agreements -e --id Docker.DockerDesktop
+
+# Elgato 4K Capture Utility
+winget install --accept-package-agreements -e --id Elgato.4KCaptureUtility
 
 # Git for Windows
 winget install --accept-package-agreements -e --id Git.Git
 
-# Azure Data Studio
-winget install --accept-package-agreements -e --id Microsoft.AzureDataStudio
+# Google Chrome
+winget install --accept-package-agreements -e --id Google.Chrome
+
+# Steam
+winget install --accept-package-agreements -e --id Valve.Steam
 
 # VNC Viewer
 winget install --accept-package-agreements -e --id RealVNC.VNCViewer
@@ -105,6 +108,3 @@ winget install --accept-package-agreements -e --id WinMerge.WinMerge
 
 # WinSCP
 winget install --accept-package-agreements -e --id WinSCP.WinSCP
-
-# Steam
-winget install --accept-package-agreements -e --id Valve.Steam
