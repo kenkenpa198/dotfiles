@@ -65,9 +65,8 @@ alias gsw="git switch"
 
 
 ##### pwgen #####
-alias pg8="pwgen -c -n -y -B -1 8 8"
 alias pg12="pwgen -c -n -y -B -1 12 8"
-alias pg32="pwgen -c -n -y -B -1 32 8"
+alias pg20="pwgen -c -n -y -B -1 20 8"
 
 
 ##### tree #####
