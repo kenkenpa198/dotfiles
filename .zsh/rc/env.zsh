@@ -20,6 +20,10 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
+# flyctl
+export FLYCTL_INSTALL="/home/${USERNAME}/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
 # 自作コマンドのパス
 export PATH="$PATH:$HOME/.bin"
 
