@@ -46,3 +46,6 @@ New-Item -Value '~\dotfiles\.config\azuredatastudio\User\settings.json' -Path '~
 
 # Git Bash
 New-Item -Value '~\dotfiles\.bashrc' -Path '~' -Name '.bashrc' -ItemType SymbolicLink
+
+# Obsidian
+New-Item -Value '~\dotfiles\.config\Obsidian\MyNotes\.obsidian' -Path '~\Documents\Obsidian\MyNotes' -Name '.obsidian' -ItemType SymbolicLink

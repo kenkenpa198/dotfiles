@@ -35,3 +35,10 @@
 
 !/docs/**
 !/README.md
+
+##### 例外 #####
+# Obsidian
+/.config/Obsidian/MyNotes/.obsidian/plugins
+/.config/Obsidian/MyNotes/.obsidian/graph.json
+/.config/Obsidian/MyNotes/.obsidian/workspace.json
+/.config/Obsidian/MyNotes/.obsidian/workspace-mobile.json
