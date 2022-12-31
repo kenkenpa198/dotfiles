@@ -1,0 +1,8 @@
+{
+  "showFrontmatter": true,
+  "strictLineBreaks": true,
+  "defaultViewMode": "preview",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "Inbox",
+  "attachmentFolderPath": "Sources"
+}
