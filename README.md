@@ -14,11 +14,19 @@ kenkenpa198 の dotfiles 。
 
 ## 2. 構築方法
 
-1. 冒頭のコマンドを実行してクローン & セットアップ。
-2. その後シンボリックリンクなどを .setup 配下のスクリプトや README を参考に色々つなげる。
+1. Windows 環境の場合、先に WSL をセットアップしておく。  
 
-Windows 環境の場合は先に [WSL2 環境の構築](docs/Install_WSL2.md) をしよう。  
-その他補足資料やメモは [docs ディレクトリ](docs) で管理。
+    ```powershell
+    # PowerShell（管理者権限で起動）
+    > wsl --install
+    ```
+
+    参考: [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
+
+2. ホームディレクトリ上で冒頭のコマンドを実行して dotfiles をクローン & Ubuntu 環境のセットアップ。
+3. `.setup/` 配下のスクリプトを使用してシンボリックリンクを各ファイルへ繋げる。
+
+その他補足資料は [docs](docs) ディレクトリにて。
 
 ## 3. 構成
 
