@@ -1,6 +1,19 @@
 /* 参考:
 [[Obsidian] CSSとスニペットだけを調べまくったレポート](https://pouhon.net/obsidian-css/6542/) */
 
+/* Front Matter コンテナ */
+.frontmatter-container {
+    padding: 1em;
+    margin-bottom: 1.5em;
+    border: 1px solid var(--background-modifier-border); /* -> var(--color-base-30) -> #363636 */
+    border-radius: 8px;
+}
+
+/* Front Matter ラベルの幅 */
+.frontmatter-container .frontmatter-section-label {
+    flex-basis: 5em;
+}
+
 /* 見出し 1 編集 */
 /* ファイル名と紛らわしいので h1 は薄く表示する */
 .cm-header-1 {
@@ -17,7 +30,7 @@
 .markdown-preview-view h2 {
     margin-top: 1.5em;
     padding-bottom: 0.25em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid var(--background-modifier-border);
 }
 
 /* 見出し 3 プレビュー*/
@@ -27,8 +40,9 @@
 
 /* インラインコード 編集・プレビュー */
 .cm-s-obsidian span.cm-inline-code,
-.markdown-preview-view code {
-    background: rgba(0, 0, 0, 0.5);
+.cm-s-obsidian span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight),
+.markdown-rendered code {
+    background: rgba(110, 118, 129, 0.2);
     border-radius: 4px;
     padding: 0.1rem 0.4rem;
     overflow-wrap: break-word;
