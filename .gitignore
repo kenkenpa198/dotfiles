@@ -6,19 +6,60 @@
 !*/
 
 ##### ホワイトリスト #####
-# 管理対象のファイルを追記
-!/.bin/
+# 管理対象のファイルを追記する
+
+# /.bin/
 !/.bin/**
 
-!/.config/
-!/.config/**
+# /.config/azuredatastudio/
+!/.config/azuredatastudio/User/settings.json
 
-!/.setup/
+# /.config/Code/
+!/.config/Code/Markdown_Preview_Enhanced/style.less
+!/.config/Code/User/keybindings.json
+!/.config/Code/User/settings.json
+
+# /.config/Obsidian/
+# コミュニティプラグインの設定ファイル。以下のプラグインは管理対象外
+# - obsidian-livesync   … パスワードの記述が data.json 内に存在するため
+# - open-vscode         … data.json が存在しないため
+# - various-complements … タグの記述が data.json 内に存在するため
+!/.config/Obsidian/MyNotes/.obsidian/plugins/calendar/data.json
+!/.config/Obsidian/MyNotes/.obsidian/plugins/dataview/data.json
+!/.config/Obsidian/MyNotes/.obsidian/plugins/obsidian-filename-heading-sync/data.json
+!/.config/Obsidian/MyNotes/.obsidian/plugins/update-time-on-edit/data.json
+
+# オプション・コアプラグインの設定ファイル。以下の設定ファイルは永続的な設定でないため管理対象外
+# - graph.json
+# - workspace-mobile.json
+# - workspace.json
+!/.config/Obsidian/MyNotes/.obsidian/snippets/style.css
+!/.config/Obsidian/MyNotes/.obsidian/app.json
+!/.config/Obsidian/MyNotes/.obsidian/appearance.json
+!/.config/Obsidian/MyNotes/.obsidian/command-palette.json
+!/.config/Obsidian/MyNotes/.obsidian/community-plugins.json
+!/.config/Obsidian/MyNotes/.obsidian/core-plugins-migration.json
+!/.config/Obsidian/MyNotes/.obsidian/core-plugins.json
+!/.config/Obsidian/MyNotes/.obsidian/daily-notes.json
+!/.config/Obsidian/MyNotes/.obsidian/hotkeys.json
+!/.config/Obsidian/MyNotes/.obsidian/templates.json
+
+# /.config/Homebrew/
+!/.config/Homebrew/Brewfile
+
+# /.config/WindowsPowerShell/
+!/.config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+
+# /.config/WindowsTerminal/
+!/.config/WindowsTerminal/LocalState/settings.json
+
+# /.config/WSL/
+!/.config/WSL/.wslconfig
+
+# /.setup/
 !/.setup/**
 
-!/.bashrc
-
-!/.zshrc
+# /.zsh/
 !/.zsh/rc/alias.zsh
 !/.zsh/rc/env.zsh
 !/.zsh/rc/func_acd.zsh
@@ -28,17 +69,13 @@
 !/.zsh/rc/theme.zsh
 !/.zsh/.dircolors
 
-!/.gitignore
+# /docs/
+!/docs/**
 
+# /.
+!/.bashrc
+!/.gitignore
+!/.zshrc
 !/.gitconfig_shared
 !/.gitignore_global
-
-!/docs/**
 !/README.md
-
-##### 例外 #####
-# Obsidian
-/.config/Obsidian/MyNotes/.obsidian/plugins
-/.config/Obsidian/MyNotes/.obsidian/graph.json
-/.config/Obsidian/MyNotes/.obsidian/workspace.json
-/.config/Obsidian/MyNotes/.obsidian/workspace-mobile.json
