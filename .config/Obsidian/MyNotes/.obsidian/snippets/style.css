@@ -1,14 +1,6 @@
 /* 参考:
 [[Obsidian] CSSとスニペットだけを調べまくったレポート](https://pouhon.net/obsidian-css/6542/) */
 
-/* Front Matter コンテナ */
-.frontmatter-container {
-    padding: 1em;
-    margin-bottom: 1.5em;
-    border: 1px solid var(--background-modifier-border); /* -> var(--color-base-30) -> #363636 */
-    border-radius: 8px;
-}
-
 /* Front Matter ラベルの幅 */
 .frontmatter-container .frontmatter-section-label {
     flex-basis: 5em;
