@@ -4,5 +4,6 @@
   "defaultViewMode": "preview",
   "newFileLocation": "folder",
   "newFileFolderPath": "Inbox",
-  "attachmentFolderPath": "Sources"
+  "attachmentFolderPath": "Sources",
+  "useTab": false
 }
