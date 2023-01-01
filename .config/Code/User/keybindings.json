@@ -4,5 +4,19 @@
         "command":"type",
         "args":{"text":"<!-- omit in toc -->"},
         "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "markdown-preview-enhanced.openPreviewToTheSide",
+        "when": "editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+shift+oem_2",
+        "command": "editor.action.blockComment",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+b",
+        "command": "workbench.action.toggleSidebarVisibility"
     }
 ]
