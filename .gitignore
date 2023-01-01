@@ -62,9 +62,9 @@
 # /.zsh/
 !/.zsh/rc/alias.zsh
 !/.zsh/rc/env.zsh
-!/.zsh/rc/func_acd.zsh
-!/.zsh/rc/func_cj.zsh
-!/.zsh/rc/func_moda.zsh
+!/.zsh/rc/function/acd.zsh
+!/.zsh/rc/function/cj.zsh
+!/.zsh/rc/function/moda.zsh
 !/.zsh/rc/option.zsh
 !/.zsh/rc/theme.zsh
 !/.zsh/.dircolors
