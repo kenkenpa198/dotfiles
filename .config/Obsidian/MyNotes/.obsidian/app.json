@@ -5,5 +5,6 @@
   "newFileLocation": "folder",
   "newFileFolderPath": "Inbox",
   "attachmentFolderPath": "Sources",
-  "useTab": false
+  "useTab": false,
+  "livePreview": false
 }

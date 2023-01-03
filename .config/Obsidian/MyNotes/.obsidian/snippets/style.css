@@ -35,9 +35,11 @@
 .cm-s-obsidian span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight),
 .markdown-rendered code {
     background: rgba(110, 118, 129, 0.2);
+}
+
+.markdown-rendered code {
     border-radius: 4px;
     padding: 0.1rem 0.4rem;
-    overflow-wrap: break-word;
 }
 
 /* [obsidian-css-snippets/Markers.md at master · Dmytro-Shulha/obsidian-css-snippets](https://github.com/Dmytro-Shulha/obsidian-css-snippets/blob/master/Snippets/Markers.md) */
