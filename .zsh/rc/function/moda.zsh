@@ -97,8 +97,8 @@ anime_modane_03
 
 options
   no options  : Small Modane-chan will come.
-  -b, --big   : BIG MODANE-CHAN appears!
-  -a, --anime : BIG MODANE-CHAN animates!
+  -b, --big   : BIG MODANE-CHAN appears.
+  -a, --anime : BIG MODANE-CHAN animates.
   -h, --help  : display usage.
 help_msg
 
