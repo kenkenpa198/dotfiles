@@ -74,40 +74,43 @@ winget install --accept-package-agreements -s msstore XP9KHM4BK9FZ7Q
 # --id : インストールをアプリケーションの ID に限定するオプション
 
 # AutoHotKey
-winget install --accept-package-agreements -e --id Lexikos.AutoHotkey
+winget install -e --id Lexikos.AutoHotkey
 
 # Avidemux
-winget install --accept-package-agreements -e --id Avidemux.Avidemux
+winget install -e --id Avidemux.Avidemux
 
 # Azure Data Studio
-winget install --accept-package-agreements -e --id Microsoft.AzureDataStudio
+winget install -e --id Microsoft.AzureDataStudio
 
 # Caesium Image Compressor
-winget install --accept-package-agreements -e --id SaeraSoft.CaesiumImageCompressor
+winget install -e --id SaeraSoft.CaesiumImageCompressor
 
 # Docker Desktop
-winget install --accept-package-agreements -e --id Docker.DockerDesktop
+winget install -e --id Docker.DockerDesktop
 
 # Elgato 4K Capture Utility
-winget install --accept-package-agreements -e --id Elgato.4KCaptureUtility
+winget install -e --id Elgato.4KCaptureUtility
 
 # Git for Windows
-winget install --accept-package-agreements -e --id Git.Git
+winget install -e --id Git.Git
 
 # Google Chrome
-winget install --accept-package-agreements -e --id Google.Chrome
+winget install -e --id Google.Chrome
 
 # Obsidian
-winget install --accept-package-agreements -e --id Obsidian.Obsidian
+winget install -e --id Obsidian.Obsidian
+
+# Screen To Gif
+winget install -e --id NickeManarin.ScreenToGif
 
 # Steam
-winget install --accept-package-agreements -e --id Valve.Steam
+winget install -e --id Valve.Steam
 
 # VNC Viewer
-winget install --accept-package-agreements -e --id RealVNC.VNCViewer
+winget install -e --id RealVNC.VNCViewer
 
 # WinMerge
-winget install --accept-package-agreements -e --id WinMerge.WinMerge
+winget install -e --id WinMerge.WinMerge
 
 # WinSCP
-winget install --accept-package-agreements -e --id WinSCP.WinSCP
+winget install -e --id WinSCP.WinSCP
