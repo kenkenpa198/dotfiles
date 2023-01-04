@@ -4,7 +4,7 @@
 ```shell
 $ cd
 $ git clone https://github.com/kenkenpa198/dotfiles.git
-$ source ~/dotfiles/.setup/Linux/setup.sh
+$ source ~/dotfiles/.setup/Ubuntu/setup.sh
 ```
 
 ## 1. 概要
@@ -119,7 +119,7 @@ $ git rm -r --cached .
 ```shell
 .
 └── .setup
-     ├── Linux
+     ├── Ubuntu
      │   ├── ***.sh
      │   └── ***.sh
      └── Windows
