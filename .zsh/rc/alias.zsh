@@ -15,12 +15,7 @@ alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 
-# history
-alias h="history"
-alias hg="history | grep"
-
 # source
-alias s="source"
 alias ss="source ~/.zshrc"
 
 
@@ -44,23 +39,18 @@ alias drmn="docker image prune -f" # <none> イメージを一括削除 https://
 
 
 ##### Git #####
-alias ga="git add -v" # -v / add の内容を表示する
-alias gaa="git add -Av" # -A / 変更のあるファイルをすべてステージングする
-alias gb="git branch"
+alias gaa="git add -vA" # -v: add の内容を表示する / -A: 変更のあるファイルをすべてステージングする
 alias gba="git branch -a"
-alias gc="git checkout"
 alias gcm="git commit -m"
 alias gd="git diff"
-alias gds="git diff --stat" # --stat / diff のあるファイル名のみを表示
-alias gf="git fetch"
+alias gds="git diff --stat" # --stat: diff のあるファイル名のみを表示
 alias gfp="git fetch --prune"
 alias gl="git log --graph"
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # ログを見やすい形で出力（https://prograshi.com/general/git/how-to-use-c-in-pretty-format/）
-alias gr="git restore"
-alias grs="git restore --staged ." # --staged . / ステージングをすべて元に戻す
+alias grs="git restore --staged ." # --staged: ステージングを解除
 alias gpoh="git push origin HEAD"
 alias gs="git status"
-alias gss="git status -s" # -s / 短縮表示
+alias gss="git status -s" # -s: 短縮表示
 alias gsw="git switch"
 
 
@@ -159,10 +149,6 @@ case ${OSTYPE} in
         alias llg="ls -oaF | grep"
 
         # Homebrew
-        alias b="brew"
-        alias bl="brew list"
-        alias bs="brew search"
-        alias bi="brew info"
         alias bbd="brew bundle dump --force --file '~/dotfiles/.config/Homebrew/Brewfile'"       # Brewfile ファイルの生成
         alias bbl="brew bundle list --all --force --file '~/dotfiles/.config/Homebrew/Brewfile'" # Brewfile ファイルから一括インストール
         alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"                                     # Brewfile ファイルの表示
@@ -173,7 +159,6 @@ case ${OSTYPE} in
 
         # Others
         alias op="open"
-        alias sshpub="cat ~/.ssh/id_rsa.pub | tee >(pbcopy)" # 公開鍵を表示 & クリップボードへ格納
     ;;
 
 esac
