@@ -1,4 +1,4 @@
-##### Linux Commands #####
+##### Linux #####
 # cd
 alias dev="cd ~/Works/Develop"
 alias dot="cd ~/dotfiles"
@@ -7,13 +7,25 @@ alias obs="cd /mnt/c/Users/${USERNAME}/GoogleDrive/Documents/Obsidian"
 # clear
 alias c="clear"
 
+# curl
+alias wttr="curl wttr.in/${WTTR_LOCALE}"
+alias wttrs="curl 'wttr.in/${WTTR_LOCALE}?0Q'"
+
 # date
-alias dt="date +'%F (%a) %T'" # 現在日時を yyyy-MM-dd (A) hh:mm:ss 形式で表示
+alias dt="date +'%F %T'"    # 現在日時を yyyy-MM-dd hh:mm:ss 形式で表示
+alias dts="\date +'%Y%m%d'" # 現在日時を yyyyMMdd 形式で表示
 
 # grep
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
+
+# ls
+alias ll="ls -lhG --file-type --color=auto --time-style=long-iso --group-directories-first"
+alias lla="ls -lhaG --file-type --color=auto --time-style=long-iso --group-directories-first"
+alias llng="ls -lhG --file-type --color=auto --time-style=long-iso"
+alias llang="ls -lahG --file-type --color=auto --time-style=long-iso"
+alias llnga="llang"
 
 # source
 alias ss="source ~/.zshrc"
@@ -23,15 +35,10 @@ alias ss="source ~/.zshrc"
 alias a="./a.out"
 
 
-##### curl #####
-alias wttr="curl wttr.in/${WTTR_LOCALE}"
-alias wttrs="curl 'wttr.in/${WTTR_LOCALE}?0Q'"
-
-
 ##### Docker #####
-alias dst="sudo service docker status"                              # Docker の起動状況を確認
-alias dsta="sudo service docker start ; sudo service docker status" # Docker を起動
-alias dsto="sudo service docker stop ; sudo service docker status"  # Docker を停止
+alias dst="sudo service docker status"                              # Docker デーモンの起動状況を確認
+alias dsta="sudo service docker start ; sudo service docker status" # Docker デーモンを起動
+alias dsto="sudo service docker stop ; sudo service docker status"  # Docker デーモンを停止
 
 alias d="docker"
 alias dc="docker-compose"
@@ -46,7 +53,7 @@ alias gd="git diff"
 alias gds="git diff --stat" # --stat: diff のあるファイル名のみを表示
 alias gfp="git fetch --prune"
 alias gl="git log --graph"
-alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # ログを見やすい形で出力（https://prograshi.com/general/git/how-to-use-c-in-pretty-format/）
+alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # https://prograshi.com/general/git/how-to-use-c-in-pretty-format/
 alias grs="git restore --staged ." # --staged: ステージングを解除
 alias gpoh="git push origin HEAD"
 alias gs="git status"
@@ -55,7 +62,7 @@ alias gsw="git switch"
 
 
 ##### pwgen #####
-alias pg12="pwgen -c -n -y -B -1 12 8"
+alias pg14="pwgen -c -n -y -B -1 14 8"
 alias pg20="pwgen -c -n -y -B -1 20 8"
 
 
@@ -85,38 +92,41 @@ case ${OSTYPE} in
     ### Linux 向け設定 ###
     # msys は Win 環境上で Git Bash を立ち上げたときの $OSTYPE
     linux* | msys*)
-        # ls
-        alias ll="ls -lhG --file-type --color=auto --time-style=long-iso --group-directories-first"
-        alias lla="ls -lhaG --file-type --color=auto --time-style=long-iso --group-directories-first"
-        alias llng="ls -lhG --file-type --color=auto --time-style=long-iso"
-        alias llang="ls -lahG --file-type --color=auto --time-style=long-iso"
-        alias llnga="llang"
-        alias llg="ls -lahG --file-type --color=auto --time-style=long-iso | grep"
 
-        # Ubuntu
-        alias update="sudo apt update && sudo apt upgrade -y" # Ubuntu 環境のアップデート & アプリの一括アップグレード
+        # apt
+        alias update="sudo apt update && \
+                      sudo apt upgrade -y && \
+                      sudo apt autoremove -y && \
+                      sudo apt autoclean -y"
 
         ### WSL 向け設定 ###
         if uname -r | grep -i 'microsoft' > /dev/null ; then
 
-            # Win 環境のホームへ cd
+            # Win 環境のホームディレクトリへ cd
             alias cdc="cd /mnt/c/Users/${USERNAME}"
 
+            # Win 環境のパスへ cd
             # cd 'C:\Windows\path'
             cdw() {
                 cd $(wslpath -u ${1})
             }
 
             # date & copy
-            alias dtt="\date +'%Y-%m-%d %H:%M:%S' | tee >(clip.exe)" # 現在日時を表示（日付～時間 / ハイフンあり） & クリップボードへ格納
-            alias dttt="\date +'%Y%m%d' | tee >(clip.exe)"           # 現在日時を表示（日付のみ / ハイフンなし） & クリップボードへ格納
+            alias dt="\date +'%Y-%m-%d %H:%M:%S' | tee >(clip.exe)" # 現在日時を yyyy-MM-dd hh:mm:ss 形式で表示 & クリップボードへ格納
+            alias dts="\date +'%Y%m%d' | tee >(clip.exe)"           # 現在日時を yyyyMMdd 形式で表示 & クリップボードへ格納
+
+            # hostname
+            alias hi="hostname -I | tee >(clip.exe)" # ホスト（WSL 環境）の IP アドレスを表示 & クリップボードへ格納
+
+            # wsl
+            alias shutdown="cmd.exe /c start wsl.exe '--shutdown'" # WSL をシャットダウンする
 
             # wslpath
-            alias wpu="wslpath -u" # パス変換: Windows → WSL（Win のパスは '' で囲んでね）
+            alias wpu="wslpath -u" # パス変換: Windows → WSL（Win のパスは '' で囲む）
             alias wpw="wslpath -w" # パス変換: WSL → Windows
 
-            # Apps
-            alias clip="clip.exe"
+            # Windows Apps
+            alias clip="clip.exe" # '| clip' で Win 環境のクリップボードへ渡せる。例）$ echo 'neko' | clip
             alias open="explorer.exe"
             alias op="open"
             alias opr="open README.md"
@@ -126,18 +136,18 @@ case ${OSTYPE} in
             # https://www.iplab.cs.tsukuba.ac.jp/~takakura/blog/20200715/
             gg() {
                 local str
+
                 # $str が値ありの場合は検索ワードを + 記号でつなぐ（AND 検索）
                 if [ $# != 0 ]; then
                     for i in $*; do
                         str="${str}${str:++}${i}"
                     done
                 fi
-                cmd.exe /c start chrome.exe "http://www.google.co.jp/search?q=${str}"
+
+                # 既定のブラウザで URL を開く
+                cmd.exe /c start "http://www.google.co.jp/search?q=${str}"
             }
 
-            # Others
-            alias ipc="hostname -I | tee >(clip.exe)" # WSL2 の IP アドレスを表示 & クリップボードへ格納
-            alias shutdown="cmd.exe /c start wsl.exe '--shutdown'" # WSL2 をシャットダウンする
         fi
     ;;
 
@@ -154,10 +164,10 @@ case ${OSTYPE} in
         alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"                                     # Brewfile ファイルの表示
 
         # date & copy
-        alias dtt="\date +'%Y-%m-%d %H:%M:%S' | tee >(pbcopy)" # 現在日時を表示 & クリップボードへ格納
-        alias dttt="\date +'%Y%m%d' | tee >(pbcopy)"           # 現在日時を表示 & クリップボードへ格納
+        alias dt="\date +'%Y-%m-%d %H:%M:%S' | tee >(pbcopy)" # 現在日時を yyyy-MM-dd hh:mm:ss 形式で表示 & クリップボードへ格納
+        alias dts="\date +'%Y%m%d' | tee >(pbcopy)"           # 現在日時を yyyyMMdd 形式で表示 & クリップボードへ格納
 
-        # Others
+        # open
         alias op="open"
     ;;
 
