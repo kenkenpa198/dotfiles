@@ -27,6 +27,9 @@ alias llng="ls -lhG --file-type --color=auto --time-style=long-iso"
 alias llang="ls -lahG --file-type --color=auto --time-style=long-iso"
 alias llnga="llang"
 
+# seq
+alias seq100="seq -w 1 100" # 001 ～ 100 を表示
+
 # source
 alias ss="source ~/.zshrc"
 
@@ -115,8 +118,11 @@ case ${OSTYPE} in
             alias dt="\date +'%Y-%m-%d %H:%M:%S' | tee >(clip.exe)" # 現在日時を yyyy-MM-dd hh:mm:ss 形式で表示 & クリップボードへ格納
             alias dts="\date +'%Y%m%d' | tee >(clip.exe)"           # 現在日時を yyyyMMdd 形式で表示 & クリップボードへ格納
 
-            # hostname
+            # hostname & copy
             alias hi="hostname -I | tee >(clip.exe)" # ホスト（WSL 環境）の IP アドレスを表示 & クリップボードへ格納
+
+            # seq & copy
+            alias seq100="seq -w 1 100 | tee >(clip.exe)" # 001 ～ 100 を表示 & クリップボードへ格納
 
             # wsl
             alias shutdown="cmd.exe /c start wsl.exe '--shutdown'" # WSL をシャットダウンする
