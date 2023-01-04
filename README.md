@@ -139,7 +139,7 @@ $ git rm -r --cached .
 使ってみたい場合は内容をそのまま .bashrc などに記述してもらえれば動くと思います。  
 それぞれ `-h` オプションでヘルプを表示します。
 
-### 4.1. [acd 関数](.zsh/rc/func_acd.zsh)
+### 4.1. [acd 関数](.zsh/rc/function/acd.zsh)
 
 Git リポジトリ上で指定したコミット間の差分ファイルを ZIP 形式で出力する関数。  
 名前は「Archive Commit Diff」の略。
@@ -155,7 +155,7 @@ $ acd main feature/add_tsukune
 archive.zip
 ```
 
-### 4.2. [cj 関数](.zsh/rc/func_cj.zsh)
+### 4.2. [cj 関数](.zsh/rc/function/cj.zsh)
 
 CST（米国中部標準時）と JST（日本標準時）を計算して出力する関数。  
 名前は「CST to JST」の略。
@@ -170,7 +170,7 @@ Converted CST to JST.
   JST: 2021-12-23 (Thu) 02:56:26
 ```
 
-### 4.3. [moda 関数](.zsh/rc/func_moda.zsh)
+### 4.3. [moda 関数](.zsh/rc/function/moda.zsh)
 
 もだねちゃんが来てくれる関数。  
 引数指定で大きくなったりアニメーションしたりします。
