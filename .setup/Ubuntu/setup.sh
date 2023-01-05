@@ -92,8 +92,7 @@ ls -la            # id_rsa（秘密鍵）と id_rsa.pub（公開鍵）が存在�
 cd
 
 # bash
-mv .bashrc .bashrc.org
-ln -s ~/dotfiles/.bashrc ~/
+cp .bashrc .bashrc.org # バックアップのみ
 
 # zsh
 ln -s ~/dotfiles/.zshrc ~/
