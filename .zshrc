@@ -15,6 +15,3 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a -x $ZSHHOME ]; then
         . $i
     done
 fi
-
-# .zsh/ ディレクトリ内の .dircolors を読み込む
-eval $(dircolors -b ${HOME}/dotfiles/.zsh/.dircolors)

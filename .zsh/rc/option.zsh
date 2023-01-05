@@ -20,6 +20,9 @@ HISTFILE=~/.zsh_history
 # Mac の場合はデフォルトで色分けがされないため設定
 export CLICOLOR=1
 
+# .dircolors の読み込み
+eval $(dircolors -b ${HOME}/dotfiles/.zsh/.dircolors)
+
 # メモリに保存される履歴の件数を設定
 export HISTSIZE=1000
 
