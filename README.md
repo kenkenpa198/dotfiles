@@ -214,6 +214,8 @@ $ moda
 - [コマンドの実行結果を変数に代入](http://www.ajisaba.net/sh/var_command.html)
 - [LinuxのOS名やバージョンを調べる（CentOS/Ubuntu） | pc.casey.jp](https://pc.casey.jp/archives/153904342)
 - [bash/zshで16色(ANSI カラーコード)と256色のカラーパレットを表示 - よんちゅBlog](https://yonchu.hatenablog.com/entry/2012/10/20/044603)
+- [Bashのif文でANDやOR条件、&&や||演算子を使う | 晴耕雨読](https://tex2e.github.io/blog/shell/bash-and-or)
+- [シェルスクリプトの [ -a (AND) と -o (OR) ] は非推奨だかんね - Qiita](https://qiita.com/ko1nksm/items/6201b2ce47f4d6126521)
 
 ### 5.5. シェル関数
 
