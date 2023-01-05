@@ -2,14 +2,13 @@
 # 全てのファイルを ignore
 *
 */
+
 # 全てのディレクトリをホワイトリストへ追加
 !*/
 
+
 ##### ホワイトリスト #####
 # 管理対象のファイルを追記する
-
-# /.bin/
-!/.bin/**
 
 # /.config/azuredatastudio/
 !/.config/azuredatastudio/User/settings.json
@@ -68,9 +67,6 @@
 !/.zsh/rc/option.zsh
 !/.zsh/rc/theme.zsh
 !/.zsh/.dircolors
-
-# /docs/
-!/docs/**
 
 # /.
 !/.bashrc
