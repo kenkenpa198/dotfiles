@@ -1,9 +1,9 @@
-# .gitignore_global
-# https://github.com/github/gitignore からそのまんまいただいております。
-
-##### my ignore #####
+##### .gitignore_global #####
 workbench/
 *.Identifier
+
+
+# 以下は https://github.com/github/gitignore/tree/main/Global より
 
 
 ##### Linux.gitignore #####
@@ -106,10 +106,10 @@ tags
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
+!.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
 .history/
 
-# remote container
-.devcontainer/devcontainer.json
+# Built Visual Studio Code Extensions
+*.vsix
