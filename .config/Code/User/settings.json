@@ -34,8 +34,6 @@
     "window.restoreWindows": "none",
 
     // Extensions
-    "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd HH:mm:ss",
-    "frontMatter.content.autoUpdateDate": true,
     "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
     "markdown.extension.list.indentationSize": "inherit",
     "markdown-preview-enhanced.breakOnSingleNewLine": false,
