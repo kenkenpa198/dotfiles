@@ -61,6 +61,9 @@ winget install -e --id Avidemux.Avidemux
 # Azure Data Studio
 winget install -e --id Microsoft.AzureDataStudio
 
+# Bitwarden
+winget install -e --id Bitwarden.Bitwarden
+
 # Blender
 winget install -e --id BlenderFoundation.Blender
 
@@ -87,6 +90,9 @@ winget install -e --id Google.Chrome
 
 # LINE
 winget install -e --id LINE.LINE
+
+# Logi Options+
+winget install -e --id Logitech.OptionsPlus
 
 # OBS Studio
 winget install -e --id OBSProject.OBSStudio
