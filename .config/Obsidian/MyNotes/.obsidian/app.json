@@ -5,5 +5,6 @@
   "newFileLocation": "folder",
   "newFileFolderPath": "Inbox",
   "attachmentFolderPath": "Resources",
-  "useTab": false
+  "useTab": false,
+  "alwaysUpdateLinks": true
 }
