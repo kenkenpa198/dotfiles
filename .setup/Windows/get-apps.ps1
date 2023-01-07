@@ -35,7 +35,7 @@ curl.exe -OL https://github.com/sakura-editor/sakura/releases/download/v2.4.2/sa
 curl.exe -OL http://file1.softsea.com/download/9a21a475/581d90138b5eb64e91f75495e3a359b7/Video_Utility/freevideocompressor_setup.exe
 
 # すじこ v4.1
-# http://blog.livedoor.jp/yamma_ma/archives/56790402.html
+# http://blog.livedoor.jp/yamma_ma/archives/susico.html
 # https://ux.getuploader.com/softwares_yamma_ma/download/62
 curl.exe -OL https://downloadx.getuploader.com/g/63b8fe5a-1464-40cd-b21a-6ef7a010e467/softwares_yamma_ma/62/susico-4.1.zip
 
