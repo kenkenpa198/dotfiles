@@ -2,8 +2,8 @@
 #    winget.ps1
 # ----------------
 # Windows 標準のパッケージマネージャーアプリ winget を使用して各アプリケーションをインストールする PowerShell スクリプト。
-# アプリケーションに Microsoft Store 版が存在する場合、そちらを優先して記述している。
 # Microsoft Store へログインしておき、管理者権限で実行する。
+# ダウンロードのソースが winget と Microsoft Store 両方に存在する場合は公式推奨の方に合わせている。
 
 
 ##### winget のソースを更新 #####
@@ -11,29 +11,14 @@ winget source update
 
 
 ##### Microsoft Store からインストール #####
-# -s msstore                  : msstore をソースとして使用するオプション
 # --accept-package-agreements : 使用許諾契約に同意するオプション
-
-# 7-Zip
-winget install --accept-package-agreements -s msstore XPDNKVCX4QD2DC
-
-# Blender
-winget install --accept-package-agreements -s msstore 9PP3C07GTVRH
-
-# Brave
-winget install --accept-package-agreements -s msstore XP8C9QZMS2PC1T
-
-# Compress
-winget install --accept-package-agreements -s msstore 9N1FHQZ38LHT
+# -s msstore                  : msstore をソースとして使用するオプション
 
 # CLIP STUDIO PAINT
 winget install --accept-package-agreements -s msstore XPDP32QDDFL4PK
 
 # DevToys
 winget install --accept-package-agreements -s msstore 9PGCV4V3BK4W
-
-# Discord
-winget install --accept-package-agreements -s msstore XPDC2RH70K22MN
 
 # EarTrumpet
 winget install --accept-package-agreements -s msstore 9NBLGGH516XP
@@ -47,12 +32,6 @@ winget install --accept-package-agreements -s msstore 9PKTQ5699M62
 # iTunes
 winget install --accept-package-agreements -s msstore 9PB2MZ1ZMB1S
 
-# LINE
-winget install --accept-package-agreements -s msstore 9WZDNCRFJ2G6
-
-# OBS Studio
-winget install --accept-package-agreements -s msstore XPFFH613W8V6LV
-
 # PowerToys
 winget install --accept-package-agreements -s msstore XP89DCGQ3K6VLD
 
@@ -65,13 +44,13 @@ winget install --accept-package-agreements -s msstore 9NV4BS3L1H4S
 # Twinkle Tray
 winget install --accept-package-agreements -s msstore 9PLJWWSV01LK
 
-# Visual Studio Code
-winget install --accept-package-agreements -s msstore XP9KHM4BK9FZ7Q
-
 
 ##### winget からインストール #####
 # -e   : クエリで正確な文字列を使用するオプション
 # --id : インストールをアプリケーションの ID に限定するオプション
+
+# 7-Zip
+winget install -e --id 7zip.7zip
 
 # AutoHotKey
 winget install -e --id Lexikos.AutoHotkey
@@ -82,8 +61,17 @@ winget install -e --id Avidemux.Avidemux
 # Azure Data Studio
 winget install -e --id Microsoft.AzureDataStudio
 
+# Blender
+winget install -e --id BlenderFoundation.Blender
+
+# Brave
+winget install -e --id Brave.Brave
+
 # Caesium Image Compressor
 winget install -e --id SaeraSoft.CaesiumImageCompressor
+
+# Discord
+winget install -e --id Discord.Discord
 
 # Docker Desktop
 winget install -e --id Docker.DockerDesktop
@@ -96,6 +84,12 @@ winget install -e --id Git.Git
 
 # Google Chrome
 winget install -e --id Google.Chrome
+
+# LINE
+winget install -e --id LINE.LINE
+
+# OBS Studio
+winget install -e --id OBSProject.OBSStudio
 
 # Obsidian
 winget install -e --id Obsidian.Obsidian
@@ -114,3 +108,6 @@ winget install -e --id WinMerge.WinMerge
 
 # WinSCP
 winget install -e --id WinSCP.WinSCP
+
+# Visual Studio Code
+winget install -e --id Microsoft.VisualStudioCode
