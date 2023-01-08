@@ -26,9 +26,6 @@ winget install --accept-package-agreements -s msstore 9NBLGGH516XP
 # HyperX NGENUITY
 winget install --accept-package-agreements -s msstore 9P1TBXR6QDCX
 
-# iCloud
-winget install --accept-package-agreements -s msstore 9PKTQ5699M62
-
 # iTunes
 winget install --accept-package-agreements -s msstore 9PB2MZ1ZMB1S
 
@@ -87,6 +84,9 @@ winget install -e --id Git.Git
 
 # Google Chrome
 winget install -e --id Google.Chrome
+
+# Google Drive
+winget install -e --id Google.Drive
 
 # LINE
 winget install -e --id LINE.LINE
