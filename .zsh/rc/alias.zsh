@@ -52,11 +52,13 @@ alias drmn="docker image prune -f" # <none> イメージを一括削除 https://
 alias gaa="git add -vA" # -v: add の内容を表示する / -A: 変更のあるファイルをすべてステージングする
 alias gba="git branch -a"
 alias gcm="git commit -m"
+alias gcma="git commit --amend -m"
 alias gd="git diff"
 alias gds="git diff --stat" # --stat: diff のあるファイル名のみを表示
 alias gfp="git fetch --prune"
 alias gl="git log --graph"
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # https://prograshi.com/general/git/how-to-use-c-in-pretty-format/
+alias gri="git rebase -i"
 alias grs="git restore --staged ." # --staged: ステージングを解除
 alias gpoh="git push origin HEAD"
 alias gs="git status"
