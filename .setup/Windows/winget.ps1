@@ -2,9 +2,12 @@
 #    winget.ps1
 # ----------------
 # Windows 標準のパッケージマネージャーアプリ winget を使用して各アプリケーションをインストールする PowerShell スクリプト。
+
 # Microsoft Store へログインしておき、管理者権限で実行する。
 # ダウンロードのソースが winget と Microsoft Store 両方に存在する場合は公式推奨の方に合わせている。
 
+# スクリプトの実行には実行ポリシーの変更が必要。
+# 参考 : https://qiita.com/ponsuke0531/items/4629626a3e84bcd9398f
 
 ##### winget のソースを更新 #####
 winget source update
