@@ -91,13 +91,7 @@ msg_help
     }
 
 
-    ##### メイン処理 #####
-    # ローカル変数の宣言・初期化
-    local \
-        from_commit \
-        to_commit \
-        out_file_path="archive.zip" # デフォルトの出力ファイル名
-
+    ##### コマンドが実行可能か判定 #####
     # 引数が 0 個 または -h, --help の場合はコマンド一覧を表示して終了
     if [ $# = 0 ] || [ $1 = "-h" ] || [ $1 = "--help" ]; then
         print_help
@@ -111,25 +105,27 @@ msg_help
         return 1
     fi
 
-    # 引数が 3 個の場合
-    if [ $# = 3 ]; then
-        # 第 1 引数を「変更前のコミット」、第 2 引数を「変更後のコミット」として代入
-        from_commit=$1
-        to_commit=$2
-
-        # 第3引数を「出力する ZIP のファイルパス」として格納
-        out_file_path=$3
-
-    # 引数が 2 個の場合
-    elif [ $# = 2 ]; then
-        # 第 1 引数を「変更前のコミット」、第 2 引数を「変更後のコミット」として代入
-        from_commit=$1
-        to_commit=$2
-
-    # 引数指定に当てはまらなかったら引数エラーを表示して終了
-    else
+    # 引数指定が 2 個 ～ 3 個以外の場合はエラーを表示して終了
+    if [ $# -lt 2 ] || [ $# -gt 3 ]; then
         print_error_args
         return 1
+    fi
+
+
+    ##### メイン処理 #####
+    # ローカル変数の宣言・初期化
+    local \
+        from_commit \
+        to_commit \
+        out_file_path="archive.zip" # デフォルトの出力ファイル名
+
+    # 第 1 引数を「変更前のコミット」、第 2 引数を「変更後のコミット」として代入
+    from_commit=$1
+    to_commit=$2
+
+    # 第 3 引数が存在する場合は出力ファイル名の変数へ再代入
+    if [ $# = 3 ]; then
+        out_file_path=$3
     fi
 
     # git archive コマンドを実行
@@ -143,6 +139,6 @@ msg_help
     else
         # ステータスが 0（成功）であればファイルパスを表示
         echo "差分ファイルを出力しました。"
-        echo $out_file_path
+        echo "./${out_file_path}"
     fi
 }
