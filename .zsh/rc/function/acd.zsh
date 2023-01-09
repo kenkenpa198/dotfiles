@@ -1,12 +1,16 @@
-##### archive commit diff #####
+##### archive-commit-diff #####
 # Git リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェル関数
 
 # 参考:
 # git コマンドで差分納品 zipを作る (かつ、不要ファイルは含めないようにしたい) ｜ Tips Note by TAM (https://www.tam-tam.co.jp/tipsnote/program/post12992.html)
 # Gitレポジトリの中にいるか確認する方法 | 晴耕雨読 (https://tex2e.github.io/blog/git/check-if-inside-git-repo)
+# コマンドの標準エラー出力を変数に代入 - ハックノート (https://hacknote.jp/archives/20651/)
 
 function acd() {
-    ##### 関数の定義 #####
+    ################################
+    # 関数の定義 : 標準出力系
+    ################################
+
     # Git リポジトリ外であるエラーを出力する関数
     function print_error_outside_repo() {
         cat \
@@ -46,13 +50,22 @@ echo $1
 msg_error_git_archive
     }
 
+    # 出力したコミットとファイルの情報を表示する関数
+    #
+    function print_result() {
+        echo "差分ファイルを出力しました。\n"
+        echo "変更前のコミット : ${1}"
+        echo "変更後のコミット : ${2}"
+        echo "出力先           : ./${3}"
+    }
+
     # ヘルプを出力する関数
     function print_help() {
         cat \
 << msg_help
------------------------------------------------------------------
-                       Archive Commit Diff
------------------------------------------------------------------
+------------------------------------------------------------------
+                    archive-commit-diff v1.1.0
+------------------------------------------------------------------
 Git リポジトリ上で指定したコミット間の差分ファイルを ZIP 形式で出力します。
 
  使い方
@@ -81,86 +94,119 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
   $ acd from_commit to_commit ../fuga.zip
   $ acd from_commit to_commit ~/aaa/fuga.zip
 
-'--help' オプションでヘルプを表示します。
-  $ acd --help
-  $ acd -h
-
  補足
 ------
-- 指定されたコミットが見つからなかった場合はエラーメッセージを表示しますが、
-  その際に空の ZIP ファイルも出力されてしまいます。
-  確認して削除をお願いします。
+オプション指定でドキュメントを表示します。
+  $ acd -h : ヘルプを表示する
+  $ acd -v : バージョン情報を表示する
+
+指定されたコミットが見つからなかった場合はエラーメッセージを表示します。
+  - この際、空の ZIP ファイルがカレントディレクトリへ出力されます。
+    確認して削除をお願いします。
 msg_help
     }
 
+    # バージョン情報を出力する関数
+    function print_version() {
+        cat \
+<< msg_version
+------------------------------------------------------------------
+                    archive-commit-diff v1.1.0
+------------------------------------------------------------------
+- v1.1.0
+    - Git リポジトリ外で実行された場合は実行を中止するよう変更。
+    - git archive コマンドの標準エラー出力をエラー文内で表示するように変更。
+    - バージョン情報の出力オプションを追加。
+    - コードのリファクタリング。
+
+- v1.0.0
+    - 初版作成。
+msg_version
+    }
+
+
+    ################################
+    # 関数の定義 : 処理系
+    ################################
+
     # カレントディレクトリが Git リポジトリ内か判定する関数
-    function is_inside_repo {
+    function is_inside_repo() {
         git rev-parse --is-inside-work-tree &>/dev/null
     return $?
     }
 
     # git archive コマンドを実行する関数
+    # $1 : 変更前のコミット
+    # $2 : 変更後のコミット
+    # $3 : 出力するファイルパス
     function do_git_archive() {
-        # $1 : 変更前のコミット
-        # $2 : 変更後のコミット
-        # $3 : 出力するファイルパス
-        echo "変更前のコミット : ${1}"
-        echo "変更後のコミット : ${2}\n"
-
         git archive --format=zip --prefix=root/ $2 `git diff --name-only ${1} ${2} --diff-filter=ACMR` -o $3
     }
 
 
-    ##### メイン処理 : コマンドが実行可能か判定 #####
-    # 引数が 0 個 または -h, --help の場合はコマンド一覧を表示して終了
-    if [ $# = 0 ] || [ $1 = "-h" ] || [ $1 = "--help" ]; then
-        print_help
-        return 0
+    ################################
+    # メイン処理
+    ################################
+
+    # 定義済みオプションが渡されたら対応するドキュメントを表示して終了
+    if [ $# -ge 1 ]; then
+        case ${1} in
+            -h | --help)
+                print_help
+                return 0
+                ;;
+
+            -v | --version)
+                print_version
+                return 0
+                ;;
+        esac
     fi
 
-    # カレントディレクトリが Git リポジトリ内でなければエラーを表示して終了
+    # カレントディレクトリが Git リポジトリ外だったらエラーを表示して終了
     is_inside_repo
-    if [ $? -gt 0 ]; then
+    if [ ! $? = 0 ]; then
         print_error_outside_repo
         return 1
     fi
 
-    # 引数指定が 2 個 ～ 3 個以外の場合はエラーを表示して終了
-    if [ $# -lt 2 ] || [ $# -gt 3 ]; then
-        print_error_args
-        return 1
-    fi
+    # 引数の個数で条件分岐
+    case $# in
+        0 )
+            # 引数が 0 個の場合はヘルプを表示して終了
+            print_help
+            return 0
+            ;;
 
+        2 | 3 )
+            # 引数が 2 個 または 3 個だった場合は case 文を抜ける
+            ;;
 
-    ##### メイン処理 : git archive コマンドを実行 #####
+        * )
+            # 条件にマッチしなければ引数エラーを表示して終了
+            print_error_args
+            return 1
+            ;;
+    esac
+
     # ローカル変数の宣言・初期化
-    local \
-        from_commit \
-        to_commit \
-        out_file_path="archive.zip" # デフォルトの出力ファイル名
-
-    # 第 1 引数を「変更前のコミット」、第 2 引数を「変更後のコミット」として代入
-    from_commit=$1
-    to_commit=$2
-
-    # 第 3 引数が存在する場合は出力ファイル名の変数へ再代入
-    if [ $# = 3 ]; then
-        out_file_path=$3
-    fi
+    local from_commit=$1                    # 変更前のコミット
+    local to_commit=$2                      # 変更後のコミット
+    local out_file_path=${3:-"archive.zip"} # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
 
     # git archive コマンドを実行
-    # エラーの場合は標準エラー出力を変数へ代入しておく
+    # エラーが発生した場合は標準エラー出力を変数へ代入しておく
     local e
     e="$(do_git_archive $from_commit $to_commit $out_file_path 2>&1 > /dev/null)"
 
-    # 終了ステータスのチェック
-    if [ $? -gt 0 ]; then
-        # 直前に実行したコマンド（git archive）の終了ステータスが 0 を超える（成功ステータスではない）であればコマンド実行エラーを表示して終了
+    # 実行したコマンド（$ git archive）の終了ステータスを判定
+    if [ $? = 0 ]; then
+        # ステータスが成功であればファイルパスを表示して終了
+        print_result $from_commit $to_commit $out_file_path
+        return 0
+    else
+        # 偽ならコマンド実行エラーを表示して終了
         print_error_git_archive $e
         return 1
-    else
-        # ステータスが 0（成功）であればファイルパスを表示
-        echo "差分ファイルを出力しました。"
-        echo "./${out_file_path}"
     fi
 }
