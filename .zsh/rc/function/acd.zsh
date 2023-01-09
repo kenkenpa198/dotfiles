@@ -1,28 +1,28 @@
-##### Archive Commit Diff #####
-# Gir リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェル関数
+##### archive commit diff #####
+# Git リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェル関数
 
 # 参考:
-# [git コマンドで差分納品 zipを作る (かつ、不要ファイルは含めないようにしたい) ｜ Tips Note by TAM](https://www.tam-tam.co.jp/tipsnote/program/post12992.html)
+# git コマンドで差分納品 zipを作る (かつ、不要ファイルは含めないようにしたい) ｜ Tips Note by TAM (https://www.tam-tam.co.jp/tipsnote/program/post12992.html)
 
-acd() {
+function acd() {
     ##### 関数の定義 #####
-    # 引数エラー表示関数
-    function display_args_err() {
+    # 引数エラーを出力する関数
+    function print_error_args() {
         echo "引数を受け取れませんでした。"
         echo "使い方を確認するには "\'"acd -h"\'" を送信してください。"
     }
 
-    # コマンド実行エラー表示関数
-    function display_cmd_err() {
+    # コマンド実行エラーを出力する関数
+    function print_error_git_archive() {
         echo "git archive コマンドの実行中にエラーが発生しました。"
         echo "コミットの指定方法が正しいか確認してください。"
         echo "使い方を確認するには "\'"acd -h"\'" を送信してください。"
     }
 
-    # ヘルプ表示関数
-    function display_help() {
+    # ヘルプを出力する関数
+    function print_help() {
         cat \
-<< help_msg
+<< msg_help
 -----------------------------------------------------------------
                        Archive Commit Diff
 -----------------------------------------------------------------
@@ -30,13 +30,17 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
 
  使い方
 --------
-1. 第1引数に変更前のコミット、第2引数に変更後のコミットを指定して送信する。
+1. Git リポジトリのルートディレクトリへ移動する。
+  $ cd foo_git_dir
+
+2. 第 1 引数に変更前のコミット、第 2 引数に変更後のコミットを指定して送信する。
   $ acd from_commit to_commit
 
-2. 差分をアーカイブ化した ZIP ファイルがカレントディレクトリに生成される。
+3. 差分をアーカイブ化した ZIP ファイルがカレントディレクトリに生成される。
   .
-  ├── foo_file
-  ├── foo_file
+  ├── .git
+  ├── bar_file
+  ├── baz_file
   └── archive.zip ← 生成！
 
  使用例
@@ -45,7 +49,7 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
   $ acd 322d4b4 a11729d
   $ acd main feature/aaaaa
 
-第3引数にファイルパスを指定すると、好みのファイル名やディレクトリへ出力を行えます。
+第 3 引数にファイルパスを指定すると、好みのファイル名やディレクトリへ出力を行えます。
   $ acd from_commit to_commit fuga.zip
   $ acd from_commit to_commit ../fuga.zip
   $ acd from_commit to_commit ~/aaa/fuga.zip
@@ -54,15 +58,15 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
   $ acd --help
   $ acd -h
 
- 注意
+ 補足
 ------
 - 指定されたコミットが見つからなかった場合はエラーメッセージを表示しますが、
   その際に空の ZIP ファイルも出力されてしまいます。
   確認して削除をお願いします。
-help_msg
+msg_help
     }
 
-    # git archive コマンドの実行関数
+    # git archive コマンドを実行する関数
     function do_git_archive() {
         # $1 : 変更前のコミット
         # $2 : 変更後のコミット
@@ -81,34 +85,34 @@ help_msg
         to_commit \
         out_file_path="archive.zip" # デフォルトの出力ファイル名
 
-    # 引数が0個のときは引数エラーを表示して終了
+    # 引数が 0 個のときは引数エラーを表示して終了
     if [ $# = 0 ]; then
-        display_args_err
+        print_error_args
         return 1
 
     # 引数が -h, --help の場合はコマンド一覧を表示して終了
     elif [ $1 = "-h" ] || [ $1 = "--help" ]; then
-        display_help
+        print_help
         return 0
 
-    # 引数が3個の場合
+    # 引数が 3 個の場合
     elif [ $# = 3 ]; then
-        # 第1引数を「変更前のコミット」、第2引数を「変更後のコミット」として格納
+        # 第 1 引数を「変更前のコミット」、第 2 引数を「変更後のコミット」として代入
         from_commit=$1
         to_commit=$2
 
         # 第3引数を「出力する ZIP のファイルパス」として格納
         out_file_path=$3
 
-    # 引数が2個の場合
+    # 引数が 2 個の場合
     elif [ $# = 2 ]; then
-        # 第1引数を「変更前のコミット」、第2引数を「変更後のコミット」として格納
+        # 第 1 引数を「変更前のコミット」、第 2 引数を「変更後のコミット」として代入
         from_commit=$1
         to_commit=$2
 
     # 引数指定に当てはまらなかったら引数エラーを表示して終了
     else
-        display_args_err
+        print_error_args
         return 1
     fi
 
@@ -118,7 +122,7 @@ help_msg
     # 終了ステータスのチェック
     if [ $? -gt 0 ]; then
         # 直前に実行したコマンド（git archive）の終了ステータスが 0 を超える（成功ステータスではない）であればコマンド実行エラーを表示して終了
-        display_cmd_err
+        print_error_git_archive
         return 1
     else
         # ステータスが 0（成功）であればファイルパスを表示
