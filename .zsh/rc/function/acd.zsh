@@ -85,13 +85,8 @@ msg_help
         to_commit \
         out_file_path="archive.zip" # デフォルトの出力ファイル名
 
-    # 引数が 0 個のときは引数エラーを表示して終了
-    if [ $# = 0 ]; then
-        print_error_args
-        return 1
-
-    # 引数が -h, --help の場合はコマンド一覧を表示して終了
-    elif [ $1 = "-h" ] || [ $1 = "--help" ]; then
+    # 引数が 0 個 または -h, --help の場合はコマンド一覧を表示して終了
+    if [ $# = 0 ] || [ $1 = "-h" ] || [ $1 = "--help" ]; then
         print_help
         return 0
 
