@@ -8,56 +8,8 @@
 
 function acd() {
     ################################
-    # 関数の定義 : 標準出力系
+    # 関数定義 : ドキュメント系
     ################################
-
-    # Git リポジトリ外であるエラーを出力する関数
-    function print_error_outside_repo() {
-        cat \
-<< msg_error_outside_repo
-[!] カレントディレクトリが Git リポジトリ外でした。
-Git リポジトリ内で実行してください。
-
-使い方を確認するには 'acd -h' を送信してください。
-msg_error_outside_repo
-    }
-
-    # 引数エラーを出力する関数
-    function print_error_args() {
-        cat \
-<< msg_error_args
-[!] 引数は 2 個 もしくは 3 個 で指定してください。
-
- 使用例
---------
-  $ acd from_commit to_commit
-  $ acd from_commit to_commit fuga.zip
-
-使い方を確認するには 'acd -h' を送信してください。
-msg_error_args
-    }
-
-    # コマンド実行エラーを出力する関数
-    # $1 : 標準エラー出力の文字列
-    function print_error_git_archive() {
-        cat \
-<< msg_error_git_archive
-[!] git archive コマンドの実行中にエラーが発生しました。
-echo $1
-
-出力されたエラー内容を確認してください。
-使い方を確認するには 'acd -h' を送信してください。
-msg_error_git_archive
-    }
-
-    # 出力したコミットとファイルの情報を表示する関数
-    #
-    function print_result() {
-        echo "差分ファイルを出力しました。\n"
-        echo "変更前のコミット : ${1}"
-        echo "変更後のコミット : ${2}"
-        echo "出力先           : ./${3}"
-    }
 
     # ヘルプを出力する関数
     function print_help() {
@@ -126,7 +78,60 @@ msg_version
 
 
     ################################
-    # 関数の定義 : 処理系
+    # 関数定義 : 標準出力系
+    ################################
+
+    # Git リポジトリ外であるエラーを出力する関数
+    function print_error_outside_repo() {
+        cat \
+<< msg_error_outside_repo
+[!] カレントディレクトリが Git リポジトリ外でした。
+Git リポジトリ内で実行してください。
+
+使い方を確認するには 'acd -h' を送信してください。
+msg_error_outside_repo
+    }
+
+    # 引数エラーを出力する関数
+    function print_error_args() {
+        cat \
+<< msg_error_args
+[!] 引数は 2 個 もしくは 3 個 で指定してください。
+
+ 使用例
+--------
+  $ acd from_commit to_commit
+  $ acd from_commit to_commit fuga.zip
+
+使い方を確認するには 'acd -h' を送信してください。
+msg_error_args
+    }
+
+    # コマンド実行エラーを出力する関数
+    # $1 : 標準エラー出力の文字列
+    function print_error_git_archive() {
+        cat \
+<< msg_error_git_archive
+[!] git archive コマンドの実行中にエラーが発生しました。
+echo $1
+
+出力されたエラー内容を確認してください。
+使い方を確認するには 'acd -h' を送信してください。
+msg_error_git_archive
+    }
+
+    # 出力したコミットとファイルの情報を表示する関数
+    #
+    function print_result() {
+        echo "差分ファイルを出力しました。\n"
+        echo "変更前のコミット : ${1}"
+        echo "変更後のコミット : ${2}"
+        echo "出力先           : ./${3}"
+    }
+
+
+    ################################
+    # 関数定義 : 処理系
     ################################
 
     # カレントディレクトリが Git リポジトリ内か判定する関数
