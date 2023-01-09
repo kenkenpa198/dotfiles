@@ -33,13 +33,14 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
   ├── .git
   ├── bar_file
   ├── baz_file
-  └── archive.zip ← 生成！
+  └── archive.zip ★ 生成
 
  使用例
 --------
-コミットの指定にはコミット ID もしくはブランチ名が使えます。
+コミットの指定にはコミット ID やブランチ名などが使えます。
   $ acd 322d4b4 a11729d
   $ acd main feature/aaaaa
+  $ acd main HEAD
 
 第 3 引数にファイルパスを指定すると、好みのファイル名やディレクトリへ出力を行えます。
   $ acd from_commit to_commit fuga.zip
