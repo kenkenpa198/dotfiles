@@ -12,6 +12,8 @@ function acd() {
         cat \
 << msg_error_outside_repo
 [!] カレントディレクトリが Git リポジトリ外でした。
+Git リポジトリ内で実行してください。
+
 使い方を確認するには 'acd -h' を送信してください。
 msg_error_outside_repo
     }
@@ -107,7 +109,7 @@ msg_help
     }
 
 
-    ##### コマンドが実行可能か判定 #####
+    ##### メイン処理 : コマンドが実行可能か判定 #####
     # 引数が 0 個 または -h, --help の場合はコマンド一覧を表示して終了
     if [ $# = 0 ] || [ $1 = "-h" ] || [ $1 = "--help" ]; then
         print_help
@@ -128,7 +130,7 @@ msg_help
     fi
 
 
-    ##### メイン処理 #####
+    ##### メイン処理 : git archive コマンドを実行 #####
     # ローカル変数の宣言・初期化
     local \
         from_commit \
