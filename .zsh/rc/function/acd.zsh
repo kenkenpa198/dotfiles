@@ -3,9 +3,16 @@
 
 # 参考:
 # git コマンドで差分納品 zipを作る (かつ、不要ファイルは含めないようにしたい) ｜ Tips Note by TAM (https://www.tam-tam.co.jp/tipsnote/program/post12992.html)
+# Gitレポジトリの中にいるか確認する方法 | 晴耕雨読 (https://tex2e.github.io/blog/git/check-if-inside-git-repo)
 
 function acd() {
     ##### 関数の定義 #####
+    # Git リポジトリ外であるエラーを出力する関数
+    function print_error_outside_repo() {
+        echo "カレントディレクトリが Git リポジトリ外でした。"
+        echo "使い方を確認するには "\'"acd -h"\'" を送信してください。"
+    }
+
     # 引数エラーを出力する関数
     function print_error_args() {
         echo "引数を受け取れませんでした。"
@@ -66,6 +73,12 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
 msg_help
     }
 
+    # カレントディレクトリが Git リポジトリ内か判定する関数
+    function is_inside_repo {
+        git rev-parse --is-inside-work-tree &>/dev/null
+    return $?
+    }
+
     # git archive コマンドを実行する関数
     function do_git_archive() {
         # $1 : 変更前のコミット
@@ -89,9 +102,17 @@ msg_help
     if [ $# = 0 ] || [ $1 = "-h" ] || [ $1 = "--help" ]; then
         print_help
         return 0
+    fi
+
+    # カレントディレクトリが Git リポジトリ内でなければエラーを表示して終了
+    is_inside_repo
+    if [ $? -gt 0 ]; then
+        print_error_outside_repo
+        return 1
+    fi
 
     # 引数が 3 個の場合
-    elif [ $# = 3 ]; then
+    if [ $# = 3 ]; then
         # 第 1 引数を「変更前のコミット」、第 2 引数を「変更後のコミット」として代入
         from_commit=$1
         to_commit=$2
