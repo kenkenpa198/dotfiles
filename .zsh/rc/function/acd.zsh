@@ -9,21 +9,37 @@ function acd() {
     ##### 関数の定義 #####
     # Git リポジトリ外であるエラーを出力する関数
     function print_error_outside_repo() {
-        echo "カレントディレクトリが Git リポジトリ外でした。"
-        echo "使い方を確認するには "\'"acd -h"\'" を送信してください。"
+        cat \
+<< msg_error_outside_repo
+[!] カレントディレクトリが Git リポジトリ外でした。
+使い方を確認するには 'acd -h' を送信してください。
+msg_error_outside_repo
     }
 
     # 引数エラーを出力する関数
     function print_error_args() {
-        echo "引数を受け取れませんでした。"
-        echo "使い方を確認するには "\'"acd -h"\'" を送信してください。"
+        cat \
+<< msg_error_args
+[!] 引数は 2 個 もしくは 3 個 で指定してください。
+
+ 使用例
+--------
+  $ acd from_commit to_commit
+  $ acd from_commit to_commit fuga.zip
+
+使い方を確認するには 'acd -h' を送信してください。
+msg_error_args
     }
 
     # コマンド実行エラーを出力する関数
     function print_error_git_archive() {
-        echo "git archive コマンドの実行中にエラーが発生しました。"
-        echo "コミットの指定方法が正しいか確認してください。"
-        echo "使い方を確認するには "\'"acd -h"\'" を送信してください。"
+        cat \
+<< msg_error_git_archive
+[!] git archive コマンドの実行中にエラーが発生しました。
+コミットの指定が正しいか確認してください。
+
+使い方を確認するには 'acd -h' を送信してください。
+msg_error_git_archive
     }
 
     # ヘルプを出力する関数
