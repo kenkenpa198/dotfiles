@@ -34,12 +34,14 @@ msg_error_args
     }
 
     # コマンド実行エラーを出力する関数
+    # $1 : 標準エラー出力の文字列
     function print_error_git_archive() {
         cat \
 << msg_error_git_archive
 [!] git archive コマンドの実行中にエラーが発生しました。
-コミットの指定が正しいか確認してください。
+echo $1
 
+出力されたエラー内容を確認してください。
 使い方を確認するには 'acd -h' を送信してください。
 msg_error_git_archive
     }
@@ -147,12 +149,14 @@ msg_help
     fi
 
     # git archive コマンドを実行
-    do_git_archive $from_commit $to_commit $out_file_path
+    # エラーの場合は標準エラー出力を変数へ代入しておく
+    local e
+    e="$(do_git_archive $from_commit $to_commit $out_file_path 2>&1 > /dev/null)"
 
     # 終了ステータスのチェック
     if [ $? -gt 0 ]; then
         # 直前に実行したコマンド（git archive）の終了ステータスが 0 を超える（成功ステータスではない）であればコマンド実行エラーを表示して終了
-        print_error_git_archive
+        print_error_git_archive $e
         return 1
     else
         # ステータスが 0（成功）であればファイルパスを表示
