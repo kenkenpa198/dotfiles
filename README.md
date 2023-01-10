@@ -215,11 +215,18 @@ $ moda
 - [Bashのif文でANDやOR条件、&&や||演算子を使う | 晴耕雨読](https://tex2e.github.io/blog/shell/bash-and-or)
 - [シェルスクリプトの [ -a (AND) と -o (OR) ] は非推奨だかんね - Qiita](https://qiita.com/ko1nksm/items/6201b2ce47f4d6126521)
 
-### 5.5. シェル関数
+### 5.5. シェルスクリプト・シェル関数
 
+- 汎用
+    - [使いやすいシェルスクリプトを書く | Taichi Nakashima](https://deeeet.com/writing/2014/05/18/shell-template/)
+    - [シェルスクリプトを高級言語のような書き味に近づける Tips 集](https://sousaku-memo.net/php-system/1817)
+    - [bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
+    - [初心者向け、「上手い」シェルスクリプトの書き方メモ - Qiita](https://qiita.com/m-yamashita/items/889c116b92dc0bf4ea7d)
 - acd 関数
-    - [git コマンドで差分納品 zipを作る (かつ、不要ファイルは含めないようにしたい) ｜ Tips Note by TAM](https://www.tam-tam.co.jp/tipsnote/program/post12992.html)
-    - 同僚の方のコード（ありがとうございました！！）
+    - [[Git]masterと作業ブランチの差分ファイルを抽出してzip化する | いまからむったーん](https://muttaan.com/git-diffextraction/)
+    - [Gitで差分ファイルを抽出+zipファイル化する方法 | 株式会社グランフェアズ](https://www.granfairs.com/blog/staff/git-archivediff)
+    - [Gitレポジトリの中にいるか確認する方法 | 晴耕雨読](https://tex2e.github.io/blog/git/check-if-inside-git-repo)
+    - [コマンドの標準エラー出力を変数に代入 - ハックノート](https://hacknote.jp/archives/20651/)
 - cj 関数
     - [date コマンド | コマンドの使い方(Linux) | hydroculのメモ](https://hydrocul.github.io/wiki/commands/date.html)
     - [日付を取得する | UNIX & Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/date.html)
