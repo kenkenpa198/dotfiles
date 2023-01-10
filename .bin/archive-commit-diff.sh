@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# Git リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェルスクリプト
+# Git リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェルスクリプト。
 
 ###################################
 # バージョン情報
@@ -18,10 +18,10 @@ set -euo pipefail
 
 
 ###################################
-# 関数定義 : メッセージを出力
+# 関数定義 : メッセージを表示
 ###################################
-# ヘルプを出力する関数
-print_help() {
+# ヘルプを表示して正常終了する関数
+print_help_exit() {
     cat \
 << msg_help
 ------------------------------------------------------------------
@@ -29,76 +29,67 @@ print_help() {
 ------------------------------------------------------------------
 Git コミット間の差分ファイルを ZIP 形式で出力します。
 
- Usage
--------
+  使用例
+----------
     $ bash ./archive-commit-diff.sh <from_commit> <to_commit>
     $ bash ./archive-commit-diff.sh <from_commit> <to_commit> <archive_name>
 
- Description
--------------
-コミットを特定できる文字列を <from_commit> と <to_commit> へ指定して実行してください。
-    $ bash ./archive-commit-diff.sh 322d4b4 a11729d
-    $ bash ./archive-commit-diff.sh main feature/mod-branch
-    $ bash ./archive-commit-diff.sh main HEAD
-    $ bash ./archive-commit-diff.sh v1.0.0 v1.1.0
+  使い方
+----------
+1. Git リポジトリ配下へ移動してください。
+    $ cd your-git-repo
 
-差分ファイルのアーカイブがカレントディレクトリへ出力されます。
+2. ブランチ名を <from_commit> と <to_commit> へ指定して実行してください。
+    $ bash ./archive-commit-diff.sh 322d4b4 a11729d
+
+3. 差分ファイルのアーカイブがカレントディレクトリへ出力されます。
     .
     ├── .git
     ├── foo_file
     └── archive.zip ★
 
+  補足
+--------
+コミットの指定には HEAD, コミット ID, タグも使用できます。
+    $ bash ./archive-commit-diff.sh main HEAD
+    $ bash ./archive-commit-diff.sh 322d4b4 a11729d
+    $ bash ./archive-commit-diff.sh v1.0.0 v1.1.0
+
 <archive_name> を指定すると出力先のファイルパスを変更できます。
-    $ bash ./archive-commit-diff.sh 322d4b4 a11729d mod-filename.zip
+    $ bash ./archive-commit-diff.sh 322d4b4 a11729d your-filename.zip
     $ bash ./archive-commit-diff.sh 322d4b4 a11729d ../to/relarive/path.zip
     $ bash ./archive-commit-diff.sh 322d4b4 a11729d ~/to/absolute/path.zip
 msg_help
-    }
 
-# Git リポジトリ外であるエラーを出力する関数
-function print_error_outside_repo() {
-    cat \
-<< msg_error_outside_repo
-[ERROR] カレントディレクトリが Git リポジトリ外でした。
-Git リポジトリ内で実行してください。
+    exit 0
+}
 
-使い方を確認するにはオプション '-h' を付与して実行してください。
-msg_error_outside_repo
-    }
+# エラーメッセージを表示してエラー終了する関数
+function print_error_exit() {
+    local message=$1
+    echo "[ERROR] ${message}"
+    echo "使い方を確認するにはオプション '-h' を付与して実行してください。"
+    exit 1
+}
 
-# 引数エラーを出力する関数
-function print_error_args() {
-    cat \
-<< msg_error_args
-[ERROR] 引数は 2 個 もしくは 3 個 で指定してください。
-使い方を確認するにはオプション '-h' を付与して実行してください。
-msg_error_args
-    }
-
-# コマンド実行エラーを出力する関数
-# $1 : エラーが起こったコマンドの文字列
-# $2 : 標準エラー出力の文字列
-function print_error_do_command() {
-    cat \
-<< msg_error_do_command
-
-[ERROR] ${1} コマンドの実行中にエラーが発生しました。
-出力されているエラー内容を確認してください。
-
-使い方を確認するにはオプション '-h' を付与して実行してください。
-msg_error_do_command
-    }
+# コマンド実行エラーを出力してエラー終了する関数
+# $1 : エラーが発生したコマンド
+function print_cmd_error_exit() {
+    local command=$1
+    echo ""
+    echo "[ERROR] ${command} コマンドの実行中にエラーが発生しました。"
+    echo "出力されているエラー内容を確認してください。"
+    echo "使い方を確認するにはオプション '-h' を付与して実行してください。"
+    exit 1
+}
 
 # 出力結果（概要）を表示する関数
 function print_result_summary() {
-    cat \
-<< msg_result_summary
-アーカイブを出力しました。
-------------------------------------------------------------------
-変更前のコミット : ${1}
-変更後のコミット : ${2}
-出力先           : ./${3}
-msg_result_summary
+    echo "アーカイブを出力しました。"
+    echo "------------------------------------------------------------------"
+    echo "変更前のコミット : ${1}"
+    echo "変更後のコミット : ${2}"
+    echo "出力先           : ./${3}"
 }
 
 # 出力結果（差分ファイル）を表示する関数
@@ -118,23 +109,31 @@ function print_result_files() {
 function validate_parameters() {
     # 第 1 引数がオプション文字列であればヘルプを表示して正常終了
     if (( $# >= 1 )) && [[ $1 == -h ]]; then
-        print_help
-        exit 0
+        print_help_exit
     fi
 
-    # 引数の個数に異常があれば引数エラーを表示して異常終了
-    if (( $# < 2 )) || (( $# > 3)); then
-        print_error_args
-        exit 1
-    fi
+    case $# in
+        0 )
+            # 引数が 0 個の場合はヘルプを表示して正常終了
+            print_help_exit
+            ;;
+
+        2 | 3 )
+            # 引数が 2 個 または 3 個だった場合は正常終了ステータスを返して呼び出し元へ戻る
+            return 0
+            ;;
+
+        * )
+            # 条件にマッチしなければ引数エラーを表示して異常終了
+            print_error_exit "引数は 2 個 もしくは 3 個 で指定してください。"
+            ;;
+    esac
 }
 
 # カレントディレクトリが Git リポジトリ内か検証する関数
 function validate_inside_repo() {
     if ! git rev-parse --is-inside-work-tree &>/dev/null; then
-        # Git リポジトリ外であればエラー文を表示して異常終了
-        print_error_outside_repo
-        exit 1
+        print_error_exit "カレントディレクトリが Git リポジトリ外でした。\nこのコマンドは Git リポジトリ内で実行してください。"
     fi
 return
 }
@@ -147,13 +146,12 @@ function do_git_archive() {
     # 渡された引数を代入
     from_commit=$1                      # 変更前のコミット
     to_commit=$2                        # 変更後のコミット
-    out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
+    out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" を代入
 
     # git diff コマンドの実行確認
     if ! git diff --name-only "$from_commit" "$to_commit" --diff-filter=ACMR > /dev/null; then
-        # コマンド実行でエラーが起こった場合はコマンドエラーを出力して異常終了
-        print_error_do_command "git diff"
-        exit 1
+        # コマンド実行でエラーが発生した場合はコマンドエラーを出力して異常終了
+        print_cmd_error_exit "git diff"
     fi
 
     # git diff コマンドの標準出力を配列として保存
@@ -167,16 +165,14 @@ function do_git_archive() {
     # ファイル名にスペースが含まれていた場合に別のファイル名として変数展開されてしまう
     # ----------------------------------------------------------------------------------------------
     # if ! diff_files=($(git diff --name-only "$from_commit" "$to_commit" --diff-filter=ACMR)); then
-    #     print_error_do_command "git diff"
-    #     exit 1
+    #     print_cmd_error_exit "git diff"
     # fi
     # ----------------------------------------------------------------------------------------------
 
     # git archive コマンドを実行
     if ! git archive --format=zip --prefix=root/ "$to_commit" "${diff_files[@]}" -o "$out_file_path"; then
-        # コマンド実行でエラーが起こった場合はコマンドエラーを出力して異常終了
-        print_error_do_command "git archive"
-        exit 1
+        # コマンド実行でエラーが発生した場合はコマンドエラーを出力して異常終了
+        print_cmd_error_exit "git archive"
     fi
 
     # 結果を表示する
