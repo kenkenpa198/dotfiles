@@ -147,40 +147,17 @@ msg_result_files
 # ---------------------------------
 # 渡された引数を検証する関数
 function validate_parameters() {
-    # 第 1 引数がオプション文字列であればドキュメント表示用関数を実行して正常終了
-    if (( $# >= 1 )); then
-        case "$1" in
-            -h | --help)
-                print_help
-                exit 0
-                ;;
-
-            -v | --version)
-                print_version
-                exit 0
-                ;;
-        esac
+    # 第 1 引数がオプション文字列であればヘルプを表示して正常終了
+    if (( $# >= 1 )) && [[ $1 == -h ]]; then
+        print_help
+        exit 0
     fi
 
-    # 引数の個数で条件分岐
-    case $# in
-        0 )
-            # 引数が 0 個の場合はヘルプを表示して正常終了
-            print_help
-            exit 0
-            ;;
-
-        2 | 3 )
-            # 引数が 2 個 または 3 個だった場合は正常終了ステータスを返して呼び出し元へ戻る
-            return 0
-            ;;
-
-        * )
-            # 条件にマッチしなければ引数エラーを表示して異常終了
-            print_error_args
-            exit 1
-            ;;
-    esac
+    # 引数の個数に異常があれば引数エラーを表示して異常終了
+    if (( $# < 2 )) || (( $# > 3)); then
+        print_error_args
+        exit 1
+    fi
 }
 
 # カレントディレクトリが Git リポジトリ内か検証する関数
@@ -199,8 +176,8 @@ function do_git_archive() {
     local from_commit to_commit out_file_path
 
     # 渡された引数を代入
-    from_commit="$1"                    # 変更前のコミット
-    to_commit="$2"                      # 変更後のコミット
+    from_commit=$1                    # 変更前のコミット
+    to_commit=$2                      # 変更後のコミット
     out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
 
     # git diff コマンドの実行確認
