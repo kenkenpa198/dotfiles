@@ -1,4 +1,9 @@
-##### archive-commit-diff #####
+#!/bin/bash
+set -euo pipefail
+
+# ------------------------------------------------------------------
+#                     archive-commit-diff v1.1.0
+# ------------------------------------------------------------------
 # Git リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェル関数
 
 # 参考:
@@ -7,14 +12,13 @@
 # [Gitレポジトリの中にいるか確認する方法 | 晴耕雨読](https://tex2e.github.io/blog/git/check-if-inside-git-repo)
 # [コマンドの標準エラー出力を変数に代入 - ハックノート](https://hacknote.jp/archives/20651/)
 
-function acd() {
-    ################################
-    # 関数定義 : メッセージを出力
-    ################################
 
-    # ヘルプを出力する関数
-    function print_help() {
-        cat \
+# ---------------------------------
+# 関数定義 : メッセージを出力
+# ---------------------------------
+# ヘルプを出力する関数
+print_help() {
+    cat \
 << msg_help
 ------------------------------------------------------------------
                     archive-commit-diff v1.1.0
@@ -60,9 +64,9 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
 msg_help
     }
 
-    # バージョン情報を出力する関数
-    function print_version() {
-        cat \
+# バージョン情報を出力する関数
+function print_version() {
+    cat \
 << msg_version
 ------------------------------------------------------------------
                     archive-commit-diff v1.1.0
@@ -78,9 +82,9 @@ msg_help
 msg_version
     }
 
-    # Git リポジトリ外であるエラーを出力する関数
-    function print_error_outside_repo() {
-        cat \
+# Git リポジトリ外であるエラーを出力する関数
+function print_error_outside_repo() {
+    cat \
 << msg_error_outside_repo
 [!] カレントディレクトリが Git リポジトリ外でした。
 Git リポジトリ内で実行してください。
@@ -89,9 +93,9 @@ Git リポジトリ内で実行してください。
 msg_error_outside_repo
     }
 
-    # 引数エラーを出力する関数
-    function print_error_args() {
-        cat \
+# 引数エラーを出力する関数
+function print_error_args() {
+    cat \
 << msg_error_args
 [!] 引数は 2 個 もしくは 3 個 で指定してください。
 
@@ -104,10 +108,10 @@ msg_error_outside_repo
 msg_error_args
     }
 
-    # コマンド実行エラーを出力する関数
-    # $1 : 標準エラー出力の文字列
-    function print_error_git_archive() {
-        cat \
+# コマンド実行エラーを出力する関数
+# $1 : 標準エラー出力の文字列
+function print_error_git_archive() {
+    cat \
 << msg_error_git_archive
 [!] git archive コマンドの実行中にエラーが発生しました。
 echo $1
@@ -117,39 +121,41 @@ echo $1
 msg_error_git_archive
     }
 
-    # 出力したコミットとファイルの情報を表示する関数
-    #
-    function print_result() {
-        echo "差分ファイルを出力しました。\n"
-        echo "変更前のコミット : ${1}"
-        echo "変更後のコミット : ${2}"
-        echo "出力先           : ./${3}"
-    }
+# 出力したコミットとファイルの情報を表示する関数
+#
+function print_result() {
+    cat \
+<< msg_result
+差分ファイルを出力しました。
+変更前のコミット : $1
+変更後のコミット : $2
+出力先           : ./$3
+msg_result
+}
 
 
-    ################################
-    # 関数定義 : 処理系
-    ################################
+# ---------------------------------
+# 関数定義 : 処理系
+# ---------------------------------
+# カレントディレクトリが Git リポジトリ内か判定する関数
+function is_inside_repo() {
+    git rev-parse --is-inside-work-tree &>/dev/null
+return $?
+}
 
-    # カレントディレクトリが Git リポジトリ内か判定する関数
-    function is_inside_repo() {
-        git rev-parse --is-inside-work-tree &>/dev/null
-    return $?
-    }
-
-    # git archive コマンドを実行する関数
-    # $1 : 変更前のコミット
-    # $2 : 変更後のコミット
-    # $3 : 出力するファイルパス
-    function do_git_archive() {
-        git archive --format=zip --prefix=root/ $2 `git diff --name-only ${1} ${2} --diff-filter=ACMR` -o $3
-    }
+# git archive コマンドを実行する関数
+# $1 : 変更前のコミット
+# $2 : 変更後のコミット
+# $3 : 出力するファイルパス
+function do_git_archive() {
+    git archive --format=zip --prefix=root/ "$2" `git diff --name-only ${1} ${2} --diff-filter=ACMR` -o "$3"
+}
 
 
-    ################################
-    # メイン処理
-    ################################
-
+# ---------------------------------
+# メイン処理
+# ---------------------------------
+function main() {
     # 定義済みオプションが渡されたら対応するドキュメントを表示して終了
     if [ $# -ge 1 ]; then
         case ${1} in
@@ -192,23 +198,26 @@ msg_error_git_archive
     esac
 
     # ローカル変数の宣言・初期化
-    local from_commit=$1                    # 変更前のコミット
-    local to_commit=$2                      # 変更後のコミット
-    local out_file_path=${3:-"archive.zip"} # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
+    local from_commit="$1"                    # 変更前のコミット
+    local to_commit="$2"                      # 変更後のコミット
+    local out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
 
     # git archive コマンドを実行
     # エラーが発生した場合は標準エラー出力を変数へ代入しておく
     local e
-    e="$(do_git_archive $from_commit $to_commit $out_file_path 2>&1 > /dev/null)"
+    e="$(do_git_archive "$from_commit" "$to_commit" "$out_file_path" 2>&1 > /dev/null)"
 
     # 実行したコマンド（$ git archive）の終了ステータスを判定
-    if [ $? = 0 ]; then
+    if [ "$?" = 0 ]; then
         # ステータスが成功であればファイルパスを表示して終了
-        print_result $from_commit $to_commit $out_file_path
+        print_result "$from_commit" "$to_commit" "$out_file_path"
         return 0
     else
         # 偽ならコマンド実行エラーを表示して終了
-        print_error_git_archive $e
+        print_error_git_archive "$e"
         return 1
     fi
 }
+
+# メイン処理を実行
+main "$@"
