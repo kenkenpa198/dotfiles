@@ -197,9 +197,10 @@ function main() {
     esac
 
     # 渡されたコミットとファイルパスをローカル変数として初期化
-    local from_commit="$1"                    # 変更前のコミット
-    local to_commit="$2"                      # 変更後のコミット
-    local out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
+    local from_commit to_commit out_file_path
+    from_commit="$1"                    # 変更前のコミット
+    to_commit="$2"                      # 変更後のコミット
+    out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
 
     # git archive コマンドを実行
     local e
