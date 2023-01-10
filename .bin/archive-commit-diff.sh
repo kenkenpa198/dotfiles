@@ -118,16 +118,27 @@ function print_error_do_command() {
 msg_error_do_command
     }
 
-# 出力したコミットとファイルの情報を表示する関数
-#
-function print_result() {
+# 出力結果（概要）を表示する関数
+function print_result_summary() {
     cat \
-<< msg_result
-差分ファイルを出力しました。
+<< msg_result_summary
+アーカイブを出力しました。
+
 変更前のコミット : ${1}
 変更後のコミット : ${2}
 出力先           : ./${3}
-msg_result
+msg_result_summary
+}
+
+# 出力結果（差分ファイル）を表示する関数
+function print_result_files() {
+    cat \
+<< msg_result_files
+差分ファイル     :
+msg_result_files
+    for file in "$@"; do
+        echo "$file"
+    done
 }
 
 
@@ -223,7 +234,8 @@ function do_git_archive() {
     fi
 
     # 結果を表示する
-    print_result "$from_commit" "$to_commit" "$out_file_path"
+    print_result_summary "$from_commit" "$to_commit" "$out_file_path"
+    print_result_files "${diff_files[@]}"
 }
 
 
