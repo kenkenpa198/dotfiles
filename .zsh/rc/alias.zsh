@@ -91,6 +91,10 @@ alias zmvnw="noglob zmv -nW" # 置換プレビュー
 alias zmvw="noglob zmv -W"   # 置換
 
 
+##### 自作スクリプト #####
+alias acd="bash ~/dotfiles/.bin/archive-commit-diff.sh"
+
+
 ##### 環境ごとの読込 #####
 case ${OSTYPE} in
 
