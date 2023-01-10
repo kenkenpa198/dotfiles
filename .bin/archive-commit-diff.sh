@@ -112,7 +112,7 @@ function print_error_do_command() {
     cat \
 << msg_error_do_command
 
-[!] $1 コマンドの実行中にエラーが発生しました。
+[!] ${1} コマンドの実行中にエラーが発生しました。
 出力されているエラー内容を確認してください。
 使い方を確認するには 'acd -h' を送信してください。
 msg_error_do_command
@@ -124,9 +124,9 @@ function print_result() {
     cat \
 << msg_result
 差分ファイルを出力しました。
-変更前のコミット : $1
-変更後のコミット : $2
-出力先           : ./$3
+変更前のコミット : ${1}
+変更後のコミット : ${2}
+出力先           : ./${3}
 msg_result
 }
 
