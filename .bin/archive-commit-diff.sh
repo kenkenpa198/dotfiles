@@ -172,8 +172,7 @@ function main() {
     fi
 
     # カレントディレクトリが Git リポジトリ外だったらエラーを表示して終了
-    is_inside_repo
-    if [ ! $? = 0 ]; then
+    if ! is_inside_repo; then
         print_error_outside_repo
         return 1
     fi
@@ -197,26 +196,22 @@ function main() {
             ;;
     esac
 
-    # ローカル変数の宣言・初期化
+    # 渡されたコミットとファイルパスをローカル変数として初期化
     local from_commit="$1"                    # 変更前のコミット
     local to_commit="$2"                      # 変更後のコミット
     local out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
 
     # git archive コマンドを実行
-    # エラーが発生した場合は標準エラー出力を変数へ代入しておく
     local e
-    e="$(do_git_archive "$from_commit" "$to_commit" "$out_file_path" 2>&1 > /dev/null)"
-
-    # 実行したコマンド（$ git archive）の終了ステータスを判定
-    if [ "$?" = 0 ]; then
-        # ステータスが成功であればファイルパスを表示して終了
-        print_result "$from_commit" "$to_commit" "$out_file_path"
-        return 0
-    else
-        # 偽ならコマンド実行エラーを表示して終了
+    if ! e="$(do_git_archive "$from_commit" "$to_commit" "$out_file_path" 2>&1 > /dev/null)"; then
+        # エラーが発生した場合はローカル変数 e へ代入された標準エラー出力を print_error_git_archive 関数へ渡して実行する
         print_error_git_archive "$e"
         return 1
     fi
+
+    # 結果を表示
+    print_result "$from_commit" "$to_commit" "$out_file_path"
+    return 0
 }
 
 # メイン処理を実行
