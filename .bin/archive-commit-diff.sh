@@ -147,8 +147,8 @@ function do_git_archive() {
     local from_commit to_commit out_file_path
 
     # 渡された引数を代入
-    from_commit=$1                    # 変更前のコミット
-    to_commit=$2                      # 変更後のコミット
+    from_commit=$1                      # 変更前のコミット
+    to_commit=$2                        # 変更後のコミット
     out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
 
     # git diff コマンドの実行確認
