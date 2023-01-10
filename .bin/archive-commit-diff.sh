@@ -38,7 +38,7 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
   ├── .git
   ├── bar_file
   ├── baz_file
-  └── archive.zip ★ 生成
+  └── archive.zip ★
 
  使用例
 --------
@@ -52,15 +52,9 @@ Git リポジトリ上で指定したコミット間の差分ファイルを ZIP
   $ acd from_commit to_commit ../fuga.zip
   $ acd from_commit to_commit ~/aaa/fuga.zip
 
- 補足
-------
 オプション指定でドキュメントを表示します。
   $ acd -h : ヘルプを表示する
   $ acd -v : バージョン情報を表示する
-
-指定されたコミットが見つからなかった場合はエラーメッセージを表示します。
-  - この際、空の ZIP ファイルがカレントディレクトリへ出力されます。
-    確認して削除をお願いします。
 msg_help
     }
 
@@ -72,13 +66,13 @@ function print_version() {
                     archive-commit-diff v2.0.0
 ------------------------------------------------------------------
 - v2.0.0
-    - シェルスクリプトとして刷新。
+    - シェルスクリプトとして刷新しました。
+    - 指定されたコミットの差分取得に失敗した場合、アーカイブの生成を実行しないようにしました。
 
 - v1.1.0
-    - Git リポジトリ外で実行された場合は実行を中止するよう変更。
-    - git archive コマンドの標準エラー出力をエラー文内で表示するように変更。
-    - バージョン情報の出力オプションを追加。
-    - コードのリファクタリング。
+    - Git リポジトリ外で実行された場合は実行を中止するよう変更しました。
+    - git archive コマンドの標準エラー出力をエラー文内で表示するように変更しました。
+    - バージョン情報の出力オプションを追加しました。
 
 - v1.0.0
     - 初版作成。
@@ -112,16 +106,16 @@ msg_error_args
     }
 
 # コマンド実行エラーを出力する関数
-# $1 : 標準エラー出力の文字列
-function print_error_git_archive() {
+# $1 : エラーが起こったコマンドの文字列
+# $2 : 標準エラー出力の文字列
+function print_error_do_command() {
     cat \
-<< msg_error_git_archive
-[!] git archive コマンドの実行中にエラーが発生しました。
-echo $1
+<< msg_error_do_command
 
-出力されたエラー内容を確認してください。
+[!] $1 コマンドの実行中にエラーが発生しました。
+出力されているエラー内容を確認してください。
 使い方を確認するには 'acd -h' を送信してください。
-msg_error_git_archive
+msg_error_do_command
     }
 
 # 出力したコミットとファイルの情報を表示する関数
@@ -198,17 +192,18 @@ function do_git_archive() {
     to_commit="$2"                      # 変更後のコミット
     out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
 
-    # git diff コマンドを実行して差分ファイルの配列を取得
+    # git diff コマンドを実行して標準出力を配列として保存
     local diff_files
-    diff_files=($(git diff --name-only "$from_commit" "$to_commit" --diff-filter=ACMR))
+    if ! diff_files=($(git diff --name-only "$from_commit" "$to_commit" --diff-filter=ACMR)); then
+        # コマンド実行でエラーが起こった場合はコマンドエラーを出力して異常終了
+        print_error_do_command "git diff"
+        exit 1
+    fi
 
     # git archive コマンドを実行
-    local git_archive_error
-    if ! git_archive_error="$(git archive --format=zip --prefix=root/ "$to_commit" "${diff_files[@]}" -o "$out_file_path" 2>&1 > /dev/null)"; then
-        # コマンド実行でエラーが起こった場合、変数 e へ代入された標準エラー出力を print_error_git_archive 関数へ渡して実行する
-        print_error_git_archive "$git_archive_error"
-
-        # 異常終了
+    if ! git archive --format=zip --prefix=root/ "$to_commit" "${diff_files[@]}" -o "$out_file_path"; then
+        # コマンド実行でエラーが起こった場合はコマンドエラーを出力して異常終了
+        print_error_do_command "git archive"
         exit 1
     fi
 
