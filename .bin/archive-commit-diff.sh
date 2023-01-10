@@ -1,16 +1,22 @@
 #!/bin/bash
 set -euo pipefail
 
-# ------------------------------------------------------------------
-#                     archive-commit-diff v2.0.0
-# ------------------------------------------------------------------
-# Git リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェル関数
+# Git リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェルスクリプト
 
-# 参考:
-# [[Git]masterと作業ブランチの差分ファイルを抽出してzip化する | いまからむったーん](https://muttaan.com/git-diffextraction/)
-# [Gitで差分ファイルを抽出+zipファイル化する方法 | 株式会社グランフェアズ](https://www.granfairs.com/blog/staff/git-archivediff)
-# [Gitレポジトリの中にいるか確認する方法 | 晴耕雨読](https://tex2e.github.io/blog/git/check-if-inside-git-repo)
-# [コマンドの標準エラー出力を変数に代入 - ハックノート](https://hacknote.jp/archives/20651/)
+# ---------------------------------
+# バージョン情報
+# ---------------------------------
+# - v2.0.0
+#     - シェルスクリプトとして刷新しました。
+#     - 指定されたコミットの差分取得に失敗した場合、アーカイブの生成を実行しないようにしました。
+#
+# - v1.1.0
+#     - Git リポジトリ外で実行された場合は実行を中止するよう変更しました。
+#     - git archive コマンドの標準エラー出力をエラー文内で表示するように変更しました。
+#     - バージョン情報の出力オプションを追加しました。
+#
+# - v1.0.0
+#     - 初版作成。
 
 
 # ---------------------------------
@@ -23,70 +29,42 @@ print_help() {
 ------------------------------------------------------------------
                     archive-commit-diff v2.0.0
 ------------------------------------------------------------------
-Git リポジトリ上で指定したコミット間の差分ファイルを ZIP 形式で出力します。
+Git コミット間の差分ファイルを ZIP 形式で出力します。
 
- 使い方
---------
-1. Git リポジトリのルートディレクトリへ移動する。
-  $ cd foo_git_dir
+ Usage
+-------
+    $ bash ./archive-commit-diff.sh <from_commit> <to_commit>
+    $ bash ./archive-commit-diff.sh <from_commit> <to_commit> <archive_name>
 
-2. 第 1 引数に変更前のコミット、第 2 引数に変更後のコミットを指定して送信する。
-  $ acd from_commit to_commit
+ Description
+-------------
+コミットを特定できる文字列を <from_commit> と <to_commit> へ指定して実行してください。
+    $ bash ./archive-commit-diff.sh 322d4b4 a11729d
+    $ bash ./archive-commit-diff.sh main feature/mod-branch
+    $ bash ./archive-commit-diff.sh main HEAD
+    $ bash ./archive-commit-diff.sh v1.0.0 v1.1.0
 
-3. 差分をアーカイブ化した ZIP ファイルがカレントディレクトリに生成される。
-  .
-  ├── .git
-  ├── bar_file
-  ├── baz_file
-  └── archive.zip ★
+差分ファイルのアーカイブがカレントディレクトリへ出力されます。
+    .
+    ├── .git
+    ├── foo_file
+    └── archive.zip ★
 
- 使用例
---------
-コミットの指定にはコミット ID やブランチ名などが使えます。
-  $ acd 322d4b4 a11729d
-  $ acd main feature/aaaaa
-  $ acd main HEAD
-
-第 3 引数にファイルパスを指定すると、好みのファイル名やディレクトリへ出力を行えます。
-  $ acd from_commit to_commit fuga.zip
-  $ acd from_commit to_commit ../fuga.zip
-  $ acd from_commit to_commit ~/aaa/fuga.zip
-
-オプション指定でドキュメントを表示します。
-  $ acd -h : ヘルプを表示する
-  $ acd -v : バージョン情報を表示する
+<archive_name> を指定すると出力先のファイルパスを変更できます。
+    $ bash ./archive-commit-diff.sh 322d4b4 a11729d mod-filename.zip
+    $ bash ./archive-commit-diff.sh 322d4b4 a11729d ../to/relarive/path.zip
+    $ bash ./archive-commit-diff.sh 322d4b4 a11729d ~/to/absolute/path.zip
 msg_help
-    }
-
-# バージョン情報を出力する関数
-function print_version() {
-    cat \
-<< msg_version
-------------------------------------------------------------------
-                    archive-commit-diff v2.0.0
-------------------------------------------------------------------
-- v2.0.0
-    - シェルスクリプトとして刷新しました。
-    - 指定されたコミットの差分取得に失敗した場合、アーカイブの生成を実行しないようにしました。
-
-- v1.1.0
-    - Git リポジトリ外で実行された場合は実行を中止するよう変更しました。
-    - git archive コマンドの標準エラー出力をエラー文内で表示するように変更しました。
-    - バージョン情報の出力オプションを追加しました。
-
-- v1.0.0
-    - 初版作成。
-msg_version
     }
 
 # Git リポジトリ外であるエラーを出力する関数
 function print_error_outside_repo() {
     cat \
 << msg_error_outside_repo
-[!] カレントディレクトリが Git リポジトリ外でした。
+[ERROR] カレントディレクトリが Git リポジトリ外でした。
 Git リポジトリ内で実行してください。
 
-使い方を確認するには 'acd -h' を送信してください。
+使い方を確認するにはオプション '-h' を付与して実行してください。
 msg_error_outside_repo
     }
 
@@ -94,14 +72,8 @@ msg_error_outside_repo
 function print_error_args() {
     cat \
 << msg_error_args
-[!] 引数は 2 個 もしくは 3 個 で指定してください。
-
- 使用例
---------
-  $ acd from_commit to_commit
-  $ acd from_commit to_commit fuga.zip
-
-使い方を確認するには 'acd -h' を送信してください。
+[ERROR] 引数は 2 個 もしくは 3 個 で指定してください。
+使い方を確認するにはオプション '-h' を付与して実行してください。
 msg_error_args
     }
 
@@ -112,9 +84,10 @@ function print_error_do_command() {
     cat \
 << msg_error_do_command
 
-[!] ${1} コマンドの実行中にエラーが発生しました。
+[ERROR] ${1} コマンドの実行中にエラーが発生しました。
 出力されているエラー内容を確認してください。
-使い方を確認するには 'acd -h' を送信してください。
+
+使い方を確認するにはオプション '-h' を付与して実行してください。
 msg_error_do_command
     }
 
