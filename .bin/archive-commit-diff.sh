@@ -192,13 +192,28 @@ function do_git_archive() {
     to_commit="$2"                      # 変更後のコミット
     out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
 
-    # git diff コマンドを実行して標準出力を配列として保存
-    local diff_files
-    if ! diff_files=($(git diff --name-only "$from_commit" "$to_commit" --diff-filter=ACMR)); then
+    # git diff コマンドの実行確認
+    if ! git diff --name-only "$from_commit" "$to_commit" --diff-filter=ACMR > /dev/null; then
         # コマンド実行でエラーが起こった場合はコマンドエラーを出力して異常終了
         print_error_do_command "git diff"
         exit 1
     fi
+
+    # git diff コマンドの標準出力を配列として保存
+    local diff_files
+    mapfile -t diff_files < <(git diff --name-only "$from_commit" "$to_commit" --diff-filter=ACMR)
+
+    # echo "${diff_files[@]}"
+
+    # NOTE:
+    # 以下だとより少ない行で git diff のエラー処理を書けるが、
+    # ファイル名にスペースが含まれていた場合に別のファイル名として変数展開されてしまう
+    # ----------------------------------------------------------------------------------------------
+    # if ! diff_files=($(git diff --name-only "$from_commit" "$to_commit" --diff-filter=ACMR)); then
+    #     print_error_do_command "git diff"
+    #     exit 1
+    # fi
+    # ----------------------------------------------------------------------------------------------
 
     # git archive コマンドを実行
     if ! git archive --format=zip --prefix=root/ "$to_commit" "${diff_files[@]}" -o "$out_file_path"; then
