@@ -2,13 +2,14 @@
 # Git リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェル関数
 
 # 参考:
-# git コマンドで差分納品 zipを作る (かつ、不要ファイルは含めないようにしたい) ｜ Tips Note by TAM (https://www.tam-tam.co.jp/tipsnote/program/post12992.html)
-# Gitレポジトリの中にいるか確認する方法 | 晴耕雨読 (https://tex2e.github.io/blog/git/check-if-inside-git-repo)
-# コマンドの標準エラー出力を変数に代入 - ハックノート (https://hacknote.jp/archives/20651/)
+# [[Git]masterと作業ブランチの差分ファイルを抽出してzip化する | いまからむったーん](https://muttaan.com/git-diffextraction/)
+# [Gitで差分ファイルを抽出+zipファイル化する方法 | 株式会社グランフェアズ](https://www.granfairs.com/blog/staff/git-archivediff)
+# [Gitレポジトリの中にいるか確認する方法 | 晴耕雨読](https://tex2e.github.io/blog/git/check-if-inside-git-repo)
+# [コマンドの標準エラー出力を変数に代入 - ハックノート](https://hacknote.jp/archives/20651/)
 
 function acd() {
     ################################
-    # 関数定義 : ドキュメント系
+    # 関数定義 : メッセージを出力
     ################################
 
     # ヘルプを出力する関数
@@ -76,11 +77,6 @@ msg_help
     - 初版作成。
 msg_version
     }
-
-
-    ################################
-    # 関数定義 : 標準出力系
-    ################################
 
     # Git リポジトリ外であるエラーを出力する関数
     function print_error_outside_repo() {
