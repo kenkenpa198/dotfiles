@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # ------------------------------------------------------------------
-#                     archive-commit-diff v1.1.0
+#                     archive-commit-diff v2.0.0
 # ------------------------------------------------------------------
 # Git リポジトリ上の指定コミット間の差分ファイルを ZIP 形式で出力するシェル関数
 
@@ -21,7 +21,7 @@ print_help() {
     cat \
 << msg_help
 ------------------------------------------------------------------
-                    archive-commit-diff v1.1.0
+                    archive-commit-diff v2.0.0
 ------------------------------------------------------------------
 Git リポジトリ上で指定したコミット間の差分ファイルを ZIP 形式で出力します。
 
@@ -69,8 +69,11 @@ function print_version() {
     cat \
 << msg_version
 ------------------------------------------------------------------
-                    archive-commit-diff v1.1.0
+                    archive-commit-diff v2.0.0
 ------------------------------------------------------------------
+- v2.0.0
+    - シェルスクリプトとして刷新。
+
 - v1.1.0
     - Git リポジトリ外で実行された場合は実行を中止するよう変更。
     - git archive コマンドの標準エラー出力をエラー文内で表示するように変更。
@@ -137,18 +140,80 @@ msg_result
 # ---------------------------------
 # 関数定義 : 処理系
 # ---------------------------------
-# カレントディレクトリが Git リポジトリ内か判定する関数
-function is_inside_repo() {
-    git rev-parse --is-inside-work-tree &>/dev/null
-return $?
+# 渡された引数を検証する関数
+function validate_parameters() {
+    # 第 1 引数がオプション文字列であればドキュメント表示用関数を実行して正常終了
+    if (( $# >= 1 )); then
+        case "$1" in
+            -h | --help)
+                print_help
+                exit 0
+                ;;
+
+            -v | --version)
+                print_version
+                exit 0
+                ;;
+        esac
+    fi
+
+    # 引数の個数で条件分岐
+    case $# in
+        0 )
+            # 引数が 0 個の場合はヘルプを表示して正常終了
+            print_help
+            exit 0
+            ;;
+
+        2 | 3 )
+            # 引数が 2 個 または 3 個だった場合は正常終了ステータスを返して呼び出し元へ戻る
+            return 0
+            ;;
+
+        * )
+            # 条件にマッチしなければ引数エラーを表示して異常終了
+            print_error_args
+            exit 1
+            ;;
+    esac
+}
+
+# カレントディレクトリが Git リポジトリ内か検証する関数
+function validate_inside_repo() {
+    if ! git rev-parse --is-inside-work-tree &>/dev/null; then
+        # Git リポジトリ外であればエラー文を表示して異常終了
+        print_error_outside_repo
+        exit 1
+    fi
+return
 }
 
 # git archive コマンドを実行する関数
-# $1 : 変更前のコミット
-# $2 : 変更後のコミット
-# $3 : 出力するファイルパス
 function do_git_archive() {
-    git archive --format=zip --prefix=root/ "$2" `git diff --name-only ${1} ${2} --diff-filter=ACMR` -o "$3"
+    # ローカル変数を宣言
+    local from_commit to_commit out_file_path
+
+    # 渡された引数を代入
+    from_commit="$1"                    # 変更前のコミット
+    to_commit="$2"                      # 変更後のコミット
+    out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
+
+    # git diff コマンドを実行して差分ファイルの配列を取得
+    local diff_files
+    diff_files=($(git diff --name-only "$from_commit" "$to_commit" --diff-filter=ACMR))
+
+    # git archive コマンドを実行
+    local git_archive_error
+    if ! git_archive_error="$(git archive --format=zip --prefix=root/ "$to_commit" "${diff_files[@]}" -o "$out_file_path" 2>&1 > /dev/null)"; then
+        # コマンド実行でエラーが起こった場合、変数 e へ代入された標準エラー出力を print_error_git_archive 関数へ渡して実行する
+        print_error_git_archive "$git_archive_error"
+
+        # 異常終了
+        exit 1
+    fi
+
+    # 結果を表示する
+    print_result "$from_commit" "$to_commit" "$out_file_path"
 }
 
 
@@ -156,63 +221,14 @@ function do_git_archive() {
 # メイン処理
 # ---------------------------------
 function main() {
-    # 定義済みオプションが渡されたら対応するドキュメントを表示して終了
-    if [ $# -ge 1 ]; then
-        case ${1} in
-            -h | --help)
-                print_help
-                return 0
-                ;;
-
-            -v | --version)
-                print_version
-                return 0
-                ;;
-        esac
-    fi
+    # スクリプトの実行時に渡された引数を検証
+    validate_parameters "$@"
 
     # カレントディレクトリが Git リポジトリ外だったらエラーを表示して終了
-    if ! is_inside_repo; then
-        print_error_outside_repo
-        return 1
-    fi
-
-    # 引数の個数で条件分岐
-    case $# in
-        0 )
-            # 引数が 0 個の場合はヘルプを表示して終了
-            print_help
-            return 0
-            ;;
-
-        2 | 3 )
-            # 引数が 2 個 または 3 個だった場合は case 文を抜ける
-            ;;
-
-        * )
-            # 条件にマッチしなければ引数エラーを表示して終了
-            print_error_args
-            return 1
-            ;;
-    esac
-
-    # 渡されたコミットとファイルパスをローカル変数として初期化
-    local from_commit to_commit out_file_path
-    from_commit="$1"                    # 変更前のコミット
-    to_commit="$2"                      # 変更後のコミット
-    out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" で初期化
+    validate_inside_repo
 
     # git archive コマンドを実行
-    local e
-    if ! e="$(do_git_archive "$from_commit" "$to_commit" "$out_file_path" 2>&1 > /dev/null)"; then
-        # エラーが発生した場合はローカル変数 e へ代入された標準エラー出力を print_error_git_archive 関数へ渡して実行する
-        print_error_git_archive "$e"
-        return 1
-    fi
-
-    # 結果を表示
-    print_result "$from_commit" "$to_commit" "$out_file_path"
-    return 0
+    do_git_archive "$@"
 }
 
 # メイン処理を実行
