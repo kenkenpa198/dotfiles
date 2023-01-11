@@ -129,14 +129,13 @@ return
 }
 
 # git archive コマンドを実行する関数
+# $1 : 変更前のコミット識別子
+# $2 : 変更後のコミット識別子（省略した場合は "HEAD" を代入）
 function do_git_archive() {
-    # ローカル変数を宣言
-    local from_commit to_commit out_file_path
-
-    # 渡された引数を代入
-    from_commit=$1                      # 変更前のコミット
-    to_commit=$2                        # 変更後のコミット
-    out_file_path="${3:-"archive.zip"}" # デフォルトの出力ファイル名。$3 が未定義の場合は "archive.zip" を代入
+    # コミット識別子をローカル変数へ代入
+    local from_commit to_commit
+    from_commit=$1           # 変更前のコミット
+    to_commit="${2:-"HEAD"}" # 変更後のコミット。$2 が未定義の場合は "HEAD" を代入
 
     # git diff コマンドの実行確認
     if ! git diff --name-only "$from_commit" "$to_commit" --diff-filter=ACMR > /dev/null; then
@@ -159,14 +158,18 @@ function do_git_archive() {
     # fi
     # ----------------------------------------------------------------------------------------------
 
+    # ファイル名を定義
+    local export_path
+    export_path="$(basename "$PWD")-$(date '+%Y%m%d_%H%M%S').zip" # ディレクトリ名-yyyymmdd_hhmmss.zip
+
     # git archive コマンドを実行
-    if ! git archive --format=zip --prefix=root/ "$to_commit" "${diff_files[@]}" -o "$out_file_path"; then
+    if ! git archive --format=zip --prefix=root/ "$to_commit" "${diff_files[@]}" -o "$export_path"; then
         # コマンド実行でエラーが発生した場合はコマンドエラーを出力して異常終了
         print_cmd_error_exit "git archive"
     fi
 
     # 結果を表示する
-    print_result_summary "$from_commit" "$to_commit" "$out_file_path"
+    print_result_summary "$from_commit" "$to_commit" "$export_path"
     print_result_files "${diff_files[@]}"
 }
 
