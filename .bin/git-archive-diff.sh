@@ -34,37 +34,24 @@ print_help_exit() {
 -----------------------------------------------------------------
 Git コミット間の差分ファイルを ZIP 形式で出力します。
 
-  使用例
-----------
+ Usage
+-------
     $ bash ./git-archive-diff.sh <from_commit> <to_commit>
-    $ bash ./git-archive-diff.sh <from_commit> <to_commit> <archive_name>
+    $ bash ./git-archive-diff.sh <from_commit>
 
-  使い方
-----------
-1. Git リポジトリ配下へ移動してください。
-    $ cd your-git-repo
-
-2. コミットの識別子を <from_commit> と <to_commit> へ指定して実行してください。
-    $ bash ./git-archive-diff.sh main feature/your-branch
-
-3. 差分ファイルのアーカイブがカレントディレクトリへ出力されます。
-    .
-    ├── .git
-    ├── foo_file
-    └── archive.zip ★
-
-  補足
---------
-コミットの識別子は ブランチ, HEAD, コミット ID, タグ が使用できます。
-    $ bash ./git-archive-diff.sh main feature/your-branch
-    $ bash ./git-archive-diff.sh main HEAD
+ Example
+---------
+コミットの識別子には コミット ID, ブランチ名, HEAD, タグ が使用できます。
     $ bash ./git-archive-diff.sh 322d4b4 a11729d
+    $ bash ./git-archive-diff.sh main feature/your-branch
+    $ bash ./git-archive-diff.sh HEAD~~ HEAD
     $ bash ./git-archive-diff.sh v1.0.0 v1.1.0
 
-<archive_name> を指定すると出力先のファイルパスを変更できます。
-    $ bash ./git-archive-diff.sh 322d4b4 a11729d your-filename.zip
-    $ bash ./git-archive-diff.sh 322d4b4 a11729d ../to/relarive/path.zip
-    $ bash ./git-archive-diff.sh 322d4b4 a11729d ~/to/absolute/path.zip
+<to_commit> を省略した場合は <from_commit> と最新のコミット (HEAD) の差分を出力します。
+    $ bash ./git-archive-diff.sh main
+
+-h オプションでヘルプを表示します。
+    $ bash ./git-archive-diff.sh -h
 msg_help
 
         # 正常ステータスで終了
@@ -94,19 +81,22 @@ function print_cmd_error_exit() {
 # 出力結果（概要）を表示する関数
 function print_result_summary() {
     echo "アーカイブを出力しました。"
-    echo "------------------------------------------------------------------"
-    echo "変更前のコミット : ${1}"
-    echo "変更後のコミット : ${2}"
-    echo "出力先           : ./${3}"
+    echo
+    echo " Summary"
+    echo "---------"
+    echo "    from commit : ${1}"
+    echo "    to commit   : ${2}"
+    echo "    exported to : ./${3}"
 }
 
 # 出力結果（差分ファイル）を表示する関数
 function print_result_files() {
-    echo "------------------------------------------------------------------"
+    echo
+    echo " Files"
+    echo "-------"
     for file in "$@"; do
-        echo "$file"
+        echo "    $file"
     done
-    echo "------------------------------------------------------------------"
 }
 
 
