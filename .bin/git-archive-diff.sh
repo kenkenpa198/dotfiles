@@ -23,7 +23,11 @@ set -euo pipefail
 ###################################
 # ヘルプを表示して正常終了する関数
 print_help_exit() {
-    cat \
+    # 引数が存在しない または 第 1 引数がオプション文字列である場合のみ実行
+    if [[ $# = 0 ]] || [[ $1 == -h ]]; then
+
+        # ヒアドキュメントを出力
+        cat \
 << msg_help
 -----------------------------------------------------------------
                      git-archive-diff v2.0.0
@@ -63,10 +67,12 @@ Git コミット間の差分ファイルを ZIP 形式で出力します。
     $ bash ./git-archive-diff.sh 322d4b4 a11729d ~/to/absolute/path.zip
 msg_help
 
-    exit 0
+        # 正常ステータスで終了
+        exit 0
+    fi
 }
 
-# エラーメッセージを表示してエラー終了する関数
+# エラーメッセージを表示して異常終了する関数
 function print_error_exit() {
     local message=$1
     echo "[ERROR] ${message}"
@@ -74,7 +80,7 @@ function print_error_exit() {
     exit 1
 }
 
-# コマンド実行エラーを出力してエラー終了する関数
+# コマンド実行エラーを出力して異常終了する関数
 # $1 : エラーが発生したコマンド
 function print_cmd_error_exit() {
     local command=$1
@@ -107,35 +113,17 @@ function print_result_files() {
 ###################################
 # 関数定義 : 処理系
 ###################################
-# 渡された引数を検証する関数
-function validate_parameters() {
-    # 第 1 引数がオプション文字列であればヘルプを表示して正常終了
-    if (( $# >= 1 )) && [[ $1 == -h ]]; then
-        print_help_exit
+# 渡された引数の個数を検証する関数
+function validate_parameters_count() {
+    if (( $# < 1 )) || (( $# > 2 )); then
+        print_error_exit "引数は 1 個 もしくは 2 個 で指定してください。"
     fi
-
-    case $# in
-        0 )
-            # 引数が 0 個の場合はヘルプを表示して正常終了
-            print_help_exit
-            ;;
-
-        2 | 3 )
-            # 引数が 2 個 または 3 個だった場合は正常終了ステータスを返して呼び出し元へ戻る
-            return 0
-            ;;
-
-        * )
-            # 条件にマッチしなければ引数エラーを表示して異常終了
-            print_error_exit "引数は 2 個 もしくは 3 個 で指定してください。"
-            ;;
-    esac
 }
 
 # カレントディレクトリが Git リポジトリ内か検証する関数
 function validate_inside_repo() {
     if ! git rev-parse --is-inside-work-tree &>/dev/null; then
-        print_error_exit "カレントディレクトリが Git リポジトリ外でした。\nこのコマンドは Git リポジトリ内で実行してください。"
+        print_error_exit "このスクリプトは Git リポジトリ上で実行してください。"
     fi
 return
 }
@@ -187,11 +175,14 @@ function do_git_archive() {
 # メイン処理
 ###################################
 function main() {
-    # スクリプトの実行時に渡された引数を検証
-    validate_parameters "$@"
+    # ヘルプの表示判定処理
+    print_help_exit "$@"
 
-    # カレントディレクトリが Git リポジトリ外だったらエラーを表示して終了
+    # カレントディレクトリが Git リポジトリ内か検証
     validate_inside_repo
+
+    # 引数の個数を検証
+    validate_parameters_count "$@"
 
     # git archive コマンドを実行
     do_git_archive "$@"
