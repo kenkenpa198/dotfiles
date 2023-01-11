@@ -92,7 +92,7 @@ alias zmvw="noglob zmv -W"   # 置換
 
 
 ##### 自作スクリプト #####
-alias acd="bash ~/dotfiles/.bin/archive-commit-diff.sh"
+alias gad="bash ~/dotfiles/.bin/git-archive-diff.sh"
 
 
 ##### 環境ごとの読込 #####
