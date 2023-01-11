@@ -25,23 +25,23 @@ set -euo pipefail
 print_help_exit() {
     cat \
 << msg_help
-------------------------------------------------------------------
-                    archive-commit-diff v2.0.0
-------------------------------------------------------------------
+-----------------------------------------------------------------
+                     git-archive-diff v2.0.0
+-----------------------------------------------------------------
 Git コミット間の差分ファイルを ZIP 形式で出力します。
 
   使用例
 ----------
-    $ bash ./archive-commit-diff.sh <from_commit> <to_commit>
-    $ bash ./archive-commit-diff.sh <from_commit> <to_commit> <archive_name>
+    $ bash ./git-archive-diff.sh <from_commit> <to_commit>
+    $ bash ./git-archive-diff.sh <from_commit> <to_commit> <archive_name>
 
   使い方
 ----------
 1. Git リポジトリ配下へ移動してください。
     $ cd your-git-repo
 
-2. ブランチ名を <from_commit> と <to_commit> へ指定して実行してください。
-    $ bash ./archive-commit-diff.sh 322d4b4 a11729d
+2. コミットの識別子を <from_commit> と <to_commit> へ指定して実行してください。
+    $ bash ./git-archive-diff.sh main feature/your-branch
 
 3. 差分ファイルのアーカイブがカレントディレクトリへ出力されます。
     .
@@ -51,15 +51,16 @@ Git コミット間の差分ファイルを ZIP 形式で出力します。
 
   補足
 --------
-コミットの指定には HEAD, コミット ID, タグも使用できます。
-    $ bash ./archive-commit-diff.sh main HEAD
-    $ bash ./archive-commit-diff.sh 322d4b4 a11729d
-    $ bash ./archive-commit-diff.sh v1.0.0 v1.1.0
+コミットの識別子は ブランチ, HEAD, コミット ID, タグ が使用できます。
+    $ bash ./git-archive-diff.sh main feature/your-branch
+    $ bash ./git-archive-diff.sh main HEAD
+    $ bash ./git-archive-diff.sh 322d4b4 a11729d
+    $ bash ./git-archive-diff.sh v1.0.0 v1.1.0
 
 <archive_name> を指定すると出力先のファイルパスを変更できます。
-    $ bash ./archive-commit-diff.sh 322d4b4 a11729d your-filename.zip
-    $ bash ./archive-commit-diff.sh 322d4b4 a11729d ../to/relarive/path.zip
-    $ bash ./archive-commit-diff.sh 322d4b4 a11729d ~/to/absolute/path.zip
+    $ bash ./git-archive-diff.sh 322d4b4 a11729d your-filename.zip
+    $ bash ./git-archive-diff.sh 322d4b4 a11729d ../to/relarive/path.zip
+    $ bash ./git-archive-diff.sh 322d4b4 a11729d ~/to/absolute/path.zip
 msg_help
 
     exit 0
