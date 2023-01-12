@@ -10,6 +10,9 @@
 ##### ホワイトリスト #####
 # 管理対象のファイルを追記する
 
+# /.bin/
+!/.bin/**
+
 # /.config/azuredatastudio/
 !/.config/azuredatastudio/User/settings.json
 
