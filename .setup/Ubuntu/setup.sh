@@ -119,7 +119,7 @@ function install_my_scripts {
     git clone https://github.com/kenkenpa198/archive-commit-diff.git
     cd archive-commit-diff
     chmod +x acd.sh
-    ln -s ./acd.sh ~/bin/acd
+    ln -s ~/Works/Develop/archive-commit-diff/acd.sh ~/bin/acd
 
     # kem-ahks
     # https://github.com/kenkenpa198/kem-ahks
