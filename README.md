@@ -132,28 +132,10 @@ $ git rm -r --cached .
 
 ## 4. 自作シェル関数
 
-[.zsh/rc/function/](.zsh/rc/function/) 配下に保存している自作の各シェル関数。
+[.zsh/rc/function/](.zsh/rc/function/) 配下に保存している自作の各シェル関数。  
+それぞれ `-h` オプションでヘルプを表示する。
 
-使ってみたい場合は内容をそのまま `.bashrc` などに記述してもらえれば動くと思います。  
-それぞれ `-h` オプションでヘルプを表示します。
-
-### 4.1. [acd 関数](.zsh/rc/function/acd.zsh)
-
-Git リポジトリ上で指定したコミット間の差分ファイルを ZIP 形式で出力する関数。  
-名前は「Archive Commit Diff」の略。
-
-Example :
-
-```shell
-$ acd main feature/add_tsukune
-変更前のコミット : main
-変更後のコミット : feature/add_tsukune
-
-差分ファイルを出力しました。
-archive.zip
-```
-
-### 4.2. [cj 関数](.zsh/rc/function/cj.zsh)
+### 4.1. [cj 関数](.zsh/rc/function/cj.zsh)
 
 CST（米国中部標準時）と JST（日本標準時）を計算して出力する関数。  
 名前は「CST to JST」の略。
@@ -168,10 +150,10 @@ Converted CST to JST.
   JST: 2021-12-23 (Thu) 02:56:26
 ```
 
-### 4.3. [moda 関数](.zsh/rc/function/moda.zsh)
+### 4.2. [moda 関数](.zsh/rc/function/moda.zsh)
 
 もだねちゃんが来てくれる関数。  
-引数指定で大きくなったりアニメーションしたりします。
+引数指定で大きくなったりアニメーションしたり。
 
 Example :
 
@@ -180,6 +162,13 @@ $ moda
    ( ),
 \(^_^) moda!
 ```
+
+### 4.3. シェルスクリプト化
+
+記述量が多くなってきたファイルについては順次スクリプト化するようにした。  
+移行済みのスクリプトは以下に記載。
+
+- [kenkenpa198/archive-commit-diff: 指定した Git コミット間の差分ファイルを ZIP 形式で出力するシェルスクリプトコマンド](https://github.com/kenkenpa198/archive-commit-diff)
 
 ## 5. 参考サイト
 
@@ -218,15 +207,10 @@ $ moda
 ### 5.5. シェルスクリプト・シェル関数
 
 - 汎用
-    - [使いやすいシェルスクリプトを書く | Taichi Nakashima](https://deeeet.com/writing/2014/05/18/shell-template/)
     - [シェルスクリプトを高級言語のような書き味に近づける Tips 集](https://sousaku-memo.net/php-system/1817)
-    - [bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
+    - [使いやすいシェルスクリプトを書く | Taichi Nakashima](https://deeeet.com/writing/2014/05/18/shell-template/)
     - [初心者向け、「上手い」シェルスクリプトの書き方メモ - Qiita](https://qiita.com/m-yamashita/items/889c116b92dc0bf4ea7d)
-- acd 関数
-    - [[Git]masterと作業ブランチの差分ファイルを抽出してzip化する | いまからむったーん](https://muttaan.com/git-diffextraction/)
-    - [Gitで差分ファイルを抽出+zipファイル化する方法 | 株式会社グランフェアズ](https://www.granfairs.com/blog/staff/git-archivediff)
-    - [Gitレポジトリの中にいるか確認する方法 | 晴耕雨読](https://tex2e.github.io/blog/git/check-if-inside-git-repo)
-    - [コマンドの標準エラー出力を変数に代入 - ハックノート](https://hacknote.jp/archives/20651/)
+    - [bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
 - cj 関数
     - [date コマンド | コマンドの使い方(Linux) | hydroculのメモ](https://hydrocul.github.io/wiki/commands/date.html)
     - [日付を取得する | UNIX & Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/date.html)
