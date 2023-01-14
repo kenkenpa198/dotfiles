@@ -100,6 +100,9 @@ function install_node_js {
 function install_gems {
     cd
 
+    # Ruby gems をアップデート
+    gem update
+
     # Jekyll
     # https://jekyllrb-ja.github.io/docs/installation/ubuntu/
     gem install jekyll bundler
@@ -137,7 +140,7 @@ function install_my_apps {
     # Node.js のインストール
     install_node_js
 
-    # Ruby gem のインストール
+    # Ruby gems のインストール
     install_gems
 
     # 自作スクリプトのインストール
