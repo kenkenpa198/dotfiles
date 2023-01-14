@@ -98,9 +98,12 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 alias zmvnw="noglob zmv -nW" # 置換プレビュー
 alias zmvw="noglob zmv -W"   # 置換
 
-
-##### 自作スクリプト #####
-alias gad="bash ~/dotfiles/.bin/git-archive-diff.sh"
+# 配信モード
+# theme.zsh で設定している zsh プロンプト表示のユーザー名とホスト名をダミー文字列にする。
+# 戻すときは ss で .zshrc を再読み込みする。
+alias streamer-mode='PROMPT="%F{179m%}username@hostname%F{black}%B:%F{white}%~%b
+%F{087m%}$%F{white} "'
+alias "strmd=streamer-mode"
 
 
 ##### 環境ごとの読込 #####
