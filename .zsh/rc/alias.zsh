@@ -149,17 +149,23 @@ case ${OSTYPE} in
             # https://osa.hatenablog.jp/entry/2020/02/24/121725
             # https://www.iplab.cs.tsukuba.ac.jp/~takakura/blog/20200715/
             gg() {
-                local str
+                local words
 
-                # $str が値ありの場合は検索ワードを + 記号でつなぐ（AND 検索）
+                # $words が値ありの場合は検索ワードを + 記号でつなぐ（AND 検索）
                 if [ $# != 0 ]; then
                     for i in $*; do
-                        str="${str}${str:++}${i}"
+                        words="${words}${words:++}${i}"
                     done
                 fi
 
                 # 既定のブラウザで URL を開く
-                cmd.exe /c start "http://www.google.co.jp/search?q=${str}"
+                # 以下のメッセージが標準出力されるので /dev/null へ捨てる。
+                #
+                # $ gg ねこ
+                # '\\wsl.localhost\Ubuntu\home\<username>'
+                # 上記の現在のディレクトリで CMD.EXE を開始しました。
+                # UNC パスはサポートされません。Windows ディレクトリを既定で使用します。
+                cmd.exe /c start "http://www.google.co.jp/search?q=${words}" &>/dev/null
             }
 
         fi
