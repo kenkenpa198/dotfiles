@@ -15,7 +15,7 @@ alias wttrs="curl 'wttr.in/${WTTR_LOCALE}?0Q'"
 
 # date
 alias dt="date +'%F %T'"    # 現在日時を yyyy-MM-dd hh:mm:ss 形式で表示
-alias dts="\date +'%Y%m%d'" # 現在日時を yyyyMMdd 形式で表示
+alias dts="date +'%Y%m%d'" # 現在日時を yyyyMMdd 形式で表示
 
 # grep
 alias grep="grep --color=auto"
@@ -132,8 +132,8 @@ case ${OSTYPE} in
             }
 
             # date & copy
-            alias dt="\date +'%Y-%m-%d %H:%M:%S' | tee >(clip.exe)" # 現在日時を yyyy-MM-dd hh:mm:ss 形式で表示 & クリップボードへ格納
-            alias dts="\date +'%Y%m%d' | tee >(clip.exe)"           # 現在日時を yyyyMMdd 形式で表示 & クリップボードへ格納
+            alias dt="date +'%Y-%m-%d %H:%M:%S' | tee >(clip.exe)" # 現在日時を yyyy-MM-dd hh:mm:ss 形式で表示 & クリップボードへ格納
+            alias dts="date +'%Y%m%d' | tee >(clip.exe)"           # 現在日時を yyyyMMdd 形式で表示 & クリップボードへ格納
 
             # hostname & copy
             alias hi="hostname -I | tee >(clip.exe)" # ホスト（WSL 環境）の IP アドレスを表示 & クリップボードへ格納
@@ -193,8 +193,8 @@ case ${OSTYPE} in
         alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"                                     # Brewfile ファイルの表示
 
         # date & copy
-        alias dt="\date +'%Y-%m-%d %H:%M:%S' | tee >(pbcopy)" # 現在日時を yyyy-MM-dd hh:mm:ss 形式で表示 & クリップボードへ格納
-        alias dts="\date +'%Y%m%d' | tee >(pbcopy)"           # 現在日時を yyyyMMdd 形式で表示 & クリップボードへ格納
+        alias dt="date +'%Y-%m-%d %H:%M:%S' | tee >(pbcopy)" # 現在日時を yyyy-MM-dd hh:mm:ss 形式で表示 & クリップボードへ格納
+        alias dts="date +'%Y%m%d' | tee >(pbcopy)"           # 現在日時を yyyyMMdd 形式で表示 & クリップボードへ格納
 
         # open
         alias op="open"
