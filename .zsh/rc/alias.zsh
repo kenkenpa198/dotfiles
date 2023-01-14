@@ -101,7 +101,7 @@ alias zmvw="noglob zmv -W"   # 置換
 # 配信モード
 # theme.zsh で設定している zsh プロンプト表示のユーザー名とホスト名をダミー文字列にする。
 # 戻すときは ss で .zshrc を再読み込みする。
-alias streamer-mode='PROMPT="%F{179m%}username@hostname%F{black}%B:%F{white}%~%b
+alias streamer-mode='PROMPT="%F{179m%}****@****%F{black}%B:%F{white}%~%b
 %F{087m%}$%F{white} "'
 alias "strmd=streamer-mode"
 
