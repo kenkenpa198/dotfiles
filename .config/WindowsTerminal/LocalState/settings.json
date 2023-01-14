@@ -1,22 +1,21 @@
+// winpath: C:\Users\%USERNAME%\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
+// wslpath: /mnt/c/Users/$USERNAME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState\settings.json
+
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
-            "command": "closePane",
-            "keys": "alt+shift+w"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
-            "command": "unbound",
-            "keys": "ctrl+t"
+            "command": "paste",
+            "keys": "ctrl+v"
         },
         {
-            "command": "unbound",
-            "keys": "ctrl+w"
-        },
-        {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -24,84 +23,51 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab"
-            },
-            "keys": "ctrl+shift+t"
-        },
-        {
-            "command": 
-            {
-                "action": "closeTab"
-            },
-            "keys": "ctrl+shift+w"
-        },
-        {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
-            }
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane"
             },
             "keys": "alt+shift+d"
         }
     ],
-    "alwaysShowTabs": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-    "initialCols": 120,
-    "initialPosition": "1550,415",
+    "initialCols": 140,
+    "initialPosition": "1390, 418",
     "initialRows": 50,
-    "launchMode": "default",
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
-            "font": 
+            "font":
             {
-                "face": "HackGenNerd Console",
+                "face": "HackGen Console",
                 "size": 11
-            },
-            "historySize": 16000
+            }
         },
-        "list": 
+        "list":
         [
             {
-                "background": "#242529",
+                "colorScheme": "KeM Terminal",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
-                "tabColor": "#242529"
+                "tabColor": "#1F2024"
             },
             {
-                "colorScheme": "Campbell Powershell",
+                "colorScheme": "Campbell",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
-                "name": "Windows PowerShell",
-                "tabColor": "#012456"
+                "name": "Windows PowerShell"
             },
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
-                "name": "Command Prompt",
-                "tabColor": "#0C0C0C"
+                "name": "\u30b3\u30de\u30f3\u30c9 \u30d7\u30ed\u30f3\u30d7\u30c8"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -110,16 +76,18 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
+                "colorScheme": "One Half Dark",
                 "commandline": "C:\\Program Files\\Git\\bin\\bash.exe",
-                "guid": "{bee7d0f2-f877-43bd-8fc8-75c43c2ac87a}",
+                "guid": "{e6686610-5417-427e-8d23-a04c6f136987}",
                 "hidden": false,
                 "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
                 "name": "Git Bash",
-                "startingDirectory": "%USERPROFILE%"
+                "startingDirectory": "~",
+                "tabColor": "#282C34"
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#0C0C0C",
@@ -161,6 +129,29 @@
             "foreground": "#CCCCCC",
             "green": "#13A10E",
             "name": "Campbell Powershell",
+            "purple": "#881798",
+            "red": "#C50F1F",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#C19C00"
+        },
+        {
+            "background": "#1F2024",
+            "black": "#0C0C0C",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#3B78FF",
+            "brightCyan": "#61D6D6",
+            "brightGreen": "#16C60C",
+            "brightPurple": "#B4009E",
+            "brightRed": "#E74856",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#F9F1A5",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#13A10E",
+            "name": "KeM Terminal",
             "purple": "#881798",
             "red": "#C50F1F",
             "selectionBackground": "#FFFFFF",
@@ -328,10 +319,5 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ],
-    "showTabsInTitlebar": true,
-    "tabWidthMode": "equal",
-    "theme": "system",
-    "useAcrylicInTabRow": false,
-    "windowingBehavior": "useAnyExisting"
+    ]
 }
