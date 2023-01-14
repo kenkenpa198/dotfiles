@@ -37,6 +37,3 @@ setopt hist_reduce_blanks
 
 # 同じコマンドを history に残さない
 setopt hist_ignore_all_dups
-
-# スペースから始まるコマンドを history に残さない
-setopt hist_ignore_space
