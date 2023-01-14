@@ -51,21 +51,27 @@ alias drmn="docker image prune -f" # <none> イメージを一括削除 https://
 
 
 ##### Git #####
-alias gaa="git add -vA" # -v: add の内容を表示する / -A: 変更のあるファイルをすべてステージングする
-alias gba="git branch -a"
-alias gcm="git commit -m"
-alias gcma="git commit --amend -m"
+alias ga="git add -v"               # -v, --verbos      : add の内容を表示する
+alias gaa="git add -vA"             # -A, --all         : 変更のあるファイルをすべてステージングする
+alias gap="git add -vp"             # -p, --patch       : add の内容を表示する
+alias gb="git branch"
+alias gba="git branch -a"           # -a, --all         : リモートブランチも表示する
+alias gcm="git commit -m"           # -m, --message     : コミットメッセージを作成する
+alias gcma="git commit --amend -m"  # --amend           : 新しいブランチを作成してカレントブランチと入れ替える。-m オプションでメッセージも新たに設定する
 alias gd="git diff"
-alias gds="git diff --stat" # --stat: diff のあるファイル名のみを表示
-alias gfp="git fetch --prune"
-alias gl="git log --graph"
+alias gds="git diff --stat"         # --stat            : 差分のあるファイル名のみを表示
+alias gf="git fetch"
+alias gfp="git fetch -p"            # -p, --prune       : リモートに存在しない追跡ブランチを削除する
+alias gl="git log --graph"          # --graph           : グラフ表示する
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # https://prograshi.com/general/git/how-to-use-c-in-pretty-format/
-alias gri="git rebase -i"
-alias grs="git restore --staged ." # --staged: ステージングを解除
-alias gpoh="git push origin HEAD"
+alias gri="git rebase -i"           # -i, --interactive : 過去のコミットをまとめる $ git rebase -i HEAD~~
+alias grs="git restore --staged ."  # -S, --staged      : ステージングを解除する。. をあらかじめ指定しておきカレント配下のステージングをすべて解除する
+alias gpl="git pull"
+alias gpoh="git push origin HEAD"   # https://git-scm.com/docs/git-push > git push origin HEAD
 alias gs="git status"
-alias gss="git status -s" # -s: 短縮表示
+alias gss="git status -s"           # -s, --short       : ステータスの短縮表示
 alias gsw="git switch"
+alias gswc="git switch -c"          # -c, --create      : 新しいブランチを作成して切り替える
 
 
 ##### pwgen #####
