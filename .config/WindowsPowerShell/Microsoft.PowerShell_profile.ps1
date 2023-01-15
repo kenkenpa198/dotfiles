@@ -26,7 +26,7 @@ function ss(){
     powershell.exe $PROFILE
 }
 function dev(){
-    cd $env:USERPROFILE\Works\develop
+    cd $env:USERPROFILE\Works\Develop
 }
 function which($cmdname) {
     Get-Command $cmdname | Select-Object -ExpandProperty Definition
