@@ -120,7 +120,8 @@ function install_my_scripts {
     # archive-commit-diff
     # https://github.com/kenkenpa198/archive-commit-diff
     cd ~/works/develop
-    git clone https://github.com/kenkenpa198/archive-commit-diff.git
+    git clone git@github.com:kenkenpa198/archive-commit-diff.git
+
     cd archive-commit-diff
     chmod +x acd.sh
     ln -s ~/works/develop/archive-commit-diff/acd.sh ~/bin/acd
@@ -128,7 +129,12 @@ function install_my_scripts {
     # kem-ahks
     # https://github.com/kenkenpa198/kem-ahks
     cd ~/works/develop
-    git clone https://github.com/kenkenpa198/kem-ahks.git
+    git clone git@github.com:kenkenpa198/kem-ahks.git
+
+    # kems-clew.net
+    # https://github.com/kenkenpa198/kems-clew.net
+    cd ~/works/develop
+    git clone git@github.com:kenkenpa198/kems-clew.net.git
 }
 
 # インストール用の関数をまとめた関数
