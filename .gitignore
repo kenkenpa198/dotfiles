@@ -49,6 +49,9 @@
 # /.config/Homebrew/
 !/.config/Homebrew/Brewfile
 
+# /.config/markdown-preview-enhanced/mume/style.less
+!/.config/markdown-preview-enhanced/mume/style.less
+
 # /.config/WindowsPowerShell/
 !/.config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 
