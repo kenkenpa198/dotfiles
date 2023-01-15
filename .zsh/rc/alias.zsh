@@ -1,6 +1,6 @@
 ##### Linux #####
 # cd
-alias dev="cd ~/Works/Develop"
+alias dev="cd ~/works/develop"
 alias dv="dev"
 alias dot="cd ~/dotfiles"
 alias obs="cd /mnt/c/Users/${USERNAME}/Documents/Obsidian"

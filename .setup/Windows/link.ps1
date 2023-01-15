@@ -27,8 +27,8 @@ New-Item -Value '~\GoogleDrive\Works\Others' -Path '~\Works' -Name 'Others' -Ite
 # WSL 側のホームディレクトリパスを変数へ格納
 $WSLHOME = "\\wsl.localhost\Ubuntu\home\${env:USERNAME}"
 
-# [Win] ~\Works\Develop ---> [WSL2] ~/Works/Develop
-New-Item -Value "${WSLHOME}\Works\Develop" -Path '~\Works' -Name 'Develop' -ItemType SymbolicLink
+# [Win] ~\Works\develop ---> [WSL2] ~/works/develop
+New-Item -Value "${WSLHOME}\works\develop" -Path '~\Works' -Name 'develop' -ItemType SymbolicLink
 
 # PowerShell エイリアス設定ファイル
 New-Item -Value "${WSLHOME}\dotfiles\.config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" -Path '~\Documents\WindowsPowerShell' -Name 'Microsoft.PowerShell_profile.ps1' -ItemType SymbolicLink

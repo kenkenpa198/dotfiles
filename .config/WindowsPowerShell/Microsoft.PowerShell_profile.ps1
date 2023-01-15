@@ -25,8 +25,8 @@
 function ss(){
     powershell.exe $PROFILE
 }
-function cdd(){
-    cd $env:USERPROFILE\Works\Develop
+function dev(){
+    cd $env:USERPROFILE\Works\develop
 }
 function which($cmdname) {
     Get-Command $cmdname | Select-Object -ExpandProperty Definition
@@ -53,5 +53,5 @@ Set-Alias vd deactivate
 # GGGrep
 
 function ggg(){
-    python $env:USERPROFILE\Works\Develop\GuruGuruGrep\GGGrep.py $args
+    python $env:USERPROFILE\Works\develop\GuruGuruGrep\GGGrep.py $args
 }
