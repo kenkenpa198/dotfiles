@@ -19,13 +19,16 @@ function backup_origin_files {
 function install_apt_apps {
     cd
 
+    # Git 公式のリポジトリを apt リポジトリへ追加
+    # https://loumo.jp/archives/23149
+    sudo add-apt-repository -y ppa:git-core/ppa
+
+    # Brighit Box の ruby リポジトリを apt リポジトリへ追加
+    # https://jekyllrb-ja.github.io/docs/installation/windows/
+    sudo apt-add-repository ppa:brightbox/ruby-ng
+
     # パッケージリストの取得・既存パッケージの更新
     sudo apt update && sudo apt upgrade -y
-
-    # Git 公式のリポジトリを apt のリポジトリへ追加
-    # https://loumo.jp/archives/23149
-    # sudo add-apt-repository -y ppa:git-core/ppa
-    # タイムアウトになるので保留
 
     # git
     sudo apt install -y git
