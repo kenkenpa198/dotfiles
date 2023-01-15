@@ -4,15 +4,6 @@ set -euo pipefail
 ###################################
 # 関数定義 : 初期環境の構築
 ###################################
-# SSH キーを作成
-function generate_ssh_key {
-    cd
-
-    mkdir ~/.ssh
-    cd ~/.ssh
-    ssh-keygen -t rsa -b 4096 # パスフレーズの保存場所・入力・確認は手動で設定する
-}
-
 # 初期ファイルをバックアップ
 function backup_origin_files {
     cd
@@ -198,9 +189,6 @@ msg
 # メイン処理
 ###################################
 function main {
-    # SSH キーの生成
-    generate_ssh_key
-
     # 初期ファイルのバックアップ
     backup_origin_files
 
