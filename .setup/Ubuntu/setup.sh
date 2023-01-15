@@ -94,13 +94,20 @@ function install_node_js {
 function install_gems {
     cd
 
-    # Ruby gems をアップデート
+    # gem 本体をアップデート
+    sudo gem update --system
+
+    # gems をアップデート
     gem update
 
     # Jekyll
     # https://jekyllrb-ja.github.io/docs/installation/ubuntu/
     gem install jekyll bundler
     jekyll --version
+
+    # $ jekyll --version で Ignoring ... が出たときは以下を実行する
+    # $ sudo gem pristine --all
+    # TODO: gem pristine foo-gem --version 3.1.3 を個別で実行することしか試していないので次は上記コマンドで試す
 }
 
 # 自作スクリプトのインストール
