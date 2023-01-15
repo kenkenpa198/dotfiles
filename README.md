@@ -3,8 +3,8 @@
 
 ```shell
 $ cd
-$ git clone https://github.com/kenkenpa198/dotfiles.git
-$ source ~/dotfiles/.setup/Ubuntu/setup.sh
+$ git clone git@github.com:kenkenpa198/dotfiles.git
+$ bash ~/dotfiles/.setup/Ubuntu/setup.sh
 ```
 
 ## 1. 概要
@@ -14,15 +14,18 @@ kenkenpa198 の dotfiles 。
 
 ## 2. 構築方法
 
-1. Windows 環境の場合、先に WSL をセットアップしておく。  
+1. Windows 環境の場合、以下の対応を行っておく。
+    1. WSL をセットアップ。
 
-    ```powershell
-    # PowerShell（管理者権限で起動）
-    > wsl --install
-    ```
+        ```powershell
+        # PowerShell（管理者権限で起動）
+        > wsl --install
+        ```
 
-    参考: [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
+        参考: [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
 
+    2. SSH キーの作成・GitHub アカウントへ公開鍵を登録（`git clone my-git-repositories` に必要）
+    3. イーサネットアダプターの IPv6 を無効にする（`$ sudo apt-add-repository ppa:foo/bar` に必要）
 2. ホームディレクトリ上で冒頭のコマンドを実行して dotfiles をクローン & Ubuntu 環境のセットアップ。
 3. `.setup/` 配下のスクリプトを使用してシンボリックリンクを各ファイルへ繋げる。
 
