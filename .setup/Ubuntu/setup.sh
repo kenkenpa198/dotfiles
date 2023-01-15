@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Ubuntu 環境の初期セットアップ用スクリプト
+# 先に以下の対応を行っておき実行する。
+#
+# - SSH キーの作成・GitHub アカウントへ公開鍵を登録（git clone に必要）
+# - イーサネットアダプターの IPv6 を無効にする（$ sudo apt-add-repository ppa:foo/bar に必要）
+
 set -euo pipefail
 
 ###################################
@@ -191,12 +198,12 @@ function print_finished {
 setup.sh の実行を完了しました。
 以下の対応を行ってください。
 
-- ホストを再起動してください。
 - デフォルトシェルが zsh へ変更されていることを確認してください。
     $ echo \$SHELL
 - Git のユーザー名とメールアドレスを登録してください。
     $ git config --global user.name <<username>>
     $ git config --global user.email <<email address>>'
+- ホストを再起動してください。
 msg
 }
 
