@@ -131,7 +131,7 @@ function install_my_scripts {
 
     cd archive-commit-diff
     chmod +x acd.sh
-    ln -s ~/works/develop/archive-commit-diff/acd.sh ~/bin/acd
+    ln -s ~/works/develop/archive-commit-diff/acd ~/bin/acd
 
     # kem-ahks
     # https://github.com/kenkenpa198/kem-ahks
