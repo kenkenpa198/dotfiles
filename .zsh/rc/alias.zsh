@@ -22,6 +22,9 @@ alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 
+alias h="history"
+alias hg="history -800 | grep"
+
 # ls
 alias ll="ls -lhG --file-type --color=auto --time-style=long-iso --group-directories-first"
 alias lla="ls -lhaG --file-type --color=auto --time-style=long-iso --group-directories-first"
