@@ -123,14 +123,12 @@ function install_my_scripts {
 
     mkdir -p ~/works/develop
 
-    # archive-commit-diff
-    # https://github.com/kenkenpa198/archive-commit-diff
-    cd ~/works/develop
-    git clone git@github.com:kenkenpa198/archive-commit-diff.git
-
-    cd archive-commit-diff
-    chmod +x acd
-    sudo ln -s ~/works/develop/archive-commit-diff/acd /usr/local/bin/acd
+    # 自作コマンドの実行権限付与・シンボリックリンクを作成
+    cd ~/dotfiles/.bin
+    chmod +x acd cj moda
+    sudo ln -s ~/dotfiles/.bin/acd /usr/local/bin/
+    sudo ln -s ~/dotfiles/.bin/cj /usr/local/bin/
+    sudo ln -s ~/dotfiles/.bin/moda /usr/local/bin/
 
     # kem-ahks
     # https://github.com/kenkenpa198/kem-ahks
