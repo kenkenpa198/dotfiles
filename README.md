@@ -38,9 +38,6 @@ kenkenpa198 の dotfiles 。
 ├── .zsh
 │   ├── .dircolors
 │   └── rc
-│       ├── function
-│       │   ├── foo.zsh
-│       │   └── bar.zsh
 │       ├── alias.zsh
 │       ├── env.zsh
 │       ├── option.zsh
@@ -58,12 +55,6 @@ kenkenpa198 の dotfiles 。
 `secret.zsh` はセキュアな環境変数や環境依存の設定などを記述したファイル。  
 後述のホワイトリストには記述していないため Git では追跡されない。  
 未来の自分は環境を変えた時に移行し忘れないようにしてね！
-
-`.zsh/rc/function/` ディレクトリ配下のスクリプトは `alias.zsh` から切り離した自作のシェル関数。  
-それぞれの関数については [4. 自作シェル関数](#4-自作シェル関数) セクションに記載。  
-
-以前は `.bashrc` もこれらのファイルを読み込む形で管理していたが今は管理していない。  
-Bash は環境のデフォルト設定で利用するようにしたため。
 
 ### 3.2. config
 
@@ -133,56 +124,16 @@ $ git rm -r --cached .
 
 それぞれコマンドを単純に直書きしているだけなので、もう少しいい感じにしたい。
 
-## 4. 自作シェル関数
+## 4. 参考サイト
 
-[.zsh/rc/function/](.zsh/rc/function/) 配下に保存している自作の各シェル関数。  
-それぞれ `-h` オプションでヘルプを表示する。
-
-### 4.1. [cj 関数](.zsh/rc/function/cj.zsh)
-
-CST（米国中部標準時）と JST（日本標準時）を計算して出力する関数。  
-名前は「CST to JST」の略。
-
-Example :
-
-```shell
-$ cj -c 'Sun, 22 Dec 2021 11:56:26'
-Converted CST to JST.
---------------------------------
-* CST: 2021-12-22 (Wed) 11:56:26
-  JST: 2021-12-23 (Thu) 02:56:26
-```
-
-### 4.2. [moda 関数](.zsh/rc/function/moda.zsh)
-
-もだねちゃんが来てくれる関数。  
-引数指定で大きくなったりアニメーションしたり。
-
-Example :
-
-```shell
-$ moda
-   ( ),
-\(^_^) moda!
-```
-
-### 4.3. シェルスクリプト化
-
-記述量が多くなってきたファイルについては順次スクリプト化するようにした。  
-移行済みのスクリプトは以下に記載。
-
-- [kenkenpa198/archive-commit-diff: 指定した Git コミット間の差分ファイルを ZIP 形式で出力するシェルスクリプトコマンド](https://github.com/kenkenpa198/archive-commit-diff)
-
-## 5. 参考サイト
-
-### 5.1. dotfiles
+### 4.1. dotfiles
 
 - [ようこそdotfilesの世界へ - Qiita](https://qiita.com/yutakatay/items/c6c7584d9795799ee164)
 - [【初心者版】必要最小限のdotfilesを運用する - Qiita](https://qiita.com/ganariya/items/d9adffc6535dfca6784b)
 - [gitignoreのホワイトリストの書き方 - Qiita](https://qiita.com/sventouz/items/574bd67c7e43fff10546)
 - [Windows と Mac で開発環境を揃える Tips 集 - Neo's World](https://neos21.net/tech/windows-mac-environment.html)
 
-### 5.2. WSL2
+### 4.2. WSL2
 
 - [WSL のインストール | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/wsl/install)
 - [Windows Terminal + WSL 2 + Homebrew + Zsh - Qiita](https://qiita.com/okayurisotto/items/36f6f9df499a74e62bff)
@@ -191,11 +142,11 @@ $ moda
 - [【WSL】パスのフォーマットを変換する wslpath コマンドの使い方 – ラボラジアン](https://laboradian.com/wslpath-command-for-wsl/)
 - [Cygwinでgo入門を諦めてWSL環境を作ったがCygwinでも大丈夫だった - exits](https://yuelab82.hatenablog.com/entry/go_on_cygwin_and_wsl)
 
-### 5.3. Ubuntu
+### 4.3. Ubuntu
 
 - [WSLのUbuntu環境を日本語化する：Tech TIPS - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/1806/28/news043.html)
 
-### 5.4. zsh
+### 4.4. zsh
 
 - [zsh設定ファイル（.zshrc）を分割する - fnwiya's quine](http://fnwiya.hatenablog.com/entry/2015/11/03/191902)
 - [【.zshrc解説】コピペで簡単zshカスタマイズ【設定方法】](https://suwaru.tokyo/【-zshrc解説】コピペで簡単zshカスタマイズ【設定方法/)
@@ -207,21 +158,14 @@ $ moda
 - [Bashのif文でANDやOR条件、&&や||演算子を使う | 晴耕雨読](https://tex2e.github.io/blog/shell/bash-and-or)
 - [シェルスクリプトの [ -a (AND) と -o (OR) ] は非推奨だかんね - Qiita](https://qiita.com/ko1nksm/items/6201b2ce47f4d6126521)
 
-### 5.5. シェルスクリプト・シェル関数
+### 4.5. シェルスクリプト・シェル関数
 
-- 汎用
-    - [シェルスクリプトを高級言語のような書き味に近づける Tips 集](https://sousaku-memo.net/php-system/1817)
-    - [使いやすいシェルスクリプトを書く | Taichi Nakashima](https://deeeet.com/writing/2014/05/18/shell-template/)
-    - [初心者向け、「上手い」シェルスクリプトの書き方メモ - Qiita](https://qiita.com/m-yamashita/items/889c116b92dc0bf4ea7d)
-    - [bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
-- cj 関数
-    - [date コマンド | コマンドの使い方(Linux) | hydroculのメモ](https://hydrocul.github.io/wiki/commands/date.html)
-    - [日付を取得する | UNIX & Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/date.html)
-- moda 関数
-    - [bashでコマンドが無い時にやる夫が動いて煽ってくるcommand_not_found_handle() | 俺的備忘録 〜なんかいろいろ〜](https://orebibou.com/ja/home/201810/20181005_001/)
-    - [bash をウザくする - とりあえず暇だったし何となくはじめたブログ](https://khiker.hatenablog.jp/entry/20070814/bash_yaruo)
+- [シェルスクリプトを高級言語のような書き味に近づける Tips 集](https://sousaku-memo.net/php-system/1817)
+- [使いやすいシェルスクリプトを書く | Taichi Nakashima](https://deeeet.com/writing/2014/05/18/shell-template/)
+- [初心者向け、「上手い」シェルスクリプトの書き方メモ - Qiita](https://qiita.com/m-yamashita/items/889c116b92dc0bf4ea7d)
+- [bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
 
-### 5.6. Git
+### 4.6. Git
 
 - [最低限しておくといいgitconfigの設定 - Qiita](https://qiita.com/hayamofu/items/d8103e789196bcd8b489)
 - [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
@@ -229,23 +173,23 @@ $ moda
 - [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
 - [.gitignoreに記載したのに反映されない件 - Qiita](https://qiita.com/fuwamaki/items/3ed021163e50beab7154)
 
-### 5.7. Homebrew
+### 4.7. Homebrew
 
 - [dotfiles管理にhomebrew-bundleを導入する - Qiita](https://qiita.com/so-heee/items/351f0ea4e79196754e52)
 - [Brew Bundleの使い方](https://gist.github.com/yoshimana/43b9205ddedad0ad65f2dee00c6f4261)
 
-### 5.8. GCC
+### 4.8. GCC
 
 - [Windows10 でのC言語開発環境の作り方 - Qiita](https://qiita.com/fumigoro/items/a07f1e6f059ad4b2b3d2)
 - [gccっていったいなんなんだ - Qiita](https://qiita.com/chihiro/items/1725f9dbb51942534641)
 
-### 5.9. Node.js
+### 4.9. Node.js
 
 - [WSL 2 上で Node.js を設定する | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-wsl)
 
-### 5.10. VSCode
+### 4.10. VSCode
 
-- マークダウン
+- Markdown
     - [自己流の手順書フォーマットを公開してみた | DevelopersIO](https://dev.classmethod.jp/articles/non-97-operation-manual/)
     - [【小ネタ】Visual Studio Code で Markdown All in One 機能拡張のインデントを 4 スペースに変更する | DevelopersIO](https://dev.classmethod.jp/articles/201906-vscode-markdown-customize-indent-size-settings/)
     - [markdownlint のインデント調整 - public note](https://ts223.hatenablog.com/entry/vscode-mdl)
