@@ -1,0 +1,156 @@
+#!/bin/bash
+set -euo pipefail # エラーや未定義の変数の使用があった場合スクリプトを終了する
+
+
+###################################
+# moda
+###################################
+# もだねちゃんが来てくれるシェルスクリプトコマンド！
+
+# 参考文献
+# - [bashでコマンドが無い時にやる夫が動いて煽ってくるcommand_not_found_handle() | 俺的備忘録 〜なんかいろいろ〜](https://orebibou.com/ja/home/201810/20181005_001/)
+# - [bash をウザくする - とりあえず暇だったし何となくはじめたブログ](https://khiker.hatenablog.jp/entry/20070814/bash_yaruo)
+
+
+###################################
+# 関数定義
+###################################
+# ミニもだねちゃんを出力する関数
+function print_small_modane {
+    cat << small_modane
+   ( ),
+\(^_^) moda!
+small_modane
+}
+
+# デカもだねちゃんを出力する関数
+function print_big_modane {
+    cat <<big_modane
+           ____
+         /      \\
+        ( ____   ﾚ-、
+      ／       -ノ_ﾗ
+     "  人      ヽ
+   /  ／_ \`-_     \\
+  |  /        \`-_  |
+  (|| -==    ==- ||)
+   \\) ,,  ワ  ,, (ﾉ
+    )ヽ________ノ(
+        \_父_/
+big_modane
+}
+
+# デカもだねちゃんのアニメーションを出力する関数
+function print_anime_modane {
+    clear
+
+    cat <<anime_modane_01
+                ____
+              /      \\
+             ( ____   ﾚ-、
+           ／       -ノ_ﾗ
+          "  人      ヽ
+        /  ／_ \`-_     \\
+       |  /        \`-_  |
+       (||   |    |   ||)
+        \\) ,,  ー  ,, (ﾉ
+         )ヽ________ノ(
+             \_父_/
+anime_modane_01
+
+    sleep 1
+    clear
+
+    cat <<anime_modane_02
+                ____
+              /      \\
+             ( ____   ﾚ-、
+           ／       -ノ_ﾗ
+          "  人      ヽ
+        /  ／_ \`-_     \\
+       |  /        \`-_  |
+       (||   |    |   ||)  < やっほー！
+   mm,  \\) ,,  ワ  ,, (ﾉ
+   \_ﾉ   )ヽ________ノ(
+             \_父_/
+anime_modane_02
+
+    sleep 1
+    clear
+
+    cat <<anime_modane_03
+                ____
+              /      \\
+             ( ____   ﾚ-、
+           ／       -ノ_ﾗ
+   \\      "  人      ヽ
+  --    /  ／_ \`-_     \\
+  _-   |  /        \`-_  |
+       (|| -==    ==- ||)  < やっほー！
+   mm,  \\) ,,  ワ  ,, (ﾉ     もだねちゃんだよ！
+   \_ﾉ   )ヽ________ノ(
+             \_父_/
+anime_modane_03
+
+    sleep 1
+}
+
+# ヘルプを表示する関数
+function print_help {
+    cat << help_msg
+,( )
+('_')/ This is the function that Modane-chan is coming to.
+
+options
+  no options    : Small Modane-chan will come.
+  -b, --big     : BIG MODANE-CHAN appears.
+  -a, --animate : BIG MODANE-CHAN animates. [!]
+  -h, --help    : display usage.
+
+[!] '--animate' option is send '$ clear'.
+help_msg
+}
+
+# エラーメッセージを表示する関数
+function print_error {
+    cat << option_error_msg
+  ( ),
+(>_<) It option is undefined.
+      Please send 'moda -h'.
+option_error_msg
+}
+
+
+###################################
+# メイン処理
+###################################
+function main() {
+    # 引数が無ければミニもだねちゃんを出力して正常終了
+    if (( $# == 0 )); then
+        print_small_modane
+        exit 0
+    fi
+
+    # 引数で処理を分岐する
+    case "$1" in
+        -h | --help )
+            print_help
+            ;;
+
+        -b | --big )
+            print_big_modane
+            ;;
+
+        -a | --animate )
+            print_anime_modane
+            ;;
+
+        # 引数指定に当てはまらなかった場合はエラーメッセージを表示してエラー終了
+        * )
+            print_error
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"
