@@ -24,9 +24,6 @@ export PATH="$HOME/gems/bin:$PATH"
 export FLYCTL_INSTALL="/home/${USERNAME}/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
-# 自作コマンドのパス
-export PATH="$PATH:$HOME/bin"
-
 
 ### 特定環境でのみ読み込む環境変数 ###
 case ${OSTYPE} in

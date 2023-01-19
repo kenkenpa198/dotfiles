@@ -121,7 +121,6 @@ function install_gems {
 function install_my_scripts {
     cd
 
-    mkdir ~/bin
     mkdir -p ~/works/develop
 
     # archive-commit-diff
@@ -130,8 +129,8 @@ function install_my_scripts {
     git clone git@github.com:kenkenpa198/archive-commit-diff.git
 
     cd archive-commit-diff
-    chmod +x acd.sh
-    ln -s ~/works/develop/archive-commit-diff/acd ~/bin/acd
+    chmod +x acd
+    sudo ln -s ~/works/develop/archive-commit-diff/acd /usr/local/bin/acd
 
     # kem-ahks
     # https://github.com/kenkenpa198/kem-ahks
