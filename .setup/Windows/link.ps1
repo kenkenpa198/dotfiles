@@ -44,7 +44,7 @@ New-Item -Value "${WSLHOME}\dotfiles\.config\azuredatastudio\User\settings.json"
 New-Item -Value "${WSLHOME}\.bashrc" -Path '~' -Name '.bashrc' -ItemType SymbolicLink
 
 # Obsidian 隠しファイル
-New-Item -Value "${WSLHOME}\dotfiles\.config\Obsidian\MyNotes\.obsidian" -Path '~\Documents\Obsidian\MyNotes' -Name '.obsidian' -ItemType SymbolicLink
+New-Item -Value "${WSLHOME}\dotfiles\.config\Obsidian\Notes\.obsidian" -Path '~\Works\Notes' -Name '.obsidian' -ItemType SymbolicLink
 
 
 ##### その他 #####
