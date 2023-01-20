@@ -18,5 +18,9 @@
     {
         "key": "ctrl+shift+b",
         "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "git.refresh"
     }
 ]
