@@ -26,25 +26,25 @@
 # - obsidian-livesync   … パスワードの記述が data.json 内に存在するため
 # - open-vscode         … data.json が存在しないため
 # - various-complements … タグの記述が data.json 内に存在するため
-!/.config/Obsidian/MyNotes/.obsidian/plugins/calendar/data.json
-!/.config/Obsidian/MyNotes/.obsidian/plugins/dataview/data.json
-!/.config/Obsidian/MyNotes/.obsidian/plugins/obsidian-filename-heading-sync/data.json
-!/.config/Obsidian/MyNotes/.obsidian/plugins/update-time-on-edit/data.json
+!/.config/Obsidian/Notes/.obsidian/plugins/calendar/data.json
+!/.config/Obsidian/Notes/.obsidian/plugins/dataview/data.json
+!/.config/Obsidian/Notes/.obsidian/plugins/obsidian-filename-heading-sync/data.json
+!/.config/Obsidian/Notes/.obsidian/plugins/update-time-on-edit/data.json
 
 # オプション・コアプラグインの設定ファイル。以下の設定ファイルは永続的な設定でないため管理対象外
 # - graph.json
 # - workspace-mobile.json
 # - workspace.json
-!/.config/Obsidian/MyNotes/.obsidian/snippets/style.css
-!/.config/Obsidian/MyNotes/.obsidian/app.json
-!/.config/Obsidian/MyNotes/.obsidian/appearance.json
-!/.config/Obsidian/MyNotes/.obsidian/command-palette.json
-!/.config/Obsidian/MyNotes/.obsidian/community-plugins.json
-!/.config/Obsidian/MyNotes/.obsidian/core-plugins-migration.json
-!/.config/Obsidian/MyNotes/.obsidian/core-plugins.json
-!/.config/Obsidian/MyNotes/.obsidian/daily-notes.json
-!/.config/Obsidian/MyNotes/.obsidian/hotkeys.json
-!/.config/Obsidian/MyNotes/.obsidian/templates.json
+!/.config/Obsidian/Notes/.obsidian/snippets/style.css
+!/.config/Obsidian/Notes/.obsidian/app.json
+!/.config/Obsidian/Notes/.obsidian/appearance.json
+!/.config/Obsidian/Notes/.obsidian/command-palette.json
+!/.config/Obsidian/Notes/.obsidian/community-plugins.json
+!/.config/Obsidian/Notes/.obsidian/core-plugins-migration.json
+!/.config/Obsidian/Notes/.obsidian/core-plugins.json
+!/.config/Obsidian/Notes/.obsidian/daily-notes.json
+!/.config/Obsidian/Notes/.obsidian/hotkeys.json
+!/.config/Obsidian/Notes/.obsidian/templates.json
 
 # /.config/Homebrew/
 !/.config/Homebrew/Brewfile
