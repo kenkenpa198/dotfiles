@@ -3,7 +3,8 @@
 alias dev="cd ~/works/develop"
 alias dv="dev"
 alias dot="cd ~/dotfiles"
-alias obs="cd /mnt/c/Users/${USERNAME}/Documents/Obsidian"
+alias note="cd /mnt/c/Users/${USERNAME}/Works/Notes"
+alias notes="note"
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
 
 # clear
