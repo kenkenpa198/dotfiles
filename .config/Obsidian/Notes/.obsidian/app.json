@@ -7,5 +7,6 @@
   "attachmentFolderPath": "Resources",
   "useTab": false,
   "alwaysUpdateLinks": true,
-  "autoConvertHtml": false
+  "autoConvertHtml": false,
+  "showIndentGuide": false
 }
