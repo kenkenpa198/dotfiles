@@ -8,5 +8,6 @@
   "useTab": false,
   "alwaysUpdateLinks": true,
   "autoConvertHtml": false,
-  "showIndentGuide": false
+  "showIndentGuide": false,
+  "showInlineTitle": false
 }

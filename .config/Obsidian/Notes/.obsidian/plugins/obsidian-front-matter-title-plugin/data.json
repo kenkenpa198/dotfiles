@@ -34,7 +34,7 @@
       "enabled": true
     },
     "header": {
-      "enabled": true
+      "enabled": false
     },
     "graph": {
       "enabled": true
