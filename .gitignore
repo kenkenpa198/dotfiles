@@ -29,6 +29,7 @@
 !/.config/Obsidian/Notes/.obsidian/plugins/calendar/data.json
 !/.config/Obsidian/Notes/.obsidian/plugins/dataview/data.json
 !/.config/Obsidian/Notes/.obsidian/plugins/obsidian-filename-heading-sync/data.json
+!/.config/Obsidian/Notes/.obsidian/plugins/obsidian-front-matter-title-plugin/data.json
 !/.config/Obsidian/Notes/.obsidian/plugins/update-time-on-edit/data.json
 
 # オプション・コアプラグインの設定ファイル。以下の設定ファイルは永続的な設定でないため管理対象外

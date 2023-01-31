@@ -1,9 +1,9 @@
 [
   "calendar",
   "dataview",
-  "obsidian-filename-heading-sync",
   "various-complements",
   "open-vscode",
   "update-time-on-edit",
-  "obsidian-livesync"
+  "obsidian-livesync",
+  "obsidian-front-matter-title-plugin"
 ]
