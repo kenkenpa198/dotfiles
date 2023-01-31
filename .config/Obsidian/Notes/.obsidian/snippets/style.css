@@ -14,9 +14,9 @@
 
 /* 見出し 1 プレビュー*/
 /* プレビュー時に表示を消す */
-.markdown-preview-view h1 {
+/* .markdown-preview-view h1 {
     display: none;
-}
+} */
 
 /* 見出し 2 プレビュー*/
 .markdown-preview-view h2 {
