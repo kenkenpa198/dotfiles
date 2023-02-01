@@ -111,9 +111,8 @@ alias zmvw="noglob zmv -W"   # 置換
 # - 表示するディレクトリパスをカレントディレクトリのみにする。
 #
 # 戻すときは ss で .zshrc を再読み込みする。
-alias streamer-mode='PROMPT="%F{179m%}****@****%F{black}%B:%F{white}%1~%b
+alias strmd='PROMPT="%F{179m%}****@****%F{black}%B:%F{white}%1~%b
 %F{087m%}$%F{white} "'
-alias "strmd=streamer-mode"
 
 
 ##### 環境ごとの読込 #####
