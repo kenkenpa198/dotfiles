@@ -1,7 +1,0 @@
-{
-  "userIllegalSymbols": [],
-  "ignoredFiles": {},
-  "ignoreRegex": "Templates/",
-  "useFileOpenHook": false,
-  "useFileSaveHook": true
-}
