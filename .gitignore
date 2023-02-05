@@ -27,7 +27,6 @@
 # - open-vscode         … data.json が存在しないため
 # - various-complements … タグの記述が data.json 内に存在するため
 !/.config/Obsidian/Notes/.obsidian/plugins/dataview/data.json
-!/.config/Obsidian/Notes/.obsidian/plugins/obsidian-filename-heading-sync/data.json
 !/.config/Obsidian/Notes/.obsidian/plugins/obsidian-front-matter-title-plugin/data.json
 !/.config/Obsidian/Notes/.obsidian/plugins/update-time-on-edit/data.json
 
