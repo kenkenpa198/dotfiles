@@ -25,16 +25,16 @@
       "validator": "fr"
     },
     "explorer": {
-      "enabled": false
+      "enabled": true
     },
     "explorer:sort": {
-      "enabled": false
+      "enabled": true
     },
     "tab": {
       "enabled": true
     },
     "header": {
-      "enabled": false
+      "enabled": true
     },
     "graph": {
       "enabled": true
