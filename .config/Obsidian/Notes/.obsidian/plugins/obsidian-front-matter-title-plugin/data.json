@@ -25,10 +25,10 @@
       "validator": "fr"
     },
     "explorer": {
-      "enabled": true
+      "enabled": false
     },
     "explorer:sort": {
-      "enabled": true
+      "enabled": false
     },
     "tab": {
       "enabled": true
