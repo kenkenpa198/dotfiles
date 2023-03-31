@@ -3,7 +3,7 @@
 alias dev="cd ~/works/develop"
 alias dv="dev"
 alias dot="cd ~/dotfiles"
-alias note="cd /mnt/c/Users/${USERNAME}/Works/Notes"
+alias note="cd /mnt/c/Users/${USERNAME}/GoogleDrive/Works/Notes"
 alias notes="note"
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
 
