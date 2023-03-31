@@ -19,6 +19,9 @@ New-Item -Value '~\GoogleDrive\Documents\Files' -Path '~\Documents' -Name 'Files
 # [Win] ~\Works\Create ---> [Google Drive] ~\Works\Create
 New-Item -Value '~\GoogleDrive\Works\Create' -Path '~\Works' -Name 'Create' -ItemType SymbolicLink
 
+# [Win] ~\Works\Notes ---> [Google Drive] ~\Works\Notes
+New-Item -Value '~\GoogleDrive\Works\Notes' -Path '~\Works' -Name 'Notes' -ItemType SymbolicLink
+
 # [Win] ~\Works\Others ---> [Google Drive] ~\Works\Others
 New-Item -Value '~\GoogleDrive\Works\Others' -Path '~\Works' -Name 'Others' -ItemType SymbolicLink
 
@@ -42,9 +45,6 @@ New-Item -Value "${WSLHOME}\dotfiles\.config\azuredatastudio\User\settings.json"
 
 # Git Bash .bashrc
 New-Item -Value "${WSLHOME}\.bashrc" -Path '~' -Name '.bashrc' -ItemType SymbolicLink
-
-# Obsidian 隠しファイル
-New-Item -Value "${WSLHOME}\dotfiles\.config\Obsidian\Notes\.obsidian" -Path '~\Works\Notes' -Name '.obsidian' -ItemType SymbolicLink
 
 
 ##### その他 #####
