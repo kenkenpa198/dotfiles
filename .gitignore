@@ -11,7 +11,9 @@
 # 管理対象のファイルを追記する
 
 # /.bin/
-!/.bin/**
+!/.bin/acd
+!/.bin/cj
+!/.bin/moda
 
 # /.config/azuredatastudio/
 !/.config/azuredatastudio/User/settings.json
@@ -38,7 +40,12 @@
 !/.config/WSL/.wslconfig
 
 # /.setup/
-!/.setup/**
+!/.setup/Ubuntu/install-vscode-extensions.sh
+!/.setup/Ubuntu/setup-ja.sh
+!/.setup/Ubuntu/setup.sh
+!/.setup/Windows/get-apps.ps1
+!/.setup/Windows/link.ps1
+!/.setup/Windows/winget.ps1
 
 # /.zsh/
 !/.zsh/rc/alias.zsh
