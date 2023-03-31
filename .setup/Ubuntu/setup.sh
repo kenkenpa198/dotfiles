@@ -190,8 +190,7 @@ function set_zsh {
 ###################################
 # 完了メッセージを表示
 function print_finished {
-    cat \
-<< msg
+    cat << msg
 setup.sh の実行を完了しました。
 以下の対応を行ってください。
 
