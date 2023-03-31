@@ -17,6 +17,7 @@
 !/.config/azuredatastudio/User/settings.json
 
 # /.config/Code/
+!/.config/Code/extensions
 !/.config/Code/Markdown_Preview_Enhanced/style.less
 !/.config/Code/User/keybindings.json
 !/.config/Code/User/settings.json
