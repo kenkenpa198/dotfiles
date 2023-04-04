@@ -11,7 +11,6 @@
     "editor.mouseWheelZoom": true,
     "editor.renderWhitespace": "trailing",
     "explorer.confirmDragAndDrop": false,
-    "explorer.incrementalNaming": "smart",
     "extensions.autoUpdate": "onlyEnabledExtensions",
     "files.autoGuessEncoding": true,
     "files.eol": "\n",
