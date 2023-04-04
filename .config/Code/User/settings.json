@@ -17,10 +17,6 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "[markdown]": {
-        // Markdown は行末の半角スペースを削除しない
-        "files.trimTrailingWhitespace": false,
-    },
     "search.showLineNumbers": true,
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.fontFamily": "'HackGen Console'",
@@ -33,6 +29,7 @@
     "window.restoreWindows": "none",
 
     // Extensions
+    "hediet.vscode-drawio.resizeImages": null,
     "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
     "markdown.extension.list.indentationSize": "inherit",
     "markdown-preview-enhanced.breakOnSingleNewLine": false,
@@ -53,5 +50,15 @@
         "hasSeenPromoForVersion": "3.0"
     },
     "trailing-spaces.backgroundColor": "rgba(255,255,0,0.3)",
-    "trailing-spaces.borderColor": "rgba(255,255,100,0.15)"
+    "trailing-spaces.borderColor": "rgba(255,255,100,0.15)",
+
+    // Language-Specific Settings
+    "[markdown]": {
+        // 行末の半角スペースを削除しない
+        "files.trimTrailingWhitespace": false,
+    },
+    "[python]": {
+        // 入力後に自動整形を行わない
+        "editor.formatOnType": false
+    }
 }
