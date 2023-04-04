@@ -81,8 +81,7 @@ alias gswc="git switch -c"          # -c, --create      : 新しいブランチ�
 
 
 ##### pwgen #####
-alias pg14="pwgen -c -n -y -B -1 14 8"
-alias pg20="pwgen -c -n -y -B -1 20 8"
+alias pg="pwgen -c -n -y -B -1" # $ pg 20 4 ... 20 桁のパスワード文字列を 4 行表示する
 
 
 ##### tree #####
