@@ -100,7 +100,7 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 
 ##### VS Code #####
-alias code-out-ex="code --list-extensions > ~/dotfiles/.config/Code/extensions"
+alias codeleo="code --list-extensions > ~/dotfiles/.config/Code/extensions"
 
 ##### zsh #####
 # zmv
