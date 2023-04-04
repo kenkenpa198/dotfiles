@@ -102,6 +102,7 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 ##### VS Code #####
 alias codeleo="code --list-extensions > ~/dotfiles/.config/Code/extensions"
 
+
 ##### zsh #####
 # zmv
 alias zmvnw="noglob zmv -nW" # 置換プレビュー
