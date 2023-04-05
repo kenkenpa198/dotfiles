@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 # VS Code の拡張機能をインストールするスクリプト
 # VS Code の拡張機能リストを1行ずつ変数へ代入して code コマンドでインストールする。
 
@@ -10,6 +8,8 @@ set -euo pipefail
 
 # 参考
 # https://qiita.com/mottox2/items/581869563ce5f427b5f6
+
+set -euo pipefail
 
 function main {
     cat ~/dotfiles/.config/Code/extensions | while read -r line
