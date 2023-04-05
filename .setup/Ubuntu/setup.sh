@@ -13,6 +13,7 @@ set -euo pipefail
 ###################################
 # 初期ファイルをバックアップ
 function backup_origin_files {
+    echo_funcname
     cd
 
     cp .bashrc .bashrc.org
@@ -22,8 +23,9 @@ function backup_origin_files {
 ###################################
 # 関数定義 : インストール関連
 ###################################
-# apt インストール
-function install_apt_apps {
+# apt リポジトリを追加
+function add_apt_repositories {
+    echo_funcname
     cd
 
     # Git 公式のリポジトリを apt リポジトリへ追加
@@ -33,47 +35,37 @@ function install_apt_apps {
     # Brighit Box の ruby リポジトリを apt リポジトリへ追加
     # https://jekyllrb-ja.github.io/docs/installation/windows/
     sudo apt-add-repository ppa:brightbox/ruby-ng
+}
+
+# apt インストール
+function install_apt_apps {
+    echo_funcname
+    cd
 
     # パッケージリストの取得・既存パッケージの更新
     sudo apt update && sudo apt upgrade -y
 
-    # git
-    sudo apt install -y git
-    git --version
+    apps=(
+        "git"
+        "gcc"
+        "cppcheck"
+        "neofetch"
+        "pwgen"
+        "python3-pip"
+        "tree"
+        "zsh"
+    )
 
-    # GNU Compiler Collection
-    sudo apt install -y gcc
-    gcc --version
-
-    # Cppcheck
-    sudo apt install -y cppcheck
-    cppcheck --version
-
-    # neofetch
-    sudo apt install -y neofetch
-    neofetch --version
-
-    # pwgen
-    sudo apt install -y pwgen
-    pwgen --version
-
-    # Python
-    sudo apt install -y python3-pip
-    pip3 --version
+    for app in "${apps[@]}"
+    do
+        sudo apt install -y "$app"
+    done
 
     # Ruby
     # https://jekyllrb-ja.github.io/docs/installation/ubuntu/
     sudo apt-get install -y ruby-full build-essential zlib1g-dev
     ruby --version
     gem --version
-
-    # tree
-    sudo apt install -y tree
-    tree --version
-
-    # zsh
-    sudo apt install -y zsh
-    zsh --version
 
     # パッケージのキャッシュを削除
     sudo apt autoclean -y
@@ -87,6 +79,7 @@ function install_apt_apps {
 #
 # 参考: https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-wsl
 function install_node_js {
+    echo_funcname
     cd
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -99,6 +92,7 @@ function install_node_js {
 
 # Ruby gems インストール
 function install_gems {
+    echo_funcname
     cd
 
     # gem 本体をアップデート
@@ -119,6 +113,7 @@ function install_gems {
 
 # 自作スクリプトのインストール
 function install_my_scripts {
+    echo_funcname
     cd
 
     mkdir -p ~/works/develop
@@ -141,29 +136,13 @@ function install_my_scripts {
     git clone git@github.com:kenkenpa198/kems-clew.net.git
 }
 
-# インストール用の関数をまとめた関数
-function install_my_apps {
-    cd
-
-    # apt インストール
-    install_apt_apps
-
-    # Node.js のインストール
-    install_node_js
-
-    # Ruby gems のインストール
-    install_gems
-
-    # 自作スクリプトのインストール
-    install_my_scriptss
-}
-
 
 ###################################
 # 関数定義 : 設定関連
 ###################################
 # Git の設定
 function set_git {
+    echo_funcname
     cd
 
     # シンボリックリンク設定
@@ -175,6 +154,7 @@ function set_git {
 
 # zsh の設定
 function set_zsh {
+    echo_funcname
     cd
 
     # シンボリックリンク設定
@@ -188,11 +168,19 @@ function set_zsh {
 ###################################
 # 関数定義 : その他
 ###################################
+# 関数名を表示する
+function echo_funcname {
+    echo "----------------------------------------"
+    echo "${FUNCNAME[1]}"
+    echo "----------------------------------------"
+}
+
 # 完了メッセージを表示
 function print_finished {
+    echo_funcname
     cat << msg
 setup.sh の実行を完了しました。
-以下の対応を行ってください。
+下記の対応を行ってください。
 
 - デフォルトシェルが zsh へ変更されていることを確認してください。
     $ echo \$SHELL
@@ -211,8 +199,20 @@ function main {
     # 初期ファイルのバックアップ
     backup_origin_files
 
-    # アプリケーションのインストール
-    install_my_apps
+    # apt リポジトリを追加
+    add_apt_repositories
+
+    # apt インストール
+    install_apt_apps
+
+    # Node.js のインストール
+    install_node_js
+
+    # Ruby gems のインストール
+    install_gems
+
+    # 自作スクリプトのインストール
+    install_my_scripts
 
     # Git の設定
     set_git
