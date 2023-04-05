@@ -13,38 +13,6 @@
 winget source update
 
 
-##### Microsoft Store からインストール #####
-# --accept-package-agreements : 使用許諾契約に同意するオプション
-# -s msstore                  : msstore をソースとして使用するオプション
-
-# CLIP STUDIO PAINT
-winget install --accept-package-agreements -s msstore XPDP32QDDFL4PK
-
-# DevToys
-winget install --accept-package-agreements -s msstore 9PGCV4V3BK4W
-
-# EarTrumpet
-winget install --accept-package-agreements -s msstore 9NBLGGH516XP
-
-# HyperX NGENUITY
-winget install --accept-package-agreements -s msstore 9P1TBXR6QDCX
-
-# iTunes
-winget install --accept-package-agreements -s msstore 9PB2MZ1ZMB1S
-
-# PowerToys
-winget install --accept-package-agreements -s msstore XP89DCGQ3K6VLD
-
-# Python 3.10
-winget install --accept-package-agreements -s msstore 9PJPW5LDXLZ5
-
-# QuickLook
-winget install --accept-package-agreements -s msstore 9NV4BS3L1H4S
-
-# Twinkle Tray
-winget install --accept-package-agreements -s msstore 9PLJWWSV01LK
-
-
 ##### winget からインストール #####
 # -e   : クエリで正確な文字列を使用するオプション
 # --id : インストールをアプリケーションの ID に限定するオプション
@@ -120,3 +88,35 @@ winget install -e --id WinSCP.WinSCP
 
 # Visual Studio Code
 winget install -e --id Microsoft.VisualStudioCode
+
+
+##### Microsoft Store からインストール #####
+# --accept-package-agreements : 使用許諾契約に同意するオプション
+# -s msstore                  : msstore をソースとして使用するオプション
+
+# CLIP STUDIO PAINT
+winget install --accept-package-agreements -s msstore XPDP32QDDFL4PK
+
+# DevToys
+winget install --accept-package-agreements -s msstore 9PGCV4V3BK4W
+
+# EarTrumpet
+winget install --accept-package-agreements -s msstore 9NBLGGH516XP
+
+# HyperX NGENUITY
+winget install --accept-package-agreements -s msstore 9P1TBXR6QDCX
+
+# iTunes
+winget install --accept-package-agreements -s msstore 9PB2MZ1ZMB1S
+
+# PowerToys
+winget install --accept-package-agreements -s msstore XP89DCGQ3K6VLD
+
+# Python 3.10
+winget install --accept-package-agreements -s msstore 9PJPW5LDXLZ5
+
+# QuickLook
+winget install --accept-package-agreements -s msstore 9NV4BS3L1H4S
+
+# Twinkle Tray
+winget install --accept-package-agreements -s msstore 9PLJWWSV01LK
