@@ -1,7 +1,10 @@
 csholmq.excel-to-markdown-table
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
+ecmel.vscode-html-css
 eliostruyf.vscode-front-matter
+jsynowiec.vscode-insertdatestring
+mark-wiemer.vscode-autohotkey-plus-plus
 mechatroner.rainbow-csv
 mhutchie.git-graph
 ms-azuretools.vscode-docker
@@ -15,6 +18,7 @@ ms-toolsai.vscode-jupyter-cell-tags
 ms-toolsai.vscode-jupyter-slideshow
 ms-vscode.powershell
 njpwerner.autodocstring
+nmrmsys.vscode-sql-formatter-mod
 sergey-agadzhanov.ampscript
 shardulm94.trailing-spaces
 shd101wyy.markdown-preview-enhanced
