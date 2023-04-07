@@ -17,7 +17,7 @@ function main {
     ##### 連想配列を宣言 #####
     $linkHash = [ordered]@{}
 
-    # 下記の記述で挿入する。
+    # 下記のコマンドで挿入する。
     # $linkHash['原本ファイルのパス'] = 'シンボリックリンクのパス'
 
 
@@ -26,9 +26,9 @@ function main {
     $linkHash['~\GoogleDrive\Documents\Files'] = '~\Documents\Files'
 
     # Works
-    $linkHash['~\GoogleDrive\Works\Create']    = '~\Works\Create'
-    $linkHash['~\GoogleDrive\Works\Notes']     = '~\Works\Notes'
-    $linkHash['~\GoogleDrive\Works\Others']    = '~\Works\Others'
+    $linkHash['~\GoogleDrive\Works\Create'] = '~\Works\Create'
+    $linkHash['~\GoogleDrive\Works\Notes']  = '~\Works\Notes'
+    $linkHash['~\GoogleDrive\Works\Others'] = '~\Works\Others'
 
 
     ##### Win 環境 => WSL 環境 #####
