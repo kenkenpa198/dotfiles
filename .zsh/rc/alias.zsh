@@ -102,7 +102,9 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 
 ##### VS Code #####
-alias codeleo="code --list-extensions > ~/dotfiles/.config/Code/extensions"
+# 拡張機能リストを出力する
+# WSL から実行するとローカルインストールされた拡張機能は含まれないようなので CMD から呼び出して追記する
+alias codeleo="code --list-extensions > ~/dotfiles/.config/Code/extensions && cmd.exe /c code --list-extensions >> ~/dotfiles/.config/Code/extensions &>/dev/null"
 
 
 ##### zsh #####
