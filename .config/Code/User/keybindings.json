@@ -22,5 +22,10 @@
     {
         "key": "ctrl+r",
         "command": "git.refresh"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-frontMatter.insertMedia",
+        "when": "editorTextFocus"
     }
 ]
