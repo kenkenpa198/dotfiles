@@ -11,6 +11,7 @@
 # [PowerShellの配列と連想配列 | 晴耕雨読](https://tex2e.github.io/blog/powershell/array)
 # [PowerShellでのシンボリックリンク判定について](https://teratail.com/questions/184340)
 # [ハッシュテーブルについて知りたかったことのすべて - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/scripting/learn/deep-dives/everything-about-hashtable?view=powershell-7.3)
+# [PowerShell のエラーハンドリングを（今度こそ）理解する - Qiita](https://qiita.com/mkht/items/24da4850f9d000b35fc4)
 
 
 function main {
@@ -21,7 +22,7 @@ function main {
     ##### 連想配列を宣言 #####
     $linkHash = [ordered]@{}
 
-    # 下記のコマンドで挿入する。
+    # 下記のコマンドで追加する
     # $linkHash['原本ファイルのパス'] = 'シンボリックリンクのパス'
 
 
@@ -46,8 +47,8 @@ function main {
     $linkHash["${WSLHOME}\dotfiles\.config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
 
     # VSCode 設定ファイル
-    $linkHash["${WSLHOME}\dotfiles\.config\Code\User\settings.json"]    = '~\AppData\Roaming\Code\User\settings.json'
     $linkHash["${WSLHOME}\dotfiles\.config\Code\User\keybindings.json"] = '~\AppData\Roaming\Code\User\keybindings.json'
+    $linkHash["${WSLHOME}\dotfiles\.config\Code\User\settings.json"]    = '~\AppData\Roaming\Code\User\settings.json'
 
     # Azure Data Studio 設定ファイル
     $linkHash["${WSLHOME}\dotfiles\.config\azuredatastudio\User\settings.json"] = '~\AppData\Roaming\azuredatastudio\User\settings.json'
