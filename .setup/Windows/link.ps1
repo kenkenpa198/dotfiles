@@ -14,6 +14,10 @@
 
 
 function main {
+    # エラーが発生した時点で処理を中断する
+    $ErrorActionPreference = 'Stop'
+
+
     ##### 連想配列を宣言 #####
     $linkHash = [ordered]@{}
 
