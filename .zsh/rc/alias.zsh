@@ -1,4 +1,7 @@
 ##### Linux #####
+# alias
+alias ag="alias | grep"
+
 # cd
 alias dev="cd ~/works/develop"
 alias dv="dev"
