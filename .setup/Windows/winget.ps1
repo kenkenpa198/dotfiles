@@ -10,6 +10,10 @@
 # 参考 : https://qiita.com/ponsuke0531/items/4629626a3e84bcd9398f
 
 function main {
+    # エラーが発生した時点で処理を中断する
+    $ErrorActionPreference = 'Stop'
+
+
     ##### winget のソースを更新 #####
     winget source update
 
