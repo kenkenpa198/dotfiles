@@ -103,9 +103,35 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 ##### VS Code #####
 # 拡張機能リストを出力する
-# WSL から実行するとローカルインストールされた拡張機能は含まれないようなので CMD から呼び出して追記する
-alias codeleo="code --list-extensions > ~/dotfiles/.config/Code/extensions && cmd.exe /c code --list-extensions >> ~/dotfiles/.config/Code/extensions &>/dev/null"
+codeex() {
+    ##### 一時ファイルを作成 #####
+    tmp=$(mktemp)
+    # echo $tmp
 
+
+    ##### 一時ファイルの削除処理 #####
+    # 生成した一時ファイルを削除する関数
+    rm_tmpfile() {
+        [[ -f "$tmp" ]] && rm -f "$tmp"
+    }
+
+    # 以降の処理が正常終了したときは rm_tmpfile() を呼び出す
+    trap rm_tmpfile EXIT
+
+    # 以降の処理が異常終了したときは rm_tmpfile() を呼び出して異常終了する
+    trap 'trap - EXIT; rm_tmpfile; exit -1' INT PIPE TERM
+
+
+    ##### メイン処理 #####
+    # WSL 環境の拡張機能を出力
+    code --list-extensions > $tmp
+
+    # ローカル環境の拡張機能を追記
+    cmd.exe /c code --list-extensions >> $tmp &>/dev/null
+
+    # 重複を削除して出力
+    sort -f $tmp | uniq > ~/dotfiles/.config/Code/extensions
+}
 
 ##### zsh #####
 # zmv
