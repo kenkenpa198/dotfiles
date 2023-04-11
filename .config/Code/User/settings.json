@@ -1,6 +1,7 @@
 {
     // VSCode
     "editor.copyWithSyntaxHighlighting": false,
+    "editor.cursorSurroundingLines": 16,
     "editor.dragAndDrop": false,
     "editor.fontFamily": "'HackGen', Consolas, 'Courier New', monospace",
     "editor.fontSize": 15,
