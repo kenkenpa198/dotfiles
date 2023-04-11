@@ -52,6 +52,33 @@
     },
     "trailing-spaces.backgroundColor": "rgba(255,255,0,0.3)",
     "trailing-spaces.borderColor": "rgba(255,255,100,0.15)",
+    "vsnotes.defaultNoteName": "new-note",
+    "vsnotes.defaultNotePath": "/mnt/c/Users/${env:USERNAME}/Works/Notes/Inbox",
+    "vsnotes.defaultNoteTitle": "{dt}-{title}.{ext}",
+    "vsnotes.noteTitleConvertSpaces": "-",
+    "vsnotes.templates": [
+        "simple"
+    ],
+    "vsnotes.tokens": [
+        {
+            "type": "datetime",
+            "token": "{dt}",
+            "format": "YYYY-MM-DD",
+            "description": "Insert formatted datetime."
+        },
+        {
+            "type": "title",
+            "token": "{title}",
+            "description": "Insert note title from input box.",
+            "format": "Untitled"
+        },
+        {
+            "type": "extension",
+            "token": "{ext}",
+            "description": "Insert file vsnotes.",
+            "format": "md"
+        }
+    ],
 
     // Language-Specific Settings
     "[markdown]": {

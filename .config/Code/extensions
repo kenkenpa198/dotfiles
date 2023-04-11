@@ -2,7 +2,6 @@ csholmq.excel-to-markdown-table
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
 ecmel.vscode-html-css
-eliostruyf.vscode-front-matter
 GitHub.github-vscode-theme
 GrapeCity.gc-excelviewer
 hediet.vscode-drawio
@@ -25,6 +24,7 @@ ms-vscode-remote.remote-wsl
 ms-vscode.powershell
 njpwerner.autodocstring
 nmrmsys.vscode-sql-formatter-mod
+patricklee.vsnotes
 PKief.material-icon-theme
 sergey-agadzhanov.ampscript
 shardulm94.trailing-spaces
