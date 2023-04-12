@@ -1,61 +1,15 @@
-tap "beeftornado/rmtree"
-tap "heroku/brew"
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-drivers"
-tap "homebrew/cask-fonts"
-tap "homebrew/core"
-tap "homebrew/services"
-tap "sanemat/font"
-brew "carthage"
-brew "cask"
-brew "git"
+brew "docker"
 brew "mas"
-brew "postgresql", restart_service: true
-brew "pyenv"
 brew "tree"
-brew "zsh"
-brew "heroku/brew/heroku"
-brew "sanemat/font/ricty", args: ["with-powerline"]
-cask "adguard"
-cask "alfred"
-cask "alt-tab"
-cask "appcleaner"
-cask "blender"
-cask "clip-studio-paint"
+cask "brave-browser"
 cask "clipy"
 cask "cmd-eikana"
-cask "cyberduck"
 cask "discord"
-cask "docker"
-cask "gimp"
 cask "google-chrome"
-cask "hiddenbar"
-cask "imageoptim"
-cask "iterm2"
-cask "kindle"
-cask "logitech-options"
-cask "loopback"
-cask "mos"
-cask "obs"
-cask "sip"
-cask "sketch"
-cask "sketch-toolbox"
-cask "sourcetree"
+cask "google-drive"
+cask "obsidian"
 cask "visual-studio-code"
-cask "wacom-tablet"
-mas "Adblock Plus", id: 1432731683
-mas "Bear", id: 1091189122
-mas "CopyLinkToPasteboard", id: 1551527433
+mas "Bitwarden", id: 1352778147
 mas "CotEditor", id: 1024640650
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Redacted", id: 984968384
-mas "RunCat", id: 1429033973
-mas "The Unarchiver", id: 425424353
-mas "VirusBarrier Scanner", id: 1200445649
-mas "Yoink", id: 457622435
