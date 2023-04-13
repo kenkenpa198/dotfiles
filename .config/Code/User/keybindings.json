@@ -1,9 +1,11 @@
 [
     {
-        "key":"alt+o",
-        "command":"type",
-        "args":{"text":"<!-- omit in toc -->"},
-        "when": "editorTextFocus"
+        "key": "alt+o",
+        "command": "type",
+        "args": {
+            "text": "<!-- omit in toc -->"
+        },
+        "when": "editorLangId == 'markdown' && editorTextFocus"
     },
     {
         "key": "ctrl+p",
@@ -24,8 +26,8 @@
         "command": "git.refresh"
     },
     {
-        "key": "ctrl+shift+i",
-        "command": "-frontMatter.insertMedia",
-        "when": "editorTextFocus"
+        "key": "ctrl+0",
+        "command": "workbench.action.focusFirstEditorGroup",
+        "when": "sideBarFocus"
     }
 ]
