@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 brew "docker"
 brew "mas"
+brew "neofetch"
+brew "pwgen"
 brew "tree"
 cask "brave-browser"
 cask "clipy"
