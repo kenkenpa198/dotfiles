@@ -46,7 +46,7 @@
 !/.setup/Ubuntu/setup.sh
 !/.setup/Windows/get-apps.ps1
 !/.setup/Windows/link.ps1
-!/.setup/Windows/winget.ps1
+!/.setup/Windows/winget-packages.json
 
 # /.zsh/
 !/.zsh/rc/alias.zsh
