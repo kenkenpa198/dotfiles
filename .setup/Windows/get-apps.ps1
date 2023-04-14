@@ -60,15 +60,3 @@ curl.exe -OL https://fonts.google.com/download?family=Noto%20Sans%20JP
 ##### 手動インストール #####
 # DaVinci Resolve
 # https://www.blackmagicdesign.com/jp/products/davinciresolve
-
-# Vroid Studio
-# https://vroid.com/
-
-# 3tene
-# https://3tene.com/
-
-# Valorant
-# https://playvalorant.com/ja-jp/download/
-
-# RictyDiminished-for-Powerline
-# https://github.com/mzyy94/RictyDiminished-for-Powerline
