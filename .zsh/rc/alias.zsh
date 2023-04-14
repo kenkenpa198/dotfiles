@@ -107,7 +107,7 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 ##### VS Code #####
 # 拡張機能リストを出力する
-codeex() {
+code-export() {
     ##### 一時ファイルを作成 #####
     tmp=$(mktemp)
     # echo $tmp
