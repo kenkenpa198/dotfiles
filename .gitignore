@@ -41,9 +41,13 @@
 !/.config/WSL/.wslconfig
 
 # /.setup/
+!/.setup/Ubuntu/install-apt-packages.sh
+!/.setup/Ubuntu/install-jekyll.sh
+!/.setup/Ubuntu/install-my-scripts.sh
+!/.setup/Ubuntu/install-node-js.sh
 !/.setup/Ubuntu/install-vscode-extensions.sh
+!/.setup/Ubuntu/setup-environment.sh
 !/.setup/Ubuntu/setup-ja.sh
-!/.setup/Ubuntu/setup.sh
 !/.setup/Windows/get-apps.ps1
 !/.setup/Windows/link.ps1
 !/.setup/Windows/winget-packages.json

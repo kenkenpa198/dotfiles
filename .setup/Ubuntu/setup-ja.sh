@@ -1,10 +1,9 @@
 #!/bin/bash
+
+set -x
 set -euo pipefail
 
 function main {
-    cd
-
-    ##### 日本語言語パックのインストール #####
     # パッケージリストの取得・既存パッケージの更新
     sudo apt update && sudo apt upgrade -y
 
@@ -14,12 +13,10 @@ function main {
     # 適用
     sudo update-locale LANG=ja_JP.UTF8
 
-
-    ##### 日本語版マニュアルのインストール #####
+    # 日本語版マニュアルのインストール
     sudo apt install -y manpages-ja manpages-ja-dev
 
-
-    ##### 完了メッセージを表示 #####
+    # 完了メッセージを表示
     cat \
 << msg
 setup-ja.sh の実行を完了しました。

@@ -9,6 +9,7 @@
 # 参考
 # https://qiita.com/mottox2/items/581869563ce5f427b5f6
 
+set -x
 set -euo pipefail
 
 function main {
