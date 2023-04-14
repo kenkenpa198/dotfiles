@@ -33,6 +33,7 @@ function which($cmdname) {
 }
 Set-Alias open Invoke-Item
 
+
 ##### venv #####
 # 仮想環境の作成
 # 仮想環境の削除
@@ -49,9 +50,13 @@ Set-Alias va '.venv/Scripts/activate'
 Set-Alias vd deactivate
 
 
-##### Apps #####
-# GGGrep
+##### winget #####
+$WINGET_OUT_PATH = "\\wsl.localhost\Ubuntu\home\${env:USERNAME}\dotfiles\.setup\Windows\winget-packages.json"
 
-function ggg(){
-    python $env:USERPROFILE\Works\develop\GuruGuruGrep\GGGrep.py $args
+function winget-export() {
+    winget export -o $WINGET_OUT_PATH
+}
+
+function winget-import() {
+    winget import -i $WINGET_OUT_PATH --accept-package-agreements
 }
