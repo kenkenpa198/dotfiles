@@ -157,10 +157,12 @@ case ${OSTYPE} in
     linux* | msys*)
 
         # apt
-        alias update="sudo apt update && \
+        alias update="set -x && \
+                      sudo apt update && \
                       sudo apt upgrade -y && \
                       sudo apt autoremove -y && \
-                      sudo apt autoclean -y"
+                      sudo apt autoclean -y && \
+                      set +x"
 
         ### WSL 向け設定 ###
         if uname -r | grep -i 'microsoft' > /dev/null ; then
