@@ -15,26 +15,16 @@
 !/.bin/cj
 !/.bin/moda
 
-# /.config/azuredatastudio/
+# /.config/
 !/.config/azuredatastudio/User/settings.json
-
-# /.config/Code/
 !/.config/Code/extensions
 !/.config/Code/Markdown_Preview_Enhanced/style.less
 !/.config/Code/User/snippets/markdown.json
 !/.config/Code/User/keybindings.json
 !/.config/Code/User/settings.json
-
-# /.config/markdown-preview-enhanced/mume/style.less
 !/.config/markdown-preview-enhanced/mume/style.less
-
-# /.config/WindowsPowerShell/
 !/.config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
-
-# /.config/WindowsTerminal/
 !/.config/WindowsTerminal/LocalState/settings.json
-
-# /.config/WSL/
 !/.config/WSL/.wslconfig
 
 # /.setup/
