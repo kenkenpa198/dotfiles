@@ -238,9 +238,10 @@ case ${OSTYPE} in
         alias llg="ls -oaF | grep"
 
         # Homebrew
-        alias bbd="brew bundle dump --force --file '~/dotfiles/.config/Homebrew/Brewfile'"       # Brewfile ファイルの生成
-        alias bbl="brew bundle list --all --force --file '~/dotfiles/.config/Homebrew/Brewfile'" # Brewfile ファイルから一括インストール
-        alias bbc="cat ~/dotfiles/.config/Homebrew/Brewfile"                                     # Brewfile ファイルの表示
+        BREWFILE_PATH="~/dotfiles/.setup/MacOS/Brewfile"
+        alias bbd="brew bundle dump --force --file $BREWFILE_PATH"       # Brewfile ファイルの生成
+        alias bbl="brew bundle list --all --force --file $BREWFILE_PATH" # Brewfile ファイルから一括インストール
+        alias bbc="cat $BREWFILE_PATH"                                   # Brewfile ファイルの表示
 
         # date & copy
         alias dt="date +'%F %T' | tee >(pbcopy)"         # 現在日時を yyyy-MM-dd hh:mm:ss 形式で表示 & クリップボードへ格納

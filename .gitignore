@@ -25,9 +25,6 @@
 !/.config/Code/User/keybindings.json
 !/.config/Code/User/settings.json
 
-# /.config/Homebrew/
-!/.config/Homebrew/Brewfile
-
 # /.config/markdown-preview-enhanced/mume/style.less
 !/.config/markdown-preview-enhanced/mume/style.less
 
@@ -41,6 +38,7 @@
 !/.config/WSL/.wslconfig
 
 # /.setup/
+!/.setup/MacOS/Brewfile
 !/.setup/Ubuntu/install-apt-packages.sh
 !/.setup/Ubuntu/install-jekyll.sh
 !/.setup/Ubuntu/install-my-scripts.sh
