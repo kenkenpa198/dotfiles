@@ -22,6 +22,10 @@ alias dt="date +'%F %T'"         # 現在日時を yyyy-MM-dd hh:mm:ss 形式で
 alias dts="date +'%Y%m%d%H%M%S'" # 現在日時を yyyyMMddhhmmss 形式で表示
 alias dtss="date +'%Y%m%d'"      # 現在日時を yyyyMMdd 形式で表示
 
+# diff
+alias diffy="diff -y --color"
+alias diffys="diff -y --color --suppress-common-lines"
+
 # grep
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
