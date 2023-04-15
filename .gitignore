@@ -30,6 +30,7 @@
 # /.setup/
 !/.setup/MacOS/Brewfile
 !/.setup/Ubuntu/install-apt-packages.sh
+!/.setup/Ubuntu/install-git.sh
 !/.setup/Ubuntu/install-jekyll.sh
 !/.setup/Ubuntu/install-my-scripts.sh
 !/.setup/Ubuntu/install-node-js.sh
