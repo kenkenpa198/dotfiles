@@ -34,6 +34,7 @@
     "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
     "markdown.extension.list.indentationSize": "inherit",
     "markdown-preview-enhanced.breakOnSingleNewLine": false,
+    "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
     "markdown-preview-enhanced.previewTheme": "github-dark.css",
     "markdownlint.focusMode": false,
     "markdownlint.config": {
