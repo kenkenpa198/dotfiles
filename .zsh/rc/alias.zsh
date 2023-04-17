@@ -203,6 +203,7 @@ case ${OSTYPE} in
             alias open="explorer.exe"
             alias op="open"
             alias opr="open README.md"
+            alias pwsh="powershell.exe"
 
             # ググる
             # https://osa.hatenablog.jp/entry/2020/02/24/121725
