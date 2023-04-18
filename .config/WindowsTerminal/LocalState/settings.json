@@ -1,19 +1,8 @@
-// winpath: C:\Users\%USERNAME%\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
-// wslpath: /mnt/c/Users/$USERNAME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState\settings.json
-
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions":
     [
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
         {
             "command":
             {
@@ -21,6 +10,14 @@
                 "singleLine": false
             },
             "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command":
@@ -36,17 +33,20 @@
     "copyOnSelect": false,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "initialCols": 140,
-    "initialPosition": "1390, 418",
+    "initialPosition": "1390,518",
     "initialRows": 50,
     "profiles":
     {
         "defaults":
         {
+            "adjustIndistinguishableColors": "indexed",
+            "antialiasingMode": "cleartype",
             "font":
             {
                 "face": "HackGen Console",
-                "size": 11
-            }
+                "size": 11.0
+            },
+            "useAtlasEngine": true
         },
         "list":
         [
@@ -319,5 +319,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "themes": []
 }
