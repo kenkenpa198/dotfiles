@@ -10,48 +10,48 @@
 ##### ホワイトリスト #####
 # 管理対象のファイルを追記する
 
-# /.bin/
-!/.bin/acd
-!/.bin/cj
-!/.bin/moda
+# /bin/
+!/bin/acd
+!/bin/cj
+!/bin/moda
 
-# /.config/
-!/.config/azuredatastudio/User/settings.json
-!/.config/Code/extensions
-!/.config/Code/Markdown_Preview_Enhanced/style.less
-!/.config/Code/User/snippets/markdown.json
-!/.config/Code/User/keybindings.json
-!/.config/Code/User/settings.json
-!/.config/markdown-preview-enhanced/mume/style.less
-!/.config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
-!/.config/WindowsTerminal/LocalState/settings.json
-!/.config/WSL/.wslconfig
+# /config/
+!/config/azuredatastudio/User/settings.json
+!/config/Code/extensions
+!/config/Code/Markdown_Preview_Enhanced/style.less
+!/config/Code/User/snippets/markdown.json
+!/config/Code/User/keybindings.json
+!/config/Code/User/settings.json
+!/config/markdown-preview-enhanced/mume/style.less
+!/config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+!/config/WindowsTerminal/LocalState/settings.json
+!/config/WSL/.wslconfig
 
-# /.setup/
-!/.setup/MacOS/Brewfile
-!/.setup/Ubuntu/install-apt-packages.sh
-!/.setup/Ubuntu/install-git.sh
-!/.setup/Ubuntu/install-jekyll.sh
-!/.setup/Ubuntu/install-my-scripts.sh
-!/.setup/Ubuntu/install-node-js.sh
-!/.setup/Ubuntu/install-vscode-extensions.sh
-!/.setup/Ubuntu/setup-environment.sh
-!/.setup/Ubuntu/setup-ja.sh
-!/.setup/Windows/get-apps.ps1
-!/.setup/Windows/link.ps1
-!/.setup/Windows/winget-packages.json
+# /setup/
+!/setup/MacOS/Brewfile
+!/setup/Ubuntu/install-apt-packages.sh
+!/setup/Ubuntu/install-git.sh
+!/setup/Ubuntu/install-jekyll.sh
+!/setup/Ubuntu/install-my-scripts.sh
+!/setup/Ubuntu/install-node-js.sh
+!/setup/Ubuntu/install-vscode-extensions.sh
+!/setup/Ubuntu/setup-environment.sh
+!/setup/Ubuntu/setup-ja.sh
+!/setup/Windows/get-apps.ps1
+!/setup/Windows/link.ps1
+!/setup/Windows/winget-packages.json
 
-# /.zsh/
-!/.zsh/rc/alias.zsh
-!/.zsh/rc/env.zsh
-!/.zsh/rc/function/acd.zsh
-!/.zsh/rc/function/cj.zsh
-!/.zsh/rc/function/moda.zsh
-!/.zsh/rc/option.zsh
-!/.zsh/rc/theme.zsh
-!/.zsh/.dircolors
+# /zsh/
+!/zsh/rc/alias.zsh
+!/zsh/rc/env.zsh
+!/zsh/rc/function/acd.zsh
+!/zsh/rc/function/cj.zsh
+!/zsh/rc/function/moda.zsh
+!/zsh/rc/option.zsh
+!/zsh/rc/theme.zsh
+!/zsh/.dircolors
 
-# /.
+# /
 !/.bashrc
 !/.gitignore
 !/.zshrc

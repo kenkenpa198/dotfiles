@@ -21,7 +21,7 @@ HISTFILE=~/.zsh_history
 export CLICOLOR=1
 
 # .dircolors の読み込み
-eval $(dircolors -b ${HOME}/dotfiles/.zsh/.dircolors)
+eval $(dircolors -b ${HOME}/dotfiles/zsh/.dircolors)
 
 # メモリに保存される履歴の件数を設定
 export HISTSIZE=1000
