@@ -1,5 +1,6 @@
 {
     // VSCode
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.copyWithSyntaxHighlighting": false,
     "editor.cursorSurroundingLines": 16,
     "editor.dragAndDrop": false,
