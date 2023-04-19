@@ -1,5 +1,5 @@
-##### .zsh/rc ディレクトリ内の *.zsh を読み込む #####
-ZSHHOME="${HOME}/dotfiles/.zsh/rc"
+##### zsh/rc ディレクトリ内の *.zsh を読み込む #####
+ZSHHOME="${HOME}/dotfiles/zsh/rc"
 
 if [ -d $ZSHHOME ] && [ -r $ZSHHOME ] && [ -x $ZSHHOME ]; then
     for i in $ZSHHOME/**/*; do

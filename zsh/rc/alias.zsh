@@ -134,7 +134,7 @@ code-export() {
     cmd.exe /c code --list-extensions >> $tmp &>/dev/null
 
     # 重複を削除して出力
-    sort -f $tmp | uniq > ~/dotfiles/.config/Code/extensions
+    sort -f $tmp | uniq > ~/dotfiles/config/Code/extensions
 }
 
 ##### zsh #####
@@ -239,7 +239,7 @@ case ${OSTYPE} in
         alias llg="ls -oaF | grep"
 
         # Homebrew
-        BREWFILE_PATH="~/dotfiles/.setup/MacOS/Brewfile"
+        BREWFILE_PATH="~/dotfiles/setup/MacOS/Brewfile"
         alias bbd="brew bundle dump --force --file $BREWFILE_PATH"       # Brewfile ファイルの生成
         alias bbl="brew bundle list --all --force --file $BREWFILE_PATH" # Brewfile ファイルから一括インストール
         alias bbc="cat $BREWFILE_PATH"                                   # Brewfile ファイルの表示
