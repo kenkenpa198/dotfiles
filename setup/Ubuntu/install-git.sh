@@ -5,7 +5,7 @@ set -euo pipefail
 
 function main {
     # パッケージリストの取得・既存パッケージの更新
-    sudo apt update && sudo apt upgrade -y
+    sudo apt-get update && sudo apt-get upgrade -y
 
     # Git 公式のリポジトリを apt リポジトリへ追加
     # https://loumo.jp/archives/23149
@@ -13,10 +13,10 @@ function main {
     sudo add-apt-repository -y ppa:git-core/ppa
 
     # インストール
-    sudo apt install -y git
+    sudo apt-get install -y git
 
     # パッケージのキャッシュを削除
-    sudo apt autoclean -y
+    sudo apt-get autoclean -y
 }
 
 main

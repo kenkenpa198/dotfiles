@@ -5,7 +5,7 @@ set -euo pipefail
 
 function main {
     # パッケージリストの取得・既存パッケージの更新
-    sudo apt update && sudo apt upgrade -y
+    sudo apt-get update && sudo apt-get upgrade -y
 
     # Brighit Box の ruby リポジトリを apt リポジトリへ追加
     # https://jekyllrb-ja.github.io/docs/installation/windows/
@@ -34,7 +34,7 @@ function main {
     # TODO: gem pristine foo-gem --version 3.1.3 を個別で実行することしか試していないので次は上記コマンドで試す
 
     # パッケージのキャッシュを削除
-    sudo apt autoclean -y
+    sudo apt-get autoclean -y
 }
 
 main
