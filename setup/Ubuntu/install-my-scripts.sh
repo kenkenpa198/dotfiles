@@ -4,15 +4,11 @@ set -x
 set -euo pipefail
 
 function main {
-    # 自作コマンドの実行権限付与
-    cd ~/dotfiles/bin
-    chmod +x acd cj moda
+    # 自作コマンドすべてへ実行権限を付与
+    chmod -R +x ~/dotfiles/bin
 
     # シンボリックリンクを作成
-    sudo ln -sf ~/dotfiles/bin/acd /usr/local/bin/
-    sudo ln -sf ~/dotfiles/bin/cj /usr/local/bin/
-    sudo ln -sf ~/dotfiles/bin/moda /usr/local/bin/
-
+    ln -sf ~/dotfiles/bin ~/bin
 }
 
 main

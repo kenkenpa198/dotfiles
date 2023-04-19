@@ -1,7 +1,7 @@
 ### 環境変数 ###
 
 # bin
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/bin"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
