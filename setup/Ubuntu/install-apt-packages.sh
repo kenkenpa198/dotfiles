@@ -5,7 +5,7 @@ set -euo pipefail
 
 function main {
     # パッケージリストの取得・既存パッケージの更新
-    sudo apt update && sudo apt upgrade -y
+    sudo apt-get update && sudo apt-get upgrade -y
 
     # インストールするパッケージの配列を定義
     packages=(
@@ -21,11 +21,11 @@ function main {
     # インストール
     for package in "${packages[@]}"
     do
-        sudo apt install -y "$package"
+        sudo apt-get install -y "$package"
     done
 
     # パッケージのキャッシュを削除
-    sudo apt autoclean -y
+    sudo apt-get autoclean -y
 }
 
 main
