@@ -161,9 +161,19 @@ case ${OSTYPE} in
     linux* | msys*)
 
         # apt
-        alias upgrade="set -x && \
+        alias upgrade="\
+            set -x && \
             sudo apt-get update && \
             sudo apt-get upgrade -y && \
+            sudo apt-get autoremove -y && \
+            sudo apt-get autoclean -y && \
+            set +x"
+
+        alias dist-upgrade="\
+            set -x && \
+            sudo apt-get update && \
+            sudo apt-get upgrade -y && \
+            sudo apt-get dist-upgrade -y && \
             sudo apt-get autoremove -y && \
             sudo apt-get autoclean -y && \
             set +x"
