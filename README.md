@@ -35,7 +35,7 @@ kenkenpa198 の dotfiles 。
 
 ```shell
 .
-├── .zsh
+├── zsh
 │   ├── .dircolors
 │   └── rc
 │       ├── alias.zsh
@@ -60,29 +60,29 @@ kenkenpa198 の dotfiles 。
 
 ```shell
 .
-└── .bin
+└── bin
      ├── ***
      └── ***
 ```
 
-`.bin/` ディレクトリには自作コマンドやスクリプトを格納している。  
+`bin/` ディレクトリには自作コマンドやスクリプトを格納している。  
 それぞれ実行権限の付与と `/usr/local/bin/` 配下へのシンボリックリンク作成を行っておく。
 
 ```shell
 $ chmod +x moda
-$ sudo ln -s ~/dotfiles/.bin/moda /usr/local/bin/
+$ sudo ln -s ~/dotfiles/bin/moda /usr/local/bin/
 ```
 
 ### 3.3. config
 
 ```shell
 .
-└── .config
+└── config
      ├── ***
      └── ***
 ```
 
-`.config/` ディレクトリ配下には VSCode などアプリごとの設定ファイルを保管。  
+`config/` ディレクトリ配下には VSCode などアプリごとの設定ファイルを保管。  
 基本的には各設定ファイルのコメントや [mklink.bat](.setup/Windows/mklink.bat) などを参考にそれぞれシンボリックリンクを繋げる。
 
 Windows Terminal の `settings.json` と WSL 用の `.wslconfig` のみ、シンボリックリンクではなくコピペや複製で対応する。  
@@ -127,7 +127,7 @@ $ git rm -r --cached .
 
 ```shell
 .
-└── .setup
+└── setup
      ├── Ubuntu
      │   ├── ***.sh
      │   └── ***.sh
@@ -136,7 +136,7 @@ $ git rm -r --cached .
          └── ***.bat
 ```
 
-`.setup/` 配下にはセットアップ用のスクリプトファイル関連を保管。  
+`setup/` 配下にはセットアップ用のスクリプトファイル関連を保管。  
 こちらを実行したり、記述を拾ったりしつつ環境を整える。
 
 それぞれコマンドを単純に直書きしているだけなので、もう少しいい感じにしたい。
