@@ -29,8 +29,10 @@ function prompt-git-current-branch {
         # git 管理されていないディレクトリは何も返さない
         return
     fi
+
     branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
     st=`git status 2> /dev/null`
+
     if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
         # 全て commit されてクリーンな状態
         branch_status="${color}${green}"
@@ -42,9 +44,9 @@ function prompt-git-current-branch {
         branch_status="${color}${red}+"
     elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
         # git commit されていないファイルがある状態
-    branch_status="${color}${yellow}!"
+        branch_status="${color}${yellow}!"
     elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
-    # コンフリクトが起こった状態
+        # コンフリクトが起こった状態
         echo "${color}${red}!(no branch)${reset}"
         return
     else
@@ -53,7 +55,7 @@ function prompt-git-current-branch {
     fi
 
     # ブランチ名を色付きで表示する
-    echo "[${branch_status}$branch_name${reset}]"
+    echo "%F{white}[${branch_status}$branch_name${reset}%F{white}]"
 }
 
 
