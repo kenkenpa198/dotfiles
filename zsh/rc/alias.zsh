@@ -198,6 +198,12 @@ case ${OSTYPE} in
             # hostname & copy
             alias hi="hostname -I | tee >(clip.exe)" # ホスト（WSL 環境）の IP アドレスを表示 & クリップボードへ格納
 
+            # ls & copy
+            # 作業ディレクトリのファイル一覧をコピーするエイリアス
+            # clip.exe へ文字列をそのまま渡すと文字化けしてしまうので Shift-JIS へ変換して渡す
+            # 参考: https://scrapbox.io/takker/clip.exeで日本語をコピーすると文字化けするようになった
+            alias lc="ls -1A | iconv -f UTF8 -t SJIS | clip.exe"
+
             # seq & copy
             alias seq100="seq -w 1 100 | tee >(clip.exe)" # 001 ～ 100 を表示 & クリップボードへ格納
 
