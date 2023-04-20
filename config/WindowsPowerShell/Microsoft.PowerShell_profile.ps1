@@ -22,6 +22,17 @@ function which($cmdname) {
 Set-Alias open Invoke-Item
 Set-Alias op Invoke-Item
 
+# ls
+# 作業ディレクトリのファイル一覧をコピーする
+function lc() {
+    # プロセス内のエンコードを Shift-JIS へ変更する
+    # デフォルトでは US-ASCII で出力してしまい文字化けするため
+    # 参考: https://www.vwnet.jp/Windows/PowerShell/CharCode.htm
+    $OutputEncoding = [console]::OutputEncoding
+
+    Get-ChildItem -Name | clip.exe
+}
+
 
 ##### venv #####
 # 仮想環境の作成
