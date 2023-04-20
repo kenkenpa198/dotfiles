@@ -43,10 +43,11 @@ function main {
     # Develop
     $linkHash["${WSLHOME}\works\develop"] = '~\Works\Develop'
 
-    # PowerShell エイリアス設定ファイル
+    # PowerShell プロファイル
     $linkHash["${WSLHOME}\dotfiles\config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
 
     # VSCode 設定ファイル
+    $linkHash["${WSLHOME}\dotfiles\config\Code\User\snippets"]         = '~\AppData\Roaming\Code\User\snippets'
     $linkHash["${WSLHOME}\dotfiles\config\Code\User\keybindings.json"] = '~\AppData\Roaming\Code\User\keybindings.json'
     $linkHash["${WSLHOME}\dotfiles\config\Code\User\settings.json"]    = '~\AppData\Roaming\Code\User\settings.json'
 
@@ -74,21 +75,16 @@ function main {
 
         # 原本ファイルパスが存在しなかったらループをスキップする
         if (!(Test-Path $originPath)) {
-            Write-Host "$originPath is not found. Skip this loop."
+            Write-Host "$originPath is not found. Skip this loop"
             continue
         }
 
-        # 作成先へリンクアイテムが存在していたらループをスキップする
-        if ((Test-Path $linkPath) -and (Get-ItemProperty $linkPath).Mode.Substring(5, 1) -eq 'l') {
-            Write-Host "$linkPath is linked. Skip this loop."
-            continue
-        }
-
-        # 作成先へリンク以外のアイテムが存在していたらバックアップする
-        if (Test-Path $linkPath) {
+        # 作成先へリンク以外のファイルが存在していたらバックアップする
+        # リンクである場合は分岐せずに New-Item の処理で上書きする
+        if ((Test-Path $linkPath) -and !((Get-ItemProperty $linkPath).Mode.Substring(5, 1) -eq 'l')) {
             $linkPathBackup = $linkPath + '.org'
 
-            Write-Host "$linkPath is found. Make backup file to $linkPathBackup ."
+            Write-Host "$linkPath is found. Backup to $linkPathBackup"
             Move-Item $linkPath $linkPathBackup
 
             # FIXME:
@@ -98,8 +94,8 @@ function main {
         }
 
         # シンボリックリンクを作成
-        New-Item -Value $originPath -Path $linkDir -Name $linkName -ItemType SymbolicLink -Force
-        Write-Host "Finished link $originPath to $linkPath ."
+        New-Item -Value $originPath -Path $linkDir -Name $linkName -ItemType SymbolicLink -Force > $null
+        Write-Host "Finished link $linkPath => $originPath"
     }
 }
 
