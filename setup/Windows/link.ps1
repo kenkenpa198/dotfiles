@@ -81,7 +81,7 @@ function main {
 
         # 作成先へリンク以外のファイルが存在していたらバックアップする
         # リンクである場合は分岐せずに New-Item の処理で上書きする
-        if ((Test-Path $linkPath) -and !((Get-ItemProperty $linkPath).Mode.Substring(5, 1) -eq 'l')) {
+        if ((Test-Path $linkPath) -and (!((Get-ItemProperty $linkPath).Mode.Substring(5, 1) -eq 'l'))) {
             $linkPathBackup = $linkPath + '.org'
 
             Write-Host "$linkPath is found. Backup to $linkPathBackup"
