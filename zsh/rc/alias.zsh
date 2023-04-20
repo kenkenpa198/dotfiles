@@ -6,7 +6,7 @@ alias ag="alias | grep"
 alias dev="cd ~/works/develop"
 alias dv="dev"
 alias dot="cd ~/dotfiles"
-alias note="cd /mnt/c/Users/${USERNAME}/GoogleDrive/Works/Notes"
+alias note="cd /mnt/c/Users/${USERNAME}/Works/Notes"
 alias notes="note"
 alias cdgr='cd "$(git rev-parse --show-toplevel)"'
 
@@ -23,8 +23,8 @@ alias dts="date +'%Y%m%d%H%M%S'" # 現在日時を yyyyMMddhhmmss 形式で表�
 alias dtss="date +'%Y%m%d'"      # 現在日時を yyyyMMdd 形式で表示
 
 # diff
-alias diffy="diff -y --color"
-alias diffys="diff -y --color --suppress-common-lines"
+alias diffy="diff -ry --exclude=.git --color"
+alias diffys="diffy --suppress-common-lines"
 
 # grep
 alias grep="grep --color=auto"
@@ -37,9 +37,9 @@ alias hg="history -800 | grep"
 
 # ls
 alias ll="ls -lhG --file-type --color=auto --time-style=long-iso --group-directories-first"
-alias lla="ls -lhaG --file-type --color=auto --time-style=long-iso --group-directories-first"
+alias lla="ll -a"
 alias llng="ls -lhG --file-type --color=auto --time-style=long-iso"
-alias llang="ls -lahG --file-type --color=auto --time-style=long-iso"
+alias llang="llng -a"
 alias llnga="llang"
 
 # seq
@@ -88,11 +88,11 @@ alias gswc="git switch -c"          # -c, --create      : 新しいブランチ�
 
 
 ##### pwgen #####
-alias pg="pwgen -c -n -y -B -1" # $ pg 20 4 ... 20 桁のパスワード文字列を 4 行表示する
+alias pg="pwgen -cnyB1" # $ pg 20 4 ... 20 桁のパスワード文字列を 4 行表示する
 
 
 ##### tree #####
-alias tr="tree 	--dirsfirst -I '__pycache__'"               # 隠しファイル以外を表示
+alias tr="tree --dirsfirst -I '__pycache__'"                # 隠しファイル以外を表示
 alias tra="tree -a --dirsfirst -I '__pycache__|.venv|.git'" # 隠しファイルを含めて表示（設定系のファイルは除外）
 alias traa="tree -a --dirsfirst"                            # とにかくすべて表示
 
@@ -139,8 +139,8 @@ code-export() {
 
 ##### zsh #####
 # zmv
-alias zmvnw="noglob zmv -nW" # 置換プレビュー
 alias zmvw="noglob zmv -W"   # 置換
+alias zmvnw="noglob zmv -nW" # 置換プレビュー
 
 # 配信モード
 # theme.zsh で設定している zsh プロンプト表示について以下へ再設定する。
@@ -201,9 +201,6 @@ case ${OSTYPE} in
             # seq & copy
             alias seq100="seq -w 1 100 | tee >(clip.exe)" # 001 ～ 100 を表示 & クリップボードへ格納
 
-            # wsl
-            alias shutdown="cmd.exe /c start wsl.exe '--shutdown'" # WSL をシャットダウンする
-
             # wslpath
             alias wpu="wslpath -u" # パス変換: Windows → WSL（Win のパスは '' で囲む）
             alias wpw="wslpath -w" # パス変換: WSL → Windows
@@ -245,11 +242,11 @@ case ${OSTYPE} in
     darwin*)
         # ls
         alias ll="ls -oF"
-        alias lla="ls -oaF"
-        alias llg="ls -oaF | grep"
+        alias lla="ll -a"
 
         # Homebrew
         BREWFILE_PATH="~/dotfiles/setup/MacOS/Brewfile"
+
         alias bbd="brew bundle dump --force --file $BREWFILE_PATH"       # Brewfile ファイルの生成
         alias bbl="brew bundle list --all --force --file $BREWFILE_PATH" # Brewfile ファイルから一括インストール
         alias bbc="cat $BREWFILE_PATH"                                   # Brewfile ファイルの表示
