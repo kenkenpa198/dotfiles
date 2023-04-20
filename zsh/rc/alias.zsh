@@ -200,7 +200,7 @@ case ${OSTYPE} in
 
             # ls & copy
             # 作業ディレクトリのファイル一覧をコピーするエイリアス
-            # clip.exe へ文字列をそのまま渡すと文字化けしてしまうので Shift-JIS へ変換して渡す
+            # WSL で標準出力したマルチバイト文字（UTF-8）を clip.exe へ渡すと文字化けしてしまうため Shift-JIS へ変換してから渡す
             # 参考: https://scrapbox.io/takker/clip.exeで日本語をコピーすると文字化けするようになった
             alias lc="ls -1A | iconv -f UTF8 -t SJIS | clip.exe"
 
