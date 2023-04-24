@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Ubuntu 環境の初期セットアップ用スクリプト
+# WSL Ubuntu 環境の初期セットアップ用スクリプト
 
 set -x
 set -euo pipefail
@@ -34,6 +34,12 @@ function set_zsh {
     chsh -s "$(which zsh)"
 }
 
+# その他のシンボリックリンク
+function link {
+    # Notes
+    ln -s /mnt/c/Users/"$USERNAME"/Works/Notes ~/works/notes
+}
+
 # 完了メッセージを表示
 function print_finished {
     cat << msg
@@ -62,6 +68,9 @@ function main {
 
     # zsh をデフォルトシェルに設定
     set_zsh
+
+    # その他のシンボリックリンク
+    link
 
     # 完了メッセージを出力
     print_finished
