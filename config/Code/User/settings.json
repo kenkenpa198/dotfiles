@@ -55,7 +55,7 @@
     "trailing-spaces.backgroundColor": "rgba(255,255,0,0.3)",
     "trailing-spaces.borderColor": "rgba(255,255,100,0.15)",
     "vsnotes.defaultNoteName": "new-note",
-    "vsnotes.defaultNotePath": "/mnt/c/Users/${env:USERNAME}/Works/Notes/inbox",
+    "vsnotes.defaultNotePath": "~/works/notes/notes",
     "vsnotes.defaultNoteTitle": "{dt}-{title}.{ext}",
     "vsnotes.noteTitleConvertSpaces": "-",
     "vsnotes.templates": [
