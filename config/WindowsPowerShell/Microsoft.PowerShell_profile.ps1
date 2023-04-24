@@ -60,5 +60,6 @@ function winget-export() {
 }
 
 function winget-import() {
-    winget import -i $WINGET_OUT_PATH --accept-package-agreements
+    winget source update
+    winget import -i $WINGET_OUT_PATH --accept-package-agreements --ignore-unavailable
 }
