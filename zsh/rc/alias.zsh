@@ -8,7 +8,7 @@ alias dv="dev"
 alias dot="cd ~/dotfiles"
 alias note="cd ~/works/notes"
 alias notes="note"
-alias cdgr='cd "$(git rev-parse --show-toplevel)"'
+alias gr='cd "$(git rev-parse --show-toplevel)"'
 
 # clear
 alias c="clear"
@@ -39,8 +39,8 @@ alias hg="history -800 | grep"
 alias ll="ls -lhG --file-type --color=auto --time-style=long-iso --group-directories-first"
 alias lla="ll -a"
 alias llng="ls -lhG --file-type --color=auto --time-style=long-iso"
-alias llang="llng -a"
-alias llnga="llang"
+alias llnga="llng -a"
+alias llang="llnga"
 
 # seq
 alias seq100="seq -w 1 100" # 001 ～ 100 を表示
@@ -127,14 +127,16 @@ code-export() {
 
 
     ##### メイン処理 #####
-    # WSL 環境の拡張機能を出力
-    code --list-extensions > $tmp
+    # 実行環境の拡張機能を出力する
+    code --list-extensions > "$tmp"
 
-    # ローカル環境の拡張機能を追記
-    cmd.exe /c code --list-extensions >> $tmp &>/dev/null
+    # 実行環境が WSL の場合はローカル環境の拡張機能を追記する
+    if uname -r | grep -i 'microsoft' > /dev/null ; then
+        cmd.exe "/c code --list-extensions >> $tmp" &>/dev/null
+    fi
 
     # 重複を削除して出力
-    sort -f $tmp | uniq > ~/dotfiles/config/Code/extensions
+    sort -f "$tmp" | uniq > ~/dotfiles/config/Code/extensions
 }
 
 ##### zsh #####
