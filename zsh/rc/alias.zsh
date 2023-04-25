@@ -132,7 +132,7 @@ code-export() {
 
     # 実行環境が WSL の場合はローカル環境の拡張機能を追記する
     if uname -r | grep -i 'microsoft' > /dev/null ; then
-        cmd.exe "/c code --list-extensions >> $tmp" &>/dev/null
+        cmd.exe /c code --list-extensions >> "$tmp" &>/dev/null
     fi
 
     # 重複を削除して出力
