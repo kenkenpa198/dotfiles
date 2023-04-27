@@ -10,6 +10,8 @@ cask "cmd-eikana"
 cask "discord"
 cask "google-chrome"
 cask "google-drive"
+cask "logi-options-plus"
+cask "mos"
 cask "obsidian"
 cask "visual-studio-code"
 mas "Bitwarden", id: 1352778147
