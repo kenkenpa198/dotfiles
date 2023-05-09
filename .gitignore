@@ -39,7 +39,8 @@
 !/setup/Ubuntu/setup-ja.sh
 !/setup/Windows/get-apps.ps1
 !/setup/Windows/link.ps1
-!/setup/Windows/winget-packages.json
+!/setup/Windows/install-apps-from-msstore.ps1
+!/setup/Windows/install-apps-from-winget.ps1
 
 # /zsh/
 !/zsh/rc/alias.zsh
