@@ -1,21 +1,32 @@
-# ビープ音停止
-setopt no_beep
-
+##### 補完設定 #####
 # 補完機能を有効にして実行しておく
 autoload -Uz compinit && compinit
 
 # 小文字でも大文字のディレクトリ・ファイルを補完できるようにする
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# zmv コマンドを使用可能にする
-autoload -Uz zmv
 
-# 移動したディレクトリを記録しておく。"cd -[Tab]"で移動履歴を一覧表示
-setopt auto_pushd
-
+##### 履歴設定 #####
 # 履歴の保存先ファイル指定
 HISTFILE=~/.zsh_history
 
+# メモリに保存される履歴の件数を設定
+export HISTSIZE=10000
+
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=10000
+
+# 同時に起動している zsh の間で history を共有する
+setopt share_history
+
+# history に保存するときに余分なスペースを削除する
+setopt hist_reduce_blanks
+
+# 同じコマンドを history に残さない
+setopt hist_ignore_all_dups
+
+
+#### 色設定 #####
 # ファイルの種類で色分け
 # Mac の場合にデフォルトで色分けがされないため設定する
 export CLICOLOR=1
@@ -33,17 +44,13 @@ export CLICOLOR=1
 LS_COLORS='ow=01;32:ex=01;00:';
 export LS_COLORS
 
-# メモリに保存される履歴の件数を設定
-export HISTSIZE=10000
 
-# 履歴ファイルに保存される履歴の件数
-export SAVEHIST=10000
+#### その他 #####
+# zmv コマンドを使用可能にする
+autoload -Uz zmv
 
-# 同時に起動している zsh の間で history を共有する
-setopt share_history
+# 移動したディレクトリを記録しておく。"cd -[Tab]"で移動履歴を一覧表示
+setopt auto_pushd
 
-# history に保存するときに余分なスペースを削除する
-setopt hist_reduce_blanks
-
-# 同じコマンドを history に残さない
-setopt hist_ignore_all_dups
+# ビープ音停止
+setopt no_beep
