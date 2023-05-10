@@ -14,11 +14,10 @@
 # [PowerShell のエラーハンドリングを（今度こそ）理解する - Qiita](https://qiita.com/mkht/items/24da4850f9d000b35fc4)
 
 
+# エラーが発生した時点で処理を中断する
+$ErrorActionPreference = 'Stop'
+
 function main {
-    # エラーが発生した時点で処理を中断する
-    $ErrorActionPreference = 'Stop'
-
-
     ##### 連想配列を宣言 #####
     $linkHash = [ordered]@{}
 
