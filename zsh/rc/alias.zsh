@@ -75,8 +75,8 @@ alias gd="git diff"
 alias gds="git diff --stat"         # --stat            : 差分のあるファイル名のみを表示
 alias gf="git fetch"
 alias gfp="git fetch -p"            # -p, --prune       : リモートに存在しない追跡ブランチを削除する
-alias gl="git log --graph"          # --graph           : グラフ表示する
-alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" # https://prograshi.com/general/git/how-to-use-c-in-pretty-format/
+alias gl="git log --graph --all"
+alias gll="git log --graph --all --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(auto) %h %C(cyan)%ad %C(auto)%d %s %C(#666666)by\"%an\"%Creset'"
 alias gri="git rebase -i"           # -i, --interactive : 過去のコミットをまとめる $ git rebase -i HEAD~~
 alias grs="git restore --staged ."  # -S, --staged      : ステージングを解除する。. をあらかじめ指定しておきカレント配下のステージングをすべて解除する
 alias gpl="git pull"
