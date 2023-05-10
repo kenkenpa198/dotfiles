@@ -1,4 +1,6 @@
-##### .gitignore_global #####
+########################################
+# my.gitignore
+########################################
 workbench/
 *.Identifier
 
@@ -6,7 +8,9 @@ workbench/
 # 以下は https://github.com/github/gitignore/tree/main/Global より
 
 
-##### Linux.gitignore #####
+########################################
+# Linux.gitignore
+########################################
 *~
 
 # temporary files which can be created if a process still has a handle open of a deleted file
@@ -22,7 +26,9 @@ workbench/
 .nfs*
 
 
-##### MacOS.gitignore #####
+########################################
+# MacOS.gitignore
+########################################
 # General
 .DS_Store
 .AppleDouble
@@ -51,7 +57,9 @@ Temporary Items
 .apdisk
 
 
-##### Windows.gitignore #####
+########################################
+# Windows.gitignore
+########################################
 # Windows thumbnail cache files
 Thumbs.db
 Thumbs.db:encryptable
@@ -78,7 +86,9 @@ $RECYCLE.BIN/
 *.lnk
 
 
-##### Vim.gitignore #####
+########################################
+# Vim.gitignore
+########################################
 # Swap
 [._]*.s[a-v][a-z]
 !*.svg  # comment out if you don't need vector files
@@ -100,7 +110,9 @@ tags
 [._]*.un~
 
 
-##### VisualStudioCode.gitignore #####
+########################################
+# VisualStudioCode.gitignore
+########################################
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
