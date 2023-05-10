@@ -1,4 +1,6 @@
-##### Linux #####
+########################################
+# Linux Commands
+########################################
 # alias
 alias ag="alias | grep"
 
@@ -49,11 +51,15 @@ alias seq100="seq -w 1 100" # 001 ～ 100 を表示
 alias ss="source ~/.zshrc"
 
 
-##### C #####
+########################################
+# C
+########################################
 alias a="./a.out"
 
 
-##### Docker #####
+########################################
+# Docker
+########################################
 alias dst="sudo service docker status"                              # Docker デーモンの起動状況を確認
 alias dsta="sudo service docker start ; sudo service docker status" # Docker デーモンを起動
 alias dsto="sudo service docker stop ; sudo service docker status"  # Docker デーモンを停止
@@ -63,7 +69,9 @@ alias dc="docker-compose"
 alias drmn="docker image prune -f" # <none> イメージを一括削除 https://codechord.com/2019/08/docker-images-none-dangling/
 
 
-##### Git #####
+########################################
+# Git
+########################################
 alias ga="git add -v"               # -v, --verbos      : add の内容を表示する
 alias gaa="git add -vA"             # -A, --all         : 変更のあるファイルをすべてステージングする
 alias gap="git add -vp"             # -p, --patch       : add の内容を表示する
@@ -87,17 +95,23 @@ alias gsw="git switch"
 alias gswc="git switch -c"          # -c, --create      : 新しいブランチを作成して切り替える
 
 
-##### pwgen #####
+########################################
+# pwgen
+########################################
 alias pg="pwgen -cnyB1" # $ pg 20 4 ... 20 桁のパスワード文字列を 4 行表示する
 
 
-##### tree #####
+########################################
+# tree
+########################################
 alias tr="tree --dirsfirst -I '__pycache__'"                # 隠しファイル以外を表示
 alias tra="tree -a --dirsfirst -I '__pycache__|.venv|.git'" # 隠しファイルを含めて表示（設定系のファイルは除外）
 alias traa="tree -a --dirsfirst"                            # とにかくすべて表示
 
 
-##### venv #####
+########################################
+# venv
+########################################
 alias vmk="python3 -m venv .venv"                      # カレントディレクトリへ仮想環境を作成
 alias vmks="sudo python3 -m venv --without-pip .venv"  # システムの py を使う場合はこちら
 alias va="source .venv/bin/activate"                   # 仮想環境の有効化
@@ -105,7 +119,9 @@ alias vd="deactivate"                                  # 仮想環境の無効�
 alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 
-##### VS Code #####
+########################################
+# VS Code
+########################################
 # 拡張機能リストを出力する
 code-export() {
     ##### 一時ファイルを作成 #####
@@ -139,7 +155,10 @@ code-export() {
     sort -f "$tmp" | uniq > ~/dotfiles/config/Code/extensions
 }
 
-##### zsh #####
+
+########################################
+# zsh
+########################################
 # zmv
 alias zmvw="noglob zmv -W"   # 置換
 alias zmvnw="noglob zmv -nW" # 置換プレビュー
@@ -155,13 +174,13 @@ alias strmd='PROMPT="%F{179m%}****@****%F{black}%B:%F{white}%1~%b
 %F{087m%}$%F{white} "'
 
 
-##### 環境ごとの読込 #####
+########################################
+# 環境ごとの読込
+########################################
 case ${OSTYPE} in
-
-    ### Linux 向け設定 ###
+    # Linux
     # msys は Win 環境上で Git Bash を立ち上げたときの $OSTYPE
     linux* | msys*)
-
         # apt
         alias upgrade="\
             set -x && \
@@ -180,7 +199,7 @@ case ${OSTYPE} in
             sudo apt-get autoclean -y && \
             set +x"
 
-        ### WSL 向け設定 ###
+        # WSL
         if uname -r | grep -i 'microsoft' > /dev/null ; then
 
             # Win 環境のホームディレクトリへ cd
@@ -242,11 +261,10 @@ case ${OSTYPE} in
                 # UNC パスはサポートされません。Windows ディレクトリを既定で使用します。
                 cmd.exe /c start "http://www.google.co.jp/search?q=${words}" &>/dev/null
             }
-
         fi
     ;;
 
-    ### MacOS 向け設定 ###
+    # MacOS
     darwin*)
         # ls
         alias ll="ls -oF"

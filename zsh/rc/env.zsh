@@ -1,5 +1,6 @@
-### 環境変数 ###
-
+########################################
+# 環境変数
+########################################
 # bin
 export PATH="$PATH:$HOME/bin"
 
@@ -25,10 +26,20 @@ export FLYCTL_INSTALL="/home/${USERNAME}/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 
-### 特定環境でのみ読み込む環境変数 ###
+########################################
+# 環境ごとの読込
+########################################
 case ${OSTYPE} in
+    # Linux 向け設定
+    linux*)
+        # WSL
+        if uname -r | grep -i 'microsoft' > /dev/null ; then
+            # Win 環境の環境変数を WSL 環境へ複製
+            # export PATH="$PATH:$Path"
+        fi
+    ;;
 
-    ### MacOS 向け設定 ###
+    # MacOS
     darwin*)
         # bin_M1
         export PATH="$PATH:/opt/homebrew/bin:/opt/homebrew/sbin"
@@ -41,16 +52,5 @@ case ${OSTYPE} in
 
         # Postgres.app
         export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
-
-    ;;
-
-    ### Linux 向け設定 ###
-    linux*)
-
-        ### WSL 向け設定 ###
-        if uname -r | grep -i 'microsoft' > /dev/null ; then
-            # Win 環境の環境変数を WSL 環境へ複製
-            # export PATH="$PATH:$Path"
-        fi
     ;;
 esac
