@@ -1,7 +1,7 @@
 [core]
         editor = vim
         ignorecase = false # ファイルの大文字・小文字を区別して認識する
-        quotepath = false  # 2バイト文字列のエスケープ処理を行わない（git status 送信時に日本語のファイル名を正常に表示させる）
+        quotepath = false  # 2 バイト文字列のエスケープ処理を行わない (git status 送信時に日本語のファイル名を正常に表示させる)
         safecrlf = true    # 改行コードが混在している場合に変換しない
         autocrlf = false   # コミット・チェックアウト時に改行コードの変換を行わない
 [push]
@@ -10,3 +10,5 @@
         helper = wincred   # ID, PASS を聞かれる頻度を減らすためキャッシュしておく設定
 [grep]
         lineNumber = true  # git grep 実行時に行番号を表示する
+[log]
+        date = iso-local   # 日付を ISO 8601 (2023-01-01 09:00:00 +0900) で表示する
