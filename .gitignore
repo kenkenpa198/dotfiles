@@ -22,7 +22,7 @@
 # /config/
 !/config/azuredatastudio/User/settings.json
 !/config/Code/extensions
-!/config/Code/Markdown_Preview_Enhanced/style.less
+!/config/Code/markdown-preview-enhanced/style.less
 !/config/Code/User/snippets/markdown.json
 !/config/Code/User/keybindings.json
 !/config/Code/User/settings.json
