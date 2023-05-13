@@ -1,5 +1,5 @@
 ########################################
-# 初期設定
+# .gitignore ホワイトリスト
 ########################################
 # 全てのファイルを除外する
 *
@@ -8,58 +8,43 @@
 # 全てのディレクトリをホワイトリストへ追加する
 !*/
 
-
-########################################
-# ホワイトリスト
-########################################
 # 追跡対象のファイルを記述する
+!bin/acd
+!bin/cj
+!bin/moda
 
-# /bin/
-!/bin/acd
-!/bin/cj
-!/bin/moda
+!config/azuredatastudio/User/settings.json
+!config/Code/extensions
+!config/Code/markdown-preview-enhanced/style.less
+!config/Code/User/snippets/markdown.json
+!config/Code/User/keybindings.json
+!config/Code/User/settings.json
+!config/markdown-preview-enhanced/mume/style.less
+!config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+!config/WindowsTerminal/LocalState/settings.json
+!config/WSL/.wslconfig
 
-# /config/
-!/config/azuredatastudio/User/settings.json
-!/config/Code/extensions
-!/config/Code/markdown-preview-enhanced/style.less
-!/config/Code/User/snippets/markdown.json
-!/config/Code/User/keybindings.json
-!/config/Code/User/settings.json
-!/config/markdown-preview-enhanced/mume/style.less
-!/config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
-!/config/WindowsTerminal/LocalState/settings.json
-!/config/WSL/.wslconfig
+!setup/MacOS/Brewfile
+!setup/Ubuntu/install-apt-packages.sh
+!setup/Ubuntu/install-git.sh
+!setup/Ubuntu/install-jekyll.sh
+!setup/Ubuntu/install-my-scripts.sh
+!setup/Ubuntu/install-node-js.sh
+!setup/Ubuntu/install-vscode-extensions.sh
+!setup/Ubuntu/setup-environment.sh
+!setup/Ubuntu/setup-ja.sh
+!setup/Windows/get-apps.ps1
+!setup/Windows/install-apps-from-msstore.ps1
+!setup/Windows/install-apps-from-winget.ps1
+!setup/Windows/link.ps1
 
-# /setup/
-!/setup/MacOS/Brewfile
-!/setup/Ubuntu/install-apt-packages.sh
-!/setup/Ubuntu/install-git.sh
-!/setup/Ubuntu/install-jekyll.sh
-!/setup/Ubuntu/install-my-scripts.sh
-!/setup/Ubuntu/install-node-js.sh
-!/setup/Ubuntu/install-vscode-extensions.sh
-!/setup/Ubuntu/setup-environment.sh
-!/setup/Ubuntu/setup-ja.sh
-!/setup/Windows/get-apps.ps1
-!/setup/Windows/link.ps1
-!/setup/Windows/install-apps-from-msstore.ps1
-!/setup/Windows/install-apps-from-winget.ps1
+!zsh/rc/alias.zsh
+!zsh/rc/env.zsh
+!zsh/rc/option.zsh
+!zsh/rc/theme.zsh
 
-# /zsh/
-!/zsh/rc/alias.zsh
-!/zsh/rc/env.zsh
-!/zsh/rc/function/acd.zsh
-!/zsh/rc/function/cj.zsh
-!/zsh/rc/function/moda.zsh
-!/zsh/rc/option.zsh
-!/zsh/rc/theme.zsh
-!/zsh/.dircolors
-
-# /
-!/.bashrc
-!/.gitignore
-!/.zshrc
-!/.gitconfig_shared
-!/.gitignore_global
-!/README.md
+!.gitconfig_shared
+!.gitignore
+!.gitignore_global
+!.zshrc
+!README.md
