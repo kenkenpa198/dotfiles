@@ -4,7 +4,7 @@
 ```shell
 cd
 git clone git@github.com:kenkenpa198/dotfiles.git
-bash ~/dotfiles/setup/Ubuntu/{script-name.sh}
+bash ~/dotfiles/setup/Ubuntu/[script-name.sh]
 ```
 
 ## 構築手順
@@ -25,28 +25,6 @@ bash ~/dotfiles/setup/Ubuntu/{script-name.sh}
 3. [setup/](setup) 配下のスクリプトを使用してシンボリックリンクを各ディレクトリへ配置する。
 
 ## dotfiles の構成
-
-### zsh/
-
-```shell
-.
-├── zsh
-│   └── rc
-│       ├── alias.zsh
-│       ├── env.zsh
-│       ├── option.zsh
-│       ├── secret.zsh（Git 管理外）
-│       └── theme.zsh
-└── .zshrc
-```
-
-当 dotfiles の主人公である `.zshrc` と仲間たち。  
-
-`.zshrc` へは `zsh/rc/` ディレクトリ配下の `**.zsh` を読み込むコードのみを記述し、環境変数やエイリアスの設定を記述したファイルを `zsh/rc/` 配下へ配置する。こうすることで設定ファイルを分割して整理することができる。
-
-`secret.zsh` はセキュアな環境変数や環境依存の設定などを記述したファイル。後述のホワイトリストには記述していないため Git では追跡されない。未来の自分は環境を変えた時に移行し忘れないように！
-
-`zsh/` 配下でわざわざ `rc/` ディレクトリを切っているのは、 [`.dircolors` を `zsh/` 配下で運用していたころの名残](https://github.com/kenkenpa198/dotfiles/commit/b7d88caf0a1c97a0517137e94ea0a9679906be54) 。今後に備えてとりあえずそのままにしている。
 
 ### bin/
 
@@ -81,43 +59,18 @@ bash ~/dotfiles/setup/Ubuntu/install-my-scripts.sh
      └── ***
 ```
 
-`config/` ディレクトリ配下には VSCode などアプリごとの設定ファイルを保管している。
+`config/` ディレクトリ配下には VS Code などアプリごとの設定ファイルを保管している。
 
 基本的には各設定ファイルのコメントや [setup/](setup) 配下のファイルを参考にしたり実行してそれぞれシンボリックリンクを繋げる。
 
 PowerShell で `***.ps1` ファイルを実行する場合、実行ポリシーの変更が必要なため適宜実行しておく。補足を参照。
 
-Windows Terminal の `settings.json` と WSL 用の `.wslconfig` のみ、シンボリックリンクではなくコピペや複製で対応する。  
-WSL が立ち上がる前に WSL 内のファイルを読み込もうとして失敗してしまうようなため。
+Windows Terminal の `settings.json` と WSL 用の `.wslconfig` のみ、シンボリックリンクではなくコピペや複製で対応する。WSL が立ち上がる前に WSL 内のファイルを読み込もうとして失敗してしまうようなため。
 
-Windows Terminal の設定ファイルは GUID 設定を上書きしないよう注意。上書きしてしまったら下記の手順で GUID を再設定する。
+WSL と Windows の二環境を考慮しないといけない分、いろいろと面倒くさい。下記も参考に。
 
-1. `Ctrl + ,` で設定を開く。
-2. `新しいプロファイルを追加します` を選択する。
-3. `プロファイルを複製する` から `Ubuntu` など目的のプロファイルを選んで `複製` をクリックする。
-4. 複製されたプロファイルの GUID を既存のプロファイルへ記述する。
-
-### .gitignore_shared / .gitignore_global
-
-```shell
-.
-├── .gitconfig_shared
-└── .gitignore_global
-```
-
-作業環境用の `.gitconfig` の基本設定やグローバルな除外設定を管理。
-
-インストール用スクリプトにて下記のコマンドを実行し、`.gitconfig` から読み込みを行うようにしている。
-
-```shell
-# .gitconfig へ .gitconfig_global を読み込み設定
-git config --global core.excludesfile ~/.gitignore_global
-
-# .gitconfig へ .gitconfig_shared を外部読み込み設定
-git config --global include.path ~/.gitconfig_shared
-```
-
-`.gitconfig` の基本設定を `.gitconfig_shared` に切り分けて外部読み込みを行う運用にしているのは、`.gitconfig` には Git のユーザー名とメールアドレスを記述する必要があり Git 管理の対象にしたくなかったため。
+- [PowerShell でスクリプトを実行する](#powershell-でスクリプトを実行する)
+- [Windows Terminal の GUID 復元手順](#windows-terminal-の-guid-復元手順)
 
 ### setup/
 
@@ -138,9 +91,55 @@ git config --global include.path ~/.gitconfig_shared
 
 これらを実行したり、記述を拾ったりしつつ環境を整える。
 
+### zsh/ と .zshrc
+
+```shell
+.
+├── zsh
+│   └── rc
+│       ├── alias.zsh
+│       ├── env.zsh
+│       ├── option.zsh
+│       ├── secret.zsh（Git 管理外）
+│       └── theme.zsh
+└── .zshrc
+```
+
+zsh の設定ファイル群。
+
+ホームディレクトリへのシンボリックリンク設定は `.zshrc` のみ行う。
+
+`.zshrc` へは `zsh/rc/` ディレクトリ配下の `**.zsh` を読み込むコードのみを記述し、環境変数やエイリアスの設定を記述したファイルを `zsh/rc/` 配下へ配置する。こうすることで設定ファイルを分割して整理することができる。
+
+`secret.zsh` はセキュアな環境変数や環境依存の設定などを記述したファイル。後述のホワイトリストには記述していないため Git では追跡されない。未来の自分は環境を変えた時に移行し忘れないように！
+
+`zsh/` 配下でわざわざ `rc/` ディレクトリを切っているのは、 [`.dircolors` を `zsh/` 配下で運用していたころの名残](https://github.com/kenkenpa198/dotfiles/commit/b7d88caf0a1c97a0517137e94ea0a9679906be54) 。今後に備えてとりあえずそのままにしている。
+
+### .gitignore_shared と .gitignore_global
+
+```shell
+.
+├── .gitconfig_shared
+└── .gitignore_global
+```
+
+作業環境用の `.gitconfig` の基本設定やグローバルな除外設定を管理。
+
+インストール用スクリプトにて下記のコマンドを実行し、`.gitconfig` から読み込みを行うようにしている。
+
+```shell
+# .gitconfig へ .gitconfig_global を読み込み設定
+git config --global core.excludesfile ~/.gitignore_global
+
+# .gitconfig へ .gitconfig_shared を外部読み込み設定
+git config --global include.path ~/.gitconfig_shared
+```
+
+上記のとおり、`.gitconfig` を直接管理するのではなく `.gitconfig_shared` に切り分けて外部読み込みを行う運用にしている。`.gitconfig` には Git のユーザー名とメールアドレスを記述する必要があり、Git 管理の対象にしたくなかったため。
+
 ## 補足
 
-### .gitignore はホワイトリスト形式で記述する
+### ホワイトリスト形式の .gitignore
 
 ```shell
 .
@@ -175,7 +174,7 @@ git add -vA
 git status -s
 
 # コミットする
-git commit -m '{commit comments}'
+git commit -m '[commit comments]'
 ```
 
 ### PowerShell でスクリプトを実行する
@@ -197,7 +196,7 @@ PowerShell はネットワークから取得したスクリプトファイル `*
 
     ```powershell
     # その時のプロセスでのみ有効にする
-    # Set-ExecutionPolicy -ExecutionPolicy <<実行ポリシー>> -Scope <<スコープ>>
+    # Set-ExecutionPolicy -ExecutionPolicy [実行ポリシー] -Scope [スコープ]
     # RemoteSigned ... 署名されたスクリプトが実行できる実行ポリシー
     # Process      ... 実行ポリシーを現在の PowerShell プロセスのみに影響させる
     > Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -206,19 +205,29 @@ PowerShell はネットワークから取得したスクリプトファイル `*
     実行ポリシーは、信頼されていないスクリプトからの保護に役立ちます。実行ポリシーを変更すると、about_Execution_Policies のヘルプ トピック
     (https://go.microsoft.com/fwlink/?LinkID=135170) で説明されているセキュリティ上の危険にさらされる可能性があります。実行ポリシーを変更しますか?
     [Y] はい(Y)  [A] すべて続行(A)  [N] いいえ(N)  [L] すべて無視(L)  [S] 中断(S)  [?] ヘルプ (既定値は "N"): y
-    
+
     # 確認する
     > Get-ExecutionPolicy
     RemoteSigned
-    
+
     # スクリプトを実行する
     > hoge.ps1
     ```
 
+### Windows Terminal の GUID 復元手順
 
-## 参考サイト
+Windows Terminal の設定ファイルを上書きする際、環境によっては WSL を Windows Terminal で実行できなくなる場合がある。Ubuntu のバージョンに紐づけられた GUID が上書き前後で変わってしまったため。（※ 理解が正確でないかも）
 
-### dotfiles
+この場合、下記の手順で上書き前の GUID を復元する。
+
+1. `Ctrl + ,` で設定を開く。
+2. `新しいプロファイルを追加します` を選択する。
+3. `プロファイルを複製する` から `Ubuntu` など目的のプロファイルを選んで `複製` をクリックする。
+4. 複製されたプロファイルの GUID を既存のプロファイルへ記述する。
+
+## 参考文献
+
+### dotfiles 全般
 
 - [ようこそdotfilesの世界へ - Qiita](https://qiita.com/yutakatay/items/c6c7584d9795799ee164)
 - [【初心者版】必要最小限のdotfilesを運用する - Qiita](https://qiita.com/ganariya/items/d9adffc6535dfca6784b)
@@ -287,3 +296,10 @@ PowerShell はネットワークから取得したスクリプトファイル `*
     - [markdownlint のインデント調整 - public note](https://ts223.hatenablog.com/entry/vscode-mdl)
     - [「markdownlint」を使ってメンテナブルなMarkdownを目指してみる - 憂鬱な世界にネコパンチ！](https://nekopunch.hatenablog.com/entry/2018/10/16/230529)
     - [VSCode の markdownlint プラグインを特定ルールを無視する設定を行う | らくがきちょう v3](https://sig9.org/archives/4456)
+
+### PowerShell
+
+- [実行ポリシーについて - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)
+- [Set-ExecutionPolicy (Microsoft.PowerShell.Security) - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.3)
+- [PowerShellでこのシステムではスクリプトの実行が無効になっているため、ファイル hoge.ps1 を読み込むことができません。となったときの対応方法 - Qiita](https://qiita.com/ponsuke0531/items/4629626a3e84bcd9398f)
+- [PowerShellの.bashrc的な設定ファイルこと$Profileについての紹介 - Qiita](https://qiita.com/smicle/items/0ca4e6ae14ea92000d18)
