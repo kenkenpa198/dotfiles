@@ -7,6 +7,34 @@ git clone git@github.com:kenkenpa198/dotfiles.git
 bash ~/dotfiles/setup/Ubuntu/[script-name.sh]
 ```
 
+<!-- omit in toc -->
+## 目次
+
+- [構築手順](#構築手順)
+- [dotfiles の構成](#dotfiles-の構成)
+    - [bin/](#bin)
+    - [config/](#config)
+    - [setup/](#setup)
+    - [zsh/ と .zshrc](#zsh-と-zshrc)
+    - [.gitignore\_shared と .gitignore\_global](#gitignore_shared-と-gitignore_global)
+- [補足](#補足)
+    - [ホワイトリスト形式の .gitignore](#ホワイトリスト形式の-gitignore)
+    - [Git のキャッシュ削除手順](#git-のキャッシュ削除手順)
+    - [PowerShell でスクリプトを実行する](#powershell-でスクリプトを実行する)
+    - [Windows Terminal の GUID 復元手順](#windows-terminal-の-guid-復元手順)
+- [参考文献](#参考文献)
+    - [dotfiles 全般](#dotfiles-全般)
+    - [WSL](#wsl)
+    - [Ubuntu](#ubuntu)
+    - [zsh](#zsh)
+    - [シェルスクリプト・シェル関数](#シェルスクリプトシェル関数)
+    - [Git](#git)
+    - [Homebrew](#homebrew)
+    - [GCC](#gcc)
+    - [Node.js](#nodejs)
+    - [VS Code](#vs-code)
+    - [PowerShell](#powershell)
+
 ## 構築手順
 
 1. Windows 環境の場合、次の対応を行っておく。
