@@ -29,6 +29,8 @@ alias diffy="diff -ry --exclude=.git --color"
 alias diffys="diffy --suppress-common-lines"
 
 # grep
+# 環境変数での色設定 (export GREP_OPTIONS="--color=auto") は
+# サポートされなくなったそうなのでエイリアスで設定する
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
