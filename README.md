@@ -2,41 +2,35 @@
 # dotfiles
 
 ```shell
-$ cd
-$ git clone git@github.com:kenkenpa198/dotfiles.git
-$ bash ~/dotfiles/.setup/Ubuntu/setup.sh
+cd
+git clone git@github.com:kenkenpa198/dotfiles.git
+bash ~/dotfiles/setup/Ubuntu/{script-name.sh}
 ```
 
-## 1. 概要
+## 構築手順
 
-kenkenpa198 の dotfiles 。  
-シンボリックリンクで色々つなげて、設定の変更を Git で検知して管理している。  
-
-## 2. 構築方法
-
-1. Windows 環境の場合、以下の対応を行っておく。
-    1. WSL をセットアップ。
+1. Windows 環境の場合、次の対応を行っておく。
+    1. PowerShell を管理者権限で起動する。
+    2. WSL をインストールする。
 
         ```powershell
-        # PowerShell（管理者権限で起動）
-        > wsl --install
+        wsl --install
         ```
 
         参考: [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
 
-    2. SSH キーの作成・GitHub アカウントへ公開鍵を登録（`git clone my-git-repositories` に必要）
-    3. イーサネットアダプターの IPv6 を無効にする（`$ sudo apt-add-repository ppa:foo/bar` に必要）
+    3. SSH キーの作成と GitHub アカウントへ公開鍵の登録を行う（`git clone my-git-repositories` に必要）。
+    4. Win 環境側でイーサネットアダプターの IPv6 を無効にする（`sudo apt-add-repository ppa:foo/bar` に必要）。
 2. ホームディレクトリ上で冒頭のコマンドを実行して dotfiles をクローン & Ubuntu 環境のセットアップ。
-3. `.setup/` 配下のスクリプトを使用してシンボリックリンクを各ファイルへ繋げる。
+3. [setup/](setup) 配下のスクリプトを使用してシンボリックリンクを各ディレクトリへ配置する。
 
-## 3. 構成
+## dotfiles の構成
 
-### 3.1. zsh
+### zsh/
 
 ```shell
 .
 ├── zsh
-│   ├── .dircolors
 │   └── rc
 │       ├── alias.zsh
 │       ├── env.zsh
@@ -48,15 +42,13 @@ kenkenpa198 の dotfiles 。
 
 当 dotfiles の主人公である `.zshrc` と仲間たち。  
 
-`.zshrc` へは `.zsh/rc/` ディレクトリ配下の `**.zsh` を読み込むコードのみを記述。  
-環境変数やエイリアスはこの `.zsh/rc/` 配下へ配置する。  
-こうすることで設定ファイルを分割して整理することができる。
+`.zshrc` へは `zsh/rc/` ディレクトリ配下の `**.zsh` を読み込むコードのみを記述し、環境変数やエイリアスの設定を記述したファイルを `zsh/rc/` 配下へ配置する。こうすることで設定ファイルを分割して整理することができる。
 
-`secret.zsh` はセキュアな環境変数や環境依存の設定などを記述したファイル。  
-後述のホワイトリストには記述していないため Git では追跡されない。  
-未来の自分は環境を変えた時に移行し忘れないようにしてね！
+`secret.zsh` はセキュアな環境変数や環境依存の設定などを記述したファイル。後述のホワイトリストには記述していないため Git では追跡されない。未来の自分は環境を変えた時に移行し忘れないように！
 
-### 3.2. bin
+`zsh/` 配下でわざわざ `rc/` ディレクトリを切っているのは、 [`.dircolors` を `zsh/` 配下で運用していたころの名残](https://github.com/kenkenpa198/dotfiles/commit/b7d88caf0a1c97a0517137e94ea0a9679906be54) 。今後に備えてとりあえずそのままにしている。
+
+### bin/
 
 ```shell
 .
@@ -65,15 +57,22 @@ kenkenpa198 の dotfiles 。
      └── ***
 ```
 
-`bin/` ディレクトリには自作コマンドやスクリプトを格納している。  
-それぞれ実行権限の付与と `/usr/local/bin/` 配下へのシンボリックリンク作成を行っておく。
+`bin/` ディレクトリには自作コマンドを格納している。
+
+それぞれ実行権限の付与と `~/bin/` 配下へのシンボリックリンク作成を行っておく。
 
 ```shell
-$ chmod +x moda
-$ sudo ln -s ~/dotfiles/bin/moda /usr/local/bin/
+chmod +x moda
+sudo ln -sf ~/dotfiles/bin/moda ~/bin/
 ```
 
-### 3.3. config
+[install-my-scripts.sh](setup/Ubuntu/install-my-scripts.sh) を実行すると、上記の設定をすべてのファイルに対して実行できるようにしている。
+
+```shell
+bash ~/dotfiles/setup/Ubuntu/install-my-scripts.sh
+```
+
+### config/
 
 ```shell
 .
@@ -82,16 +81,23 @@ $ sudo ln -s ~/dotfiles/bin/moda /usr/local/bin/
      └── ***
 ```
 
-`config/` ディレクトリ配下には VSCode などアプリごとの設定ファイルを保管。  
-基本的には各設定ファイルのコメントや [mklink.bat](.setup/Windows/mklink.bat) などを参考にそれぞれシンボリックリンクを繋げる。
+`config/` ディレクトリ配下には VSCode などアプリごとの設定ファイルを保管している。
+
+基本的には各設定ファイルのコメントや [setup/](setup) 配下のファイルを参考にしたり実行してそれぞれシンボリックリンクを繋げる。
+
+PowerShell で `***.ps1` ファイルを実行する場合、実行ポリシーの変更が必要なため適宜実行しておく。補足を参照。
 
 Windows Terminal の `settings.json` と WSL 用の `.wslconfig` のみ、シンボリックリンクではなくコピペや複製で対応する。  
 WSL が立ち上がる前に WSL 内のファイルを読み込もうとして失敗してしまうようなため。
 
-Windows Terminal の設定ファイルは GUID 設定を上書きしないよう注意。  
-上書きしちゃったら `設定 $ 新しいプロファイルを追加します $ プロファイルを複製する` から該当のプロファイルを選んで複製 → 複製されたプロファイルの GUID で設定しなおす。
+Windows Terminal の設定ファイルは GUID 設定を上書きしないよう注意。上書きしてしまったら下記の手順で GUID を再設定する。
 
-### 3.4. git
+1. `Ctrl + ,` で設定を開く。
+2. `新しいプロファイルを追加します` を選択する。
+3. `プロファイルを複製する` から `Ubuntu` など目的のプロファイルを選んで `複製` をクリックする。
+4. 複製されたプロファイルの GUID を既存のプロファイルへ記述する。
+
+### .gitignore_shared / .gitignore_global
 
 ```shell
 .
@@ -101,56 +107,125 @@ Windows Terminal の設定ファイルは GUID 設定を上書きしないよう
 
 作業環境用の `.gitconfig` の基本設定やグローバルな除外設定を管理。
 
-`.gitconfig` の基本設定は `.gitconfig_shared` に切り分け、`.gitignore_global` と同様に `.gitconfig` へ外部読み込み設定を行うような運用にしている。  
-`.gitconfig` にはメアドとユーザー名を記述する必要があり、Git 管理の対象にしたくなかったため。
-
-`.gitignore_global` を設定する前にコミットをしてしまうと、コミット済みのファイルには適用されなくなるので注意。  
-やらかしたら下記コマンドでキャッシュを削除してから改めてコミットする。
+インストール用スクリプトにて下記のコマンドを実行し、`.gitconfig` から読み込みを行うようにしている。
 
 ```shell
-$ git rm -r --cached .
+# .gitconfig へ .gitconfig_global を読み込み設定
+git config --global core.excludesfile ~/.gitignore_global
+
+# .gitconfig へ .gitconfig_shared を外部読み込み設定
+git config --global include.path ~/.gitconfig_shared
 ```
 
-### 3.5. gitignore
+`.gitconfig` の基本設定を `.gitconfig_shared` に切り分けて外部読み込みを行う運用にしているのは、`.gitconfig` には Git のユーザー名とメールアドレスを記述する必要があり Git 管理の対象にしたくなかったため。
+
+### setup/
+
+```shell
+.
+└── setup
+     ├── MacOS
+     │   └── Brewfile
+     ├── Ubuntu
+     │   ├── ***.sh
+     │   └── ***.sh
+     └── Windows
+         ├── ***.ps1
+         └── ***.ps1
+```
+
+`setup/` 配下にはセットアップ用のスクリプトファイルやインストールするアプリケーションなどを管理している。
+
+これらを実行したり、記述を拾ったりしつつ環境を整える。
+
+## 補足
+
+### .gitignore はホワイトリスト形式で記述する
 
 ```shell
 .
 └── .gitignore
 ```
 
-当 dotfiles 用の `.gitignore` 。  
+当 dotfiles 用の `.gitignore` はホワイトリスト形式での記述を行い、`.gitignore` で指定したファイルのみしか Git の管理下に入らないようにしている。
 
-ホワイトリスト形式にすることで、`.gitignore` で指定したファイルのみしか Git の管理下に入らないようにしている。  
-こうすることで誤ってコミットしてしまうミスを防げる。
+こうすることで、新しく追加したファイルに秘匿すべき情報が含まれていた際に、誤ってコミットしてしまうミスを防げる。
 
-### 3.6. setup
+### Git のキャッシュ削除手順
+
+- `.gitignore_global` を設定する前にコミットをしてしまった。
+- 過去に追跡対象としてコミットしたファイルを `.gitignore` で追跡対象外にしたい。
+- `.gitignore` を整理したので追跡対象の設定が問題ないか確認したい。
+
+これらに該当する場合は、Git のキャッシュ削除が必要になる。
+
+次のコマンドを順に実行して対応する。
 
 ```shell
-.
-└── setup
-     ├── Ubuntu
-     │   ├── ***.sh
-     │   └── ***.sh
-     └── Windows
-         ├── ***.bat
-         └── ***.bat
+# cd
+cd ~/dotfiles
+
+# Git のキャッシュをすべてのファイルから削除する
+git rm --cached -r .
+
+# 全てのファイルをステージングする
+git add -vA
+
+# コミット対象のファイルが変更を加えたファイルのみであるか確認する
+git status -s
+
+# コミットする
+git commit -m '{commit comments}'
 ```
 
-`setup/` 配下にはセットアップ用のスクリプトファイル関連を保管。  
-こちらを実行したり、記述を拾ったりしつつ環境を整える。
+### PowerShell でスクリプトを実行する
 
-それぞれコマンドを単純に直書きしているだけなので、もう少しいい感じにしたい。
+PowerShell はネットワークから取得したスクリプトファイル `***.ps1` がデフォルトで実行できない。このため、スクリプトの実行前に実行ポリシーの変更が必要となる。
 
-## 4. 参考サイト
+一時的に実行ポリシーを変更する場合は下記の手順で行う。
 
-### 4.1. dotfiles
+1. 管理者権限で PowerShell を実行する。
+2. 現在の実行ポリシーを確認する。
+
+    ```powershell
+    # 実行ポリシーを確認する
+    > Get-ExecutionPolicy
+    Restricted # 既定の実行ポリシー。構成ファイルのロードやスクリプトの実行が行えない
+    ```
+
+3. 実行ポリシーを一時的に変更する。
+
+    ```powershell
+    # その時のプロセスでのみ有効にする
+    # Set-ExecutionPolicy -ExecutionPolicy <<実行ポリシー>> -Scope <<スコープ>>
+    # RemoteSigned ... 署名されたスクリプトが実行できる実行ポリシー
+    # Process      ... 実行ポリシーを現在の PowerShell プロセスのみに影響させる
+    > Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+    実行ポリシーの変更
+    実行ポリシーは、信頼されていないスクリプトからの保護に役立ちます。実行ポリシーを変更すると、about_Execution_Policies のヘルプ トピック
+    (https://go.microsoft.com/fwlink/?LinkID=135170) で説明されているセキュリティ上の危険にさらされる可能性があります。実行ポリシーを変更しますか?
+    [Y] はい(Y)  [A] すべて続行(A)  [N] いいえ(N)  [L] すべて無視(L)  [S] 中断(S)  [?] ヘルプ (既定値は "N"): y
+    
+    # 確認する
+    > Get-ExecutionPolicy
+    RemoteSigned
+    
+    # スクリプトを実行する
+    > hoge.ps1
+    ```
+
+
+## 参考サイト
+
+### dotfiles
 
 - [ようこそdotfilesの世界へ - Qiita](https://qiita.com/yutakatay/items/c6c7584d9795799ee164)
 - [【初心者版】必要最小限のdotfilesを運用する - Qiita](https://qiita.com/ganariya/items/d9adffc6535dfca6784b)
 - [gitignoreのホワイトリストの書き方 - Qiita](https://qiita.com/sventouz/items/574bd67c7e43fff10546)
 - [Windows と Mac で開発環境を揃える Tips 集 - Neo's World](https://neos21.net/tech/windows-mac-environment.html)
 
-### 4.2. WSL2
+### WSL
 
 - [WSL のインストール | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/wsl/install)
 - [Windows Terminal + WSL 2 + Homebrew + Zsh - Qiita](https://qiita.com/okayurisotto/items/36f6f9df499a74e62bff)
@@ -159,11 +234,11 @@ $ git rm -r --cached .
 - [【WSL】パスのフォーマットを変換する wslpath コマンドの使い方 – ラボラジアン](https://laboradian.com/wslpath-command-for-wsl/)
 - [Cygwinでgo入門を諦めてWSL環境を作ったがCygwinでも大丈夫だった - exits](https://yuelab82.hatenablog.com/entry/go_on_cygwin_and_wsl)
 
-### 4.3. Ubuntu
+### Ubuntu
 
 - [WSLのUbuntu環境を日本語化する：Tech TIPS - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/1806/28/news043.html)
 
-### 4.4. zsh
+### zsh
 
 - [zsh設定ファイル（.zshrc）を分割する - fnwiya's quine](http://fnwiya.hatenablog.com/entry/2015/11/03/191902)
 - [【.zshrc解説】コピペで簡単zshカスタマイズ【設定方法】](https://suwaru.tokyo/【-zshrc解説】コピペで簡単zshカスタマイズ【設定方法/)
@@ -173,16 +248,16 @@ $ git rm -r --cached .
 - [LinuxのOS名やバージョンを調べる（CentOS/Ubuntu） | pc.casey.jp](https://pc.casey.jp/archives/153904342)
 - [bash/zshで16色(ANSI カラーコード)と256色のカラーパレットを表示 - よんちゅBlog](https://yonchu.hatenablog.com/entry/2012/10/20/044603)
 - [Bashのif文でANDやOR条件、&&や||演算子を使う | 晴耕雨読](https://tex2e.github.io/blog/shell/bash-and-or)
-- [シェルスクリプトの [ -a (AND) と -o (OR) ] は非推奨だかんね - Qiita](https://qiita.com/ko1nksm/items/6201b2ce47f4d6126521)
+- [シェルスクリプトの \[ -a (AND) と -o (OR) \] は非推奨だかんね - Qiita](https://qiita.com/ko1nksm/items/6201b2ce47f4d6126521)
 
-### 4.5. シェルスクリプト・シェル関数
+### シェルスクリプト・シェル関数
 
 - [シェルスクリプトを高級言語のような書き味に近づける Tips 集](https://sousaku-memo.net/php-system/1817)
 - [使いやすいシェルスクリプトを書く | Taichi Nakashima](https://deeeet.com/writing/2014/05/18/shell-template/)
 - [初心者向け、「上手い」シェルスクリプトの書き方メモ - Qiita](https://qiita.com/m-yamashita/items/889c116b92dc0bf4ea7d)
 - [bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
 
-### 4.6. Git
+### Git
 
 - [最低限しておくといいgitconfigの設定 - Qiita](https://qiita.com/hayamofu/items/d8103e789196bcd8b489)
 - [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
@@ -190,21 +265,21 @@ $ git rm -r --cached .
 - [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
 - [.gitignoreに記載したのに反映されない件 - Qiita](https://qiita.com/fuwamaki/items/3ed021163e50beab7154)
 
-### 4.7. Homebrew
+### Homebrew
 
 - [dotfiles管理にhomebrew-bundleを導入する - Qiita](https://qiita.com/so-heee/items/351f0ea4e79196754e52)
 - [Brew Bundleの使い方](https://gist.github.com/yoshimana/43b9205ddedad0ad65f2dee00c6f4261)
 
-### 4.8. GCC
+### GCC
 
 - [Windows10 でのC言語開発環境の作り方 - Qiita](https://qiita.com/fumigoro/items/a07f1e6f059ad4b2b3d2)
 - [gccっていったいなんなんだ - Qiita](https://qiita.com/chihiro/items/1725f9dbb51942534641)
 
-### 4.9. Node.js
+### Node.js
 
 - [WSL 2 上で Node.js を設定する | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-wsl)
 
-### 4.10. VSCode
+### VS Code
 
 - Markdown
     - [自己流の手順書フォーマットを公開してみた | DevelopersIO](https://dev.classmethod.jp/articles/non-97-operation-manual/)
