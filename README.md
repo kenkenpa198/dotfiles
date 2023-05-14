@@ -23,17 +23,6 @@ bash ~/dotfiles/setup/Ubuntu/[script-name.sh]
     - [PowerShell でスクリプトを実行する](#powershell-でスクリプトを実行する)
     - [Windows Terminal の GUID 復元手順](#windows-terminal-の-guid-復元手順)
 - [参考文献](#参考文献)
-    - [dotfiles 全般](#dotfiles-全般)
-    - [WSL](#wsl)
-    - [Ubuntu](#ubuntu)
-    - [zsh](#zsh)
-    - [シェルスクリプト・シェル関数](#シェルスクリプトシェル関数)
-    - [Git](#git)
-    - [Homebrew](#homebrew)
-    - [GCC](#gcc)
-    - [Node.js](#nodejs)
-    - [VS Code](#vs-code)
-    - [PowerShell](#powershell)
 
 ## 構築手順
 
@@ -255,6 +244,7 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 
 ## 参考文献
 
+<!-- omit in toc -->
 ### dotfiles 全般
 
 - [ようこそdotfilesの世界へ - Qiita](https://qiita.com/yutakatay/items/c6c7584d9795799ee164)
@@ -262,6 +252,7 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [gitignoreのホワイトリストの書き方 - Qiita](https://qiita.com/sventouz/items/574bd67c7e43fff10546)
 - [Windows と Mac で開発環境を揃える Tips 集 - Neo's World](https://neos21.net/tech/windows-mac-environment.html)
 
+<!-- omit in toc -->
 ### WSL
 
 - [WSL のインストール | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/wsl/install)
@@ -271,10 +262,12 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [【WSL】パスのフォーマットを変換する wslpath コマンドの使い方 – ラボラジアン](https://laboradian.com/wslpath-command-for-wsl/)
 - [Cygwinでgo入門を諦めてWSL環境を作ったがCygwinでも大丈夫だった - exits](https://yuelab82.hatenablog.com/entry/go_on_cygwin_and_wsl)
 
+<!-- omit in toc -->
 ### Ubuntu
 
 - [WSLのUbuntu環境を日本語化する：Tech TIPS - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/1806/28/news043.html)
 
+<!-- omit in toc -->
 ### zsh
 
 - [zsh設定ファイル（.zshrc）を分割する - fnwiya's quine](http://fnwiya.hatenablog.com/entry/2015/11/03/191902)
@@ -287,6 +280,7 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [Bashのif文でANDやOR条件、&&や||演算子を使う | 晴耕雨読](https://tex2e.github.io/blog/shell/bash-and-or)
 - [シェルスクリプトの \[ -a (AND) と -o (OR) \] は非推奨だかんね - Qiita](https://qiita.com/ko1nksm/items/6201b2ce47f4d6126521)
 
+<!-- omit in toc -->
 ### シェルスクリプト・シェル関数
 
 - [シェルスクリプトを高級言語のような書き味に近づける Tips 集](https://sousaku-memo.net/php-system/1817)
@@ -294,6 +288,7 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [初心者向け、「上手い」シェルスクリプトの書き方メモ - Qiita](https://qiita.com/m-yamashita/items/889c116b92dc0bf4ea7d)
 - [bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
 
+<!-- omit in toc -->
 ### Git
 
 - [最低限しておくといいgitconfigの設定 - Qiita](https://qiita.com/hayamofu/items/d8103e789196bcd8b489)
@@ -302,20 +297,24 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
 - [.gitignoreに記載したのに反映されない件 - Qiita](https://qiita.com/fuwamaki/items/3ed021163e50beab7154)
 
+<!-- omit in toc -->
 ### Homebrew
 
 - [dotfiles管理にhomebrew-bundleを導入する - Qiita](https://qiita.com/so-heee/items/351f0ea4e79196754e52)
 - [Brew Bundleの使い方](https://gist.github.com/yoshimana/43b9205ddedad0ad65f2dee00c6f4261)
 
+<!-- omit in toc -->
 ### GCC
 
 - [Windows10 でのC言語開発環境の作り方 - Qiita](https://qiita.com/fumigoro/items/a07f1e6f059ad4b2b3d2)
 - [gccっていったいなんなんだ - Qiita](https://qiita.com/chihiro/items/1725f9dbb51942534641)
 
+<!-- omit in toc -->
 ### Node.js
 
 - [WSL 2 上で Node.js を設定する | Microsoft Docs](https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-wsl)
 
+<!-- omit in toc -->
 ### VS Code
 
 - Markdown
@@ -325,6 +324,7 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
     - [「markdownlint」を使ってメンテナブルなMarkdownを目指してみる - 憂鬱な世界にネコパンチ！](https://nekopunch.hatenablog.com/entry/2018/10/16/230529)
     - [VSCode の markdownlint プラグインを特定ルールを無視する設定を行う | らくがきちょう v3](https://sig9.org/archives/4456)
 
+<!-- omit in toc -->
 ### PowerShell
 
 - [実行ポリシーについて - PowerShell | Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)
