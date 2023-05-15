@@ -24,6 +24,11 @@ alias dt="date +'%F %T'"         # 現在日時を yyyy-MM-dd hh:mm:ss 形式で
 alias dts="date +'%Y%m%d%H%M%S'" # 現在日時を yyyyMMddhhmmss 形式で表示
 alias dtss="date +'%Y%m%d'"      # 現在日時を yyyyMMdd 形式で表示
 
+# env
+# 一時的に環境変数を設定する
+# $ ja man ls で日本語のマニュアルを表示する
+alias ja="env LANG=ja_JP.UTF-8"
+
 # diff
 alias diffy="diff -ry --exclude=.git --color"
 alias diffys="diffy --suppress-common-lines"
