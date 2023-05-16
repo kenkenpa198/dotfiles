@@ -90,6 +90,51 @@ $RECYCLE.BIN/
 
 
 ########################################
+# MicrosoftOffice.gitignore
+########################################
+# by https://github.com/github/gitignore/blob/main/Global/MicrosoftOffice.gitignore
+
+*.tmp
+
+# Word temporary
+~$*.doc*
+
+# Word Auto Backup File
+Backup of *.doc*
+
+# Excel temporary
+~$*.xls*
+
+# Excel Backup File
+*.xlk
+
+# PowerPoint temporary
+~$*.ppt*
+
+# Visio autosave temporary files
+*.~vsd*
+
+
+########################################
+# VirtualEnv.gitignore
+########################################
+# by https://github.com/github/gitignore/blob/main/Global/VirtualEnv.gitignore
+
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
+
+########################################
 # Vim.gitignore
 ########################################
 # by https://github.com/github/gitignore/blob/main/Global/Vim.gitignore
