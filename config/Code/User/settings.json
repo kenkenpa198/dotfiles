@@ -12,6 +12,7 @@
     "editor.minimap.size": "fit",
     "editor.mouseWheelZoom": true,
     "editor.renderWhitespace": "trailing",
+    "editor.stickyScroll.enabled": true,
     "explorer.confirmDragAndDrop": false,
     "extensions.autoUpdate": "onlyEnabledExtensions",
     "files.autoGuessEncoding": true,
