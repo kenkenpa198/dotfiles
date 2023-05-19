@@ -30,3 +30,7 @@
 [log]
         # 日付を ISO 8601 (2023-01-01 09:00:00 +0900) で表示する
         date = iso-local
+
+[init]
+        # デフォルトブランチ名を main へ設定する
+        defaultBranch = main
