@@ -34,3 +34,10 @@
 [init]
         # デフォルトブランチ名を main へ設定する
         defaultBranch = main
+
+[diff]
+        # 差分表示のアルゴリズムを histogram へ変更して見やすくする
+        algorithm = histogram
+
+        # 移動のみの差分はグレーで表示する
+        colorMoved = dimmed-zebra
