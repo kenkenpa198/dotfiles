@@ -1,4 +1,7 @@
 [core]
+        # コミット・チェックアウト時に改行コードの変換を行わない
+        autocrlf = false
+
         # デフォルトのエディタを Vim に設定する
         editor = vim
 
@@ -12,28 +15,9 @@
         # 改行コードが混在している場合に変換しない
         safecrlf = true
 
-        # コミット・チェックアウト時に改行コードの変換を行わない
-        autocrlf = false
-
-[push]
-        # カレントブランチと同名のリモートブランチが存在する場合のみカレントブランチのプッシュを行う
-        default = simple
-
 [credential]
         # ID, PASS を聞かれる頻度を減らすためキャッシュしておく設定
         helper = wincred
-
-[grep]
-        # git grep 実行時に行番号を表示する
-        lineNumber = true
-
-[log]
-        # 日付を ISO 8601 (2023-01-01 09:00:00 +0900) で表示する
-        date = iso-local
-
-[init]
-        # デフォルトブランチ名を main へ設定する
-        defaultBranch = main
 
 [diff]
         # 差分表示のアルゴリズムを histogram へ変更して見やすくする
@@ -41,3 +25,19 @@
 
         # 移動のみの差分はグレーで表示する
         colorMoved = dimmed-zebra
+
+[grep]
+        # git grep 実行時に行番号を表示する
+        lineNumber = true
+
+[init]
+        # デフォルトブランチ名を main へ設定する
+        defaultBranch = main
+
+[log]
+        # 日付を ISO 8601 (2023-01-01 09:00:00 +0900) で表示する
+        date = iso-local
+
+[push]
+        # カレントブランチと同名のリモートブランチが存在する場合のみカレントブランチのプッシュを行う
+        default = simple
