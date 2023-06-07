@@ -21,6 +21,11 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "search.showLineNumbers": true,
+    "security.allowedUNCHosts": [
+        // WSL 環境での起動時に表示される警告メッセージを抑制する
+        // https://code.visualstudio.com/docs/setup/windows#_working-with-unc-paths
+        "wsl.localhost"
+    ],
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.fontFamily": "'HackGen Console'",
     "workbench.colorTheme": "GitHub Dark",
