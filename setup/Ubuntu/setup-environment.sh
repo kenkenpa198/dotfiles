@@ -9,6 +9,11 @@ set -euo pipefail
 ###################################
 # 関数定義
 ###################################
+# ディレクトリを作成
+function make_dir {
+    mkdir -p ~/works/develop
+}
+
 # 初期ファイルをバックアップ
 function backup_origin_files {
     cp ~/.bashrc ~/.bashrc.org
@@ -62,6 +67,9 @@ msg
 function main {
     # 初期ファイルのバックアップ
     backup_origin_files
+
+    # ディレクトリを作成
+    make_dir
 
     # Git の設定
     set_git

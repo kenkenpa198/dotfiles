@@ -8,7 +8,7 @@ function main {
     chmod -R +x ~/dotfiles/bin
 
     # ~/bin/ を作成
-    mkdir ~/bin
+    mkdir -p ~/bin
 
     # シンボリックリンクを作成（ファイル毎）
     ls ~/dotfiles/bin | xargs -I{} ln -sf ~/dotfiles/bin/{} ~/bin/{}
