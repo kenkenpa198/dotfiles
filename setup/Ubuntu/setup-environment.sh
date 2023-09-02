@@ -22,8 +22,8 @@ function backup_origin_files {
 # Git の設定
 function set_git {
     # シンボリックリンクを作成
-    ln -s ~/dotfiles/.gitignore_global ~/
-    ln -s ~/dotfiles/.gitconfig_shared ~/
+    ln -sf ~/dotfiles/.gitignore_global ~/
+    ln -sf ~/dotfiles/.gitconfig_shared ~/
 
     # .gitconfig へ書き込み
     git config --global core.excludesfile ~/.gitignore_global # .gitconfig へ .gitconfig_global を読み込み設定
@@ -33,7 +33,7 @@ function set_git {
 # zsh の設定
 function set_zsh {
     # シンボリックリンクを作成
-    ln -s ~/dotfiles/.zshrc ~/
+    ln -sf ~/dotfiles/.zshrc ~/
 
     # デフォルトシェルへ設定
     chsh -s "$(which zsh)"
@@ -42,7 +42,7 @@ function set_zsh {
 # その他のシンボリックリンク
 function link {
     # Notes
-    ln -s /mnt/c/Users/"$USERNAME"/Works/Notes ~/works/notes
+    ln -sf /mnt/c/Users/"$USERNAME"/Works/Notes ~/works/notes
 }
 
 # 完了メッセージを表示
