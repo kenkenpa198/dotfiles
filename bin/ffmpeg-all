@@ -10,27 +10,47 @@ set -euo pipefail # エラーや未定義の変数が呼び出された場合プ
 
 # 参考: [ffmpegでフォルダ内の動画を一括変換する - Qiita](https://qiita.com/hosota9/items/29f845854db2e4eeebc0)
 
+
+###################################
+# 関数定義
+###################################
+# 圧縮処理する関数
+compress_files() {
+    # 出力先のディレクトリが無かったら作成する
+    mkdir -p out
+
+    # カレントディレクトリの *.mp4 ファイルごとに圧縮処理をループする
+    for f in *.mp4; do
+        ffmpeg -i "$f" "out/$f";
+    done
+}
+
+# ソースファイルを src ディレクトリへ移す関数
+move_src_files() {
+    # 移動先のディレクトリが無かったら作成する
+    mkdir -p src
+
+    # カレントディレクトリの *.mp4 をすべて src ディレクトリへ移す
+    mv ./*.mp4 src
+}
+
+
+###################################
+# メイン処理
+###################################
 main() {
     # 引数を命名
     # 未定義 (引数なし) の場合は空文字を代入する
     local option
     option=${1:-""}
 
-    # 出力先のディレクトリが無かったら作成する
-    mkdir -p out
+    # 圧縮処理を実行する
+    compress_files
+
+    # -s が引数で与えられていたらソースファイルを src ディレクトリへ移す
     if [[ "$option" = "-s" ]]; then
-        mkdir -p src
+        move_src_files
     fi
-
-    # カレントディレクトリの *.mp4 ファイルごとに圧縮処理をループする
-    for f in *.mp4; do
-        ffmpeg -i "$f" "out/$f";
-
-        # -s が引数で与えられていたらソースファイルを src ディレクトリへ移す
-        if [[ "$option" = "-s" ]]; then
-            mv "$f" "src/$f"
-        fi
-    done
 }
 
 main "$@"
