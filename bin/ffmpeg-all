@@ -31,7 +31,12 @@ move_src_files() {
     mkdir -p src
 
     # カレントディレクトリの *.mp4 をすべて src ディレクトリへ移す
-    mv ./*.mp4 src
+    # 念のため out ディレクトリ内のファイルの存在確認をしつつ 1 ファイルずつ処理する
+    for f in *.mp4; do
+        if [[ -e "out/$f" ]]; then
+            mv "$f" src
+        fi
+    done
 }
 
 
