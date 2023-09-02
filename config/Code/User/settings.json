@@ -33,6 +33,7 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.editor.untitled.hint": "hidden",
+    "window.commandCenter": false,
     "window.newWindowDimensions": "inherit",
     "window.restoreWindows": "none",
 
