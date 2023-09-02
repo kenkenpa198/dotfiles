@@ -11,6 +11,7 @@
 # 追跡対象のファイルを記述する
 !bin/acd
 !bin/cj
+!bin/ffmpeg-all
 !bin/moda
 
 !config/azuredatastudio/User/settings.json
