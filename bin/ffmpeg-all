@@ -21,7 +21,8 @@ compress_files() {
 
     # カレントディレクトリの *.mp4 ファイルごとに圧縮処理をループする
     for f in *.mp4; do
-        ffmpeg -i "$f" "out/$f";
+        # 高さを 720px へリサイズ
+        ffmpeg -i "$f" -vf scale=-1:720 "out/$f";
     done
 }
 
