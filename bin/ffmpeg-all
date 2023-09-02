@@ -1,0 +1,36 @@
+#!/bin/bash
+set -euo pipefail # エラーや未定義の変数が呼び出された場合プロセスを終了する
+
+
+###################################
+# ffmpeg-all
+###################################
+# カレントディレクトリの mp4 ファイルを一括で圧縮する
+# -s オプションでソースファイルを src ディレクトリへ移す
+
+# 参考: [ffmpegでフォルダ内の動画を一括変換する - Qiita](https://qiita.com/hosota9/items/29f845854db2e4eeebc0)
+
+main() {
+    # 引数を命名
+    # 未定義 (引数なし) の場合は空文字を代入する
+    local option
+    option=${1:-""}
+
+    # 出力先のディレクトリが無かったら作成する
+    mkdir -p out
+    if [[ "$option" = "-s" ]]; then
+        mkdir -p src
+    fi
+
+    # カレントディレクトリの *.mp4 ファイルごとに圧縮処理をループする
+    for f in *.mp4; do
+        ffmpeg -i "$f" "out/$f";
+
+        # -s が引数で与えられていたらソースファイルを src ディレクトリへ移す
+        if [[ "$option" = "-s" ]]; then
+            mv "$f" "src/$f"
+        fi
+    done
+}
+
+main "$@"
