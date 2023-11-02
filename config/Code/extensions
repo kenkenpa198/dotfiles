@@ -1,8 +1,9 @@
-castwide.solargraph
+chrmarti.regex
 csholmq.excel-to-markdown-table
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
 ecmel.vscode-html-css
+EditorConfig.EditorConfig
 GitHub.github-vscode-theme
 GrapeCity.gc-excelviewer
 hediet.vscode-drawio
@@ -35,11 +36,11 @@ njpwerner.autodocstring
 nmrmsys.vscode-sql-formatter-mod
 patricklee.vsnotes
 PKief.material-icon-theme
-rebornix.ruby
 ritwickdey.LiveServer
 sergey-agadzhanov.ampscript
 shardulm94.trailing-spaces
 shd101wyy.markdown-preview-enhanced
+Shopify.ruby-lsp
 TakumiI.markdowntable
 timonwong.shellcheck
 twxs.cmake
