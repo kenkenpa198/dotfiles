@@ -29,5 +29,14 @@
         "key": "ctrl+0",
         "command": "workbench.action.focusFirstEditorGroup",
         "when": "sideBarFocus"
+    },
+    {
+        "key": "alt+left",
+        "command": "markdowntable.moveLeft"
+    },
+    {
+        "key": "alt+right",
+        "command": "markdowntable.moveRight"
+    },
     }
 ]
