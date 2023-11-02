@@ -1,5 +1,5 @@
 {
-    // VSCode
+    // VS Code Settings
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.copyWithSyntaxHighlighting": false,
     "editor.cursorSurroundingLines": 16,
@@ -28,6 +28,7 @@
     ],
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.fontFamily": "'HackGen Console'",
+    "workbench.activityBar.location": "top",
     "workbench.colorTheme": "GitHub Dark",
     "workbench.editor.empty.hint": "hidden",
     "workbench.iconTheme": "material-icon-theme",
