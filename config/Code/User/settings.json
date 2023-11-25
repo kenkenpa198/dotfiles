@@ -52,6 +52,7 @@
             "indent": 4
         }
     },
+    "markdowntable.showMenu.csvToTable": true,
     "mcfs.notifications": {
         "hasOpenedConnectionManager": false,
         "hasConnectedToMC": false,
