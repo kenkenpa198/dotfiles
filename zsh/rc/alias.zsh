@@ -41,6 +41,11 @@ alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 
+# note 配下を grep 検索
+ng() {
+    grep -rn $1 ~/works/notes/*
+}
+
 # history
 alias h="history"
 alias hg="history -800 | grep"
