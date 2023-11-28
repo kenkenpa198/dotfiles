@@ -24,5 +24,12 @@
             ""
         ],
         "description": "Template with Simple"
+    },
+    "omit in toc": {
+        "prefix": "omit in toc",
+        "body": [
+            "<!-- omit in toc -->",
+        ],
+        "description": "Insert comment '<!-- omit in toc -->'"
     }
 }
