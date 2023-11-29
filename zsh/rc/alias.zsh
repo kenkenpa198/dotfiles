@@ -43,7 +43,7 @@ alias egrep="egrep --color=auto"
 
 # note 配下を grep 検索
 ng() {
-    grep -rnI $1 ~/works/notes/*
+    grep -rnI $1 ~/works/notes/notes/*
 }
 
 # history
