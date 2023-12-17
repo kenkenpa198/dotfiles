@@ -39,11 +39,6 @@
     "window.restoreWindows": "none",
 
     // Extensions
-    "cSpell.userWords": [
-        "hoge",
-        "piyo",
-        "fuga"
-    ],
     "hediet.vscode-drawio.resizeImages": null,
     "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
     "markdown.extension.list.indentationSize": "inherit",
