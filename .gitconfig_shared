@@ -41,3 +41,11 @@
 [push]
         # カレントブランチと同名のリモートブランチが存在する場合のみカレントブランチのプッシュを行う
         default = simple
+
+[merge]
+        # git merge 時に fast-forward を行わない
+        ff = false
+
+[pull]
+        # git pull 時は fast-forward を行う
+        ff = only
