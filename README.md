@@ -294,6 +294,8 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [gitignore に書くべきでないものは gitignore_global へ - Qiita](https://qiita.com/elzup/items/4c92a2abdab56db3fb4e)
 - [gitignore_globalを作成する on OSX - Qiita](https://qiita.com/pira/items/dd67077c5b414c8eb59d)
 - [.gitignoreに記載したのに反映されない件 - Qiita](https://qiita.com/fuwamaki/items/3ed021163e50beab7154)
+- [gitのmerge --no-ff のススメ #Git - Qiita](https://qiita.com/nog/items/c79469afbf3e632f10a1)
+- [git mergeのとき、デフォルトでno-ffになるようにする設定 - Technology Engineering](https://inaba.hatenablog.com/entry/2017/01/09/223810)
 
 <!-- omit in toc -->
 ### Homebrew
