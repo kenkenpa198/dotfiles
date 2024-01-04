@@ -64,6 +64,11 @@ function main {
     # Git Bash .bashrc
     $linkHash["${WSLHOME}\.bashrc"] = '~\.bashrc'
 
+    # .git***
+    $linkHash["${WSLHOME}\.gitconfig"] = '~\.gitconfig'
+    $linkHash["${WSLHOME}\.gitconfig_shared"] = '~\.gitconfig_shared'
+    $linkHash["${WSLHOME}\.gitignore_global"] = '~\.gitignore_global'
+
 
     ########################################
     # 配列へ追加: その他の環境
