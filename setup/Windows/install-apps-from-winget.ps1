@@ -27,6 +27,7 @@ function main {
         'LINE.LINE'
         'Logitech.OptionsPlus'
         'Microsoft.AzureDataStudio'
+        'Microsoft.VisualStudio.2022.Community'
         'Microsoft.VisualStudioCode'
         'NickeManarin.ScreenToGif'
         'Obsidian.Obsidian'
