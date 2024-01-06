@@ -33,6 +33,7 @@ function main {
         'OBSProject.OBSStudio'
         'RealVNC.VNCViewer'
         'SaeraSoft.CaesiumImageCompress'
+        'Unity.UnityHub'
         'Valve.Steam'
         'Wacom.WacomTabletDriver'
         'WinMerge.WinMerge'
