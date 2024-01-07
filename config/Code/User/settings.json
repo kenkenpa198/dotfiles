@@ -33,6 +33,7 @@
     "workbench.activityBar.location": "top",
     "workbench.colorTheme": "GitHub Dark",
     "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.revealIfOpen": true,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.editor.tabSizing": "shrink",
     "workbench.startupEditor": "newUntitledFile",
