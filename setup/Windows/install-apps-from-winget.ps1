@@ -22,7 +22,7 @@ function main {
         'Elgato.4KCaptureUtility'
         'Git.Git'
         'Google.Chrome'
-        'Google.Drive'
+        'Google.GoogleDrive'
         'Lexikos.AutoHotkey'
         'LINE.LINE'
         'Logitech.OptionsPlus'
