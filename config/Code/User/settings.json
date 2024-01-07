@@ -15,6 +15,7 @@
     "editor.renderWhitespace": "trailing",
     "editor.stickyScroll.enabled": true,
     "explorer.confirmDragAndDrop": false,
+    "explorer.sortOrderLexicographicOptions": "unicode",
     "extensions.autoUpdate": "onlyEnabledExtensions",
     "files.autoGuessEncoding": true,
     "files.eol": "\n",
