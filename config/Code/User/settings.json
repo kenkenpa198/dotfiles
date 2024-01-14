@@ -124,6 +124,11 @@
         // 行末の半角スペースを削除しない
         "files.trimTrailingWhitespace": false,
     },
+    "[javascript]": {
+        // 既定のインデントを半角スペース 2 へ設定
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
     "[python]": {
         // 入力後に自動整形を行わない
         "editor.formatOnType": false
