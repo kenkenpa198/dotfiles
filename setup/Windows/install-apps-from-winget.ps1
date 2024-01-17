@@ -20,6 +20,7 @@ function main {
         'Discord.Discord'
         'Docker.DockerDesktop'
         'Elgato.4KCaptureUtility'
+        'Mozilla.Firefox'
         'Git.Git'
         'Google.Chrome'
         'Google.GoogleDrive'
