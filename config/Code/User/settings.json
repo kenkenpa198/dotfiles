@@ -43,6 +43,7 @@
 
     // Extensions
     "cSpell.userWords": [
+        "autoload",
         "Consolas",
         "datetime",
         "dircolors",
@@ -55,6 +56,7 @@
         "hoge",
         "kenkenpa",
         "kenknepa198",
+        "laravel",
         "markdowntable",
         "mcfs",
         "moda",
@@ -65,7 +67,9 @@
         "piyo",
         "Qiita",
         "rgba",
-        "vsnotes"
+        "todos",
+        "vsnotes",
+        "vuejs"
     ],
     "hediet.vscode-drawio.resizeImages": null,
     "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
