@@ -22,12 +22,11 @@ function backup_origin_files {
 # Git の設定
 function set_git {
     # シンボリックリンクを作成
+    ln -sf ~/dotfiles/.gitconfig ~/
     ln -sf ~/dotfiles/.gitignore_global ~/
-    ln -sf ~/dotfiles/.gitconfig_shared ~/
 
-    # .gitconfig へ書き込み
-    git config --global core.excludesfile ~/.gitignore_global # .gitconfig へ .gitconfig_global を読み込み設定
-    git config --global include.path ~/.gitconfig_shared      # .gitconfig へ .gitconfig_shared を外部読み込み設定
+    # .giticonfig.local のテンプレートファイルを配置
+    cp ~/dotfiles/.gitconfig.local.example ~/.gitconfig.local
 }
 
 # zsh の設定
@@ -53,9 +52,10 @@ setup.sh の実行を完了しました。
 
 - デフォルトシェルが zsh へ変更されていることを確認してください。
     $ echo \$SHELL
-- Git のユーザー名とメールアドレスを登録してください。
-    $ git config --global user.name <<username>>
-    $ git config --global user.email <<email address>>'
+- Git のユーザー名とメールアドレスの設定を記述してください。
+    $ vim ~/.gitconfig.local
+    $ git config user.email
+    $ git config user.name
 - ホストを再起動してください。
 msg
 }

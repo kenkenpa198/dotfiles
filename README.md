@@ -16,7 +16,7 @@ bash ~/dotfiles/setup/Ubuntu/[script-name.sh]
     - [config/](#config)
     - [setup/](#setup)
     - [zsh/ と .zshrc](#zsh-と-zshrc)
-    - [.gitignore\_shared と .gitignore\_global](#gitignore_shared-と-gitignore_global)
+    - [.gitconfig 他](#gitconfig-他)
 - [補足](#補足)
     - [ホワイトリスト形式の .gitignore](#ホワイトリスト形式の-gitignore)
     - [Git のキャッシュ削除手順](#git-のキャッシュ削除手順)
@@ -130,27 +130,57 @@ zsh の設定ファイル群。
 
 `zsh/` 配下でわざわざ `rc/` ディレクトリを切っているのは、 [`.dircolors` を `zsh/` 配下で運用していたころの名残](https://github.com/kenkenpa198/dotfiles/commit/b7d88caf0a1c97a0517137e94ea0a9679906be54) 。今後に備えてとりあえずそのままにしている。
 
-### .gitignore_shared と .gitignore_global
+### .gitconfig 他
 
 ```shell
 .
-├── .gitconfig_shared
+├── .gitconfig
+├── .gitconfig.local.example
 └── .gitignore_global
 ```
 
-作業環境用の `.gitconfig` の基本設定やグローバルな除外設定を管理している。
+Git の環境用設定を記述したファイル群。
 
-インストール用スクリプトにて下記のコマンドを実行し、`.gitconfig` から読み込みを行うようにしている。
+`.gitconfig` には `safecrlf = true` など環境共通の設定を記述している。シンボリックリンクをホームディレクトリへ配置しておく。
 
 ```shell
-# .gitconfig へ .gitconfig_global を読み込み設定
-git config --global core.excludesfile ~/.gitignore_global
-
-# .gitconfig へ .gitconfig_shared を外部読み込み設定
-git config --global include.path ~/.gitconfig_shared
+ln -sf ~/dotfiles/.gitconfig ~/
 ```
 
-上記のとおり、`.gitconfig` を直接管理するのではなく `.gitconfig_shared` に切り分けて外部読み込みを行う運用にしている。`.gitconfig` には Git のユーザー名とメールアドレスを記述する必要があり、Git 管理の対象にしたくなかったため。
+`.gitconfig.local.example` はメールアドレスなど dotfiles の管理外にすべき設定を記述するためのテンプレートファイル。下記コマンドでホームディレクトリへ配置する。
+
+```shell
+# テンプレートファイルを配置
+cp ~/dotfiles/.gitconfig.local.example ~/.gitconfig.local
+
+# 編集
+vim ~/.gitconfig.local
+
+# 確認
+git config user.email
+git config user.name
+```
+
+`.gitignore_global` は環境共通で使用する除外設定の定義ファイル。こちらもシンボリックリンクをホームディレクトリへ配置しておく。
+
+```shell
+ln -sf ~/dotfiles/.gitignore_global ~/
+```
+
+`.gitconfig.local` と `.gitignore_global` の設定は `.gitconfig` に記述された下記の記述により読み込まれる。
+
+```shell
+[core]
+        # ユーザーの .gitignore を読み込み
+        excludesfile = ~/.gitignore_global
+...
+
+[include]
+        # 環境特有の設定を読み込み
+        path = ~/.gitconfig.local
+```
+
+ここまでを設定するコマンドは `setup/Ubuntu/setup-environment.sh` にまとめて記述済み。
 
 ## 補足
 
@@ -296,6 +326,8 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [.gitignoreに記載したのに反映されない件 - Qiita](https://qiita.com/fuwamaki/items/3ed021163e50beab7154)
 - [gitのmerge --no-ff のススメ #Git - Qiita](https://qiita.com/nog/items/c79469afbf3e632f10a1)
 - [git mergeのとき、デフォルトでno-ffになるようにする設定 - Technology Engineering](https://inaba.hatenablog.com/entry/2017/01/09/223810)
+- [.gitconfigにinclude書くと捗る - 時計を壊せ](https://techblog.karupas.org/entry/2012/07/19/190313)
+- [Git - Git の設定](https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E8%A8%AD%E5%AE%9A)
 
 <!-- omit in toc -->
 ### Homebrew
