@@ -44,7 +44,8 @@
 !zsh/rc/option.zsh
 !zsh/rc/theme.zsh
 
-!.gitconfig_shared
+!.gitconfig
+!.gitconfig.local.example
 !.gitignore
 !.gitignore_global
 !.zshrc

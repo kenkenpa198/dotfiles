@@ -1,4 +1,7 @@
 [core]
+        # ユーザーの .gitignore を読み込み
+        excludesfile = ~/.gitignore_global
+
         # コミット・チェックアウト時に改行コードの変換を行わない
         autocrlf = false
 
@@ -33,6 +36,10 @@
 [init]
         # デフォルトブランチ名を main へ設定する
         defaultBranch = main
+
+[include]
+        # 環境特有の設定を読み込み
+        path = ~/.gitconfig.local
 
 [log]
         # 日付を ISO 8601 (2023-01-01 09:00:00 +0900) で表示する
