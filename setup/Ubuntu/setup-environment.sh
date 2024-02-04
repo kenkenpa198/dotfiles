@@ -21,12 +21,13 @@ function backup_origin_files {
 
 # Git の設定
 function set_git {
+    # .giticonfig.local のテンプレートファイルを作成
+    cp ~/dotfiles/.gitconfig.local.example ~/dotfiles/.gitconfig.local
+
     # シンボリックリンクを作成
     ln -sf ~/dotfiles/.gitconfig ~/
+    ln -sf ~/dotfiles/.gitconfig.local ~/
     ln -sf ~/dotfiles/.gitignore_global ~/
-
-    # .giticonfig.local のテンプレートファイルを配置
-    cp ~/dotfiles/.gitconfig.local.example ~/.gitconfig.local
 }
 
 # zsh の設定

@@ -141,46 +141,41 @@ zsh の設定ファイル群。
 
 Git の環境用設定を記述したファイル群。
 
-`.gitconfig` には `safecrlf = true` など環境共通の設定を記述している。シンボリックリンクをホームディレクトリへ配置しておく。
+- `.gitconfig`
+    - `safecrlf = true` など環境共通の設定を記述している。
+    - 後述の `.gitconfig.local` と `.gitignore_global` の設定を下記の記述により読み込んでいる。
 
-```shell
-ln -sf ~/dotfiles/.gitconfig ~/
-```
+    ```shell
+    [core]
+            # ユーザーの .gitignore を読み込み
+            excludesfile = ~/.gitignore_global
+    ...
 
-`.gitconfig.local.example` はメールアドレスなど dotfiles の管理外にすべき設定を記述するためのテンプレートファイル。下記コマンドでホームディレクトリへ配置する。
+    [include]
+            # 環境特有の設定を読み込み
+            path = ~/.gitconfig.local
+    ```
 
-```shell
-# テンプレートファイルを配置
-cp ~/dotfiles/.gitconfig.local.example ~/.gitconfig.local
+- `.gitconfig.local.example`
+    - メールアドレスなど dotfiles の管理外にすべき設定を記述するためのテンプレートファイル。
+    - 下記コマンドで dotfiles 直下に `.gitconfig.local` を配置・編集しておく。
 
-# 編集
-vim ~/.gitconfig.local
+    ```shell
+    # .giticonfig.local を作成
+    cp ~/dotfiles/.gitconfig.local.example ~/dotfiles/.gitconfig.local
 
-# 確認
-git config user.email
-git config user.name
-```
+    # 編集
+    vim ~/dotfiles/.gitconfig.local
 
-`.gitignore_global` は環境共通で使用する除外設定の定義ファイル。こちらもシンボリックリンクをホームディレクトリへ配置しておく。
+    # 確認
+    git config user.email
+    git config user.name
+    ```
 
-```shell
-ln -sf ~/dotfiles/.gitignore_global ~/
-```
+- `.gitignore_global`
+    - 環境共通で使用する除外設定の定義ファイル。
 
-`.gitconfig.local` と `.gitignore_global` の設定は `.gitconfig` に記述された下記の記述により読み込まれる。
-
-```shell
-[core]
-        # ユーザーの .gitignore を読み込み
-        excludesfile = ~/.gitignore_global
-...
-
-[include]
-        # 環境特有の設定を読み込み
-        path = ~/.gitconfig.local
-```
-
-ここまでを設定するコマンドは `setup/Ubuntu/setup-environment.sh` にまとめて記述済み。
+ここまでのファイルのシンボリックリンクは `~/` へ配置しておく。`setup/Ubuntu/setup-environment.sh` にまとめて記述済み。
 
 ## 補足
 
