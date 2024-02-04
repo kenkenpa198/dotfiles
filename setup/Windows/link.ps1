@@ -65,9 +65,9 @@ function main {
     $linkHash["${WSLHOME}\.bashrc"] = '~\.bashrc'
 
     # .git***
-    $linkHash["${WSLHOME}\.gitconfig"] = '~\.gitconfig'
-    $linkHash["${WSLHOME}\.gitconfig_shared"] = '~\.gitconfig_shared'
-    $linkHash["${WSLHOME}\.gitignore_global"] = '~\.gitignore_global'
+    $linkHash["${WSLHOME}\dotfiles\.gitconfig"]        = '~\.gitconfig'
+    $linkHash["${WSLHOME}\dotfiles\.gitconfig.local"]  = '~\.gitconfig.local'
+    $linkHash["${WSLHOME}\dotfiles\.gitignore_global"] = '~\.gitignore_global'
 
 
     ########################################
