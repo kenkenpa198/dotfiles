@@ -33,12 +33,12 @@ function main {
     # 配列へ追加: クラウドストレージ
     ########################################
     # Files
-    $linkHash['~\GoogleDrive\Documents\Files'] = '~\Documents\Files'
+    # $linkHash['~\GoogleDrive\Documents\Files'] = '~\Documents\Files'
 
-    # Works
-    $linkHash['~\GoogleDrive\Works\Create'] = '~\Works\Create'
-    $linkHash['~\GoogleDrive\Works\Notes']  = '~\Works\Notes'
-    $linkHash['~\GoogleDrive\Works\Others'] = '~\Works\Others'
+    # works
+    $linkHash['~\GoogleDrive\works\create'] = '~\works\create'
+    $linkHash['~\GoogleDrive\works\notes']  = '~\works\notes'
+    $linkHash['~\GoogleDrive\works\others'] = '~\works\others'
 
 
     ########################################
@@ -47,8 +47,8 @@ function main {
     # WSL 側のホームディレクトリパスを初期化
     $WSLHOME = "\\wsl.localhost\Ubuntu\home\${env:USERNAME}"
 
-    # Develop
-    $linkHash["${WSLHOME}\works\develop"] = '~\Works\Develop'
+    # develop
+    $linkHash["${WSLHOME}\works\develop"] = '~\works\develop'
 
     # PowerShell プロファイル
     $linkHash["${WSLHOME}\dotfiles\config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
@@ -74,8 +74,13 @@ function main {
     # 配列へ追加: その他の環境
     ########################################
     # [Win] ~\Videos\Capture ---> [D ドライブ] ~\Videos\Capture
-    $linkHash["D:\${env:USERNAME}\Videos\Capture"] = '~\Videos\Capture'
+    # $linkHash["D:\${env:USERNAME}\Videos\Capture"] = '~\Videos\Capture'
 
+    # [Win] ~\works\notes\.obsidian ---> [Win] ~\works\notes-secret\.obsidian
+    $linkHash["~\works\notes\.obsidian"] = '~\works\notes-secret\.obsidian'
+    $linkHash["~\works\notes\.gitignore"] = '~\works\notes-secret\.gitignore'
+    $linkHash["~\works\notes\templates"] = '~\works\notes-secret\templates'
+    $linkHash["~\works\notes\HOME.md"] = '~\works\notes-secret\HOME.md'
 
     ########################################
     # シンボリックリンクを作成
