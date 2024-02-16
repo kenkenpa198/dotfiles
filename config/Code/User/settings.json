@@ -77,7 +77,7 @@
     "markdown.extension.list.indentationSize": "inherit",
     "markdown-preview-enhanced.breakOnSingleNewLine": false,
     "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
-    "markdown-preview-enhanced.previewTheme": "github-dark.css",
+    "markdown-preview-enhanced.previewTheme": "one-light.css",
     "markdownlint.focusMode": false,
     "markdownlint.config": {
         "default": true,
