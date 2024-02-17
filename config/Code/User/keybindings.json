@@ -63,5 +63,13 @@
         "key": "ctrl+shift+tab",
         "command": "workbench.action.previousSideBarView",
         "when": "sideBarFocus"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
     }
 ]
