@@ -1,3 +1,2 @@
-[wsl2]
-memory=2GB
-swap=0
+[experimental]
+networkingMode=mirrored
