@@ -21,6 +21,10 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+
 # flyctl
 export FLYCTL_INSTALL="/home/${USERNAME}/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
