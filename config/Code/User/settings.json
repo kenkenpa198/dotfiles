@@ -34,8 +34,9 @@
     "workbench.colorTheme": "GitHub Dark",
     "workbench.editor.empty.hint": "hidden",
     "workbench.editor.revealIfOpen": true,
-    "workbench.iconTheme": "material-icon-theme",
     "workbench.editor.tabSizing": "shrink",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.layoutControl.enabled": false,
     "workbench.startupEditor": "newUntitledFile",
     "window.commandCenter": false,
     "window.newWindowDimensions": "inherit",
@@ -138,5 +139,6 @@
     "[python]": {
         // 入力後に自動整形を行わない
         "editor.formatOnType": false
-    }
+    },
+    "window.menuBarVisibility": "compact"
 }
