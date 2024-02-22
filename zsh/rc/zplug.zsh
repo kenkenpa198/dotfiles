@@ -6,6 +6,7 @@ source ~/.zplug/init.zsh
 
 # zsh-autosuggestions
 zplug "zsh-users/zsh-autosuggestions"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=243"
 
 # syntax-highlighting
 # (If the defer tag is given 2 or above, run after compinit command)
