@@ -2,7 +2,8 @@
 # 環境変数
 ########################################
 # bin
-export PATH="$PATH:$HOME/bin"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -29,8 +30,15 @@ eval "$(rbenv init - zsh)"
 export FLYCTL_INSTALL="/home/${USERNAME}/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
+# sheldon
+# https://sheldon.cli.rs/Getting-started.html
+eval "$(sheldon source)"
+
+# fzf
+export FZF_DEFAULT_OPTS="--height 80% --reverse --border"
+
 # zsh-autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=243"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=243"
 
 
 ########################################
