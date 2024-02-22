@@ -302,6 +302,7 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [bash/zshで16色(ANSI カラーコード)と256色のカラーパレットを表示 - よんちゅBlog](https://yonchu.hatenablog.com/entry/2012/10/20/044603)
 - [Bashのif文でANDやOR条件、&&や||演算子を使う | 晴耕雨読](https://tex2e.github.io/blog/shell/bash-and-or)
 - [シェルスクリプトの \[ -a (AND) と -o (OR) \] は非推奨だかんね - Qiita](https://qiita.com/ko1nksm/items/6201b2ce47f4d6126521)
+- [zsh-syntax-highlighting をカスタマイズする](https://v2.aintek.xyz/posts/customize-zsh-syntax-highlighting)
 
 <!-- omit in toc -->
 ### シェルスクリプト・シェル関数
