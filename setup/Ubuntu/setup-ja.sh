@@ -15,6 +15,10 @@ function main {
 
     # 日本語版マニュアルのインストール
     sudo apt-get install -y manpages-ja manpages-ja-dev
+
+    set +x
+    echo
+    echo "Finished: $0"
 }
 
 main

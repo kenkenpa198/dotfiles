@@ -21,6 +21,10 @@ function main {
     nvm ls            # バージョン一覧を表示して N/A と表示されることを確認
     nvm install --lts # Node.jsの安定版をインストール
     nvm ls            # 安定バージョンが入っていることを確認
+
+    set +x
+    echo
+    echo "Finished: $0"
 }
 
 main

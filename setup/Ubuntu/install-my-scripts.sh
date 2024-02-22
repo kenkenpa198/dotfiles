@@ -15,6 +15,10 @@ function main {
 
     # シンボリックリンクを作成（ディレクトリ）
     # ln -sf ~/dotfiles/bin ~/bin
+
+    set +x
+    echo
+    echo "Finished: $0"
 }
 
 main

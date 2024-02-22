@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# WSL Ubuntu 環境の初期セットアップ用スクリプト
-
 set -x
 set -euo pipefail
 
@@ -19,46 +17,30 @@ function backup_origin_files {
     cp ~/.bashrc ~/.bashrc.org
 }
 
-# Git の設定
-function set_git {
-    # .giticonfig.local のテンプレートファイルを作成
-    cp ~/dotfiles/.gitconfig.local.example ~/dotfiles/.gitconfig.local
-
-    # シンボリックリンクを作成
-    ln -sf ~/dotfiles/.gitconfig ~/
-    ln -sf ~/dotfiles/.gitconfig.local ~/
-    ln -sf ~/dotfiles/.gitignore_global ~/
-}
-
-# zsh の設定
-function set_zsh {
-    # シンボリックリンクを作成
-    ln -sf ~/dotfiles/.zshrc ~/
-
-    # デフォルトシェルへ設定
-    chsh -s "$(which zsh)"
-}
-
-# その他のシンボリックリンク
+# シンボリックリンクを配置
 function link {
-    # Notes
-    ln -sf /mnt/c/Users/"$USERNAME"/Works/Notes ~/works/notes
+    # 環境ごとの実行
+    case ${OSTYPE} in
+        # Linux
+        linux* | msys*)
+            # WSL
+            if uname -r | grep -i 'microsoft' > /dev/null ; then
+                # Notes
+                echo "$USERNAME"
+                ln -sfn /mnt/c/Users/"$USERNAME"/works/notes ~/works/notes
+            fi
+        ;;
+        # MacOS
+        darwin*)
+        ;;
+    esac
 }
 
 # 完了メッセージを表示
 function print_finished {
-    cat << msg
-setup.sh の実行を完了しました。
-下記の対応を行ってください。
-
-- デフォルトシェルが zsh へ変更されていることを確認してください。
-    $ echo \$SHELL
-- Git のユーザー名とメールアドレスの設定を記述してください。
-    $ vim ~/.gitconfig.local
-    $ git config user.email
-    $ git config user.name
-- ホストを再起動してください。
-msg
+    set +x
+    echo
+    echo "Finished: $0"
 }
 
 
@@ -72,13 +54,7 @@ function main {
     # ディレクトリを作成
     make_dir
 
-    # Git の設定
-    set_git
-
-    # zsh をデフォルトシェルに設定
-    set_zsh
-
-    # その他のシンボリックリンク
+    # シンボリックリンクを配置
     link
 
     # 完了メッセージを出力

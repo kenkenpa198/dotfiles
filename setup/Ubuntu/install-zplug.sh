@@ -6,6 +6,10 @@ set -euo pipefail
 
 function main {
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
+    set +x
+    echo
+    echo "Finished: $0"
 }
 
 main

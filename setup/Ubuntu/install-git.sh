@@ -17,6 +17,10 @@ function main {
 
     # パッケージのキャッシュを削除
     sudo apt-get autoclean -y
+
+    set +x
+    echo
+    echo "Finished: $0"
 }
 
 main
