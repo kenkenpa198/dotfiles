@@ -15,7 +15,6 @@ zplug "junegunn/fzf", \
 
 # zsh-autosuggestions
 zplug "zsh-users/zsh-autosuggestions"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=243"
 
 # Set the priority when loading
 # e.g., zsh-syntax-highlighting must be loaded

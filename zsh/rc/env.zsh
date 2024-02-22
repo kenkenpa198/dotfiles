@@ -29,6 +29,9 @@ eval "$(rbenv init - zsh)"
 export FLYCTL_INSTALL="/home/${USERNAME}/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=243"
+
 
 ########################################
 # 環境ごとの読込
