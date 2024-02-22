@@ -96,7 +96,7 @@ function main {
 
         # 原本ファイルパスが存在しなかったらループをスキップする
         if (!(Test-Path $originPath)) {
-            Write-Host "$originPath is not found. Skip this loop"
+            Write-Host "SKIP    : $originPath is not found."
             continue
         }
 
@@ -105,7 +105,7 @@ function main {
         if ((Test-Path $linkPath) -and (!((Get-ItemProperty $linkPath).Mode.Substring(5, 1) -eq 'l'))) {
             $linkPathBackup = $linkPath + '.org'
 
-            Write-Host "$linkPath is found. Backup to $linkPathBackup"
+            Write-Host "BACKUP  : $linkPath is found. Copied to $linkPathBackup"
             Move-Item $linkPath $linkPathBackup
 
             # FIXME:
@@ -116,7 +116,7 @@ function main {
 
         # シンボリックリンクを作成
         New-Item -Value $originPath -Path $linkDir -Name $linkName -ItemType SymbolicLink -Force > $null
-        Write-Host "Finished link $linkPath => $originPath"
+        Write-Host "COMPLETE: Linked $linkPath => $originPath"
     }
 }
 
