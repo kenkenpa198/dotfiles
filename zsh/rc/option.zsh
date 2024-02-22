@@ -20,14 +20,13 @@ export HISTSIZE=10000
 # 履歴ファイルに保存される履歴の件数設定
 export SAVEHIST=10000
 
-# 同時に起動している zsh の間で履歴を共有する
-setopt share_history
-
-# 履歴に保存するときに余分なスペースを削除する
-setopt hist_reduce_blanks
-
-# 同じコマンドを履歴に残さない
-setopt hist_ignore_all_dups
+# 履歴系のオプション
+setopt hist_reduce_blanks     # 履歴に保存するときに余分なスペースを削除する
+setopt hist_expire_dups_first # 履歴を切り詰める際に、重複する最も古いイベントから消す
+setopt hist_ignore_all_dups   # 履歴が重複した場合に古い履歴を削除する
+setopt hist_ignore_dups       # 前回のイベントと重複する場合、履歴に保存しない
+setopt hist_save_no_dups      # 履歴ファイルに書き出す際、新しいコマンドと重複する古いコマンドは切り捨てる
+setopt share_history          # 全てのセッションで履歴を共有する
 
 
 ###################################

@@ -4,6 +4,15 @@
 
 source ~/.zplug/init.zsh
 
+# fzf
+# https://zoshigayan.net/ripgrep-and-fzf-with-vim/
+zplug "junegunn/fzf", \
+    from:github, \
+    as:command, \
+    rename-to:fzf, \
+    use:bin/fzf, \
+    hook-build:". $ZPLUG_HOME/repos/junegunn/fzf/install --bin"
+
 # zsh-autosuggestions
 zplug "zsh-users/zsh-autosuggestions"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=243"
