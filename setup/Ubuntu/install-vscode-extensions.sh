@@ -17,6 +17,10 @@ function main {
     do
         code --install-extension "$line"
     done
+
+    set +x
+    echo
+    echo "Finished: $0"
 }
 
 main
