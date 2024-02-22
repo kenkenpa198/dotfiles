@@ -4,6 +4,9 @@
 
 source ~/.zplug/init.zsh
 
+# zsh-autosuggestions
+zplug "zsh-users/zsh-autosuggestions"
+
 # syntax-highlighting
 # (If the defer tag is given 2 or above, run after compinit command)
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
