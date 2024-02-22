@@ -94,6 +94,13 @@ function select-history() {
 zle -N select-history
 bindkey '^r' select-history
 
+# fzf で cd
+function fcd() {
+    dir=$(find ./  -type d | grep -v "\/\." | fzf)
+    cd "$dir"
+}
+alias fc="fcd"
+
 
 ########################################
 # Git
