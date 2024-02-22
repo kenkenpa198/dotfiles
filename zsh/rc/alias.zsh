@@ -83,6 +83,19 @@ alias drmn="docker image prune -f" # <none> イメージを一括削除 https://
 
 
 ########################################
+# fzf
+########################################
+# Ctrl + R で history 検索
+# https://mogulla3.tech/articles/2021-09-06-search-command-history-with-incremental-search/
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --exact --reverse --query="$LBUFFER" --prompt="History > ")
+  CURSOR=${#BUFFER}
+}
+zle -N select-history
+bindkey '^r' select-history
+
+
+########################################
 # Git
 ########################################
 alias ga="git add -v"               # -v, --verbos      : add の内容を表示する
