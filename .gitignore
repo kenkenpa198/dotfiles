@@ -21,6 +21,7 @@
 !config/Code/User/keybindings.json
 !config/Code/User/settings.json
 !config/markdown-preview-enhanced/mume/style.less
+!config/sheldon/plugins.toml
 !config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 !config/WindowsTerminal/LocalState/settings.json
 !config/WSL/.wslconfig
@@ -32,10 +33,11 @@
 !setup/Ubuntu/install-my-scripts.sh
 !setup/Ubuntu/install-node-js.sh
 !setup/Ubuntu/install-vscode-extensions.sh
-!setup/Ubuntu/install-zplug.sh
+!setup/Ubuntu/install-sheldon.sh
 !setup/Ubuntu/setup-environment.sh
 !setup/Ubuntu/setup-git.sh
 !setup/Ubuntu/setup-ja.sh
+!setup/Ubuntu/setup-sheldon.sh
 !setup/Ubuntu/setup-zsh.sh
 !setup/Windows/get-apps.ps1
 !setup/Windows/install-apps-from-msstore.ps1
