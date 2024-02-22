@@ -32,6 +32,7 @@
 !setup/Ubuntu/install-my-scripts.sh
 !setup/Ubuntu/install-node-js.sh
 !setup/Ubuntu/install-vscode-extensions.sh
+!setup/Ubuntu/install-zplug.sh
 !setup/Ubuntu/setup-environment.sh
 !setup/Ubuntu/setup-ja.sh
 !setup/Windows/get-apps.ps1
@@ -43,6 +44,7 @@
 !zsh/rc/env.zsh
 !zsh/rc/option.zsh
 !zsh/rc/theme.zsh
+!zsh/rc/zplug.zsh
 
 !.gitconfig
 !.gitconfig.local.example
