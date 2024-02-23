@@ -6,6 +6,15 @@ export PATH="$HOME/.local/bin:$PATH"
 
 
 ########################################
+# gcloud
+########################################
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+
+########################################
 # nvm
 ########################################
 # https://github.com/nvm-sh/nvm?tab=readme-ov-file#git-install
@@ -23,15 +32,6 @@ fi
 
 
 ########################################
-# gcloud
-########################################
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-
-
-########################################
 # rbenv
 ########################################
 # rbenv
@@ -39,18 +39,12 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init - zsh)"
 
 # rbenv lazy-load
+# https://izumisy.work/entry/2020/05/23/213107
 if [ -s "$HOME/.rbenv" ]; then
   alias ruby='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && ruby'
   alias bundle='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && bundle'
   alias gem='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && gem'
 fi
-
-
-########################################
-# flyctl
-########################################
-export FLYCTL_INSTALL="/home/${USERNAME}/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 
 ########################################
