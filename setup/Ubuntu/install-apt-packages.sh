@@ -13,7 +13,6 @@ function main {
         "cppcheck"
         "neofetch"
         "pwgen"
-        "python3-pip"
         "tree"
         "zsh"
     )
