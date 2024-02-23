@@ -11,6 +11,7 @@ function main {
 
     # 公式インストーラーを実行
     curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+    rbenv --version
 
     # apt で依存パッケージをインストール
     sudo apt update
