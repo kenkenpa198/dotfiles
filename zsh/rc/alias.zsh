@@ -83,26 +83,6 @@ alias drmn="docker image prune -f" # <none> イメージを一括削除 https://
 
 
 ########################################
-# fzf
-########################################
-# Ctrl + R で history 検索
-# https://mogulla3.tech/articles/2021-09-06-search-command-history-with-incremental-search/
-function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --query="$LBUFFER" --prompt="history > ")
-  CURSOR=${#BUFFER}
-}
-zle -N select-history
-bindkey '^r' select-history
-
-# fzf で cd
-function fcd() {
-    dir=$(find ./  -type d | grep -v "\/\." | fzf)
-    cd "$dir"
-}
-alias fc="fcd"
-
-
-########################################
 # Git
 ########################################
 alias ga="git add -v"               # -v, --verbos      : add の内容を表示する
@@ -203,6 +183,23 @@ code-export() {
 # zmv
 alias zmvw="noglob zmv -W"   # 置換
 alias zmvnw="noglob zmv -nW" # 置換プレビュー
+
+# fzf で history 検索
+# Ctrl + R で実行する
+# https://mogulla3.tech/articles/2021-09-06-search-command-history-with-incremental-search/
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --query="$LBUFFER" --prompt="history > ")
+  CURSOR=${#BUFFER}
+}
+zle -N select-history
+bindkey '^r' select-history
+
+# fzf で cd
+function fcd() {
+    dir=$(find ./  -type d | grep -v "\/\." | fzf)
+    cd "$dir"
+}
+alias fc="fcd"
 
 # 配信モード
 # theme.zsh で設定している zsh プロンプト表示について以下へ再設定する。
