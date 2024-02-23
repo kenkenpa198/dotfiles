@@ -4,6 +4,23 @@
 # alias
 alias ag="alias | grep"
 
+# cat
+# バージョン情報を表示
+show-env-ver() {
+    echo "---------- on Linux ----------"
+    echo "$ cat /etc/os-release"
+    cat /etc/os-release
+
+    if uname -r | grep -i 'microsoft' > /dev/null ; then
+        echo "---------- on Windows ----------"
+        echo "PS > powershell.exe Get-WmiObject Win32_OperatingSystem"
+        powershell.exe Get-WmiObject Win32_OperatingSystem
+
+        echo "PS > powershell.exe wsl --version"
+        powershell.exe wsl --version
+    fi
+}
+
 # cd
 alias dev="cd ~/works/develop"
 alias dv="dev"
