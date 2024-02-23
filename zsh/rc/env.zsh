@@ -1,11 +1,14 @@
 ########################################
-# 環境変数
-########################################
 # bin
+########################################
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
+
+########################################
 # nvm
+########################################
+# https://github.com/nvm-sh/nvm?tab=readme-ov-file#git-install
 export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -17,18 +20,20 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
     alias node='unalias nvm node npm && \. "$NVM_DIR/nvm.sh" && node'
     alias npm='unalias nvm node npm && \. "$NVM_DIR/nvm.sh" && npm'
 fi
+
+
+########################################
 # gcloud
+########################################
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
-# ruby
-# Install Ruby Gems to ~/gems
-# http://jekyllrb-ja.github.io/docs/installation/ubuntu/
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
 
+########################################
+# rbenv
+########################################
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init - zsh)"
@@ -39,11 +44,18 @@ if [ -s "$HOME/.rbenv" ]; then
   alias bundle='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && bundle'
   alias gem='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && gem'
 fi
+
+
+########################################
 # flyctl
+########################################
 export FLYCTL_INSTALL="/home/${USERNAME}/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
+
+########################################
 # sheldon
+########################################
 # https://sheldon.cli.rs/Getting-started.html
 eval "$(sheldon source)"
 
@@ -55,19 +67,19 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=243"
 
 
 ########################################
-# 環境ごとの読込
+# Load by environment
 ########################################
 case ${OSTYPE} in
-    # Linux 向け設定
+    # for Linux
     linux*)
-        # WSL
+        # for WSL
         if uname -r | grep -i 'microsoft' > /dev/null ; then
             # Win 環境の環境変数を WSL 環境へ複製
             # export PATH="$PATH:$Path"
         fi
     ;;
 
-    # MacOS
+    # for MacOS
     darwin*)
         # bin_M1
         export PATH="$PATH:/opt/homebrew/bin:/opt/homebrew/sbin"
