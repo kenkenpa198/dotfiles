@@ -30,6 +30,7 @@ function main {
         'Microsoft.AzureDataStudio'
         'Microsoft.VisualStudio.2022.Community'
         'Microsoft.VisualStudioCode'
+        'nepnep.neofetch-win'
         'NickeManarin.ScreenToGif'
         'Obsidian.Obsidian'
         'OBSProject.OBSStudio'
