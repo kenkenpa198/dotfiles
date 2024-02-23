@@ -7,9 +7,16 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# nvm lazy-load
+# https://izumisy.work/entry/2020/05/23/213107
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+    alias nvm='unalias nvm node npm && \. "$NVM_DIR/nvm.sh" && nvm'
+    alias node='unalias nvm node npm && \. "$NVM_DIR/nvm.sh" && node'
+    alias npm='unalias nvm node npm && \. "$NVM_DIR/nvm.sh" && npm'
+fi
 # gcloud
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
@@ -24,8 +31,14 @@ export PATH="$HOME/gems/bin:$PATH"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
 
+# rbenv lazy-load
+if [ -s "$HOME/.rbenv" ]; then
+  alias ruby='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && ruby'
+  alias bundle='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && bundle'
+  alias gem='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && gem'
+fi
 # flyctl
 export FLYCTL_INSTALL="/home/${USERNAME}/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
