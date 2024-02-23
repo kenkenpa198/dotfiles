@@ -37,7 +37,15 @@ fi
 # https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
+
+# pyrnv lazy-load
+# https://izumisy.work/entry/2020/05/23/213107
+if [[ -d $PYENV_ROOT/bin ]]; then
+    alias python='unalias python pip && eval "$(pyenv init -)" && python'
+    alias pip='unalias python pip && eval "$(pyenv init -)" && pip'
+fi
+
 
 
 ########################################
@@ -50,9 +58,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # rbenv lazy-load
 # https://izumisy.work/entry/2020/05/23/213107
 if [ -s "$HOME/.rbenv" ]; then
-  alias ruby='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && ruby'
-  alias bundle='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && bundle'
-  alias gem='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && gem'
+    alias ruby='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && ruby'
+    alias bundle='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && bundle'
+    alias gem='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && gem'
 fi
 
 
