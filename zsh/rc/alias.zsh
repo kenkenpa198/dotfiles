@@ -135,6 +135,14 @@ alias pg="pwgen -cnyB1" # $ pg 20 4 ... 20 桁のパスワード文字列を 4 �
 
 
 ########################################
+# rbenv
+########################################
+# rbenv-doctor
+# https://github.com/rbenv/rbenv-installer?tab=readme-ov-file#rbenv-doctor
+alias rbenv-doctor="curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-doctor | bash"
+
+
+########################################
 # tree
 ########################################
 alias tr="tree --dirsfirst -I '__pycache__'"                # 隠しファイル以外を表示
