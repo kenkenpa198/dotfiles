@@ -140,7 +140,11 @@
     },
     "[markdown]": {
         // 行末の半角スペースを削除しない
-        "files.trimTrailingWhitespace": false
+        "files.trimTrailingWhitespace": false,
+
+        // デフォルトフォーマッタ
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.formatOnSave": false
     },
     "[python]": {
         // 入力後に自動整形を行わない
