@@ -79,5 +79,9 @@
     {
         "key": "ctrl+oem_6",
         "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "ctrl+shift+alt+g",
+        "command": "git-graph.view"
     }
 ]
