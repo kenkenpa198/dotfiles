@@ -22,6 +22,7 @@
 !config/Code/User/settings.json
 !config/markdown-preview-enhanced/mume/style.less
 !config/sheldon/plugins.toml
+!config/VIA/nuphy_air60_v2.layout.json
 !config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 !config/WindowsTerminal/LocalState/settings.json
 !config/WSL/.wslconfig
