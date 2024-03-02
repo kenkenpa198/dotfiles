@@ -83,5 +83,9 @@
     {
         "key": "ctrl+shift+alt+g",
         "command": "git-graph.view"
+    },
+    {
+        "key": "ctrl+alt+g",
+        "command": "git.openChange"
     }
 ]
