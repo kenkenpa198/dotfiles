@@ -71,5 +71,13 @@
     {
         "key": "ctrl+p",
         "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+oem_4",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+oem_6",
+        "command": "workbench.action.toggleAuxiliaryBar"
     }
 ]
