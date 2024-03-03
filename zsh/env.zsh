@@ -1,11 +1,4 @@
 ########################################
-# bin
-########################################
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
-
-########################################
 # gcloud
 ########################################
 # The next line updates PATH for the Google Cloud SDK.
@@ -19,16 +12,8 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 ########################################
 # https://github.com/nvm-sh/nvm?tab=readme-ov-file#git-install
 export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# nvm lazy-load
-# https://izumisy.work/entry/2020/05/23/213107
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-    alias nvm='unalias nvm node npm && \. "$NVM_DIR/nvm.sh" && nvm'
-    alias node='unalias nvm node npm && \. "$NVM_DIR/nvm.sh" && node'
-    alias npm='unalias nvm node npm && \. "$NVM_DIR/nvm.sh" && npm'
-fi
 
 
 ########################################
@@ -37,15 +22,7 @@ fi
 # https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
-# pyrnv lazy-load
-# https://izumisy.work/entry/2020/05/23/213107
-if [[ -d $PYENV_ROOT/bin ]]; then
-    alias python='unalias python pip && eval "$(pyenv init -)" && python'
-    alias pip='unalias python pip && eval "$(pyenv init -)" && pip'
-fi
-
+eval "$(pyenv init -)"
 
 
 ########################################
@@ -53,22 +30,13 @@ fi
 ########################################
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init - zsh)"
-
-# rbenv lazy-load
-# https://izumisy.work/entry/2020/05/23/213107
-if [ -s "$HOME/.rbenv" ]; then
-    alias ruby='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && ruby'
-    alias bundle='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && bundle'
-    alias gem='unalias ruby bundle gem && eval "$(rbenv init - zsh)" && gem'
-fi
+eval "$(rbenv init - zsh)"
 
 
 ########################################
 # sheldon
 ########################################
 # https://sheldon.cli.rs/Getting-started.html
-eval "$(sheldon source)"
 
 # fzf
 export FZF_DEFAULT_OPTS="--height 80% --reverse --border"

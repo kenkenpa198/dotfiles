@@ -47,12 +47,12 @@
 !setup/Windows/install-apps-from-winget.ps1
 !setup/Windows/link.ps1
 
-!zsh/rc/alias.zsh
-!zsh/rc/env.zsh
-!zsh/rc/option.zsh
-!zsh/rc/theme.zsh
-!zsh/rc/zplug.zsh
+!zsh/alias.zsh
+!zsh/env.zsh
+!zsh/option.zsh
+!zsh/sync.zsh
 
+!.config/sheldon/plugins.toml
 !.gitconfig
 !.gitconfig.local.example
 !.gitignore
