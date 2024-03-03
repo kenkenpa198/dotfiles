@@ -11,6 +11,13 @@ https://www.javadrive.jp/command/dir/index8.html
 
 
 ########################################
+# 環境変数
+########################################
+# zsh 風の tab 補完
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+
+
+########################################
 # common
 ########################################
 # 開発ディレクトリへ移動
