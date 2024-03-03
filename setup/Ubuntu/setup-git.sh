@@ -6,7 +6,9 @@ set -euo pipefail
 # Git の設定
 function main {
     # .giticonfig.local のテンプレートファイルを作成
-    cp ~/dotfiles/.gitconfig.local.example ~/dotfiles/.gitconfig.local
+    if [ ! -e ~/dotfiles/.gitconfig.local ]; then
+        cp ~/dotfiles/.gitconfig.local.example ~/dotfiles/.gitconfig.local
+    fi
 
     # シンボリックリンクを作成
     ln -sf ~/dotfiles/.gitconfig ~/
