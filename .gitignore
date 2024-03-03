@@ -16,7 +16,6 @@
 
 !app/azuredatastudio/User/settings.json
 !app/Code/extensions
-!app/Code/markdown-preview-enhanced/style.less
 !app/Code/User/snippets/markdown.json
 !app/Code/User/keybindings.json
 !app/Code/User/settings.json
@@ -53,6 +52,7 @@
 !zsh/sync.zsh
 
 !.config/sheldon/plugins.toml
+!.local/state/crossnote/style.less
 !.gitconfig
 !.gitconfig.local.example
 !.gitignore
