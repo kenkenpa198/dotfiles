@@ -1,0 +1,37 @@
+#!/bin/bash
+set -euo pipefail # エラーや未定義の変数が呼び出された場合プロセスを終了する
+
+
+###################################
+# code-export
+###################################
+# VS Code の拡張機能をエクスポートする
+# 実行環境が WSL の場合はローカル環境の拡張機能を追記する
+
+
+main() {
+    out_path="$HOME/dotfiles/app/Code/extensions"
+
+    # 上書き前のファイル内容を記録
+    before=$(cat "$out_path")
+
+    # 実行環境の拡張機能を出力する
+    code --list-extensions > "$out_path"
+
+    # 実行環境が WSL の場合はローカル環境の拡張機能を追記する
+    if uname -r | grep -i 'microsoft' > /dev/null ; then
+        powershell.exe /c code --list-extensions >> "$out_path"
+    fi
+
+    # 昇順にソート・重複を削除して出力
+    sort -fu "$out_path" -o "$out_path"
+
+    echo
+    echo "Finished: $0"
+    # 差分を表示
+    echo "diff:"
+    echo
+    diff -ry --color <(echo "$before") <(cat "$out_path")
+}
+
+main

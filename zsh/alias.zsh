@@ -174,43 +174,6 @@ alias vrm="rm -r .venv"                                # 仮想環境の削除
 
 
 ########################################
-# VS Code
-########################################
-# 拡張機能リストを出力する
-code-export() {
-    ##### 一時ファイルを作成 #####
-    tmp=$(mktemp)
-    # echo $tmp
-
-
-    ##### 一時ファイルの削除処理 #####
-    # 生成した一時ファイルを削除する関数
-    rm_tmpfile() {
-        [[ -f "$tmp" ]] && rm -f "$tmp"
-    }
-
-    # 以降の処理が正常終了したときは rm_tmpfile() を呼び出す
-    trap rm_tmpfile EXIT
-
-    # 以降の処理が異常終了したときは rm_tmpfile() を呼び出して異常終了する
-    trap 'trap - EXIT; rm_tmpfile; exit -1' INT PIPE TERM
-
-
-    ##### メイン処理 #####
-    # 実行環境の拡張機能を出力する
-    code --list-extensions > "$tmp"
-
-    # 実行環境が WSL の場合はローカル環境の拡張機能を追記する
-    if uname -r | grep -i 'microsoft' > /dev/null ; then
-        cmd.exe /c code --list-extensions >> "$tmp" &>/dev/null
-    fi
-
-    # 重複を削除して出力
-    sort -f "$tmp" | uniq > ~/dotfiles/app/Code/extensions
-}
-
-
-########################################
 # zsh
 ########################################
 # zmv
