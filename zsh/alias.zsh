@@ -206,7 +206,7 @@ code-export() {
     fi
 
     # 重複を削除して出力
-    sort -f "$tmp" | uniq > ~/dotfiles/config/Code/extensions
+    sort -f "$tmp" | uniq > ~/dotfiles/app/Code/extensions
 }
 
 

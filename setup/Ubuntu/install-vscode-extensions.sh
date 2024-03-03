@@ -13,7 +13,7 @@ set -x
 set -euo pipefail
 
 function main {
-    cat ~/dotfiles/config/Code/extensions | while read -r line
+    cat ~/dotfiles/app/Code/extensions | while read -r line
     do
         code --install-extension "$line"
     done
