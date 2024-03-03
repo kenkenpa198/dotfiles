@@ -14,18 +14,18 @@
 !bin/ffmpeg-all
 !bin/moda
 
-!config/azuredatastudio/User/settings.json
-!config/Code/extensions
-!config/Code/markdown-preview-enhanced/style.less
-!config/Code/User/snippets/markdown.json
-!config/Code/User/keybindings.json
-!config/Code/User/settings.json
-!config/markdown-preview-enhanced/mume/style.less
-!config/sheldon/plugins.toml
-!config/VIA/nuphy_air60_v2.layout.json
-!config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
-!config/WindowsTerminal/LocalState/settings.json
-!config/WSL/.wslconfig
+!app/azuredatastudio/User/settings.json
+!app/Code/extensions
+!app/Code/markdown-preview-enhanced/style.less
+!app/Code/User/snippets/markdown.json
+!app/Code/User/keybindings.json
+!app/Code/User/settings.json
+!app/markdown-preview-enhanced/mume/style.less
+!app/sheldon/plugins.toml
+!app/VIA/nuphy_air60_v2.layout.json
+!app/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+!app/WindowsTerminal/LocalState/settings.json
+!app/WSL/.wslconfig
 
 !setup/MacOS/Brewfile
 !setup/Ubuntu/install-apt-packages.sh

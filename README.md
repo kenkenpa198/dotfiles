@@ -13,7 +13,7 @@ bash ~/dotfiles/setup/Ubuntu/[script-name.sh]
 - [構築手順](#構築手順)
 - [dotfiles の構成](#dotfiles-の構成)
     - [bin/](#bin)
-    - [config/](#config)
+    - [app/](#config)
     - [setup/](#setup)
     - [zsh/ と .zshrc](#zsh-と-zshrc)
     - [.gitconfig 他](#gitconfig-他)
@@ -67,7 +67,7 @@ sudo ln -sf ~/dotfiles/bin/moda ~/bin/
 bash ~/dotfiles/setup/Ubuntu/install-my-scripts.sh
 ```
 
-### config/
+### app/
 
 ```shell
 .
