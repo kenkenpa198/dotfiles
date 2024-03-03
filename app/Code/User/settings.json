@@ -1,5 +1,7 @@
 {
+    ////////////////////////////////////////
     // VS Code Settings
+    ////////////////////////////////////////
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.copyWithSyntaxHighlighting": false,
     "editor.cursorSurroundingLines": 16,
@@ -43,7 +45,10 @@
     "window.newWindowDimensions": "inherit",
     "window.restoreWindows": "none",
 
+
+    ////////////////////////////////////////
     // Extensions
+    ////////////////////////////////////////
     "cSpell.userWords": [
         "autoload",
         "Consolas",
@@ -127,27 +132,24 @@
         }
     ],
 
+
+    ////////////////////////////////////////
     // Language-Specific Settings
+    ////////////////////////////////////////
     "[html]": {
-        // 既定のインデントを半角スペース 2 へ設定
         "editor.tabSize": 2,
         "editor.insertSpaces": true
     },
     "[javascript]": {
-        // 既定のインデントを半角スペース 2 へ設定
         "editor.tabSize": 2,
         "editor.insertSpaces": true
     },
     "[markdown]": {
-        // 行末の半角スペースを削除しない
         "files.trimTrailingWhitespace": false,
-
-        // デフォルトフォーマッタ
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
         "editor.formatOnSave": false
     },
     "[python]": {
-        // 入力後に自動整形を行わない
         "editor.formatOnType": false
     }
 }
