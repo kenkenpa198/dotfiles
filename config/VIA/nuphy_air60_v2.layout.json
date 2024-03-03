@@ -52,7 +52,7 @@
       "KC_LBRC",
       "KC_RBRC",
       "KC_BSLS",
-      "KC_DEL",
+      "MO(6)",
       "KC_NO",
       "KC_NO",
       "MO(4)",
@@ -467,7 +467,7 @@
       "KC_UP",
       "C(KC_LBRC)",
       "C(KC_RBRC)",
-      "KC_TRNS",
+      "KC_PSCR",
       "KC_TRNS",
       "KC_NO",
       "KC_NO",
@@ -628,7 +628,7 @@
       "KC_TRNS"
     ],
     [
-      "KC_TRNS",
+      "RGB_TOG",
       "KC_NO",
       "KC_NO",
       "KC_NO",
@@ -646,8 +646,8 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "KC_TRNS",
-      "KC_TRNS",
+      "RGB_MOD",
+      "CUSTOM(15)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -723,13 +723,13 @@
       "KC_NO",
       "KC_NO",
       "KC_TRNS",
-      "RGB_MOD",
+      "KC_TRNS",
       "KC_NO",
       "KC_NO",
       "KC_NO",
       "CUSTOM(14)",
       "RGB_VAD",
-      "RGB_TOG"
+      "KC_TRNS"
     ],
     [
       "KC_TRNS",
