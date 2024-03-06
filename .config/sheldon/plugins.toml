@@ -45,10 +45,10 @@ github = "junegunn/fzf"
 apply = ['fzf-install', 'fzf-source']
 
 [plugins.dotfiles-defers]
-local = "~/dotfiles/zsh"
+local = "~/.config/zsh"
 use = ["{!sync,*}.zsh"]
 
 [plugins.dotfiles-sync]
-local = "~/dotfiles/zsh"
+local = "~/.config/zsh"
 use = ["sync.zsh"]
 apply = ["source"]
