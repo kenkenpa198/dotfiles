@@ -44,6 +44,7 @@
 !setup/ubuntu/setup-git.sh
 !setup/ubuntu/setup-ja.sh
 !setup/ubuntu/setup-sheldon.sh
+!setup/ubuntu/setup-xdg-base-directory.sh
 !setup/ubuntu/setup-zsh.sh
 !setup/windows/get-apps.ps1
 !setup/windows/install-apps-from-msstore.ps1
