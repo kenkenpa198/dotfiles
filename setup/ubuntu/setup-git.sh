@@ -7,20 +7,21 @@ set -euo pipefail
 function main {
     # .giticonfig.local のテンプレートファイルを作成
     if [ ! -e ~/dotfiles/.gitconfig.local ]; then
-        cp ~/dotfiles/.gitconfig.local.example ~/dotfiles/.gitconfig.local
+        cp ~/dotfiles/.config/git/local.example ~/dotfiles/.config/git/local
     fi
 
     # シンボリックリンクを作成
-    ln -sf ~/dotfiles/.gitconfig ~/
-    ln -sf ~/dotfiles/.gitconfig.local ~/
-    ln -sf ~/dotfiles/.gitignore_global ~/
+    mkdir -p ~/.config/git/
+    ln -sf ~/dotfiles/.config/git/config ~/.config/git/
+    ln -sf ~/dotfiles/.config/git/local ~/.config/git/
+    ln -sf ~/dotfiles/.config/git/ignore ~/.config/git/
 
     set +x
     echo
     echo "Finished: $0"
     echo "Please enter your [user.email] and [user.name] for Git."
     echo
-    echo "    $ vim ~/.gitconfig.local"
+    echo "    $ vim ~/.config/git/local"
 }
 
 main
