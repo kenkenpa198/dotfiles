@@ -15,12 +15,15 @@
 !bin/ffmpeg-all
 !bin/moda
 
-!.config/azuredatastudio/User/settings.json
 !.config/Code/extensions
 !.config/Code/User/snippets/markdown.json
 !.config/Code/User/keybindings.json
 !.config/Code/User/settings.json
-!app/markdown-preview-enhanced/mume/style.less
+!.config/azuredatastudio/User/settings.json
+!.config/git/config
+!.config/git/ignore
+!.config/git/local.example
+
 !app/sheldon/plugins.toml
 !app/VIA/nuphy_air60_v2.layout.json
 !app/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
@@ -54,9 +57,6 @@
 
 !.config/sheldon/plugins.toml
 !.local/state/crossnote/style.less
-!.gitconfig
-!.gitconfig.local.example
 !.gitignore
-!.gitignore_global
 !.zshrc
 !README.md
