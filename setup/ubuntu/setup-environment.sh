@@ -9,7 +9,11 @@ set -euo pipefail
 ###################################
 # ディレクトリを作成
 function make_dir {
+    # My directory
     mkdir -p ~/works/develop
+
+    # XDG Base Directory Specification
+    mkdir -p "$HOME/.config/" "$HOME/.cache/" "$HOME/.local/share/" "$HOME/.local/state/"
 }
 
 # 初期ファイルをバックアップ
