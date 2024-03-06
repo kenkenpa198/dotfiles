@@ -24,6 +24,10 @@
 !.config/git/ignore
 !.config/git/local.example
 !.config/sheldon/plugins.toml
+!.config/zsh/.zshrc
+!.config/zsh/alias.zsh
+!.config/zsh/env.zsh
+!.config/zsh/sync.zsh
 
 !.local/state/crossnote/style.less
 
@@ -53,10 +57,6 @@
 !setup/windows/install-apps-from-winget.ps1
 !setup/windows/link.ps1
 
-!zsh/alias.zsh
-!zsh/env.zsh
-!zsh/sync.zsh
-
 !.gitignore
-!.zshrc
+!.zshenv
 !README.md
