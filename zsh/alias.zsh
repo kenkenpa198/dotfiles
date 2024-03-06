@@ -23,10 +23,8 @@ show-env-ver() {
 
 # cd
 alias dev="cd ~/works/develop"
-alias dv="dev"
 alias dot="cd ~/dotfiles"
 alias note="cd ~/works/notes"
-alias notes="note"
 alias gr='cd "$(git rev-parse --show-toplevel)"'
 
 # clear
@@ -69,10 +67,7 @@ alias hg="history -800 | grep"
 
 # ls
 alias ll="ls -lhG --file-type --color=auto --time-style=long-iso --group-directories-first"
-alias lla="ll -a"
-alias llng="ls -lhG --file-type --color=auto --time-style=long-iso"
-alias llnga="llng -a"
-alias llang="llnga"
+alias lla="ls -alhG --file-type --color=auto --time-style=long-iso --group-directories-first"
 
 # seq
 alias seq100="seq -w 1 100" # 001 ～ 100 を表示
@@ -95,7 +90,7 @@ alias dsta="sudo service docker start ; sudo service docker status" # Docker デ
 alias dsto="sudo service docker stop ; sudo service docker status"  # Docker デーモンを停止
 
 alias d="docker"
-alias dc="docker-compose"
+alias dc="docker compose"
 alias drmn="docker image prune -f" # <none> イメージを一括削除 https://codechord.com/2019/08/docker-images-none-dangling/
 
 
@@ -129,10 +124,12 @@ alias gswc="git switch -c"          # -c, --create      : 新しいブランチ�
 # Jekyll
 ########################################
 alias jkls="\
-    gr && \
-    cd docs && \
-    pwd && \
-    bundle exec jekyll serve"
+gr && \
+cd docs && \
+echo 'jekyll serve on:' && \
+pwd && \
+echo && \
+bundle exec jekyll serve"
 
 
 ########################################
@@ -304,3 +301,16 @@ case ${OSTYPE} in
     ;;
 
 esac
+
+
+########################################
+# Init zsh-abbr
+########################################
+# alias.zsh の読み込み毎に $ABBR_USER_ABBREVIATIONS_FILE の記述をリセットする
+# https://memo.yammer.jp/posts/zsh-abbr
+# https://syohex.hatenablog.com/entry/20121006/1349487493
+type "abbr" &>/dev/null && \
+if [ -e "$ABBR_USER_ABBREVIATIONS_FILE" ]; then
+    rm "$ABBR_USER_ABBREVIATIONS_FILE"
+fi && \
+abbr -q import-aliases
