@@ -1,185 +1,62 @@
 <!-- omit in toc -->
 # dotfiles
 
-```shell
-cd
-git clone git@github.com:kenkenpa198/dotfiles.git
-bash ~/dotfiles/setup/ubuntu/[script-name.sh]
-```
+kenkenpa198's dotfiles.
 
 <!-- omit in toc -->
-## 目次
+## TOC
 
-- [構築手順](#構築手順)
-- [dotfiles の構成](#dotfiles-の構成)
-    - [bin/](#bin)
-    - [app/](#app)
-    - [setup/](#setup)
-    - [zsh/ と .zshrc](#zsh-と-zshrc)
-    - [.gitconfig 他](#gitconfig-他)
-- [補足](#補足)
-    - [ホワイトリスト形式の .gitignore](#ホワイトリスト形式の-gitignore)
-    - [Git のキャッシュ削除手順](#git-のキャッシュ削除手順)
-    - [PowerShell でスクリプトを実行する](#powershell-でスクリプトを実行する)
-    - [Windows Terminal の GUID 復元手順](#windows-terminal-の-guid-復元手順)
-- [参考文献](#参考文献)
+- [1. Setup](#1-setup)
+    - [1.1. for WSL on Windows](#11-for-wsl-on-windows)
+    - [1.2. for MacOS](#12-for-macos)
+- [2. Tips](#2-tips)
+    - [2.1. ホワイトリスト形式の .gitignore](#21-ホワイトリスト形式の-gitignore)
+    - [2.2. Git のキャッシュ削除手順](#22-git-のキャッシュ削除手順)
+    - [2.3. PowerShell でスクリプトを実行する](#23-powershell-でスクリプトを実行する)
+    - [2.4. Windows Terminal の GUID 復元手順](#24-windows-terminal-の-guid-復元手順)
+- [3. Reference](#3-reference)
 
-## 構築手順
+## 1. Setup
 
-1. Windows 環境の場合、次の対応を行っておく。
-    1. PowerShell を管理者権限で起動する。
-    2. WSL をインストールする。
+### 1.1. for WSL on Windows
 
-        ```powershell
-        wsl --install
-        ```
+1. PowerShell を管理者権限で起動する。
+2. WSL をインストールしてセットアップする。
 
-        参考: [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
-
-    3. SSH キーの作成と GitHub アカウントへ公開鍵の登録を行う（`git clone my-git-repositories` に必要）。
-    4. Win 環境側でイーサネットアダプターの IPv6 を無効にする（`sudo apt-add-repository ppa:foo/bar` に必要）。
-2. ホームディレクトリ上で冒頭のコマンドを実行して dotfiles をクローン & Ubuntu 環境のセットアップ。
-3. [setup/](setup) 配下のスクリプトを使用してシンボリックリンクを各ディレクトリへ配置する。
-
-## dotfiles の構成
-
-### bin/
-
-```shell
-.
-└── bin
-     ├── ***
-     └── ***
-```
-
-自作コマンドを管理しているディレクトリ。
-
-それぞれ実行権限の付与と `~/bin/` 配下へのシンボリックリンク作成を行っておく。
-
-```shell
-chmod +x moda
-sudo ln -sf ~/dotfiles/bin/moda ~/bin/
-```
-
-[install-my-scripts.sh](setup/ubuntu/install-my-scripts.sh) を実行すると、上記の設定をすべてのファイルに対して実行できるようにしている。
-
-```shell
-bash ~/dotfiles/setup/ubuntu/install-my-scripts.sh
-```
-
-### app/
-
-```shell
-.
-└── config
-     ├── ***
-     └── ***
-```
-
-VS Code などアプリごとの設定ファイルを管理しているディレクトリ。
-
-基本的には各設定ファイルのコメントや [setup/](setup) 配下のファイルを参考にしたり実行してそれぞれシンボリックリンクを繋げる。
-
-Windows Terminal の `settings.json` と WSL 用の `.wslconfig` のみ、シンボリックリンクではなくコピペや複製で対応する。WSL が立ち上がる前に WSL 内のファイルを読み込もうとして失敗してしまうようなため。
-
-この他 PowerShell で `***.ps1` ファイルを実行する場合に実行ポリシーの変更が必要など諸々考慮事項あり。補足の掲載内容も参考に。
-
-- [PowerShell でスクリプトを実行する](#powershell-でスクリプトを実行する)
-- [Windows Terminal の GUID 復元手順](#windows-terminal-の-guid-復元手順)
-
-### setup/
-
-```shell
-.
-└── setup
-     ├── macos
-     │   └── Brewfile
-     ├── ubuntu
-     │   ├── ***.sh
-     │   └── ***.sh
-     └── windows
-         ├── ***.ps1
-         └── ***.ps1
-```
-
-セットアップ用のスクリプトファイルを管理しているディレクトリ。
-
-これらを実行したり、記述を拾ったりしつつ環境を整える。
-
-### zsh/ と .zshrc
-
-```shell
-.
-├── zsh
-│   └── rc
-│       ├── alias.zsh
-│       ├── env.zsh
-│       ├── option.zsh
-│       ├── secret.zsh（Git 管理外）
-│       └── theme.zsh
-└── .zshrc
-```
-
-zsh の設定ファイル群。
-
-ホームディレクトリへのシンボリックリンク設定は `.zshrc` のみ行う。
-
-`.zshrc` へは `zsh/rc/` ディレクトリ配下の `**.zsh` を読み込むコードのみを記述し、環境変数やエイリアスの設定を記述したファイルを `zsh/rc/` 配下へ配置する。こうすることで設定ファイルを分割して整理することができる。
-
-`secret.zsh` はセキュアな環境変数や環境依存の設定などを記述したファイル。後述のホワイトリストには記述していないため Git では追跡されない。未来の自分は環境を変えた時に移行し忘れないように！
-
-`zsh/` 配下でわざわざ `rc/` ディレクトリを切っているのは、 [`.dircolors` を `zsh/` 配下で運用していたころの名残](https://github.com/kenkenpa198/dotfiles/commit/b7d88caf0a1c97a0517137e94ea0a9679906be54) 。今後に備えてとりあえずそのままにしている。
-
-### .gitconfig 他
-
-```shell
-.
-├── .gitconfig
-├── .gitconfig.local.example
-└── .gitignore_global
-```
-
-Git の環境用設定を記述したファイル群。
-
-- `.gitconfig`
-    - `safecrlf = true` など環境共通の設定を記述している。
-    - 後述の `.gitconfig.local` と `.gitignore_global` の設定を下記の記述により読み込んでいる。
-
-    ```shell
-    [core]
-            # ユーザーの .gitignore を読み込み
-            excludesfile = ~/.gitignore_global
-    ...
-
-    [include]
-            # 環境特有の設定を読み込み
-            path = ~/.gitconfig.local
+    ```powershell
+    wsl --install
     ```
 
-- `.gitconfig.local.example`
-    - メールアドレスなど dotfiles の管理外にすべき設定を記述するためのテンプレートファイル。
-    - 下記コマンドで dotfiles 直下に `.gitconfig.local` を配置・編集しておく。
+    参考: [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
+
+3. SSH キーの作成と GitHub アカウントへ公開鍵の登録を行う。
+4. ホームディレクトリ上で次のコマンドを実行して dotfiles をクローン & Ubuntu 環境のセットアップ。
 
     ```shell
-    # .giticonfig.local を作成
-    cp ~/dotfiles/.gitconfig.local.example ~/dotfiles/.gitconfig.local
+    # git clone
+    cd
+    git clone git@github.com:kenkenpa198/dotfiles.git
 
-    # 編集
-    vim ~/dotfiles/.gitconfig.local
+    # install
+    bash ~/dotfiles/setup/ubuntu/install-git.sh
+    bash ~/dotfiles/setup/ubuntu/install-apt-packages.sh
+    bash ~/dotfiles/setup/ubuntu/install-sheldon.sh
+    bash ~/dotfiles/setup/ubuntu/install-my-scripts.sh
 
-    # 確認
-    git config user.email
-    git config user.name
+    # setup
+    bash ~/dotfiles/setup/ubuntu/setup-environment.sh
+    bash ~/dotfiles/setup/ubuntu/setup-git.sh
+    bash ~/dotfiles/setup/ubuntu/setup-zsh.sh
+    bash ~/dotfiles/setup/ubuntu/setup-sheldon.sh
     ```
 
-- `.gitignore_global`
-    - 環境共通で使用する除外設定の定義ファイル。
+### 1.2. for MacOS
 
-ここまでのファイルのシンボリックリンクは `~/` へ配置しておく。`setup/ubuntu/setup-environment.sh` にまとめて記述済み。
+その内書く
 
-## 補足
+## 2. Tips
 
-### ホワイトリスト形式の .gitignore
+### 2.1. ホワイトリスト形式の .gitignore
 
 ```shell
 .
@@ -190,7 +67,7 @@ Git の環境用設定を記述したファイル群。
 
 こうすることで、新しく追加したファイルに秘匿すべき情報が含まれていた際に、誤ってコミットしてしまうミスを防げる。
 
-### Git のキャッシュ削除手順
+### 2.2. Git のキャッシュ削除手順
 
 - `.gitignore_global` を設定する前にコミットをしてしまった。
 - 過去に追跡対象としてコミットしたファイルを `.gitignore` で追跡対象外にしたい。
@@ -217,7 +94,7 @@ git status -s
 git commit -m '[commit comments]'
 ```
 
-### PowerShell でスクリプトを実行する
+### 2.3. PowerShell でスクリプトを実行する
 
 PowerShell はネットワークから取得したスクリプトファイル `***.ps1` がデフォルトで実行できない。このため、スクリプトの実行前に実行ポリシーの変更が必要となる。
 
@@ -254,7 +131,7 @@ PowerShell はネットワークから取得したスクリプトファイル `*
     > hoge.ps1
     ```
 
-### Windows Terminal の GUID 復元手順
+### 2.4. Windows Terminal の GUID 復元手順
 
 Windows Terminal の設定ファイルを上書きする際、環境によっては WSL を Windows Terminal で実行できなくなる場合がある。Ubuntu のバージョンに紐づけられた GUID が上書き前後で変わってしまったため。（※ 理解が正確でないかも）
 
@@ -265,7 +142,7 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 3. `プロファイルを複製する` から `Ubuntu` など目的のプロファイルを選んで `複製` をクリックする。
 4. 複製されたプロファイルの GUID を既存のプロファイルへ記述する。
 
-## 参考文献
+## 3. Reference
 
 <!-- omit in toc -->
 ### dotfiles 全般
