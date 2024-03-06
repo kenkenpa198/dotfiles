@@ -10,8 +10,10 @@ function main {
         cp ~/dotfiles/.config/git/local.example ~/dotfiles/.config/git/local
     fi
 
-    # シンボリックリンクを作成
+    # XDG Base Directory Specification
     mkdir -p ~/.config/git/
+
+    # シンボリックリンクを作成
     ln -sf ~/dotfiles/.config/git/config ~/.config/git/
     ln -sf ~/dotfiles/.config/git/local ~/.config/git/
     ln -sf ~/dotfiles/.config/git/ignore ~/.config/git/
