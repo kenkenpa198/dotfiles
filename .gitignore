@@ -23,12 +23,14 @@
 !.config/git/config
 !.config/git/ignore
 !.config/git/local.example
+!.config/sheldon/plugins.toml
 
-!app/sheldon/plugins.toml
+!.local/state/crossnote/style.less
+
 !app/VIA/nuphy_air60_v2.layout.json
+!app/WSL/.wslconfig
 !app/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 !app/WindowsTerminal/LocalState/settings.json
-!app/WSL/.wslconfig
 
 !setup/macos/Brewfile
 !setup/ubuntu/install-apt-packages.sh
@@ -53,11 +55,8 @@
 
 !zsh/alias.zsh
 !zsh/env.zsh
-!zsh/option.zsh
 !zsh/sync.zsh
 
-!.config/sheldon/plugins.toml
-!.local/state/crossnote/style.less
 !.gitignore
 !.zshrc
 !README.md
