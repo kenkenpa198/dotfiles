@@ -54,12 +54,12 @@ function main {
     $linkHash["${WSLHOME}\dotfiles\app\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
 
     # VSCode 設定ファイル
-    $linkHash["${WSLHOME}\dotfiles\app\Code\User\snippets"]         = '~\AppData\Roaming\Code\User\snippets'
-    $linkHash["${WSLHOME}\dotfiles\app\Code\User\keybindings.json"] = '~\AppData\Roaming\Code\User\keybindings.json'
-    $linkHash["${WSLHOME}\dotfiles\app\Code\User\settings.json"]    = '~\AppData\Roaming\Code\User\settings.json'
+    $linkHash["${WSLHOME}\dotfiles\.config\Code\User\snippets"]         = '~\AppData\Roaming\Code\User\snippets'
+    $linkHash["${WSLHOME}\dotfiles\.config\Code\User\keybindings.json"] = '~\AppData\Roaming\Code\User\keybindings.json'
+    $linkHash["${WSLHOME}\dotfiles\.config\Code\User\settings.json"]    = '~\AppData\Roaming\Code\User\settings.json'
 
     # Azure Data Studio 設定ファイル
-    $linkHash["${WSLHOME}\dotfiles\app\azuredatastudio\User\settings.json"] = '~\AppData\Roaming\azuredatastudio\User\settings.json'
+    $linkHash["${WSLHOME}\dotfiles\.config\azuredatastudio\User\settings.json"] = '~\AppData\Roaming\azuredatastudio\User\settings.json'
 
     # Git Bash .bashrc
     $linkHash["${WSLHOME}\.bashrc"] = '~\.bashrc'
