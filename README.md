@@ -4,7 +4,7 @@
 ```shell
 cd
 git clone git@github.com:kenkenpa198/dotfiles.git
-bash ~/dotfiles/setup/Ubuntu/[script-name.sh]
+bash ~/dotfiles/setup/ubuntu/[script-name.sh]
 ```
 
 <!-- omit in toc -->
@@ -13,7 +13,7 @@ bash ~/dotfiles/setup/Ubuntu/[script-name.sh]
 - [構築手順](#構築手順)
 - [dotfiles の構成](#dotfiles-の構成)
     - [bin/](#bin)
-    - [app/](#config)
+    - [app/](#app)
     - [setup/](#setup)
     - [zsh/ と .zshrc](#zsh-と-zshrc)
     - [.gitconfig 他](#gitconfig-他)
@@ -61,10 +61,10 @@ chmod +x moda
 sudo ln -sf ~/dotfiles/bin/moda ~/bin/
 ```
 
-[install-my-scripts.sh](setup/Ubuntu/install-my-scripts.sh) を実行すると、上記の設定をすべてのファイルに対して実行できるようにしている。
+[install-my-scripts.sh](setup/ubuntu/install-my-scripts.sh) を実行すると、上記の設定をすべてのファイルに対して実行できるようにしている。
 
 ```shell
-bash ~/dotfiles/setup/Ubuntu/install-my-scripts.sh
+bash ~/dotfiles/setup/ubuntu/install-my-scripts.sh
 ```
 
 ### app/
@@ -92,12 +92,12 @@ Windows Terminal の `settings.json` と WSL 用の `.wslconfig` のみ、シン
 ```shell
 .
 └── setup
-     ├── MacOS
+     ├── macos
      │   └── Brewfile
-     ├── Ubuntu
+     ├── ubuntu
      │   ├── ***.sh
      │   └── ***.sh
-     └── Windows
+     └── windows
          ├── ***.ps1
          └── ***.ps1
 ```
@@ -175,7 +175,7 @@ Git の環境用設定を記述したファイル群。
 - `.gitignore_global`
     - 環境共通で使用する除外設定の定義ファイル。
 
-ここまでのファイルのシンボリックリンクは `~/` へ配置しておく。`setup/Ubuntu/setup-environment.sh` にまとめて記述済み。
+ここまでのファイルのシンボリックリンクは `~/` へ配置しておく。`setup/ubuntu/setup-environment.sh` にまとめて記述済み。
 
 ## 補足
 

@@ -285,7 +285,7 @@ case ${OSTYPE} in
         alias lla="ll -a"
 
         # Homebrew
-        BREWFILE_PATH="~/dotfiles/setup/MacOS/Brewfile"
+        BREWFILE_PATH="~/dotfiles/setup/macos/Brewfile"
 
         alias bbd="brew bundle dump --force --file $BREWFILE_PATH"       # Brewfile ファイルの生成
         alias bbl="brew bundle list --all --force --file $BREWFILE_PATH" # Brewfile ファイルから一括インストール

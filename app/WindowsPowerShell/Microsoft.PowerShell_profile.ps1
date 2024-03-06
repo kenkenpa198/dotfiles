@@ -69,7 +69,7 @@ Set-Alias vd deactivate
 ########################################
 # winget
 ########################################
-$WINGET_OUT_PATH = "\\wsl.localhost\Ubuntu\home\${env:USERNAME}\dotfiles\setup\Windows\winget-packages.json"
+$WINGET_OUT_PATH = "\\wsl.localhost\Ubuntu\home\${env:USERNAME}\dotfiles\setup\windows\winget-packages.json"
 
 function winget-export() {
     winget export -o $WINGET_OUT_PATH
