@@ -11,8 +11,9 @@ bash ~/dotfiles/setup/ubuntu/setup.sh
 ## TOC
 
 - [1. Setup](#1-setup)
-    - [1.1. for WSL on Windows](#11-for-wsl-on-windows)
-    - [1.2. for MacOS](#12-for-macos)
+    - [1.1. for WSL (Ubuntu)](#11-for-wsl-ubuntu)
+    - [1.2. for Windows](#12-for-windows)
+    - [1.3. for MacOS](#13-for-macos)
 - [2. Tips](#2-tips)
     - [2.1. ホワイトリスト形式の .gitignore](#21-ホワイトリスト形式の-gitignore)
     - [2.2. Git のキャッシュ削除手順](#22-git-のキャッシュ削除手順)
@@ -22,7 +23,7 @@ bash ~/dotfiles/setup/ubuntu/setup.sh
 
 ## 1. Setup
 
-### 1.1. for WSL on Windows
+### 1.1. for WSL (Ubuntu)
 
 1. PowerShell を管理者権限で起動する。
 2. WSL をインストールしてセットアップする。
@@ -36,7 +37,11 @@ bash ~/dotfiles/setup/ubuntu/setup.sh
 3. SSH キーの作成と GitHub アカウントへ公開鍵の登録を行う。
 4. ホームディレクトリ上で README 冒頭のコマンドを実行して dotfiles をクローン & Ubuntu 環境のセットアップ。
 
-### 1.2. for MacOS
+### 1.2. for Windows
+
+[2.3. PowerShell でスクリプトを実行する](#23-powershell-でスクリプトを実行する) の手順を元に [setup/windows](setup/windows) 配下のスクリプトを実行する。
+
+### 1.3. for MacOS
 
 その内書く
 
