@@ -1,7 +1,11 @@
 <!-- omit in toc -->
 # dotfiles
 
-kenkenpa198's dotfiles.
+```shell
+cd
+git clone git@github.com:kenkenpa198/dotfiles.git
+bash ~/dotfiles/setup/ubuntu/setup.sh
+```
 
 <!-- omit in toc -->
 ## TOC
@@ -30,25 +34,7 @@ kenkenpa198's dotfiles.
     参考: [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
 
 3. SSH キーの作成と GitHub アカウントへ公開鍵の登録を行う。
-4. ホームディレクトリ上で次のコマンドを実行して dotfiles をクローン & Ubuntu 環境のセットアップ。
-
-    ```shell
-    # git clone
-    cd
-    git clone git@github.com:kenkenpa198/dotfiles.git
-
-    # install
-    bash ~/dotfiles/setup/ubuntu/install-git.sh
-    bash ~/dotfiles/setup/ubuntu/install-apt-packages.sh
-    bash ~/dotfiles/setup/ubuntu/install-sheldon.sh
-    bash ~/dotfiles/setup/ubuntu/install-my-scripts.sh
-
-    # setup
-    bash ~/dotfiles/setup/ubuntu/setup-environment.sh
-    bash ~/dotfiles/setup/ubuntu/setup-git.sh
-    bash ~/dotfiles/setup/ubuntu/setup-zsh.sh
-    bash ~/dotfiles/setup/ubuntu/setup-sheldon.sh
-    ```
+4. ホームディレクトリ上で README 冒頭のコマンドを実行して dotfiles をクローン & Ubuntu 環境のセットアップ。
 
 ### 1.2. for MacOS
 
