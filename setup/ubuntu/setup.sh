@@ -17,12 +17,12 @@ function export_xdg {
 
 # git clone dotfiles
 function clone_dotfiles {
-    dotfiles_home=${HOME}/dotfiles
+    DOTFILES_HOME=${HOME}/dotfiles
 
-    if [ ! -d "${dotfiles_home}" ]; then
-        git clone https://github.com/kenkenpa198/dotfiles.git "${dotfiles_home}"
+    if [ ! -d "${DOTFILES_HOME}" ]; then
+        git clone https://github.com/kenkenpa198/dotfiles.git "${DOTFILES_HOME}"
     else
-        git -C "${dotfiles_home}" pull origin main || true
+        git -C "${DOTFILES_HOME}" pull origin main || true
     fi
 }
 
@@ -65,11 +65,6 @@ function print_finished {
 # メイン処理
 ###################################
 function main {
-    # スクリプトファイルの配置場所をカレントディレクトリとする
-    # https://memo.yammer.jp/posts/shell-pwd
-    SCRIPT_DIR=`dirname $0`
-    cd "$SCRIPT_DIR"
-
     # XDG Base Directory Specification
     export_xdg
 
@@ -83,10 +78,10 @@ function main {
     backup_origin_files
 
     # アプリケーションのインストール
-    bash ./setup/ubuntu/install-git.sh
-    bash ./setup/ubuntu/install-apt-packages.sh
-    bash ./setup/ubuntu/install-sheldon.sh
-    bash ./setup/ubuntu/install-my-scripts.sh
+    bash "${HOME}/dotfiles/setup/ubuntu/install-git.sh"
+    bash "${HOME}/dotfiles/setup/ubuntu/install-apt-packages.sh"
+    bash "${HOME}/dotfiles/setup/ubuntu/install-sheldon.sh"
+    bash "${HOME}/dotfiles/setup/ubuntu/install-my-scripts.sh"
 
     # シンボリックリンクを作成
     bash ./setup/ubuntu/link.sh
