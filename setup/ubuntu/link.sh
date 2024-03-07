@@ -31,6 +31,9 @@ function link_zsh {
 }
 
 function link_sheldon {
+    # XDG Base Directory Specification
+    mkdir -p "$HOME/.config/sheldon"
+
     # シンボリックリンクを作成
     ln -sf ~/dotfiles/.config/sheldon/plugins.toml ~/.config/sheldon/plugins.toml
 }
