@@ -37,7 +37,7 @@ function main {
 
     # works
     $linkHash['~\GoogleDrive\works\create'] = '~\works\create'
-    $linkHash['~\GoogleDrive\works\notes']  = '~\works\notes'
+    # $linkHash['~\GoogleDrive\works\notes']  = '~\works\notes'
     $linkHash['~\GoogleDrive\works\others'] = '~\works\others'
 
 
@@ -65,9 +65,9 @@ function main {
     $linkHash["${WSLHOME}\.bashrc"] = '~\.bashrc'
 
     # .git***
-    $linkHash["${WSLHOME}\dotfiles\.gitconfig"]        = '~\.gitconfig'
-    $linkHash["${WSLHOME}\dotfiles\.gitconfig.local"]  = '~\.gitconfig.local'
-    $linkHash["${WSLHOME}\dotfiles\.gitignore_global"] = '~\.gitignore_global'
+    $linkHash["${WSLHOME}\dotfiles\.config\git\config"] = '~\.config\git\config'
+    $linkHash["${WSLHOME}\dotfiles\.config\git\ignore"] = '~\.config\git\ignore'
+    $linkHash["${WSLHOME}\dotfiles\.config\git\local"]  = '~\.config\git\local'
 
 
     ########################################
