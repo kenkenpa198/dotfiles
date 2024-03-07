@@ -12,7 +12,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 履歴設定
 ###################################
 # 履歴の保存先ファイル指定
-HISTFILE=~/.zsh_history
+export HISTFILE=$XDG_STATE_HOME/zsh/history
 
 # メモリに保存される履歴の件数設定
 export HISTSIZE=10000
