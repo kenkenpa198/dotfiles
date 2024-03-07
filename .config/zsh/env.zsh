@@ -8,6 +8,26 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 
 
 ########################################
+# ls
+########################################
+# ファイルの種類で色分け
+# Mac の場合にデフォルトで色分けがされないため設定する
+export CLICOLOR=1
+
+# zsh の色設定を変更
+# WSL 上の zsh から Windows 環境のファイルを開いた場合に見づらいため色設定を変更する
+#
+# OTHER_WRITABLE 34;42 => 01;32 ... 書き込み権限が付与されたファイルを 背景緑;文字青 から ボールド;文字緑 へ変更
+# EXEC           01;32 => 01;00 ... 実行属性が設定されているファイル (WSL から見た Win 側のファイル) を ボールド;文字緑 から ボールド;文字白 へ変更
+#
+# 参考:
+# https://www.kwbtblog.com/entry/2019/04/27/023411
+# https://blue-red.ddo.jp/~ao/wiki/wiki.cgi?page=ls%A5%B3%A5%DE%A5%F3%A5%C9%A4%CE%BF%A7%A4%F2%CA%D1%B9%B9%A4%B9%A4%EB
+# https://www.fulldigit.co.jp/server_env/ls_colors.html
+export LS_COLORS='ow=01;32:ex=01;00:';
+
+
+########################################
 # nvm
 ########################################
 # https://github.com/nvm-sh/nvm?tab=readme-ov-file#git-install
