@@ -65,6 +65,11 @@ function print_finished {
 # メイン処理
 ###################################
 function main {
+    # スクリプトファイルの配置場所をカレントディレクトリとする
+    # https://memo.yammer.jp/posts/shell-pwd
+    SCRIPT_DIR=`dirname $0`
+    cd "$SCRIPT_DIR"
+
     # XDG Base Directory Specification
     export_xdg
 
