@@ -7,13 +7,22 @@ set -euo pipefail
 ###################################
 # 関数定義
 ###################################
+# XDG Base Directory Specification
+function export_xdg {
+    export XDG_CONFIG_HOME="$HOME/.config/"
+    export XDG_CACHE_HOME="$HOME/.cache/"
+    export XDG_DATA_HOME="$HOME/.local/share/"
+    export XDG_STATE_HOME="$HOME/.local/state/"
+}
+
 # ディレクトリを作成
 function make_dir {
+    # XDG Base Directory Specification
+    mkdir -p "$XDG_STATE_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
+    mkdir -p "$XDG_STATE_HOME/zsh"
+
     # My directory
     mkdir -p ~/works/develop
-
-    # XDG Base Directory Specification
-    mkdir -p "$HOME/.config/" "$HOME/.cache/" "$HOME/.local/share/" "$HOME/.local/state/"
 }
 
 # 初期ファイルをバックアップ
@@ -45,6 +54,9 @@ function print_finished {
 # メイン処理
 ###################################
 function main {
+    # XDG Base Directory Specification
+    export_xdg
+
     # ディレクトリを作成
     make_dir
 
@@ -52,13 +64,13 @@ function main {
     backup_origin_files
 
     # アプリケーションのインストール
-    bash ~/dotfiles/setup/ubuntu/install-git.sh
-    bash ~/dotfiles/setup/ubuntu/install-apt-packages.sh
-    bash ~/dotfiles/setup/ubuntu/install-sheldon.sh
-    bash ~/dotfiles/setup/ubuntu/install-my-scripts.sh
+    bash ./setup/ubuntu/install-git.sh
+    bash ./setup/ubuntu/install-apt-packages.sh
+    bash ./setup/ubuntu/install-sheldon.sh
+    bash ./setup/ubuntu/install-my-scripts.sh
 
     # シンボリックリンクを作成
-    bash ~/dotfiles/setup/ubuntu/link.sh
+    bash ./setup/ubuntu/link.sh
 
     # zsh をデフォルトシェルへ設定
     chsh -s "$(which zsh)"
