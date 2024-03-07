@@ -9,12 +9,6 @@
 !*/
 
 # 追跡対象のファイルを記述する
-!bin/acd
-!bin/cj
-!bin/code-export
-!bin/ffmpeg-all
-!bin/moda
-
 !.config/Code/extensions
 !.config/Code/User/snippets/markdown.json
 !.config/Code/User/keybindings.json
@@ -37,6 +31,12 @@
 !app/WSL/.wslconfig
 !app/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 !app/WindowsTerminal/LocalState/settings.json
+
+!bin/acd
+!bin/cj
+!bin/code-export
+!bin/ffmpeg-all
+!bin/moda
 
 !setup/macos/Brewfile
 !setup/ubuntu/install-apt-packages.sh
