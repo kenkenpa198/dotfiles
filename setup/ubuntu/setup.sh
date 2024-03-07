@@ -17,6 +17,13 @@ function export_xdg {
 
 # git clone dotfiles
 function clone_dotfiles {
+
+    # https://qiita.com/8ayac/items/b6b6f0a385d08659316b
+    if ! (type "git" > /dev/null 2>&1); then
+        sudo apt-get update && \
+        sudo apt-get install -y git
+    fi
+
     DOTFILES_HOME=${HOME}/dotfiles
 
     if [ ! -d "${DOTFILES_HOME}" ]; then
