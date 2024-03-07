@@ -73,7 +73,7 @@ alias lla="ls -alhG --file-type --color=auto --time-style=long-iso --group-direc
 alias seq100="seq -w 1 100" # 001 ～ 100 を表示
 
 # source
-alias ss="source ~/.zshrc"
+alias ss="source $XDG_CONFIG_HOME/zsh/.zshrc"
 
 
 ########################################
