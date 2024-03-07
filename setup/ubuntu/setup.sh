@@ -87,7 +87,7 @@ function main {
     bash ./setup/ubuntu/link.sh
 
     # zsh をデフォルトシェルへ設定
-    chsh -s "$(which zsh)"
+    sudo chsh "$USER" -s "$(which zsh)"
 
     # 完了メッセージを出力
     print_finished
