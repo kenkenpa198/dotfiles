@@ -2,17 +2,15 @@
 # dotfiles
 
 ```shell
-cd
-git clone git@github.com:kenkenpa198/dotfiles.git
-bash ~/dotfiles/setup/ubuntu/setup.sh
+curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/ubuntu/setup.sh | bash
 ```
 
 <!-- omit in toc -->
 ## TOC
 
 - [1. Setup](#1-setup)
-    - [1.1. for WSL (Ubuntu)](#11-for-wsl-ubuntu)
-    - [1.2. for Windows](#12-for-windows)
+    - [1.1. for Ubuntu](#11-for-ubuntu)
+    - [1.2. for WSL \& Windows](#12-for-wsl--windows)
     - [1.3. for MacOS](#13-for-macos)
 - [2. Tips](#2-tips)
     - [2.1. ホワイトリスト形式の .gitignore](#21-ホワイトリスト形式の-gitignore)
@@ -22,10 +20,13 @@ bash ~/dotfiles/setup/ubuntu/setup.sh
 
 ## 1. Setup
 
-### 1.1. for WSL (Ubuntu)
+### 1.1. for Ubuntu
 
-1. PowerShell を管理者権限で起動する。
-2. WSL をインストールしてセットアップする。
+ホームディレクトリ上で README 冒頭のコマンドを実行する。
+
+### 1.2. for WSL & Windows
+
+1. PowerShell を管理者権限で起動し、次のコマンドを実行して WSL をセットアップする。
 
     ```powershell
     wsl --install
@@ -33,12 +34,8 @@ bash ~/dotfiles/setup/ubuntu/setup.sh
 
     参考: [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
 
-3. SSH キーの作成と GitHub アカウントへ公開鍵の登録を行う。
-4. ホームディレクトリ上で README 冒頭のコマンドを実行して dotfiles をクローン & Ubuntu 環境のセットアップ。
-
-### 1.2. for Windows
-
-[2.3. PowerShell でスクリプトを実行する](#23-powershell-でスクリプトを実行する) の手順を元に [setup/windows](setup/windows) 配下のスクリプトを実行する。
+2. ホームディレクトリ上で README 冒頭のコマンドを実行する。
+3. 管理者権限の PowerShell で [setup/windows](setup/windows) 配下のスクリプトを順次実行する。
 
 ### 1.3. for MacOS
 
@@ -102,7 +99,7 @@ PowerShell はネットワークから取得したスクリプトファイル `*
 3. 実行ポリシーを一時的に変更する。
 
     ```powershell
-    # その時のプロセスでのみ有効にする
+    # そのプロセスでのみ有効にする
     # Set-ExecutionPolicy -ExecutionPolicy [実行ポリシー] -Scope [スコープ]
     # RemoteSigned ... 署名されたスクリプトが実行できる実行ポリシー
     # Process      ... 実行ポリシーを現在の PowerShell プロセスのみに影響させる
