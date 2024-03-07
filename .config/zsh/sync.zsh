@@ -43,9 +43,19 @@ setopt no_beep
 ###################################
 # zstyle
 ###################################
+# https://qiita.com/minnsou/items/3e9f200f9f2cc9a92920
+
 # 小文字でも大文字のディレクトリ・ファイルを補完できるようにする
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+# 補完一覧のカーソル選択
+# zstyle ':completion:*' menu select
+
+# rm の引数の時にはメニュー補完をしない
+zstyle ':completion:*:rm:*' menu false
+
+# 補完時の色設定
+# zstyle ':completion:*:default' list-colors di=4
 
 ###################################
 # プロンプトテーマ
