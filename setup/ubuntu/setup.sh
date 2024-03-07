@@ -91,7 +91,7 @@ function main {
     bash "${HOME}/dotfiles/setup/ubuntu/install-my-scripts.sh"
 
     # シンボリックリンクを作成
-    bash ./setup/ubuntu/link.sh
+    bash "${HOME}/dotfiles/setup/ubuntu/link.sh"
 
     # zsh をデフォルトシェルへ設定
     sudo chsh "$USER" -s "$(which zsh)"
