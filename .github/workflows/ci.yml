@@ -1,0 +1,13 @@
+# Reference: [dotfilesのすゝめ | kouki’s blog](https://blog.kmdkuk.com/2022/07/16/dotfilesのすゝめ.html)
+name: CI
+
+on:
+  push:
+
+jobs:
+  run-setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dotfiles on Ubuntu
+        run: setup/ubuntu/setup.sh
