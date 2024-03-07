@@ -29,6 +29,8 @@
 !.config/zsh/env.zsh
 !.config/zsh/sync.zsh
 
+!.github/workflows/ci.yml
+
 !.local/state/crossnote/style.less
 
 !app/VIA/nuphy_air60_v2.layout.json
