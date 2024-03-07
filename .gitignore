@@ -42,6 +42,7 @@
 !setup/ubuntu/install-apt-packages.sh
 !setup/ubuntu/install-git.sh
 !setup/ubuntu/install-jekyll.sh
+!setup/ubuntu/install-language-pack-ja.sh
 !setup/ubuntu/install-my-scripts.sh
 !setup/ubuntu/install-node-js.sh
 !setup/ubuntu/install-pyenv.sh
