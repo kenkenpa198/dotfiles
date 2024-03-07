@@ -15,6 +15,17 @@ function export_xdg {
     export XDG_STATE_HOME="$HOME/.local/state"
 }
 
+# git clone dotfiles
+function clone_dotfiles {
+    dotfiles_home=${HOME}/dotfiles
+
+    if [ ! -d "${dotfiles_home}" ]; then
+        git clone https://github.com/kenkenpa198/dotfiles.git "${dotfiles_home}"
+    else
+        git -C "${dotfiles_home}" pull origin main || true
+    fi
+}
+
 # ディレクトリを作成
 function make_dir {
     # XDG Base Directory Specification
@@ -56,6 +67,9 @@ function print_finished {
 function main {
     # XDG Base Directory Specification
     export_xdg
+
+    # git clone dotfiles
+    clone_dotfiles
 
     # ディレクトリを作成
     make_dir
