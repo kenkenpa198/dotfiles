@@ -46,8 +46,7 @@ export CLICOLOR=1
 # https://www.kwbtblog.com/entry/2019/04/27/023411
 # https://blue-red.ddo.jp/~ao/wiki/wiki.cgi?page=ls%A5%B3%A5%DE%A5%F3%A5%C9%A4%CE%BF%A7%A4%F2%CA%D1%B9%B9%A4%B9%A4%EB
 # https://www.fulldigit.co.jp/server_env/ls_colors.html
-LS_COLORS='ow=01;32:ex=01;00:';
-export LS_COLORS
+export LS_COLORS='ow=01;32:ex=01;00:';
 
 
 ###################################
