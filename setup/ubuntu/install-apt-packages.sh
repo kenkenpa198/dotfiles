@@ -13,6 +13,7 @@ function main {
         "cppcheck"
         "neofetch"
         "pwgen"
+        "software-properties-common"
         "tree"
         "zsh"
     )
