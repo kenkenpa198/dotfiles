@@ -46,9 +46,9 @@ function link_wsl {
             # WSL
             if uname -r | grep -i 'microsoft' > /dev/null ; then
                 # Notes
-                if [ -z "$USERNAME" ]; then
-                    mkdir -p /mnt/c/Users/"$USERNAME"/works/notes
-                    ln -sfn /mnt/c/Users/"$USERNAME"/works/notes ~/works/notes
+                if [ -n "$USER" ]; then
+                    mkdir -p /mnt/c/Users/"$USER"/works/notes
+                    ln -sfn /mnt/c/Users/"$USER"/works/notes ~/works/notes
                 fi
             fi
         ;;
