@@ -10,7 +10,7 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/ubu
 
 - [1. Setup](#1-setup)
     - [1.1. for Ubuntu](#11-for-ubuntu)
-    - [1.2. for WSL \& Windows](#12-for-wsl--windows)
+    - [1.2. for Ubuntu on WSL \& Windows](#12-for-ubuntu-on-wsl--windows)
     - [1.3. for MacOS](#13-for-macos)
 - [2. Tips](#2-tips)
     - [2.1. ホワイトリスト形式の .gitignore](#21-ホワイトリスト形式の-gitignore)
@@ -24,7 +24,7 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/ubu
 
 ホームディレクトリ上で README 冒頭のコマンドを実行する。
 
-### 1.2. for WSL & Windows
+### 1.2. for Ubuntu on WSL & Windows
 
 1. PowerShell を管理者権限で起動し、次のコマンドを実行して WSL をセットアップする。
 
