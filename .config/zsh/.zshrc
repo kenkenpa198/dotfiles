@@ -1,11 +1,4 @@
 ########################################
-# bin
-########################################
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
-
-########################################
 # Sheldon
 ########################################
 # Loading plugins with Sheldon
@@ -14,12 +7,12 @@ eval "$(sheldon source)"
 
 
 ########################################
-# *.zsh の読み込み
+# Load *.zsh
 ########################################
 # Sheldon が使用できない環境では下記を有効化して設定ファイルを読み込む
 
 # # $ZSHHOME 変数を初期化
-# ZSHHOME="${HOME}/dotfiles/zsh/rc"
+# ZSHHOME="${HOME}/dotfiles/.config/zsh"
 
 # # $ZSHHOME がディレクトリである かつ 読込権限がある かつ 実行権限がある
 # if [ -d $ZSHHOME ] && [ -r $ZSHHOME ] && [ -x $ZSHHOME ]; then
