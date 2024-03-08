@@ -54,6 +54,7 @@
 !setup/windows/get-apps.ps1
 !setup/windows/install-apps-from-msstore.ps1
 !setup/windows/install-apps-from-winget.ps1
+!setup/windows/put-wslconfig.ps1
 !setup/windows/link.ps1
 
 !.gitignore
