@@ -82,6 +82,7 @@ function main {
     $linkHash["~\works\notes\templates"] = '~\works\notes-secret\templates'
     $linkHash["~\works\notes\HOME.md"] = '~\works\notes-secret\HOME.md'
 
+
     ########################################
     # シンボリックリンクを作成
     ########################################
