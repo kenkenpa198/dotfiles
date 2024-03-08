@@ -4,17 +4,17 @@ set -x
 set -euo pipefail
 
 function main {
-    # 自作コマンドすべてへ実行権限を付与
-    chmod -R +x ~/dotfiles/bin
+    DOTFILES_BIN="$HOME/dotfiles/.local/bin"
+    LOCAL_BIN="$HOME/.local/bin"
 
-    # ~/bin/ を作成
-    mkdir -p ~/bin
+    # 自作コマンドすべてへ実行権限を付与
+    chmod -R +x "$DOTFILES_BIN"
+
+    # bin ディレクトリを作成
+    mkdir -p "$LOCAL_BIN"
 
     # シンボリックリンクを作成（ファイル毎）
-    ls ~/dotfiles/bin | xargs -I{} ln -sf ~/dotfiles/bin/{} ~/bin/{}
-
-    # シンボリックリンクを作成（ディレクトリ）
-    # ln -sf ~/dotfiles/bin ~/bin
+    ls "$DOTFILES_BIN" | xargs -I{} ln -sf "$DOTFILES_BIN"/{} "$LOCAL_BIN"/{}
 
     set +x
     echo

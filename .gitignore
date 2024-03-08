@@ -25,18 +25,17 @@
 
 !.github/workflows/ci.yml
 
+!.local/bin/acd
+!.local/bin/cj
+!.local/bin/code-export
+!.local/bin/ffmpeg-all
+!.local/bin/moda
 !.local/state/crossnote/style.less
 
 !app/VIA/nuphy_air60_v2.layout.json
 !app/WSL/.wslconfig
 !app/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 !app/WindowsTerminal/LocalState/settings.json
-
-!bin/acd
-!bin/cj
-!bin/code-export
-!bin/ffmpeg-all
-!bin/moda
 
 !setup/macos/Brewfile
 !setup/ubuntu/install-apt-packages.sh
