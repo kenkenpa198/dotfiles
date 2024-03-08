@@ -48,6 +48,14 @@ function backup_origin_files {
     cp ~/.bashrc ~/.bashrc.org
 }
 
+# 区切りを出力
+# [シェル内でセパレータを引く #Zsh - Qiita](https://qiita.com/Linda_pp/items/674b8582772747ede9c3)
+function separate {
+    for i in $(seq 1 $COLUMNS); do
+        echo -n '/'
+    done
+}
+
 # 完了メッセージを表示
 function print_finished {
     set +x
@@ -74,27 +82,37 @@ function print_finished {
 function main {
     # XDG Base Directory Specification
     export_xdg
+    separate
 
     # git clone dotfiles
     clone_dotfiles
+    separate
 
     # ディレクトリを作成
     make_dir
+    separate
 
     # 初期ファイルをバックアップ
     backup_origin_files
+    separate
 
     # アプリケーションのインストール
     bash "${HOME}/dotfiles/setup/ubuntu/install-git.sh"
+    separate
     bash "${HOME}/dotfiles/setup/ubuntu/install-apt-packages.sh"
+    separate
     bash "${HOME}/dotfiles/setup/ubuntu/install-sheldon.sh"
+    separate
     bash "${HOME}/dotfiles/setup/ubuntu/install-my-scripts.sh"
+    separate
 
     # シンボリックリンクを作成
     bash "${HOME}/dotfiles/setup/ubuntu/link.sh"
+    separate
 
     # zsh をデフォルトシェルへ設定
     sudo chsh "$USER" -s "$(which zsh)"
+    separate
 
     # 完了メッセージを出力
     print_finished
