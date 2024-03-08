@@ -57,6 +57,7 @@ zstyle ':completion:*:rm:*' menu false
 # 補完時の色設定
 # zstyle ':completion:*:default' list-colors di=4
 
+
 ###################################
 # プロンプトテーマ
 ###################################

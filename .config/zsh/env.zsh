@@ -1,4 +1,10 @@
 ########################################
+# fzf
+########################################
+export FZF_DEFAULT_OPTS="--height 80% --reverse --border"
+
+
+########################################
 # gcloud
 ########################################
 # The next line updates PATH for the Google Cloud SDK.
@@ -52,20 +58,14 @@ eval "$(pyenv init -)"
 ########################################
 # rbenv
 ########################################
-# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
 
 ########################################
-# sheldon
-########################################
-# https://sheldon.cli.rs/Getting-started.html
-
-# fzf
-export FZF_DEFAULT_OPTS="--height 80% --reverse --border"
-
 # zsh-autosuggestions
+########################################
+# 候補をデフォルトより暗く表示する
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=243"
 
 
