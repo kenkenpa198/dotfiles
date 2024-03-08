@@ -18,7 +18,6 @@ function main {
         '9P1TBXR6QDCX'   # HyperX NGENUITY
         '9PB2MZ1ZMB1S'   # iTunes
         'XP89DCGQ3K6VLD' # PowerToys
-        '9PJPW5LDXLZ5'   # Python 3.10
         '9NV4BS3L1H4S'   # QuickLook
         '9PLJWWSV01LK'   # Twinkle Tray
     )
