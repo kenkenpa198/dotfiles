@@ -58,7 +58,7 @@ function init_pacman {
     # キーリングの初期化
     sudo pacman-key --init
     sudo pacman-key --populate
-    sudo pacman -Syy archlinux-keyring
+    sudo pacman -Syy --noconfirm archlinux-keyring
 
     # ミラーの最適化を自動実行
     sudo pacman -g
@@ -81,7 +81,7 @@ function check_required_packages {
             Arch*)
                 : Arch Linux
                 : Install sudo with pacman
-                sudo pacman -Syu sudo
+                sudo pacman -Syu --noconfirm sudo
             ;;
             *)
                 : Unmatched
@@ -102,7 +102,7 @@ function check_required_packages {
             Arch*)
                 : Arch Linux
                 : Install Git with pacman
-                sudo pacman -Syu git
+                sudo pacman -Syu --noconfirm git
             ;;
             *)
                 : Unmatched
