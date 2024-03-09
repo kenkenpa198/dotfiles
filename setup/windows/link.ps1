@@ -61,6 +61,9 @@ function main {
     # Azure Data Studio 設定ファイル
     $linkHash["${WSLHOME}\dotfiles\.config\azuredatastudio\User\settings.json"] = '~\AppData\Roaming\azuredatastudio\User\settings.json'
 
+    # Windows Terminal
+    $linkHash["${WSLHOME}\dotfiles\.config\Microsoft.WindowsTerminal\LocalState\settings.json"] = '~\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json'
+
     # Git Bash .bashrc
     $linkHash["${WSLHOME}\.bashrc"] = '~\.bashrc'
 

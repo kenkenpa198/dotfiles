@@ -12,7 +12,7 @@
 !.config/Code/extensions
 !.config/Code/User/snippets/markdown.json
 !.config/Code/User/keybindings.json
-!.config/Code/User/settings.json
+!.config/Microsoft.WindowsTerminal/LocalState/settings.json
 !.config/azuredatastudio/User/settings.json
 !.config/git/config
 !.config/git/ignore
@@ -35,7 +35,6 @@
 !app/VIA/nuphy_air60_v2.layout.json
 !app/WSL/.wslconfig
 !app/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
-!app/WindowsTerminal/LocalState/settings.json
 
 !setup/macos/Brewfile
 !setup/linux/install-packages.sh
