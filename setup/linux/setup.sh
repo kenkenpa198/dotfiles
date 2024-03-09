@@ -15,17 +15,17 @@ function show_environment {
     date
 
     : --------------------------------
-    : Show System Information
+    : Show system information
     : --------------------------------
     uname -a
 
     : --------------------------------
-    : Show OS Information
+    : Show OS information
     : --------------------------------
     cat /etc/os-release
 
     : --------------------------------
-    : Show current name name
+    : Show current user name
     : --------------------------------
     whoami
 
@@ -35,12 +35,12 @@ function show_environment {
     echo $SHELL
 
     : --------------------------------
-    : Show Environment Variables
+    : Show environment variables
     : --------------------------------
     env
 
     : --------------------------------
-    : Print Working Directory
+    : Print working directory
     : --------------------------------
     pwd
 }
