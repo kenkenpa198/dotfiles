@@ -23,7 +23,8 @@ function link_zsh {
     mkdir -p "$HOME/.config/zsh"
 
     # .zshenv のシンボリックリンクを作成
-    ln -sf ~/dotfiles/.zshenv ~/
+    # 環境に存在する可能性があるのでバックアップのオプションを指定する
+    ln -s --suffix=".bak.$(date +%Y%m%d%H%M%S)" ~/dotfiles/.zshenv ~/
 
     # 設定ファイル群のシンボリックリンクを作成
     # [lsでファイルのみリストする](https://www.yamacoco.com/program/lsでファイルのみリストする/)

@@ -127,11 +127,6 @@ function make_dir {
     mkdir -p ~/works/develop
 }
 
-# 初期ファイルをバックアップ
-function backup_origin_files {
-    cp ~/.bashrc ~/.bashrc.org
-}
-
 # 完了メッセージを表示
 function print_finished {
     set +x
@@ -179,9 +174,6 @@ function main {
 
     # ディレクトリを作成
     make_dir
-
-    # 初期ファイルをバックアップ
-    backup_origin_files
 
     # アプリケーションのインストール
     bash "${HOME}/dotfiles/setup/linux/install-packages.sh"
