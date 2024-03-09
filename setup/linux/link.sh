@@ -39,6 +39,16 @@ function link_sheldon {
     ln -sf ~/dotfiles/.config/sheldon/plugins.toml ~/.config/sheldon/plugins.toml
 }
 
+function link_code {
+    # XDG Base Directory Specification
+    mkdir -p ~/.config/Code/User/snippets/
+
+    # make symlink
+    ln -sf "$HOME/dotfiles/.config/Code/User/settings.json" "$HOME/.config/Code/User/"
+    ln -sf "$HOME/dotfiles/.config/Code/User/keybindings.json" "$HOME/.config/Code/User/"
+    ln -sf "$HOME/dotfiles/.config/Code/User/snippets/markdown.json" "$HOME/.config/Code/User/snippets/"
+}
+
 function link_wsl {
     # 環境ごとの実行
     if [[ "$(uname -r)" == *microsoft* ]]; then
@@ -54,6 +64,7 @@ function main {
     link_git
     link_zsh
     link_sheldon
+    link_code
     link_wsl
 
     set +x
