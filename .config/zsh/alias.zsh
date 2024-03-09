@@ -75,6 +75,45 @@ alias seq100="seq -w 1 100" # 001 ～ 100 を表示
 # source
 alias ss="source $XDG_CONFIG_HOME/zsh/.zshrc"
 
+# 環境情報を表示
+function show_environment {
+    set -x
+
+    : --------------------------------
+    : Display the current time
+    : --------------------------------
+    date
+
+    : --------------------------------
+    : Show System Information
+    : --------------------------------
+    uname -a
+
+    : --------------------------------
+    : Show OS Information
+    : --------------------------------
+    cat /etc/os-release
+
+    : --------------------------------
+    : Show current name name
+    : --------------------------------
+    whoami
+
+    : --------------------------------
+    : Show current shell
+    : --------------------------------
+    echo $SHELL
+
+    : --------------------------------
+    : Show Environment Variables
+    : --------------------------------
+    env
+
+    : --------------------------------
+    : Print Working Directory
+    : --------------------------------
+    pwd
+}
 
 ########################################
 # C
