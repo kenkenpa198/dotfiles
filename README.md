@@ -2,7 +2,7 @@
 # dotfiles
 
 ```shell
-curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/ubuntu/setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
 ```
 
 <!-- omit in toc -->

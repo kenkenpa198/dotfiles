@@ -15,15 +15,43 @@ function export_xdg {
     export XDG_STATE_HOME="$HOME/.local/state"
 }
 
-# git clone dotfiles
-function clone_dotfiles {
+# pacman の初期化
+function init_pacman {
+    # キーリングの初期化
+    sudo pacman-key --init
+    sudo pacman-key --populate
+    sudo pacman -Syy archlinux-keyring
 
+    # ミラーの最適化を自動実行
+    sudo pacman -g
+}
+
+# Git が環境になければインストールする
+function check_git {
     # https://qiita.com/8ayac/items/b6b6f0a385d08659316b
     if ! (type "git" > /dev/null 2>&1); then
-        sudo apt-get update && \
-        sudo apt-get install -y git
+        : Git is not installed
+        case `cat /etc/issue` in
+            Ubuntu*)
+                : Ubuntu
+                : Install Git with apt
+                sudo apt-get update && \
+                sudo apt-get install -y git
+            ;;
+            Arch*)
+                : Arch Linux
+                : Install Git with pacman
+                sudo pacman -Syu git
+            ;;
+            *)
+                : Unmatched
+                echo "unmatched distributions"
+        esac
     fi
+}
 
+# git clone dotfiles
+function clone_dotfiles {
     DOTFILES_HOME=${HOME}/dotfiles
 
     if [ ! -d "${DOTFILES_HOME}" ]; then
@@ -75,6 +103,18 @@ function main {
     # XDG Base Directory Specification
     export_xdg
 
+    # Arch の場合のみ pacman を初期化
+    case `cat /etc/issue` in
+        Arch*)
+            : Arch Linux
+            : Init pacman
+            init_pacman
+        ;;
+    esac
+
+    # Git が環境になければインストールする
+    check_git
+
     # git clone dotfiles
     clone_dotfiles
 
@@ -85,13 +125,12 @@ function main {
     backup_origin_files
 
     # アプリケーションのインストール
-    bash "${HOME}/dotfiles/setup/ubuntu/install-git.sh"
-    bash "${HOME}/dotfiles/setup/ubuntu/install-apt-packages.sh"
-    bash "${HOME}/dotfiles/setup/ubuntu/install-sheldon.sh"
-    bash "${HOME}/dotfiles/setup/ubuntu/install-my-scripts.sh"
+    bash "${HOME}/dotfiles/setup/linux/install-packages.sh"
+    bash "${HOME}/dotfiles/setup/linux/install-sheldon.sh"
+    bash "${HOME}/dotfiles/setup/linux/install-my-scripts.sh"
 
     # シンボリックリンクを作成
-    bash "${HOME}/dotfiles/setup/ubuntu/link.sh"
+    bash "${HOME}/dotfiles/setup/linux/link.sh"
 
     # zsh をデフォルトシェルへ設定
     sudo chsh "$USER" -s "$(which zsh)"
