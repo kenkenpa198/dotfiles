@@ -34,6 +34,7 @@ function install_with_pacman {
     packages+=(
         "openssh"
         "pacman-contrib"
+        "which"
     )
 
     # パッケージリストの取得・既存パッケージの更新
@@ -58,7 +59,6 @@ function main {
         "pwgen"
         "tree"
         "wget"
-        "which"
         "zsh"
     )
 
