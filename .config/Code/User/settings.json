@@ -41,7 +41,7 @@
     "workbench.layoutControl.enabled": false,
     "workbench.startupEditor": "newUntitledFile",
     "window.commandCenter": false,
-    "window.menuBarVisibility": "compact",
+    "window.menuBarVisibility": "toggle",
     "window.newWindowDimensions": "inherit",
     "window.restoreWindows": "none",
 
