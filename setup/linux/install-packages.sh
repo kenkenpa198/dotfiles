@@ -37,10 +37,10 @@ function install_with_pacman {
     )
 
     # パッケージリストの取得・既存パッケージの更新
-    sudo pacman -Syu
+    sudo pacman -Syu --noconfirm
 
     # インストール
-    sudo pacman -S "${packages[@]}"
+    sudo pacman -S --noconfirm "${packages[@]}"
 
     # パッケージのキャッシュを削除
     paccache -rk1   # 最も新しいバージョン1つだけを保持
