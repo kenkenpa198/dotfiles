@@ -15,11 +15,11 @@ jobs:
       - name: Setup dotfiles on Ubuntu
         run: bash setup/linux/setup.sh
 
-  setup-arch:
-    runs-on: ubuntu-latest
-    container:
-      image: archlinux:base
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup dotfiles on Arch Linux
-        run: bash setup/linux/setup.sh
+  # setup-arch:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: archlinux:base
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Setup dotfiles on Arch Linux
+  #       run: bash setup/linux/setup.sh
