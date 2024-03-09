@@ -7,6 +7,7 @@ set -euo pipefail
 function install_with_apt {
     # Ubuntu 用パッケージを配列へ追加
     packages+=(
+        "openssh-server"
         "software-properties-common"
     )
 
@@ -31,6 +32,7 @@ function install_with_pacman {
 
     # Arch 用パッケージを配列へ追加
     packages+=(
+        "openssh"
         "pacman-contrib"
     )
 
@@ -53,7 +55,6 @@ function main {
         "gcc"
         "git"
         "neofetch"
-        "openssh"
         "pwgen"
         "tree"
         "wget"
