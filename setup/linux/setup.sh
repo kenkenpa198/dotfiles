@@ -59,9 +59,6 @@ function init_pacman {
     sudo pacman-key --init
     sudo pacman-key --populate
     sudo pacman -Syy --noconfirm archlinux-keyring
-
-    # ミラーの最適化を自動実行
-    sudo pacman -g
 }
 
 # セットアップに必須のパッケージが環境になければインストールする
