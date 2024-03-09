@@ -1,6 +1,8 @@
 <!-- omit in toc -->
 # dotfiles
 
+dotfiles for Ubuntu / Arch Linux on WSL.
+
 ```shell
 curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
 ```
@@ -9,9 +11,9 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 ## TOC
 
 - [1. Setup](#1-setup)
-    - [1.1. for Ubuntu](#11-for-ubuntu)
-    - [1.2. for Ubuntu on WSL \& Windows](#12-for-ubuntu-on-wsl--windows)
-    - [1.3. for MacOS](#13-for-macos)
+    - [1.1. Ubuntu / Arch Linux on WSL](#11-ubuntu--arch-linux-on-wsl)
+    - [1.2. Windows](#12-windows)
+    - [1.3. MacOS](#13-macos)
 - [2. Tips](#2-tips)
     - [2.1. ホワイトリスト形式の .gitignore](#21-ホワイトリスト形式の-gitignore)
     - [2.2. Git のキャッシュ削除手順](#22-git-のキャッシュ削除手順)
@@ -20,11 +22,7 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 
 ## 1. Setup
 
-### 1.1. for Ubuntu
-
-ホームディレクトリ上で README 冒頭のコマンドを実行する。
-
-### 1.2. for Ubuntu on WSL & Windows
+### 1.1. Ubuntu / Arch Linux on WSL
 
 1. PowerShell を管理者権限で起動し、次のコマンドを実行して WSL をセットアップする。
 
@@ -32,12 +30,22 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
     wsl --install
     ```
 
-    参考: [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
+    - 参考) [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
 
-2. ホームディレクトリ上で README 冒頭のコマンドを実行する。
-3. 管理者権限の PowerShell で [setup/windows](setup/windows) 配下のスクリプトを順次実行する。
+2. [.wslconfig](app/WSL/.wslconfig) を Windows 環境 のホームディレクトリへ配置する。
 
-### 1.3. for MacOS
+3. (Arch Linux のみ) [yuk7/ArchWSL](https://github.com/yuk7/ArchWSL) を使用して WSL へ Arch Linux をインストールする。
+
+    - 参考) [インストール方法 | ArchWSL official documentation](https://wsldl-pg.github.io/ArchW-docs/locale/ja-JP/How-to-Setup/)
+
+4. ホームディレクトリ上で README 冒頭のコマンドを実行する。
+
+### 1.2. Windows
+
+1. [1.2. Ubuntu on WSL](#12-ubuntu-on-wsl) を完了する。
+2. 管理者権限の PowerShell で [setup/windows](setup/windows) 配下のスクリプトを順次実行する。
+
+### 1.3. MacOS
 
 その内書く
 
