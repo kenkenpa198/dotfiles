@@ -1,13 +1,25 @@
-# Reference: [dotfilesのすゝめ | kouki’s blog](https://blog.kmdkuk.com/2022/07/16/dotfilesのすゝめ.html)
+# Reference:
+# - [dotfilesのすゝめ | kouki’s blog](https://blog.kmdkuk.com/2022/07/16/dotfilesのすゝめ.html)
+# - [Running jobs in a container - GitHub Docs](https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container)
+# - [GitHub Actionsを使って、自分用にカスタムしたArch LinuxのISOイメージを作る](https://zenn.dev/inkohx/articles/3dbe67c0db1322)
 name: CI
 
 on:
   push:
 
 jobs:
-  run-setup:
+  setup-ubuntu:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install dotfiles on Ubuntu
+      - name: Setup dotfiles on Ubuntu
+        run: bash setup/linux/setup.sh
+
+  setup-arch:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:base
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup dotfiles on Arch Linux
         run: bash setup/linux/setup.sh
