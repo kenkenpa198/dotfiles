@@ -40,22 +40,13 @@ function link_sheldon {
 
 function link_wsl {
     # 環境ごとの実行
-    case ${OSTYPE} in
-        # Linux
-        linux* | msys*)
-            # WSL
-            if uname -r | grep -i 'microsoft' > /dev/null ; then
-                # Notes
-                if [ -d "/mnt/c/Users/$USER" ]; then
-                    mkdir -p "/mnt/c/Users/$USER/works/notes"
-                    ln -sfn "/mnt/c/Users/$USER/works/notes" ~/works/notes
-                fi
-            fi
-        ;;
-        # MacOS
-        darwin*)
-        ;;
-    esac
+    if [[ "$(uname -r)" == *microsoft* ]]; then
+        # Notes
+        if [ -d "/mnt/c/Users/$USER" ]; then
+            mkdir -p "/mnt/c/Users/$USER/works/notes"
+            ln -sfn "/mnt/c/Users/$USER/works/notes" ~/works/notes
+        fi
+    fi
 }
 
 function main {
