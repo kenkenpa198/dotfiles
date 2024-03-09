@@ -66,25 +66,26 @@ function check_required_packages {
     # https://qiita.com/8ayac/items/b6b6f0a385d08659316b
 
     # sudo
-    if ! (type "sudo" > /dev/null 2>&1); then
-        : sudo is not installed
-        case `cat /etc/issue` in
-            Ubuntu*)
-                : Ubuntu
-                : Install sudo with apt
-                sudo apt-get update && \
-                sudo apt-get install -y sudo
-            ;;
-            Arch*)
-                : Arch Linux
-                : Install sudo with pacman
-                sudo pacman -Syu --noconfirm sudo
-            ;;
-            *)
-                : Unmatched
-                echo "unmatched distributions"
-        esac
-    fi
+    # NOTE: sudo コマンドは存在する前提でしか自動化が難しそうなためコメントアウト
+    # if ! (type "sudo" > /dev/null 2>&1); then
+    #     : sudo is not installed
+    #     case `cat /etc/issue` in
+    #         Ubuntu*)
+    #             : Ubuntu
+    #             : Install sudo with apt
+    #             sudo apt-get update && \
+    #             sudo apt-get install -y sudo
+    #         ;;
+    #         Arch*)
+    #             : Arch Linux
+    #             : Install sudo with pacman
+    #             sudo pacman -Syu --noconfirm sudo
+    #         ;;
+    #         *)
+    #             : Unmatched
+    #             echo "unmatched distributions"
+    #     esac
+    # fi
 
     # git
     if ! (type "git" > /dev/null 2>&1); then
