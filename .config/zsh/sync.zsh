@@ -124,3 +124,14 @@ setopt prompt_subst
 # プロンプトを表示
 PROMPT='%F{179m%}%n@%m%F{black}%B:%F{white}%~%b `prompt-git-current-branch`
 %F{087m%}$%F{white} '
+
+# ディストリビューションによって表示分け
+# case `cat /etc/issue` in
+#     Arch*)
+#         : Arch Linux
+#         PROMPT='%F{c2%}%n@%m%F{black}%B:%F{white}%~%b `prompt-git-current-branch`'$'\n''%F{087m%}$%F{white} '
+#     ;;
+#     *)
+#         : Default prompt
+#         PROMPT='%F{179m%}%n@%m%F{black}%B:%F{white}%~%b `prompt-git-current-branch`'$'\n''%F{087m%}$%F{white} '
+# esac
