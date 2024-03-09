@@ -7,6 +7,16 @@ set -euo pipefail
 ###################################
 # 関数定義
 ###################################
+# 環境情報を表示
+function show_environment {
+    date
+    cat /etc/os-release
+    uname -a
+    env
+    pwd
+    whoami
+}
+
 # XDG Base Directory Specification
 function export_xdg {
     export XDG_CONFIG_HOME="$HOME/.config"
@@ -123,6 +133,9 @@ function print_finished {
 # メイン処理
 ###################################
 function main {
+    # 環境情報を表示
+    show_environment
+
     # XDG Base Directory Specification
     export_xdg
 
