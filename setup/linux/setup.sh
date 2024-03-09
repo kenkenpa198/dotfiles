@@ -139,6 +139,7 @@ function backup_origin_files {
 
 # 完了メッセージを表示
 function print_finished {
+    set +x
     echo "---------------------------------------"
     echo "Finished: $0"
     echo "---------------------------------------"
