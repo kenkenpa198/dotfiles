@@ -36,6 +36,8 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 
     - 参考) [インストール方法 | ArchWSL official documentation](https://wsldl-pg.github.io/ArchW-docs/locale/ja-JP/How-to-Setup/)
 
+4. ホームディレクトリ上で README 冒頭のコマンドを実行する。
+
 ### 1.2. Windows
 
 1. [1.1. Ubuntu / Arch Linux on WSL](#11-ubuntu--arch-linux-on-wsl) を完了する。
