@@ -58,6 +58,7 @@ function main {
         "pwgen"
         "tree"
         "wget"
+        "which"
         "zsh"
     )
 
