@@ -51,7 +51,7 @@ function main {
     $linkHash["${WSLHOME}\works\develop"] = '~\works\develop'
 
     # PowerShell プロファイル
-    $linkHash["${WSLHOME}\dotfiles\app\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
+    $linkHash["${WSLHOME}\dotfiles\.config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
 
     # VSCode 設定ファイル
     $linkHash["${WSLHOME}\dotfiles\.config\Code\User\snippets"]         = '~\AppData\Roaming\Code\User\snippets'
