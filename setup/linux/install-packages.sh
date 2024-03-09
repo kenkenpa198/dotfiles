@@ -49,32 +49,27 @@ function main {
         "zsh"
     )
 
-    # 利用するパッケージマネージャをディストリビューションごとに切り替える
-    case `cat /etc/issue` in
-        Arch*)
-            : Arch Linux
-            : add packages for pacman
-            packages+=(
-                "openssh"
-                "pacman-contrib"
-                "which"
-            )
-            : Install with pacman
-            install_with_pacman
-        ;;
-
-        *)
-            : Default
-            : add packages for apt
-            # Ubuntu 用パッケージを配列へ追加
-            packages+=(
-                "openssh-server"
-                "software-properties-common"
-            )
-            : Install with apt
-            install_with_apt
-        ;;
-    esac
+    # 利用するパッケージマネージャの分岐
+    if (type "pacman" > /dev/null 2>&1); then
+        : Exists pacman
+        : add packages for pacman
+        packages+=(
+            "openssh"
+            "pacman-contrib"
+            "which"
+        )
+        : Install with pacman
+        install_with_pacman
+    else
+        : Not exists some package managers
+        : add packages for apt
+        packages+=(
+            "openssh-server"
+            "software-properties-common"
+        )
+        : Install with apt
+        install_with_apt
+    fi
 
     set +x
     echo

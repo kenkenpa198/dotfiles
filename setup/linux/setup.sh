@@ -157,14 +157,11 @@ function main {
     # XDG Base Directory Specification
     export_xdg
 
-    # Arch の場合のみ pacman を初期化
-    case `cat /etc/issue` in
-        Arch*)
-            : Arch Linux
-            : Init pacman
-            init_pacman
-        ;;
-    esac
+    # pacman が存在する場合は初期化を実行する
+    if (type "pacman" > /dev/null 2>&1); then
+        : Init pacman
+        init_pacman
+    fi
 
     # セットアップに必須のパッケージが環境になければインストールする
     check_required_packages
