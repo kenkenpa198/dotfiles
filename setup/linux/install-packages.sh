@@ -5,12 +5,6 @@ set -euo pipefail
 
 # apt でインストールする
 function install_with_apt {
-    # Ubuntu 用パッケージを配列へ追加
-    packages+=(
-        "openssh-server"
-        "software-properties-common"
-    )
-
     # パッケージリストの取得・既存パッケージの更新
     sudo apt-get update && sudo apt-get upgrade -y
 
@@ -29,13 +23,6 @@ function install_with_apt {
 # pacman でインストールする
 function install_with_pacman {
     # [pacman - ArchWiki](https://wiki.archlinux.jp/index.php/Pacman)
-
-    # Arch 用パッケージを配列へ追加
-    packages+=(
-        "openssh"
-        "pacman-contrib"
-        "which"
-    )
 
     # パッケージリストの取得・既存パッケージの更新
     sudo pacman -Syu --noconfirm
@@ -64,19 +51,29 @@ function main {
 
     # 利用するパッケージマネージャをディストリビューションごとに切り替える
     case `cat /etc/issue` in
-        Ubuntu*)
-            : Ubuntu
-            : Install with apt
-            install_with_apt
-        ;;
         Arch*)
             : Arch Linux
+            : add packages for pacman
+            packages+=(
+                "openssh"
+                "pacman-contrib"
+                "which"
+            )
             : Install with pacman
             install_with_pacman
         ;;
+
         *)
-            : Unmatched
-            echo "unmatched distributions"
+            : Default
+            : add packages for apt
+            # Ubuntu 用パッケージを配列へ追加
+            packages+=(
+                "openssh-server"
+                "software-properties-common"
+            )
+            : Install with apt
+            install_with_apt
+        ;;
     esac
 
     set +x

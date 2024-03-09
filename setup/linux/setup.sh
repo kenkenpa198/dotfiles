@@ -91,20 +91,17 @@ function check_required_packages {
     if ! (type "git" > /dev/null 2>&1); then
         : Git is not installed
         case `cat /etc/issue` in
-            Ubuntu*)
-                : Ubuntu
-                : Install Git with apt
-                sudo apt-get update && \
-                sudo apt-get install -y git
-            ;;
             Arch*)
                 : Arch Linux
                 : Install Git with pacman
                 sudo pacman -Syu --noconfirm git
             ;;
             *)
-                : Unmatched
-                echo "unmatched distributions"
+                : Default
+                : Install Git with apt
+                sudo apt-get update && \
+                sudo apt-get install -y git
+            ;;
         esac
     fi
 }
