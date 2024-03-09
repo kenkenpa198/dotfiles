@@ -1,8 +1,6 @@
 <!-- omit in toc -->
 # dotfiles
 
-dotfiles for Ubuntu / Arch Linux on WSL.
-
 ```shell
 curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
 ```
