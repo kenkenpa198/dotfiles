@@ -29,6 +29,7 @@
             "keys": "ctrl+shift+f"
         }
     ],
+    "autoHideWindow": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
@@ -47,11 +48,16 @@
         {
             "adjustIndistinguishableColors": "indexed",
             "antialiasingMode": "cleartype",
+            "colorScheme":
+            {
+                "light": "Campbell"
+            },
             "font":
             {
                 "face": "HackGen Console",
                 "size": 11.0
             },
+            "historySize": 20000,
             "useAtlasEngine": true
         },
         "list":
@@ -64,10 +70,42 @@
                 "source": "Windows.Terminal.Wsl"
             },
             {
-                "colorScheme": "Campbell",
+                "guid": "{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}",
+                "hidden": false,
+                "name": "Ubuntu 22.04.3 LTS",
+                "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
+            },
+            {
+                "colorScheme": "KeM Terminal",
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Arch",
+                "guid": "{e112ad46-48b5-4b4e-8232-8c1eb9e83ead}",
+                "hidden": false,
+                "icon": "https://store-images.s-microsoft.com/image/apps.11817.13871330709152445.46e943f6-9e99-410e-9e95-f2a34eda8868.23dd7620-73c3-4195-bec6-39320ab1b05b?h=210",
+                "name": "Arch Linux",
+                "startingDirectory": "~"
+            },
+            {
+                "colorScheme": "Solarized Dark",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
+            },
+            {
+                "altGrAliasing": true,
+                "closeOnExit": "automatic",
+                "colorScheme": "Solarized Dark",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "cursorShape": "bar",
+                "elevate": true,
+                "guid": "{441efb7a-1c9e-4b97-ba89-a11f4052d109}",
+                "hidden": false,
+                "historySize": 9001,
+                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
+                "name": "Windows PowerShell: Admin",
+                "padding": "8, 8, 8, 8",
+                "snapOnInput": true,
+                "startingDirectory": "%USERPROFILE%",
+                "useAcrylic": false
             },
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -87,21 +125,6 @@
                 "hidden": false,
                 "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
                 "name": "Git Bash",
-                "startingDirectory": "~"
-            },
-            {
-                "guid": "{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}",
-                "hidden": false,
-                "name": "Ubuntu 22.04.3 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
-            },
-            {
-                "colorScheme": "KeM Terminal",
-                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Arch",
-                "guid": "{e112ad46-48b5-4b4e-8232-8c1eb9e83ead}",
-                "hidden": false,
-                "icon": "https://store-images.s-microsoft.com/image/apps.11817.13871330709152445.46e943f6-9e99-410e-9e95-f2a34eda8868.23dd7620-73c3-4195-bec6-39320ab1b05b?h=210",
-                "name": "Arch",
                 "startingDirectory": "~"
             }
         ]
@@ -156,26 +179,26 @@
         },
         {
             "background": "#1F2024",
-            "black": "#0C0C0C",
-            "blue": "#0037DA",
-            "brightBlack": "#767676",
-            "brightBlue": "#3B78FF",
-            "brightCyan": "#61D6D6",
-            "brightGreen": "#16C60C",
-            "brightPurple": "#B4009E",
-            "brightRed": "#E74856",
-            "brightWhite": "#F2F2F2",
-            "brightYellow": "#F9F1A5",
+            "black": "#282C34",
+            "blue": "#61AFEF",
+            "brightBlack": "#5A6374",
+            "brightBlue": "#61AFEF",
+            "brightCyan": "#56B6C2",
+            "brightGreen": "#98C379",
+            "brightPurple": "#C678DD",
+            "brightRed": "#E06C75",
+            "brightWhite": "#DCDFE4",
+            "brightYellow": "#E5C07B",
             "cursorColor": "#FFFFFF",
-            "cyan": "#3A96DD",
-            "foreground": "#FFFFFF",
-            "green": "#13A10E",
+            "cyan": "#56B6C2",
+            "foreground": "#DCDFE4",
+            "green": "#98C379",
             "name": "KeM Terminal",
-            "purple": "#881798",
-            "red": "#C50F1F",
+            "purple": "#C678DD",
+            "red": "#E06C75",
             "selectionBackground": "#FFFFFF",
-            "white": "#CCCCCC",
-            "yellow": "#C19C00"
+            "white": "#DCDFE4",
+            "yellow": "#E5C07B"
         },
         {
             "background": "#282C34",
@@ -362,6 +385,7 @@
             "yellow": "#808000"
         }
     ],
+    "tabSwitcherMode": "disabled",
     "themes": [],
     "windowingBehavior": "useAnyExisting"
 }
