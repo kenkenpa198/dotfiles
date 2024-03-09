@@ -9,12 +9,40 @@ set -euo pipefail
 ###################################
 # 環境情報を表示
 function show_environment {
+    : --------------------------------
+    : Display the current time
+    : --------------------------------
     date
-    cat /etc/os-release
+
+    : --------------------------------
+    : Show System Information
+    : --------------------------------
     uname -a
-    env
-    pwd
+
+    : --------------------------------
+    : Show OS Information
+    : --------------------------------
+    cat /etc/os-release
+
+    : --------------------------------
+    : Show current name name
+    : --------------------------------
     whoami
+
+    : --------------------------------
+    : Show current shell
+    : --------------------------------
+    echo $SHELL
+
+    : --------------------------------
+    : Show Environment Variables
+    : --------------------------------
+    env
+
+    : --------------------------------
+    : Print Working Directory
+    : --------------------------------
+    pwd
 }
 
 # XDG Base Directory Specification
@@ -111,7 +139,6 @@ function backup_origin_files {
 
 # 完了メッセージを表示
 function print_finished {
-    set +x
     echo "---------------------------------------"
     echo "Finished: $0"
     echo "---------------------------------------"
