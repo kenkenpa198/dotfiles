@@ -226,6 +226,12 @@ alias zmvnw="noglob zmv -nW" # 置換プレビュー
 alias strmd='PROMPT="%F{179m%}****@****%F{black}%B:%F{white}%1~%b
 %F{087m%}$%F{white} "'
 
+# zsh で使用できる色を一覧表示
+# [zsh で全 256 色を試しに表示みたい #Zsh - Qiita](https://qiita.com/k_ui/items/b02b93e3af13023c0bfd)
+zsh-colors() {
+    for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
+}
+
 
 ########################################
 # 環境ごとの読込
