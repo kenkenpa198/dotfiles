@@ -95,7 +95,7 @@ function showenv {
     cat /etc/os-release
 
     : --------------------------------
-    : Show current name name
+    : Show current user name
     : --------------------------------
     whoami
 
