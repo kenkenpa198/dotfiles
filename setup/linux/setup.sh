@@ -26,9 +26,32 @@ function init_pacman {
     sudo pacman -g
 }
 
-# Git が環境になければインストールする
-function check_git {
+# セットアップに必須のパッケージが環境になければインストールする
+function check_required_packages {
     # https://qiita.com/8ayac/items/b6b6f0a385d08659316b
+
+    # sudo
+    if ! (type "sudo" > /dev/null 2>&1); then
+        : sudo is not installed
+        case `cat /etc/issue` in
+            Ubuntu*)
+                : Ubuntu
+                : Install sudo with apt
+                sudo apt-get update && \
+                sudo apt-get install -y sudo
+            ;;
+            Arch*)
+                : Arch Linux
+                : Install sudo with pacman
+                sudo pacman -Syu sudo
+            ;;
+            *)
+                : Unmatched
+                echo "unmatched distributions"
+        esac
+    fi
+
+    # git
     if ! (type "git" > /dev/null 2>&1); then
         : Git is not installed
         case `cat /etc/issue` in
@@ -112,8 +135,8 @@ function main {
         ;;
     esac
 
-    # Git が環境になければインストールする
-    check_git
+    # セットアップに必須のパッケージが環境になければインストールする
+    check_required_packages
 
     # git clone dotfiles
     clone_dotfiles
