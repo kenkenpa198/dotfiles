@@ -14,10 +14,7 @@ function install_with_apt {
     sudo apt-get update && sudo apt-get upgrade -y
 
     # インストール
-    for package in "${packages[@]}"
-    do
-        sudo apt-get install -y "$package"
-    done
+    sudo apt-get install -y "${packages[@]}"
 
     # Git は PPA からインストールし直す
     # https://loumo.jp/archives/23149
