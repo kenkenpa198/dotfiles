@@ -76,7 +76,7 @@ alias seq100="seq -w 1 100" # 001 ～ 100 を表示
 alias ss="source $XDG_CONFIG_HOME/zsh/.zshrc"
 
 # 環境情報を表示
-function show_environment {
+function showenv {
     set -x
 
     : --------------------------------
