@@ -124,6 +124,7 @@ function main {
     sudo chsh "$USER" -s "$(which zsh)"
 
     # 完了メッセージを出力
+    set +x
     bash "${HOME}/dotfiles/setup/linux/header.sh" "Finished: $0"
     echo "Default shell:"
     echo "$SHELL"
@@ -136,8 +137,6 @@ function main {
     echo "    $ vim ~/.config/git/local"
     echo
     echo "Next, Please reboot host."
-
-    print_finished
 }
 
 main
