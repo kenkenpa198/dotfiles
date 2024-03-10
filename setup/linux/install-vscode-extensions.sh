@@ -2,7 +2,7 @@
 
 set -x
 set -euo pipefail
-bash "${HOME}/dotfiles/setup/linux/header.sh" "$0"
+bash "${HOME}/dotfiles/setup/linux/header.sh" "Run: $0"
 
 # VS Code の拡張機能をインストールするスクリプト
 # VS Code の拡張機能リストを1行ずつ変数へ代入して code コマンドでインストールする。

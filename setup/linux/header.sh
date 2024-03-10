@@ -15,7 +15,7 @@ function hr {
 
 function main {
     hr
-    echo Run: "$1"
+    echo "$1"
     hr
 }
 
