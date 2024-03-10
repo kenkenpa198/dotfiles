@@ -20,6 +20,10 @@ jobs:
     container:
       image: archlinux:base
     steps:
+      - name: Add and switch user
+        run: |
+          useradd -m -G wheel -s /bin/bash runner
+          su runner
       - name: Install sudo
         run: |
           pacman-key --init
@@ -29,7 +33,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Setup dotfiles on Arch Linux
         env:
-            USER: root
+            USER: runner
         run: |
-          su ci
           bash setup/linux/setup.sh
