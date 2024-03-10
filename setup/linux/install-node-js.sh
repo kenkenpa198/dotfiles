@@ -2,7 +2,7 @@
 
 set -x
 set -euo pipefail
-bash "${HOME}/dotfiles/setup/linux/header.sh" "$0"
+bash "${HOME}/dotfiles/setup/linux/header.sh" "Run: $0"
 
 # Node.js インストール
 # apt-get で Node.js を直接インストールできるが、
