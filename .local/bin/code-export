@@ -10,9 +10,11 @@ set -euo pipefail # エラーや未定義の変数が呼び出された場合プ
 
 
 main() {
-    out_path="$HOME/dotfiles/.config/Code/extensions"
+    local out_path="$HOME/dotfiles/.config/Code/extensions"
 
     # 上書き前のファイル内容を記録
+    # https://www.shellcheck.net/wiki/SC2155
+    local before
     before=$(cat "$out_path")
 
     # 実行環境の拡張機能を出力する

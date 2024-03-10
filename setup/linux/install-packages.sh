@@ -37,7 +37,7 @@ function install_with_pacman {
 
 function main {
     # インストールするパッケージの配列を定義
-    packages=(
+    local packages=(
         "cppcheck"
         "curl"
         "gcc"
@@ -53,7 +53,7 @@ function main {
     if (type "pacman" > /dev/null 2>&1); then
         : Exists pacman
         : add packages for pacman
-        packages+=(
+        local packages+=(
             "openssh"
             "pacman-contrib"
             "which"
@@ -63,7 +63,7 @@ function main {
     else
         : Not exists some package managers
         : add packages for apt
-        packages+=(
+        local packages+=(
             "openssh-server"
             "software-properties-common"
         )
