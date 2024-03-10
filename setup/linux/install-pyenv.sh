@@ -2,7 +2,7 @@
 
 set -x
 set -euo pipefail
-bash header.sh "$0"
+bash "${HOME}/dotfiles/setup/linux/header.sh" "$0"
 
 # Reference:
 # [pyenv/pyenv > Automatic installer](https://github.com/pyenv/pyenv?tab=readme-ov-file#automatic-installer)

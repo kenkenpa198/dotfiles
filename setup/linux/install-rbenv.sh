@@ -2,7 +2,7 @@
 
 set -x
 set -euo pipefail
-bash header.sh "$0"
+bash "${HOME}/dotfiles/setup/linux/header.sh" "$0"
 
 # Reference:
 # [rbenv/rbenv-installer](https://github.com/rbenv/rbenv-installer#rbenv-installer)
