@@ -44,6 +44,7 @@
 !setup/linux/install-node-js.sh
 !setup/linux/install-pyenv.sh
 !setup/linux/install-rbenv.sh
+!setup/linux/install-scripts.sh
 !setup/linux/install-vscode-extensions.sh
 !setup/linux/install-sheldon.sh
 !setup/linux/link.sh

@@ -176,6 +176,7 @@ function main {
     bash "${HOME}/dotfiles/setup/linux/install-packages.sh"
     bash "${HOME}/dotfiles/setup/linux/install-sheldon.sh"
     bash "${HOME}/dotfiles/setup/linux/install-my-scripts.sh"
+    bash "${HOME}/dotfiles/setup/linux/install-scripts.sh"
 
     # シンボリックリンクを作成
     bash "${HOME}/dotfiles/setup/linux/link.sh"

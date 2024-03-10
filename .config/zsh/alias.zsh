@@ -160,6 +160,16 @@ alias gswc="git switch -c"          # -c, --create      : 新しいブランチ�
 
 
 ########################################
+# google-translator
+########################################
+# https://github.com/Neos21/google-translator
+
+# $ gtr -t ja 'Hello World'
+# こんにちは世界
+alias gtj="gtr -t ja"
+
+
+########################################
 # Jekyll
 ########################################
 alias jkls="\
