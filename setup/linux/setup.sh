@@ -133,8 +133,7 @@ function main {
     git config -l
     echo
     echo "Please enter your [user.email] and [user.name] for Git."
-    echo
-    echo "    $ vim ~/.config/git/local"
+    echo "  $ vim ~/.config/git/local"
     echo
     echo "Next, Please reboot host."
 }
