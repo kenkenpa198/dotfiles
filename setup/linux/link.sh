@@ -49,6 +49,19 @@ function link_code {
     ln -sf "$HOME/dotfiles/.config/Code/User/snippets/markdown.json" "$HOME/.config/Code/User/snippets/"
 }
 
+function link_myscripts {
+    # XDG Base Directory Specification
+    local DOTFILES_BIN="$HOME/dotfiles/.local/bin"
+    local LOCAL_BIN="$HOME/.local/bin"
+    mkdir -p "$LOCAL_BIN"
+
+    # 自作コマンドすべてへ実行権限を付与
+    chmod -R +x "$DOTFILES_BIN"
+
+    # シンボリックリンクを作成（ファイル毎）
+    ls "$DOTFILES_BIN" | xargs -I{} ln -sf "$DOTFILES_BIN"/{} "$LOCAL_BIN"/{}
+}
+
 function link_wsl {
     # 環境ごとの実行
     if [[ "$(uname -r)" == *microsoft* ]]; then
@@ -66,6 +79,7 @@ function main {
     link_sheldon
     link_code
     link_wsl
+    link_myscripts
 
     set +x
     echo
