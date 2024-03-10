@@ -101,7 +101,7 @@ function main {
     init
 
     # ヘッダー出力
-    bash "${HOME}/dotfiles/setup/linux/header.sh" "$0"
+    bash "${HOME}/dotfiles/setup/linux/header.sh" "Start setup"
 
     # 環境情報を表示
     show_environment
@@ -125,7 +125,7 @@ function main {
 
     # 完了メッセージを出力
     set +x
-    bash "${HOME}/dotfiles/setup/linux/header.sh" "Finished: $0"
+    bash "${HOME}/dotfiles/setup/linux/header.sh" "Setup completed"
     echo "Default shell:"
     echo "$SHELL"
     echo
