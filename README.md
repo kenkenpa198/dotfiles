@@ -17,6 +17,7 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
     - [2.2. Git のキャッシュ削除手順](#22-git-のキャッシュ削除手順)
     - [2.3. PowerShell でスクリプトを実行する](#23-powershell-でスクリプトを実行する)
     - [2.4. Windows Terminal の GUID 復元手順](#24-windows-terminal-の-guid-復元手順)
+- [3. Reference](#3-reference)
 
 ## 1. Setup
 
@@ -134,3 +135,60 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 2. `新しいプロファイルを追加します` を選択する。
 3. `プロファイルを複製する` から `Ubuntu` など目的のプロファイルを選んで `複製` をクリックする。
 4. 複製されたプロファイルの GUID を既存のプロファイルへ記述する。
+
+## 3. Reference
+
+<!-- omit in toc -->
+### dotfiles
+
+- [ようこそdotfilesの世界へ \#Vim - Qiita](https://qiita.com/yutkat/items/c6c7584d9795799ee164)
+- [Windows と Mac で開発環境を揃える Tips 集 - Neo's World](https://neos21.net/tech/programming/windows-mac-environment.html)
+- [dotfilesのこだわりを晒す - エムスリーテックブログ](https://www.m3tech.blog/entry/dotfiles-bonsai)
+- [dotfilesのすゝめ \| kouki’s blog > CI](https://blog.kmdkuk.com/2022/07/16/dotfilesのすゝめ.html)
+
+<!-- omit in toc -->
+### XDG Base Directory
+
+- [XDG Base Directory - ArchWiki](https://wiki.archlinux.jp/index.php/XDG_Base_Directory)
+- [Dotfiles の整頓とバージョン管理：XDG Base Directory Specification と YADM の活用ガイド \#dotfiles - Qiita](https://qiita.com/LuckyWindsck/items/ef8ae12a3450344d8902)
+
+<!-- omit in toc -->
+### zsh
+
+- [Introduction - sheldon docs](https://sheldon.cli.rs/Introduction.html)
+- [高速で設定しやすいZsh/BashプラグインマネージャーSheldonの紹介](https://zenn.dev/ganta/articles/e1e0746136ce67)
+- [zsh で使う plugin manager を sheldon に移行 – ぶっちろぐ](https://bucci.bp7.org/archives/48515/)
+- [zsh設定ファイル（.zshrc）を分割する - fnwiya's quine](https://fnwiya.hatenablog.com/entry/2015/11/03/191902)
+
+<!-- omit in toc -->
+### shell script
+
+- [シェルスクリプトを高級言語のような書き味に近づける Tips 集](https://sousaku-memo.net/php-system/1817)
+- [使いやすいシェルスクリプトを書く \| Taichi Nakashima](https://deeeet.com/writing/2014/05/18/shell-template/)
+- [初心者向け、「上手い」シェルスクリプトの書き方メモ \#初心者 - Qiita](https://qiita.com/m-yamashita/items/889c116b92dc0bf4ea7d)
+- [bashのヒアドキュメントを活用する \#Bash - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
+
+<!-- omit in toc -->
+### Windows PowerShell
+
+- [実行ポリシーについて - PowerShell \| Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)
+- [Set-ExecutionPolicy (Microsoft.PowerShell.Security) - PowerShell \| Microsoft Learn](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.3)
+- [PowerShellでこのシステムではスクリプトの実行が無効になっているため、ファイル hoge.ps1 を読み込むことができません。となったときの対応方法 \#Windows10 - Qiita](https://qiita.com/ponsuke0531/items/4629626a3e84bcd9398f)
+- [PowerShellの.bashrc的な設定ファイルこと$Profileについての紹介 \#PowerShell - Qiita](https://qiita.com/smicle/items/0ca4e6ae14ea92000d18)
+
+<!-- omit in toc -->
+### Git
+
+- [Git - Git の設定](https://git-scm.com/book/ja/v2/Git-のカスタマイズ-Git-の設定)
+- [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
+- [gitignoreのホワイトリストの書き方 \#Git - Qiita](https://qiita.com/sventouz/items/574bd67c7e43fff10546)
+- [最低限しておくといいgitconfigの設定 \#Git - Qiita](https://qiita.com/hayamofu/items/d8103e789196bcd8b489)
+- [.gitconfigにinclude書くと捗る - 時計を壊せ](https://techblog.karupas.org/entry/2012/07/19/190313)
+
+<!-- omit in toc -->
+### CI
+
+- [GitHub Actions のクイックスタート - GitHub Docs](https://docs.github.com/ja/actions/quickstart)
+- [dotfilesのすゝめ \| kouki’s blog > CI](https://blog.kmdkuk.com/2022/07/16/dotfilesのすゝめ.html#ci)
+
+この他、処理ごとの参考文献は各スクリプトにコメントで記載しています。
