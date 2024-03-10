@@ -1,5 +1,11 @@
 #!/bin/bash
 
+set -x
+set -euo pipefail
+: ----------------------------------------
+: Run: "$0"
+: ----------------------------------------
+
 # Node.js インストール
 # apt-get で Node.js を直接インストールできるが、
 # 古いバージョン（v10系）しかインストールできないため nvm でインストールする。
@@ -7,9 +13,6 @@
 # nvm のインストール確認以降がうまくいかなかった場合、再起動して nvm --version から再開する。
 #
 # 参考: https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-wsl
-
-set -x
-set -euo pipefail
 
 function main {
     cd

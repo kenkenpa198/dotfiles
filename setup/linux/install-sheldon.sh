@@ -2,6 +2,9 @@
 
 set -x
 set -euo pipefail
+: ----------------------------------------
+: Run: "$0"
+: ----------------------------------------
 
 function main {
     if [ ! -e ~/.local/bin/sheldon ]; then
