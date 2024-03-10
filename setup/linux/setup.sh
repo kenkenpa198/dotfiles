@@ -92,25 +92,6 @@ function make_dir {
     mkdir -p ~/works/develop
 }
 
-# 完了メッセージを表示
-function print_finished {
-    set +x
-    echo "---------------------------------------"
-    echo "Finished: $0"
-    echo "---------------------------------------"
-    echo "Default shell: $SHELL"
-    echo "---------------------------------------"
-    echo "Git config:"
-    git config -l
-    echo "---------------------------------------"
-    echo "Please enter your [user.email] and [user.name] for Git."
-    echo
-    echo "    $ vim ~/.config/git/local"
-    echo
-    echo "---------------------------------------"
-    echo "Next, Please reboot host."
-}
-
 
 ###################################
 # メイン処理
@@ -143,6 +124,19 @@ function main {
     sudo chsh "$USER" -s "$(which zsh)"
 
     # 完了メッセージを出力
+    bash "${HOME}/dotfiles/setup/linux/header.sh" "Finished: $0"
+    echo "Default shell:"
+    echo "$SHELL"
+    echo
+    echo "Git config:"
+    git config -l
+    echo
+    echo "Please enter your [user.email] and [user.name] for Git."
+    echo
+    echo "    $ vim ~/.config/git/local"
+    echo
+    echo "Next, Please reboot host."
+
     print_finished
 }
 
