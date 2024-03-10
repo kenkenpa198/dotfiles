@@ -30,6 +30,7 @@
 !.local/bin/cj
 !.local/bin/code-export
 !.local/bin/ffmpeg-all
+!.local/bin/hr
 !.local/bin/moda
 !.local/state/crossnote/style.less
 
