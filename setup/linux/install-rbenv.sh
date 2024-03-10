@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Reference:
-# - [rbenv/rbenv-installer: Installer and doctor scripts for rbenv](https://github.com/rbenv/rbenv-installer#rbenv-installer)
-
 set -x
 set -euo pipefail
+: ----------------------------------------
+: Run: "$0"
+: ----------------------------------------
+
+# Reference:
+# [rbenv/rbenv-installer](https://github.com/rbenv/rbenv-installer#rbenv-installer)
 
 function main {
     cd

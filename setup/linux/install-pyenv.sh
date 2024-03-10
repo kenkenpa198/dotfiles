@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Reference:
-# https://github.com/pyenv/pyenv?tab=readme-ov-file#automatic-installer
-
 set -x
 set -euo pipefail
+: ----------------------------------------
+: Run: "$0"
+: ----------------------------------------
+
+# Reference:
+# [pyenv/pyenv > Automatic installer](https://github.com/pyenv/pyenv?tab=readme-ov-file#automatic-installer)
 
 function main {
     cd
