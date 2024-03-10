@@ -2,11 +2,47 @@
 
 set -x
 set -euo pipefail
-bash "${HOME}/dotfiles/setup/linux/header.sh" "$0"
 
 ###################################
 # 関数定義
 ###################################
+function init {
+    : Initialize
+    # pacman が存在する場合は初期化を実行する
+    if (type "pacman" > /dev/null 2>&1); then
+        # キーリングの初期化
+        sudo pacman-key --init
+        sudo pacman-key --populate
+        sudo pacman -Syy --noconfirm archlinux-keyring
+    fi
+
+    # check Git
+    : Check installed Git
+    if ! (type "git" > /dev/null 2>&1); then
+        : Git is not installed
+        if (type "pacman" > /dev/null 2>&1); then
+            : Exists pacman
+            : Install Git with pacman
+            sudo pacman -Syu --noconfirm git
+        else
+            : Not exists some package managers
+            : Install Git with apt
+            sudo apt-get update && \
+            sudo apt-get install -y git
+        fi
+    else
+        : Git is installed
+    fi
+
+    : Clone dotfiles
+    local DOTFILES_HOME=${HOME}/dotfiles
+    if [ ! -d "${DOTFILES_HOME}" ]; then
+        git clone https://github.com/kenkenpa198/dotfiles.git "${DOTFILES_HOME}"
+    else
+        git -C "${DOTFILES_HOME}" pull origin main || true
+    fi
+}
+
 # 環境情報を表示
 function show_environment {
     : Display the current time
@@ -37,70 +73,6 @@ function export_xdg {
     export XDG_CACHE_HOME="$HOME/.cache"
     export XDG_DATA_HOME="$HOME/.local/share"
     export XDG_STATE_HOME="$HOME/.local/state"
-}
-
-# pacman の初期化
-function init_pacman {
-    # キーリングの初期化
-    sudo pacman-key --init
-    sudo pacman-key --populate
-    sudo pacman -Syy --noconfirm archlinux-keyring
-}
-
-# セットアップに必須のパッケージが環境になければインストールする
-function check_required_packages {
-    # https://qiita.com/8ayac/items/b6b6f0a385d08659316b
-
-    # sudo
-    # NOTE: sudo コマンドは存在する前提でしか自動化が難しそうなためコメントアウト
-    # if ! (type "sudo" > /dev/null 2>&1); then
-    #     : sudo is not installed
-    #     case `cat /etc/issue` in
-    #         Ubuntu*)
-    #             : Ubuntu
-    #             : Install sudo with apt
-    #             sudo apt-get update && \
-    #             sudo apt-get install -y sudo
-    #         ;;
-    #         Arch*)
-    #             : Arch Linux
-    #             : Install sudo with pacman
-    #             sudo pacman -Syu --noconfirm sudo
-    #         ;;
-    #         *)
-    #             : Unmatched
-    #             echo "unmatched distributions"
-    #     esac
-    # fi
-
-    # git
-    if ! (type "git" > /dev/null 2>&1); then
-        : Git is not installed
-        case `cat /etc/issue` in
-            Arch*)
-                : Arch Linux
-                : Install Git with pacman
-                sudo pacman -Syu --noconfirm git
-            ;;
-            *)
-                : Default
-                : Install Git with apt
-                sudo apt-get update && \
-                sudo apt-get install -y git
-            ;;
-        esac
-    fi
-}
-
-# git clone dotfiles
-function clone_dotfiles {
-    local DOTFILES_HOME=${HOME}/dotfiles
-
-    if [ ! -d "${DOTFILES_HOME}" ]; then
-        git clone https://github.com/kenkenpa198/dotfiles.git "${DOTFILES_HOME}"
-    else
-        git -C "${DOTFILES_HOME}" pull origin main || true
-    fi
 }
 
 # ディレクトリを作成
@@ -137,23 +109,17 @@ function print_finished {
 # メイン処理
 ###################################
 function main {
+    # 初期化処理
+    init
+
+    # ヘッダー出力
+    bash "${HOME}/dotfiles/setup/linux/header.sh" "$0"
+
     # 環境情報を表示
     show_environment
 
     # XDG Base Directory Specification
     export_xdg
-
-    # pacman が存在する場合は初期化を実行する
-    if (type "pacman" > /dev/null 2>&1); then
-        : Init pacman
-        init_pacman
-    fi
-
-    # セットアップに必須のパッケージが環境になければインストールする
-    check_required_packages
-
-    # git clone dotfiles
-    clone_dotfiles
 
     # ディレクトリを作成
     make_dir
