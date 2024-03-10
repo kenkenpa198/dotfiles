@@ -42,6 +42,7 @@ function main {
         "curl"
         "gcc"
         "git"
+        "jq"
         "neofetch"
         "pwgen"
         "tree"
