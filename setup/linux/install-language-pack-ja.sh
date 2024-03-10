@@ -2,7 +2,7 @@
 
 set -x
 set -euo pipefail
-bash header.sh "$0"
+bash "${HOME}/dotfiles/setup/linux/header.sh" "$0"
 
 function main {
     # パッケージリストの取得・既存パッケージの更新
