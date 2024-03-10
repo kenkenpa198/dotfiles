@@ -6,17 +6,23 @@ set -euo pipefail
 ###################################
 # 関数定義
 ###################################
+# 初期化処理
 function init {
     : Initialize
-    # pacman が存在する場合は初期化を実行する
+
+    # pacman が存在する場合はキーリングを初期化する
+    : Check pacman
     if (type "pacman" > /dev/null 2>&1); then
-        # キーリングの初期化
+        : Exists pacman
+        : Init pacman key
         sudo pacman-key --init
         sudo pacman-key --populate
         sudo pacman -Syy --noconfirm archlinux-keyring
+    else
+        : pacman is not installed
     fi
 
-    # check Git
+    # Git がインストールされていない場合は各パッケージマネージャでインストールする
     : Check installed Git
     if ! (type "git" > /dev/null 2>&1); then
         : Git is not installed
@@ -34,6 +40,7 @@ function init {
         : Git is installed
     fi
 
+    # dotfiles を clone
     : Clone dotfiles
     local DOTFILES_HOME=${HOME}/dotfiles
     if [ ! -d "${DOTFILES_HOME}" ]; then
@@ -127,7 +134,6 @@ function main {
     # アプリケーションのインストール
     bash "${HOME}/dotfiles/setup/linux/install-packages.sh"
     bash "${HOME}/dotfiles/setup/linux/install-sheldon.sh"
-    bash "${HOME}/dotfiles/setup/linux/install-my-scripts.sh"
     bash "${HOME}/dotfiles/setup/linux/install-scripts.sh"
 
     # シンボリックリンクを作成
