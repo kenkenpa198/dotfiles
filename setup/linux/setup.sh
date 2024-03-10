@@ -108,7 +108,7 @@ function check_required_packages {
 
 # git clone dotfiles
 function clone_dotfiles {
-    DOTFILES_HOME=${HOME}/dotfiles
+    local DOTFILES_HOME=${HOME}/dotfiles
 
     if [ ! -d "${DOTFILES_HOME}" ]; then
         git clone https://github.com/kenkenpa198/dotfiles.git "${DOTFILES_HOME}"

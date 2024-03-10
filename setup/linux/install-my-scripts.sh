@@ -4,8 +4,8 @@ set -x
 set -euo pipefail
 
 function main {
-    DOTFILES_BIN="$HOME/dotfiles/.local/bin"
-    LOCAL_BIN="$HOME/.local/bin"
+    local DOTFILES_BIN="$HOME/dotfiles/.local/bin"
+    local LOCAL_BIN="$HOME/.local/bin"
 
     # 自作コマンドすべてへ実行権限を付与
     chmod -R +x "$DOTFILES_BIN"
