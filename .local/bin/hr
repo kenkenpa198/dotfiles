@@ -13,6 +13,11 @@ set -euo pipefail
 #   $ hr
 #   ======================================...
 
-function hr {
+function main() {
+    # 1. '=' をシェルの幅分の行数で出力
+    # 2. 改行コードを除去して 1 行にする
+    # 3. 改行コードを行末へ加えるために awk を通して出力
     yes '=' | head -n "$(tput cols)" | tr -d '\n' | awk '1'
 }
+
+main
