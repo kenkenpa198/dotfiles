@@ -15,11 +15,17 @@ jobs:
       - name: Setup dotfiles on Ubuntu
         run: bash setup/linux/setup.sh
 
-  # setup-archlinux:
-  #   runs-on: ubuntu-latest
-  #   container:
-  #     image: archlinux:base
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - name: Setup dotfiles on Arch Linux
-  #       run: bash setup/linux/setup.sh
+  setup-archlinux:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:base
+    steps:
+      - name: Install sudo
+        run: |
+          pacman-key --init
+          pacman-key --populate
+          pacman -Syy --noconfirm archlinux-keyring
+          pacman -Syu --noconfirm sudo
+      - uses: actions/checkout@v4
+      - name: Setup dotfiles on Arch Linux
+        run: bash setup/linux/setup.sh
