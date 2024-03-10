@@ -2,9 +2,7 @@
 
 set -x
 set -euo pipefail
-: ----------------------------------------
-: Run: "$0"
-: ----------------------------------------
+bash header.sh "$0"
 
 # apt でインストールする
 function install_with_apt {

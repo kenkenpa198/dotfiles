@@ -37,6 +37,8 @@
 !app/WSL/.wslconfig
 
 !setup/macos/Brewfile
+
+!setup/linux/header.sh
 !setup/linux/install-packages.sh
 !setup/linux/install-jekyll.sh
 !setup/linux/install-language-pack-ja.sh
@@ -47,8 +49,10 @@
 !setup/linux/install-vscode-extensions.sh
 !setup/linux/install-sheldon.sh
 !setup/linux/link.sh
+!setup/linux/notice.sh
 !setup/linux/setup.sh
 !setup/linux/setup-ja.sh
+
 !setup/windows/get-apps.ps1
 !setup/windows/install-apps-from-msstore.ps1
 !setup/windows/install-apps-from-winget.ps1

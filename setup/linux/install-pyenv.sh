@@ -2,9 +2,7 @@
 
 set -x
 set -euo pipefail
-: ----------------------------------------
-: Run: "$0"
-: ----------------------------------------
+bash header.sh "$0"
 
 # Reference:
 # [pyenv/pyenv > Automatic installer](https://github.com/pyenv/pyenv?tab=readme-ov-file#automatic-installer)
