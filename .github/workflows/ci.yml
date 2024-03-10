@@ -26,6 +26,10 @@ jobs:
           pacman-key --populate
           pacman -Syy --noconfirm archlinux-keyring
           pacman -Syu --noconfirm sudo
+      - name: Add and switch user
+        run: |
+          useradd -m -G wheel -s /bin/bash ci
+          su ci
       - uses: actions/checkout@v4
       - name: Setup dotfiles on Arch Linux
         run: bash setup/linux/setup.sh
