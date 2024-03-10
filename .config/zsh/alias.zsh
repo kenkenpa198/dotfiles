@@ -208,9 +208,9 @@ alias rbenv-doctor="curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD
 ########################################
 # tree
 ########################################
-alias tr="tree --dirsfirst -I '__pycache__'"                # 隠しファイル以外を表示
-alias tra="tree -a --dirsfirst -I '__pycache__|.venv|.git'" # 隠しファイルを含めて表示（設定系のファイルは除外）
-alias traa="tree -a --dirsfirst"                            # とにかくすべて表示
+alias tree="tree --dirsfirst -I '__pycache__'"                # 隠しファイル以外を表示
+alias treea="tree -a --dirsfirst -I '__pycache__|.venv|.git'" # 隠しファイルを含めて表示（設定系のファイルは除外）
+alias treeaa="tree -a --dirsfirst"                            # とにかくすべて表示
 
 
 ########################################

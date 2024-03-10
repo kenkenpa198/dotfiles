@@ -2,9 +2,7 @@
 
 set -x
 set -euo pipefail
-: ----------------------------------------
-: Run: "$0"
-: ----------------------------------------
+bash header.sh "$0"
 
 # Reference:
 # [rbenv/rbenv-installer](https://github.com/rbenv/rbenv-installer#rbenv-installer)

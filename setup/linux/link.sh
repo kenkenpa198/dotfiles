@@ -2,9 +2,7 @@
 
 set -x
 set -euo pipefail
-: ----------------------------------------
-: Run: "$0"
-: ----------------------------------------
+bash header.sh "$0"
 
 function link_git {
     # .giticonfig.local のテンプレートファイルを作成
