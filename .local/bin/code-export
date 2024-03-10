@@ -6,7 +6,10 @@ set -euo pipefail # エラーや未定義の変数が呼び出された場合プ
 # code-export
 ###################################
 # VS Code の拡張機能をエクスポートする
-# 実行環境が WSL の場合はローカル環境の拡張機能を追記する
+
+# - 実行環境が WSL の場合はローカル環境の拡張機能を追記する
+# - インストールは次のスクリプトを実行する
+#     $ bash ~/dotfiles/setup/linux/install-vscode-extensions.sh
 
 
 main() {
