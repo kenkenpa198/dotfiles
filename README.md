@@ -186,6 +186,12 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [.gitconfigにinclude書くと捗る - 時計を壊せ](https://techblog.karupas.org/entry/2012/07/19/190313)
 
 <!-- omit in toc -->
+### AutoHotKey v2
+
+- [クイックリファレンス｜AutoHotkey v2](https://ahkscript.github.io/ja/docs/v2/)
+- [AutoHotKey : Google Chrome専用スクリプト - imani-cの日記](https://imani-c.hatenablog.com/entry/2023/01/29/141328)
+
+<!-- omit in toc -->
 ### CI
 
 - [GitHub Actions のクイックスタート - GitHub Docs](https://docs.github.com/ja/actions/quickstart)
