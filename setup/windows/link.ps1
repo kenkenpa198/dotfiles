@@ -48,27 +48,27 @@ function main {
     $WSL_HOME = "\\wsl.localhost\Ubuntu\home\${env:USERNAME}"
     $DOTFILES_HOME = "$WSL_HOME\dotfiles"
 
+    # .bashrc
+    $linkHash["${WSL_HOME}\.bashrc"] = '~\.bashrc'
+
     # develop
     $linkHash["${WSL_HOME}\works\develop"] = '~\works\develop'
 
-    # Git Bash .bashrc
-    $linkHash["${WSL_HOME}\.bashrc"] = '~\.bashrc'
-
-    # PowerShell Profile
-    $linkHash["${DOTFILES_HOME}\.config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
-
-    # VS Code
+    # Code
     $linkHash["${DOTFILES_HOME}\.config\Code\User\snippets"]         = '~\AppData\Roaming\Code\User\snippets'
     $linkHash["${DOTFILES_HOME}\.config\Code\User\keybindings.json"] = '~\AppData\Roaming\Code\User\keybindings.json'
     $linkHash["${DOTFILES_HOME}\.config\Code\User\settings.json"]    = '~\AppData\Roaming\Code\User\settings.json'
 
-    # Azure Data Studio
-    $linkHash["${DOTFILES_HOME}\.config\azuredatastudio\User\settings.json"] = '~\AppData\Roaming\azuredatastudio\User\settings.json'
-
-    # Windows Terminal
+    # Microsoft.WindowsTerminal
     $linkHash["${DOTFILES_HOME}\.config\Microsoft.WindowsTerminal\LocalState\settings.json"] = '~\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json'
 
-    # Git
+    # WindowsPowerShell
+    $linkHash["${DOTFILES_HOME}\.config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
+
+    # azuredatastudio
+    $linkHash["${DOTFILES_HOME}\.config\azuredatastudio\User\settings.json"] = '~\AppData\Roaming\azuredatastudio\User\settings.json'
+
+    # git
     $linkHash["${DOTFILES_HOME}\.config\git\config"] = '~\.config\git\config'
     $linkHash["${DOTFILES_HOME}\.config\git\ignore"] = '~\.config\git\ignore'
     $linkHash["${DOTFILES_HOME}\.config\git\local"]  = '~\.config\git\local'
