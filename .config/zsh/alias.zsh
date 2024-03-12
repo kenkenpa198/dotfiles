@@ -167,14 +167,14 @@ alias gswc="git switch -c"          # -c, --create      : 新しいブランチ�
 alias gt="gtr"
 
 # Japanese => English
-#   $ gtr -s ja -t en 'こんにちは世界'
+#   $ gtr -s 'ja' -t 'en' 'こんにちは世界'
 #   Hello World
-alias gtje="gtr -s ja -t en"
+alias gtje="gtr -s 'ja' -t 'en'"
 
 # English => Japanese
-#   $ gtr -s en -t ja 'Hello World'
+#   $ gtr -s 'en' -t 'ja`` 'Hello World'
 #   こんにちは世界
-alias gtej="gtr -s en -t ja"
+alias gtej="gtr -s 'en' -t 'ja'"
 
 
 ########################################
