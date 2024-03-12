@@ -14,6 +14,8 @@
 !.config/Code/User/keybindings.json
 !.config/Microsoft.WindowsTerminal/LocalState/settings.json
 !.config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+!.config/autohotkey/emacs.ahk
+!.config/autohotkey/excel.ahk
 !.config/autohotkey/main.ahk
 !.config/azuredatastudio/User/settings.json
 !.config/git/config
