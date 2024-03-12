@@ -26,6 +26,7 @@ function main {
         'NickeManarin.ScreenToGif'
         'Obsidian.Obsidian'
         'OBSProject.OBSStudio'
+        'Oracle.VirtualBox'
         'RealVNC.VNCViewer'
         'SaeraSoft.CaesiumImageCompress'
         'Unity.UnityHub'
