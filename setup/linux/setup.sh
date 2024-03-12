@@ -10,34 +10,34 @@ set -euo pipefail
 function init {
     : Initialize
 
-    # pacman が存在する場合はキーリングを初期化する
-    : Check pacman
+    # パッケージアップデートと Git インストール
+    : Update packages and install Git
     if (type "pacman" > /dev/null 2>&1); then
         : Exists pacman
+
         : Init pacman key
         sudo pacman-key --init
         sudo pacman-key --populate
         sudo pacman -Syy --noconfirm archlinux-keyring
-    else
-        : pacman is not installed
-    fi
 
-    # Git がインストールされていない場合は各パッケージマネージャでインストールする
-    : Check installed Git
-    if ! (type "git" > /dev/null 2>&1); then
-        : Git is not installed
-        if (type "pacman" > /dev/null 2>&1); then
-            : Exists pacman
-            : Install Git with pacman
-            sudo pacman -Syu --noconfirm git
-        else
-            : Not exists some package managers
-            : Install Git with apt
-            sudo apt-get update && \
-            sudo apt-get install -y git
-        fi
+        : Update packages
+        sudo pacman -Syyu
+
+        : Install Git
+        sudo pacman -S --noconfirm git
+
+    elif (type "apt-get" > /dev/null 2>&1); then
+        : Exists apt-get
+
+        : Update packages
+        sudo apt-get update && sudo apt-get upgrade -y
+
+        : Install Git
+        sudo apt-get install -y git
     else
-        : Git is installed
+        : Supported package managers not exists
+        : Abort install
+        exit
     fi
 
     # dotfiles を clone
