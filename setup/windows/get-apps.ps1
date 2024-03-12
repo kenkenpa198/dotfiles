@@ -24,10 +24,10 @@ cd ~\Downloads
 # https://forest.watch.impress.co.jp/library/software/changekey/
 curl.exe -OL https://dforest.watch.impress.co.jp/library/c/changekey/10668/ChgKey15.LZH
 
-# alt-ime-ahk v0.4.6
-# https://www.karakaram.com/alt-ime-on-off/
-# https://github.com/karakaram/alt-ime-ahk/releases
-curl.exe -OL https://github.com/karakaram/alt-ime-ahk/releases/download/v0.4.6/alt-ime-ahk.zip
+# US-AltIME.ahk v0.1
+# https://github.com/kskmori/US-AltIME.ahk
+# https://github.com/kskmori/US-AltIME.ahk/releases
+curl.exe -OL https://github.com/kskmori/US-AltIME.ahk/releases/download/v0.1/US-AltIME-0.1.zip
 
 # サクラエディタ v2.4.2
 # https://sakura-editor.github.io/
@@ -56,10 +56,10 @@ curl.exe -OL https://tablet.wacom.co.jp/download/driver/WacomTablet_6.4.0-11.exe
 ########################################
 # フォント
 ########################################
-# HackGen v2.8.0
+# HackGen v2.9.0
 # https://qiita.com/tawara_/items/374f3ca0a386fab8b305
 # https://github.com/yuru7/HackGen/releases
-curl.exe -OL https://github.com/yuru7/HackGen/releases/download/v2.8.0/HackGen_v2.8.0.zip
+curl.exe -OL https://github.com/yuru7/HackGen/releases/download/v2.9.0/HackGen_v2.9.0.zip
 
 # Noto Sans Japanese
 # https://fonts.google.com/noto/specimen/Noto+Sans+JP
