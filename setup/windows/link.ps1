@@ -45,32 +45,33 @@ function main {
     # 配列へ追加: WSL 環境
     ########################################
     # WSL 側のホームディレクトリパスを初期化
-    $WSLHOME = "\\wsl.localhost\Ubuntu\home\${env:USERNAME}"
+    $WSL_HOME = "\\wsl.localhost\Ubuntu\home\${env:USERNAME}"
+    $DOTFILES_HOME = "$WSL_HOME\dotfiles"
 
     # develop
-    $linkHash["${WSLHOME}\works\develop"] = '~\works\develop'
-
-    # PowerShell プロファイル
-    $linkHash["${WSLHOME}\dotfiles\.config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
-
-    # VSCode 設定ファイル
-    $linkHash["${WSLHOME}\dotfiles\.config\Code\User\snippets"]         = '~\AppData\Roaming\Code\User\snippets'
-    $linkHash["${WSLHOME}\dotfiles\.config\Code\User\keybindings.json"] = '~\AppData\Roaming\Code\User\keybindings.json'
-    $linkHash["${WSLHOME}\dotfiles\.config\Code\User\settings.json"]    = '~\AppData\Roaming\Code\User\settings.json'
-
-    # Azure Data Studio 設定ファイル
-    $linkHash["${WSLHOME}\dotfiles\.config\azuredatastudio\User\settings.json"] = '~\AppData\Roaming\azuredatastudio\User\settings.json'
-
-    # Windows Terminal
-    $linkHash["${WSLHOME}\dotfiles\.config\Microsoft.WindowsTerminal\LocalState\settings.json"] = '~\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json'
+    $linkHash["${WSL_HOME}\works\develop"] = '~\works\develop'
 
     # Git Bash .bashrc
-    $linkHash["${WSLHOME}\.bashrc"] = '~\.bashrc'
+    $linkHash["${WSL_HOME}\.bashrc"] = '~\.bashrc'
 
-    # .git***
-    $linkHash["${WSLHOME}\dotfiles\.config\git\config"] = '~\.config\git\config'
-    $linkHash["${WSLHOME}\dotfiles\.config\git\ignore"] = '~\.config\git\ignore'
-    $linkHash["${WSLHOME}\dotfiles\.config\git\local"]  = '~\.config\git\local'
+    # PowerShell Profile
+    $linkHash["${DOTFILES_HOME}\.config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
+
+    # VS Code
+    $linkHash["${DOTFILES_HOME}\.config\Code\User\snippets"]         = '~\AppData\Roaming\Code\User\snippets'
+    $linkHash["${DOTFILES_HOME}\.config\Code\User\keybindings.json"] = '~\AppData\Roaming\Code\User\keybindings.json'
+    $linkHash["${DOTFILES_HOME}\.config\Code\User\settings.json"]    = '~\AppData\Roaming\Code\User\settings.json'
+
+    # Azure Data Studio
+    $linkHash["${DOTFILES_HOME}\.config\azuredatastudio\User\settings.json"] = '~\AppData\Roaming\azuredatastudio\User\settings.json'
+
+    # Windows Terminal
+    $linkHash["${DOTFILES_HOME}\.config\Microsoft.WindowsTerminal\LocalState\settings.json"] = '~\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json'
+
+    # Git
+    $linkHash["${DOTFILES_HOME}\.config\git\config"] = '~\.config\git\config'
+    $linkHash["${DOTFILES_HOME}\.config\git\ignore"] = '~\.config\git\ignore'
+    $linkHash["${DOTFILES_HOME}\.config\git\local"]  = '~\.config\git\local'
 
 
     ########################################
