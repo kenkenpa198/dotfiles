@@ -172,7 +172,7 @@ alias gt="gtr"
 alias gtje="gtr -s 'ja' -t 'en'"
 
 # English => Japanese
-#   $ gtr -s 'en' -t 'ja`` 'Hello World'
+#   $ gtr -s 'en' -t 'ja' 'Hello World'
 #   こんにちは世界
 alias gtej="gtr -s 'en' -t 'ja'"
 
