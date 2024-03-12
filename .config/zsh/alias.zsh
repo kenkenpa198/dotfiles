@@ -22,7 +22,7 @@ show-env-ver() {
 }
 
 # cd
-alias dev="cd ~/works/develop"
+alias dv="cd ~/works/develop"
 alias dot="cd ~/dotfiles"
 alias note="cd ~/works/notes"
 alias gr='cd "$(git rev-parse --show-toplevel)"'
@@ -164,13 +164,17 @@ alias gswc="git switch -c"          # -c, --create      : 新しいブランチ�
 ########################################
 # https://github.com/Neos21/google-translator
 
-# $ gtr 'こんにちは世界'
-# Hello World
 alias gt="gtr"
 
-# $ gtr -t ja 'Hello World'
-# こんにちは世界
-alias gtj="gtr -t ja"
+# Japanese => English
+#   $ gtr -s ja -t en 'こんにちは世界'
+#   Hello World
+alias gtje="gtr -s ja -t en"
+
+# English => Japanese
+#   $ gtr -s en -t ja 'Hello World'
+#   こんにちは世界
+alias gtej="gtr -s en -t ja"
 
 
 ########################################
