@@ -65,6 +65,9 @@ function main {
     # WindowsPowerShell
     $linkHash["${DOTFILES_HOME}\.config\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"] = '~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
 
+    # autohotkey
+    $linkHash["${DOTFILES_HOME}\.config\autohotkey\main.ahk"] = '~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\main.ahk'
+
     # azuredatastudio
     $linkHash["${DOTFILES_HOME}\.config\azuredatastudio\User\settings.json"] = '~\AppData\Roaming\azuredatastudio\User\settings.json'
 
