@@ -364,10 +364,10 @@
       "KC_LBRC",
       "KC_RBRC",
       "KC_BSLS",
-      "KC_DEL",
+      "LT(6,KC_DEL)",
       "KC_NO",
       "KC_NO",
-      "MO(4)",
+      "KC_F13",
       "KC_A",
       "KC_S",
       "KC_D",
@@ -420,7 +420,7 @@
       "KC_RGHT"
     ],
     [
-      "MO(6)",
+      "KC_TRNS",
       "KC_NO",
       "KC_NO",
       "KC_NO",
