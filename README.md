@@ -9,9 +9,10 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 ## TOC
 
 - [1. Setup](#1-setup)
-    - [1.1. Ubuntu / Arch Linux on WSL](#11-ubuntu--arch-linux-on-wsl)
-    - [1.2. Windows](#12-windows)
-    - [1.3. MacOS](#13-macos)
+    - [1.1. Ubuntu](#11-ubuntu)
+    - [1.2. Arch Linux](#12-arch-linux)
+    - [1.3. WSL on Windows](#13-wsl-on-windows)
+    - [1.4. MacOS](#14-macos)
 - [2. Tips](#2-tips)
     - [2.1. ホワイトリスト形式の .gitignore](#21-ホワイトリスト形式の-gitignore)
     - [2.2. Git のキャッシュ削除手順](#22-git-のキャッシュ削除手順)
@@ -21,7 +22,30 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 
 ## 1. Setup
 
-### 1.1. Ubuntu / Arch Linux on WSL
+※ すべて root ユーザーでないこと・`sudo` コマンドが使用できることが前提。
+
+### 1.1. Ubuntu
+
+README 冒頭のコマンドを実行する。
+
+### 1.2. Arch Linux
+
+1. プレーンな環境の場合、pacman のキーリングを初期化する。
+
+    ```shell
+    sudo pacman-key --init
+    sudo pacman-key --populate
+    sudo pacman -Syy --noconfirm archlinux-keyring
+    ```
+
+    - 参考)
+
+        - [pacman/パッケージの署名 - ArchWiki](https://wiki.archlinux.jp/index.php/Pacman/パッケージの署名#.E3.82.AD.E3.83.BC.E3.83.AA.E3.83.B3.E3.82.B0.E3.81.AE.E5.88.9D.E6.9C.9F.E5.8C.96)
+        - [インストール方法 \| ArchWSL official documentation](https://wsldl-pg.github.io/ArchW-docs/locale/ja-JP/How-to-Setup/#キーリングの初期化)
+
+2. README 冒頭のコマンドを実行する。
+
+### 1.3. WSL on Windows
 
 1. PowerShell を管理者権限で起動し、次のコマンドを実行して WSL をセットアップする。
 
@@ -37,16 +61,13 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 
     - 参考) [インストール方法 | ArchWSL official documentation](https://wsldl-pg.github.io/ArchW-docs/locale/ja-JP/How-to-Setup/)
 
-4. ホームディレクトリ上で README 冒頭のコマンドを実行する。
+4. WSL Ubuntu のホームディレクトリ上で README 冒頭のコマンドを実行する。
 
-### 1.2. Windows
+5. 管理者権限の PowerShell で [setup/windows](setup/windows) 配下のスクリプトを順次実行する。
 
-1. [1.1. Ubuntu / Arch Linux on WSL](#11-ubuntu--arch-linux-on-wsl) を完了する。
-2. 管理者権限の PowerShell で [setup/windows](setup/windows) 配下のスクリプトを順次実行する。
+### 1.4. MacOS
 
-### 1.3. MacOS
-
-その内書く
+次触った時に書く。
 
 ## 2. Tips
 
