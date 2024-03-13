@@ -15,11 +15,6 @@ function init {
     if (type "pacman" > /dev/null 2>&1); then
         : Exists pacman
 
-        : Init pacman key
-        sudo pacman-key --init
-        sudo pacman-key --populate
-        sudo pacman -Syy --noconfirm archlinux-keyring
-
         : Update packages
         sudo pacman -Syyu
 
@@ -36,7 +31,7 @@ function init {
         sudo apt-get install -y git
     else
         : Supported package managers not exists
-        : Abort install
+        : Abort setup
         exit
     fi
 
