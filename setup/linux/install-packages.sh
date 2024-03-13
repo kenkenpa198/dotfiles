@@ -45,7 +45,9 @@ function main {
         "git"
         "jq"
         "neofetch"
+        "make"
         "pwgen"
+        "patch"
         "tree"
         "vim"
         "wget"
@@ -60,6 +62,7 @@ function main {
             "openssh"
             "pacman-contrib"
             "which"
+            "yay"
         )
         : Install with pacman
         install_with_pacman
