@@ -47,6 +47,7 @@ function main {
         "neofetch"
         "pwgen"
         "tree"
+        "vim"
         "wget"
         "zsh"
     )
