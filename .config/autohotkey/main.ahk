@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
 
-;;; Function Keys ;;;
+;;; Function keys ;;;
 F13 & 1::F1
 F13 & 2::F2
 F13 & 3::F3
@@ -21,6 +21,7 @@ F13 & o::F10       ; Convert to half-width char
 ;;; for 60% Layout ;;;
 F13 & '::`
 F13 & \::PrintScreen
+F13 & BS::Del
 !BS::Del
 
 ;;; Shortcuts ;;;
