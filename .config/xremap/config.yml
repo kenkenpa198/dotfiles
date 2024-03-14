@@ -1,13 +1,74 @@
+virtual_modifiers:
+  # CapsLock を修飾キーとして扱う
+  - CapsLock
+
 modmap:
-  - name: Except Chrome
-    application:
-      not: Google-chrome
+  - name: Switch IME with Alt
     remap:
-      CapsLock: Esc
+      KEY_LEFTALT:
+        held: KEY_LEFTALT
+        alone: KEY_MUHENKAN
+        alone_timeout_millis: 150
+      KEY_RIGHTALT:
+        held: KEY_RIGHTALT
+        alone: KEY_HENKAN
+        alone_timeout_millis: 150
+
 keymap:
-  - name: Emacs binding
+  - name: Function keys
     remap:
-      C-b: left
-      C-f: right
-      C-p: up
-      C-n: down
+      CapsLock-1: F1
+      CapsLock-2: F2
+      CapsLock-3: F3
+      CapsLock-4: F4
+      CapsLock-5: F5
+      CapsLock-6: F6
+      CapsLock-7: F7
+      CapsLock-8: F8
+      CapsLock-9: F9
+      CapsLock-0: F10
+      CapsLock-MINUS: F11
+      CapsLock-EQUAL: F12
+
+  - name: Convert
+    remap:
+      CapsLock-i: F7
+      CapsLock-o: F10
+
+  - name: for 60% Layout
+    remap:
+      CapsLock-APOSTROPHE: GRAVE
+      CapsLock-BACKSLASH: PRINT
+      CapsLock-BACKSPACE: DELETE
+      # ALT-BACKSPACE: DELETE
+
+  - name: Shortcuts
+    remap:
+      ALT-q: ALT-F4
+      CapsLock-t: CTRL-t
+      CapsLock-r: CTRL-r
+      CapsLock-c: ALT-c
+      CapsLock-SPACE: SUPER-a
+
+  - name: Emacs keybindings
+    remap:
+      # Cursor
+      CapsLock-b: left
+      CapsLock-f: right
+      CapsLock-p: up
+      CapsLock-n: down
+      # Beginning/End of line
+      CapsLock-a: home
+      CapsLock-e: end
+      # Page up/down
+      CapsLock-u: pageup
+      CapsLock-v: pagedown
+      # Newline
+      CapsLock-m: enter
+      CapsLock-j: enter
+      CapsLock-o: [enter, left]
+      # Delete
+      CapsLock-d: delete
+      CapsLock-h: BACKSPACE
+      # Kill line
+      CapsLock-k: [Shift-end, C-x]
