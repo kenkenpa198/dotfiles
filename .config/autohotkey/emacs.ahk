@@ -19,6 +19,7 @@ F13 & o::
 {
     Send "{End}"
     Send "{Enter}"
+    Send "{Home}"
     Send "{Left}"
     return
 }
