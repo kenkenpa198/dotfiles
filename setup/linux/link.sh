@@ -5,7 +5,6 @@ set -euo pipefail
 bash "${HOME}/dotfiles/setup/linux/header.sh" "Run: $0"
 
 function link_code {
-    # XDG Base Directory Specification
     mkdir -p ~/.config/Code/User/snippets/
 
     # make symlink
@@ -15,13 +14,12 @@ function link_code {
 }
 
 function link_git {
+    mkdir -p ~/.config/git/
+
     # .giticonfig.local のテンプレートファイルを作成
     if [ ! -e ~/dotfiles/.config/git/local ]; then
         cp ~/dotfiles/.config/git/local.example ~/dotfiles/.config/git/local
     fi
-
-    # XDG Base Directory Specification
-    mkdir -p ~/.config/git/
 
     # シンボリックリンクを作成
     ln -sf ~/dotfiles/.config/git/config ~/.config/git/
@@ -30,7 +28,6 @@ function link_git {
 }
 
 function link_myscripts {
-    # XDG Base Directory Specification
     local DOTFILES_BIN="$HOME/dotfiles/.local/bin"
     local LOCAL_BIN="$HOME/.local/bin"
     mkdir -p "$LOCAL_BIN"
@@ -43,7 +40,6 @@ function link_myscripts {
 }
 
 function link_sheldon {
-    # XDG Base Directory Specification
     mkdir -p "$HOME/.config/sheldon"
 
     # シンボリックリンクを作成
@@ -51,7 +47,6 @@ function link_sheldon {
 }
 
 function link_xremap {
-    # XDG Base Directory Specification
     mkdir -p ~/.config/xremap/
 
     # make symlink
@@ -59,7 +54,6 @@ function link_xremap {
 }
 
 function link_zsh {
-    # XDG Base Directory Specification
     mkdir -p "$HOME/.config/zsh"
 
     # .zshenv のシンボリックリンクを作成
