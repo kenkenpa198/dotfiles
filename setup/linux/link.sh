@@ -50,6 +50,14 @@ function link_code {
     ln -sf "$HOME/dotfiles/.config/Code/User/snippets/markdown.json" "$HOME/.config/Code/User/snippets/"
 }
 
+function link_xremap {
+    # XDG Base Directory Specification
+    mkdir -p ~/.config/xremap/
+
+    # make symlink
+    ln -sf "$HOME/dotfiles/.config/xremap/config.yml" "$HOME/.config/xremap/"
+}
+
 function link_myscripts {
     # XDG Base Directory Specification
     local DOTFILES_BIN="$HOME/dotfiles/.local/bin"
@@ -79,6 +87,7 @@ function main {
     link_zsh
     link_sheldon
     link_code
+    link_xremap
     link_wsl
     link_myscripts
 

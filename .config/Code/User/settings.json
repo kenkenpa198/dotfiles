@@ -50,6 +50,7 @@
     // Extensions
     ////////////////////////////////////////
     "cSpell.userWords": [
+        "archlinux",
         "autoload",
         "Consolas",
         "datetime",
@@ -70,6 +71,8 @@
         "moda",
         "Modane",
         "mume",
+        "noconfirm",
+        "pacman",
         "pagedown",
         "pageup",
         "piyo",
@@ -78,7 +81,9 @@
         "rgba",
         "todos",
         "vsnotes",
-        "vuejs"
+        "vuejs",
+        "wslconfig",
+        "xremap"
     ],
     "hediet.vscode-drawio.resizeImages": null,
     "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",

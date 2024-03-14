@@ -22,6 +22,7 @@
 !.config/git/ignore
 !.config/git/local.example
 !.config/sheldon/plugins.toml
+!.config/xremap/config.yml
 !.config/zsh/.zshrc
 !.config/zsh/alias.zsh
 !.config/zsh/env.zsh
