@@ -5,13 +5,13 @@ virtual_modifiers:
 modmap:
   - name: Switch IME with Alt
     remap:
-      KEY_LEFTALT:
-        held: KEY_LEFTALT
-        alone: KEY_MUHENKAN
+      Alt_L:
+        held: Alt_L
+        alone: Muhenkan
         alone_timeout_millis: 150
-      KEY_RIGHTALT:
-        held: KEY_RIGHTALT
-        alone: KEY_HENKAN
+      Alt_R:
+        held: Alt_R
+        alone: Henkan
         alone_timeout_millis: 150
 
 keymap:
@@ -27,8 +27,8 @@ keymap:
       CapsLock-8: F8
       CapsLock-9: F9
       CapsLock-0: F10
-      CapsLock-MINUS: F11
-      CapsLock-EQUAL: F12
+      CapsLock-Minus: F11
+      CapsLock-Equal: F12
 
   - name: Convert
     remap:
@@ -36,38 +36,38 @@ keymap:
 
   - name: for 60% Layout
     remap:
-      CapsLock-APOSTROPHE: GRAVE
-      CapsLock-BACKSLASH: PRINT
-      CapsLock-BACKSPACE: DELETE
-      # ALT-BACKSPACE: DELETE
+      CapsLock-Apostrophe: Grave
+      # CapsLock-Backslash: Print
+      CapsLock-Backspace: Delete
+      # Alt-Backspace: Delete
 
   - name: Shortcuts
     remap:
-      ALT-q: ALT-F4
-      CapsLock-t: CTRL-t
-      CapsLock-r: CTRL-r
-      CapsLock-c: ALT-c
-      CapsLock-SPACE: SUPER-a
+      Alt-q: Alt-F4
+      CapsLock-t: Ctrl-t
+      CapsLock-r: Ctrl-r
+      CapsLock-c: Alt-c
+      CapsLock-Space: Super-a
 
   - name: Emacs keybindings
     remap:
       # Cursor
-      CapsLock-b: left
-      CapsLock-f: right
-      CapsLock-p: up
-      CapsLock-n: down
+      CapsLock-b: Left
+      CapsLock-f: Right
+      CapsLock-p: Up
+      CapsLock-n: Down
       # Beginning/End of line
-      CapsLock-a: home
-      CapsLock-e: end
-      # Page up/down
-      CapsLock-u: pageup
-      CapsLock-v: pagedown
+      CapsLock-a: Home
+      CapsLock-e: End
+      # Page Up/Down
+      CapsLock-u: PageUp
+      CapsLock-v: PageDown
       # Newline
-      CapsLock-m: enter
-      CapsLock-j: enter
-      CapsLock-o: [end, enter, home, left]
+      CapsLock-m: Enter
+      CapsLock-j: Enter
+      CapsLock-o: [End, Enter, Home, Left]
       # Delete
-      CapsLock-d: delete
-      CapsLock-h: BACKSPACE
+      CapsLock-d: Delete
+      CapsLock-h: Backspace
       # Kill line
-      CapsLock-k: [Shift-end, C-x]
+      CapsLock-k: [Shift-End, C-x]

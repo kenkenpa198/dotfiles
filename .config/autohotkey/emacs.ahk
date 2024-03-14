@@ -9,7 +9,7 @@ F13 & n::Down
 ; Beginning/End of line
 F13 & a::HOME
 F13 & e::END
-; Page up/down
+; Page Up/Down
 F13 & u::PgUp
 F13 & v::PgDn
 ; Newline
