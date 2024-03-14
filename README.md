@@ -215,7 +215,10 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 <!-- omit in toc -->
 ### xremap
 
+- [k0kubun/xremap: Key remapper for X11 and Wayland](https://github.com/k0kubun/xremap)
+    - [xremap/example/emacs.yml at master · k0kubun/xremap](https://github.com/k0kubun/xremap/blob/master/example/emacs.yml)
 - [Linux用キーリマッパーxremapをRustで書き直した - k0kubun's blog](https://k0kubun.hatenablog.com/entry/xremap)
+- [evdev/src/scancodes.rs at 1d020f11b283b0648427a2844b6b980f1a268221 · emberian/evdev](https://github.com/emberian/evdev/blob/1d020f11b283b0648427a2844b6b980f1a268221/src/scancodes.rs#L26-L572)
 - [SandSをLinuxでやってる人はxremapを導入してxmodmapとxcapeを捨ててください - Lambdaカクテル](https://blog.3qe.us/entry/2023/12/25/201605)
 - [xremapを利用して特殊なショートカットをマッピングしてみる（Alt+c → Shift+Ctrl+c など ) – Roguer](https://roguer.info/2023/02/12/9136/)
 - [xremap + wayland + KDE6でキーリマップしよう \#Linux - Qiita](https://qiita.com/ys-clarry/items/9d5c20dc9d62a5f88ffd)
