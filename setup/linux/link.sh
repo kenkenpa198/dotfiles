@@ -72,13 +72,9 @@ function link_myscripts {
 }
 
 function link_wsl {
-    # 環境ごとの実行
-    if [[ "$(uname -r)" == *microsoft* ]]; then
-        # Notes
-        if [ -d "/mnt/c/Users/$USER" ]; then
-            mkdir -p "/mnt/c/Users/$USER/works/notes"
-            ln -sfn "/mnt/c/Users/$USER/works/notes" ~/works/notes
-        fi
+    if [ -d "/mnt/c/Users/$USER" ]; then
+        mkdir -p "/mnt/c/Users/$USER/works/notes"
+        ln -sfn "/mnt/c/Users/$USER/works/notes" ~/works/notes
     fi
 }
 
@@ -88,8 +84,12 @@ function main {
     link_sheldon
     link_code
     link_xremap
-    link_wsl
     link_myscripts
+
+    # 環境ごとの実行
+    if [[ "$(uname -r)" == *microsoft* ]]; then
+        link_wsl
+    fi
 
     set +x
     echo
