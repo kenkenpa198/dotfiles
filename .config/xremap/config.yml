@@ -1,3 +1,5 @@
+# $ sudo xremap ~/.config/xremap/config.yml
+
 virtual_modifiers:
   # CapsLock を修飾キーとして扱う
   - CapsLock
