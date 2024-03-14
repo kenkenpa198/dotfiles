@@ -62,8 +62,29 @@ function main {
             "openssh"
             "pacman-contrib"
             "which"
-            "yay"
         )
+
+        # Manjaro Linux の場合のみ yay を追加
+        # Arch Linux では pacman のリポジトリに存在しないため
+        # https://furuya7.hatenablog.com/entry/2020/05/06/180426
+        #
+        case `cat /etc/issue` in
+            Manjaro*)
+                : Manjaro Linux
+                : Add more install packages
+                local packages+=(
+                    "yay"
+
+                    # ついでにデスクトップ環境でのみ使用するパッケージも追加
+                    "bitwarden"
+                    "obsidian"
+                    "powertop"
+                    "tlp"
+                    "tlp-rdw"
+                )
+            ;;
+        esac
+
         : Install with pacman
         install_with_pacman
     else
