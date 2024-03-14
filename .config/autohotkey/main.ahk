@@ -16,7 +16,6 @@ F13 & =::F12
 
 ;;; Convert ;;;
 F13 & i::F7        ; Convert to Katakana
-F13 & o::F10       ; Convert to half-width char
 
 ;;; for 60% Layout ;;;
 F13 & '::`
