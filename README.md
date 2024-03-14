@@ -213,6 +213,14 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [AutoHotKey : Google Chrome専用スクリプト - imani-cの日記](https://imani-c.hatenablog.com/entry/2023/01/29/141328)
 
 <!-- omit in toc -->
+### xremap
+
+- [Linux用キーリマッパーxremapをRustで書き直した - k0kubun's blog](https://k0kubun.hatenablog.com/entry/xremap)
+- [SandSをLinuxでやってる人はxremapを導入してxmodmapとxcapeを捨ててください - Lambdaカクテル](https://blog.3qe.us/entry/2023/12/25/201605)
+- [xremapを利用して特殊なショートカットをマッピングしてみる（Alt+c → Shift+Ctrl+c など ) – Roguer](https://roguer.info/2023/02/12/9136/)
+- [xremap + wayland + KDE6でキーリマップしよう \#Linux - Qiita](https://qiita.com/ys-clarry/items/9d5c20dc9d62a5f88ffd)
+
+<!-- omit in toc -->
 ### CI
 
 - [GitHub Actions のクイックスタート - GitHub Docs](https://docs.github.com/ja/actions/quickstart)
