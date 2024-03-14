@@ -17,8 +17,9 @@ F13 & m::Enter
 F13 & j::Enter
 F13 & o::
 {
-    Send "Enter"
-    Send "Left"
+    Send "{End}"
+    Send "{Enter}"
+    Send "{Left}"
     return
 }
 ; Copy
