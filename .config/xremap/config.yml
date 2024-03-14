@@ -33,7 +33,6 @@ keymap:
   - name: Convert
     remap:
       CapsLock-i: F7
-      CapsLock-o: F10
 
   - name: for 60% Layout
     remap:
@@ -66,7 +65,7 @@ keymap:
       # Newline
       CapsLock-m: enter
       CapsLock-j: enter
-      CapsLock-o: [enter, left]
+      CapsLock-o: [end, enter, home, left]
       # Delete
       CapsLock-d: delete
       CapsLock-h: BACKSPACE
