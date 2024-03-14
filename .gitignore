@@ -45,6 +45,7 @@
 
 !setup/linux/header.sh
 !setup/linux/install-packages.sh
+!setup/linux/install-packages-from-yay.sh
 !setup/linux/install-jekyll.sh
 !setup/linux/install-language-pack-ja.sh
 !setup/linux/install-node-js.sh
