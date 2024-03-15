@@ -29,7 +29,7 @@ jobs:
 
   setup-archlinux:
     runs-on: ubuntu-latest
-    container: archlinux/base:latest
+    container: archlinux:base
     steps:
       - uses: actions/checkout@v4
       - name: Update packages
