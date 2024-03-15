@@ -13,11 +13,14 @@
 !.config/Code/User/snippets/markdown.json
 !.config/Code/User/keybindings.json
 !.config/Microsoft.WindowsTerminal/LocalState/settings.json
+!.config/VIA/nuphy_air60_v2.layout.json
+!.config/WSL/.wslconfig
 !.config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 !.config/autohotkey/emacs.ahk
 !.config/autohotkey/excel.ahk
 !.config/autohotkey/main.ahk
 !.config/azuredatastudio/User/settings.json
+!.config/brewfile/Brewfile
 !.config/git/config
 !.config/git/ignore
 !.config/git/local.example
@@ -38,11 +41,6 @@
 !.local/bin/hr
 !.local/bin/moda
 !.local/state/crossnote/style.less
-
-!app/VIA/nuphy_air60_v2.layout.json
-!app/WSL/.wslconfig
-
-!setup/macos/Brewfile
 
 !setup/linux/header.sh
 !setup/linux/install-packages.sh

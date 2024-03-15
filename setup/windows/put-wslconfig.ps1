@@ -3,7 +3,7 @@ $ErrorActionPreference = 'Stop'
 
 function main {
     $DOTFILES_HOME = "\\wsl.localhost\Ubuntu\home\${env:USERNAME}\dotfiles"
-    Copy-Item "${DOTFILES_HOME}\app\WSL\.wslconfig" ~\
+    Copy-Item "${DOTFILES_HOME}\.config\WSL\.wslconfig" ~\
 }
 
 main
