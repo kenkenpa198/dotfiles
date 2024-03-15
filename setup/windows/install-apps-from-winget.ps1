@@ -5,6 +5,7 @@ function main {
     # インストールするアプリケーションのハッシュテーブルを定義
     $APPS = @(
         '7zip.7zip'
+        'Apple.iTunes'
         'Avidemux.Avidemux'
         'Bitwarden.Bitwarden'
         'BlenderFoundation.Blender'
@@ -21,6 +22,7 @@ function main {
         'LINE.LINE'
         'Logitech.OptionsPlus'
         'Microsoft.AzureDataStudio'
+        'Microsoft.PowerToys'
         'Microsoft.VisualStudio.2022.Community'
         'Microsoft.VisualStudioCode'
         'nepnep.neofetch-win'
@@ -28,6 +30,7 @@ function main {
         'Obsidian.Obsidian'
         'OBSProject.OBSStudio'
         'Oracle.VirtualBox'
+        'QL-Win.QuickLook'
         'RealVNC.VNCViewer'
         'SaeraSoft.CaesiumImageCompress'
         'Unity.UnityHub'
@@ -35,6 +38,7 @@ function main {
         'Wacom.WacomTabletDriver'
         'WinMerge.WinMerge'
         'WinSCP.WinSCP'
+        'xanderfrangos.twinkletray'
     )
 
     # winget のソースを更新
