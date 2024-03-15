@@ -115,9 +115,6 @@ function main {
     # シンボリックリンクを作成
     bash "${HOME}/dotfiles/setup/linux/link.sh"
 
-    # zsh をデフォルトシェルへ設定
-    sudo chsh "$USER" -s "$(which zsh)"
-
     # 完了メッセージを出力
     set +x
     bash "${HOME}/dotfiles/setup/linux/header.sh" "Setup completed"
