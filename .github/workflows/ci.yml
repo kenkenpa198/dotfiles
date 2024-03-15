@@ -1,11 +1,11 @@
 # Reference:
-# - [dotfilesのすゝめ | kouki’s blog](https://blog.kmdkuk.com/2022/07/16/dotfilesのすゝめ.html)
-# - [Running jobs in a container - GitHub Docs](https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container)
-# - [GitHub Actionsを使って、自分用にカスタムしたArch LinuxのISOイメージを作る](https://zenn.dev/inkohx/articles/3dbe67c0db1322)
+  # - [ようこそdotfilesの世界へ \#Vim - Qiita](https://qiita.com/yutkat/items/c6c7584d9795799ee164)
+  # - [dotfilesのすゝめ | kouki’s blog](https://blog.kmdkuk.com/2022/07/16/dotfilesのすゝめ.html)
+  # - [GitHub Actionsを使って、自分用にカスタムしたArch LinuxのISOイメージを作る](https://zenn.dev/inkohx/articles/3dbe67c0db1322)
+  # - [コンテナ内でのジョブの実行 - GitHub Docs](https://docs.github.com/ja/actions/using-jobs/running-jobs-in-a-container)
 name: CI
 
-on:
-  push:
+on: push
 
 jobs:
   setup-ubuntu:
@@ -15,24 +15,26 @@ jobs:
       - name: Setup dotfiles on Ubuntu
         run: bash setup/linux/setup.sh
 
+  setup-ubuntu-plane:
+    runs-on: ubuntu-latest
+    container: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update packages
+        run: apt-get update && apt-get upgrade -y
+      - name: Install required packages
+        run: apt-get install -y sudo git
+      - name: Setup dotfiles
+        run: bash setup/linux/setup.sh
+
   setup-archlinux:
     runs-on: ubuntu-latest
-    container:
-      image: archlinux:base
+    container: archlinux/base:latest
     steps:
-      - name: Add and switch user
-        run: |
-          useradd -m -G wheel -s /bin/bash runner
-          su runner
-      - name: Install sudo
-        run: |
-          pacman-key --init
-          pacman-key --populate
-          pacman -Syy --noconfirm archlinux-keyring
-          pacman -Syu --noconfirm sudo
       - uses: actions/checkout@v4
-      - name: Setup dotfiles on Arch Linux
-        env:
-            USER: runner
-        run: |
-          bash setup/linux/setup.sh
+      - name: Update packages
+        run: pacman -Syu --noconfirm
+      - name: Install required packages
+        run: pacman -S --noconfirm sudo git
+      - name: Setup dotfiles
+        run: bash setup/linux/setup.sh
