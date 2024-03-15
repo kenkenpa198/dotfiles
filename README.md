@@ -9,10 +9,9 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 ## TOC
 
 - [1. Setup](#1-setup)
-    - [1.1. Ubuntu](#11-ubuntu)
-    - [1.2. Arch Linux](#12-arch-linux)
-    - [1.3. WSL on Windows](#13-wsl-on-windows)
-    - [1.4. MacOS](#14-macos)
+    - [1.1. Ubuntu / Arch Linux](#11-ubuntu--arch-linux)
+    - [1.2. WSL and Windows](#12-wsl-and-windows)
+    - [1.3. MacOS](#13-macos)
 - [2. Tips](#2-tips)
     - [2.1. ホワイトリスト形式の .gitignore](#21-ホワイトリスト形式の-gitignore)
     - [2.2. Git のキャッシュ削除手順](#22-git-のキャッシュ削除手順)
@@ -22,32 +21,15 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 
 ## 1. Setup
 
-※ すべて root ユーザーでないこと・`sudo` コマンドが使用できることが前提。
+※ すべて `sudo` コマンドが使用できることが前提。[ci.yml](.github/workflows/ci.yml) も参考に。
 
-### 1.1. Ubuntu
+### 1.1. Ubuntu / Arch Linux
 
 README 冒頭のコマンドを実行する。
 
-### 1.2. Arch Linux
+### 1.2. WSL and Windows
 
-1. プレーンな環境の場合、pacman のキーリングを初期化する。
-
-    ```shell
-    sudo pacman-key --init
-    sudo pacman-key --populate
-    sudo pacman -Syy --noconfirm archlinux-keyring
-    ```
-
-    - 参考)
-
-        - [pacman/パッケージの署名 - ArchWiki](https://wiki.archlinux.jp/index.php/Pacman/パッケージの署名#.E3.82.AD.E3.83.BC.E3.83.AA.E3.83.B3.E3.82.B0.E3.81.AE.E5.88.9D.E6.9C.9F.E5.8C.96)
-        - [インストール方法 \| ArchWSL official documentation](https://wsldl-pg.github.io/ArchW-docs/locale/ja-JP/How-to-Setup/#キーリングの初期化)
-
-2. README 冒頭のコマンドを実行する。
-
-### 1.3. WSL on Windows
-
-1. PowerShell を管理者権限で起動し、次のコマンドを実行して WSL をセットアップする。
+1. Windows PowerShell を管理者権限で起動し、次のコマンドを実行して WSL をセットアップする。
 
     ```powershell
     wsl --install
@@ -55,17 +37,16 @@ README 冒頭のコマンドを実行する。
 
     - 参考) [WSL のインストール | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)
 
-2. [.wslconfig](app/WSL/.wslconfig) を Windows 環境 のホームディレクトリへ配置する。
-
-3. (Arch Linux のみ) [yuk7/ArchWSL](https://github.com/yuk7/ArchWSL) を使用して WSL へ Arch Linux をインストールする。
-
+2. (Arch Linux のみ) [yuk7/ArchWSL](https://github.com/yuk7/ArchWSL) を使用して WSL へ Arch Linux をインストール・初期設定する。
     - 参考) [インストール方法 | ArchWSL official documentation](https://wsldl-pg.github.io/ArchW-docs/locale/ja-JP/How-to-Setup/)
 
-4. WSL Ubuntu のホームディレクトリ上で README 冒頭のコマンドを実行する。
+3. [.wslconfig](.config/WSL/.wslconfig) を `%UserProfile%` ( `C:\Users\[username]` ) へ配置する。
 
-5. 管理者権限の PowerShell で [setup/windows](setup/windows) 配下のスクリプトを順次実行する。
+4. WSL 環境 のホームディレクトリ上で README 冒頭のコマンドを実行する。
 
-### 1.4. MacOS
+5. [setup/windows/](setup/windows) 配下のスクリプトを順次実行する。
+
+### 1.3. MacOS
 
 次触った時に書く。
 
