@@ -121,14 +121,15 @@ function main {
     # 完了メッセージを出力
     set +x
     bash "${HOME}/dotfiles/setup/linux/header.sh" "Setup completed"
-    echo "Default shell:"
-    echo "$SHELL"
     echo
     echo "Git config:"
     git config -l
     echo
     echo "Please enter your [user.email] and [user.name] for Git."
     echo "  $ vim ~/.config/git/local"
+    echo
+    echo "Please set zsh to default shell."
+    echo "  $ sudo chsh \"\$USER\" -s \"\$(which zsh)\""
     echo
     echo "Next, Please reboot host."
 }
