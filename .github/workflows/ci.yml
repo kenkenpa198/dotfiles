@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup dotfiles on Ubuntu
+      - name: Setup dotfiles
         run: bash setup/linux/setup.sh
 
   setup-ubuntu-plane:
