@@ -22,8 +22,6 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 
 ## 1. Setup
 
-※ すべて `sudo` コマンドが使用できることが前提。[ci.yml](.github/workflows/ci.yml) も参考に。
-
 ### 1.1. Ubuntu
 
 ```shell
