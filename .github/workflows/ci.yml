@@ -19,22 +19,28 @@ jobs:
     runs-on: ubuntu-latest
     container: ubuntu:latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Update packages
-        run: apt-get update && apt-get upgrade -y
+      - name: Install sudo
+        run: |
+          apt-get update && apt-get upgrade -y
+          apt-get install -y sudo curl git
       - name: Install required packages
-        run: apt-get install -y sudo git
+        run: |
+          sudo apt-get update && sudo apt-get upgrade -y
+          sudo apt-get install -y curl git
       - name: Setup dotfiles
-        run: bash setup/linux/setup.sh
+        run: curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
 
   setup-archlinux:
     runs-on: ubuntu-latest
     container: archlinux:base
     steps:
-      - uses: actions/checkout@v4
-      - name: Update packages
-        run: pacman -Syu --noconfirm
+      - name: Install sudo
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm sudo
       - name: Install required packages
-        run: pacman -S --noconfirm sudo git
+        run: |
+          sudo pacman -Syu --noconfirm
+          sudo pacman -S --noconfirm curl git
       - name: Setup dotfiles
-        run: bash setup/linux/setup.sh
+        run: curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
