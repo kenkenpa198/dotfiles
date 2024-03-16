@@ -59,6 +59,9 @@
 !setup/linux/setup.sh
 !setup/linux/setup-ja.sh
 
+!setup/windows/capslock-to-f13-revert.reg
+!setup/windows/capslock-to-f13.reg
+!setup/windows/get-apps.ps1
 !setup/windows/get-apps.ps1
 !setup/windows/install-apps-from-msstore.ps1
 !setup/windows/install-apps-from-winget.ps1
