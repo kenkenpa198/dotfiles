@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; [WindowsでCapsLockをF13に変更する \| 晴耕雨読](https://tex2e.github.io/blog/keyboard/win-keymap-caps-to-ctrl)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=-
