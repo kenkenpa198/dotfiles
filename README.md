@@ -9,9 +9,10 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 ## TOC
 
 - [1. Setup](#1-setup)
-    - [1.1. Ubuntu / Arch Linux](#11-ubuntu--arch-linux)
-    - [1.2. WSL and Windows](#12-wsl-and-windows)
-    - [1.3. MacOS](#13-macos)
+    - [1.1. Ubuntu](#11-ubuntu)
+    - [1.2. Arch || Manjaro Linux](#12-arch--manjaro-linux)
+    - [1.3. WSL \&\& Windows](#13-wsl--windows)
+    - [1.4. MacOS](#14-macos)
 - [2. Tips](#2-tips)
     - [2.1. ホワイトリスト形式の .gitignore](#21-ホワイトリスト形式の-gitignore)
     - [2.2. Git のキャッシュ削除手順](#22-git-のキャッシュ削除手順)
@@ -23,11 +24,47 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 
 ※ すべて `sudo` コマンドが使用できることが前提。[ci.yml](.github/workflows/ci.yml) も参考に。
 
-### 1.1. Ubuntu / Arch Linux
+### 1.1. Ubuntu
 
-README 冒頭のコマンドを実行する。
+```shell
+# 必須パッケージの存在を確認する
+type "sudo" ; type "curl" ; type "git"
 
-### 1.2. WSL and Windows
+# 存在しなければインストールする
+# sudo
+apt-get update && apt-get upgrade -y
+apt-get install -y sudo
+
+# curl git
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install -y curl
+sudo apt-get install -y git
+
+# セットアップ用スクリプトを実行する
+curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
+```
+
+### 1.2. Arch || Manjaro Linux
+
+```shell
+# 必須パッケージの存在を確認する
+type "sudo" ; type "curl" ; type "git"
+
+# 存在しなければインストールする
+# sudo
+pacman -Syu --noconfirm
+pacman -S --noconfirm sudo
+
+# curl git
+sudo pacman -Syu --noconfirm
+sudo pacman -S --noconfirm curl
+sudo pacman -S --noconfirm git
+
+# セットアップ用スクリプトを実行する
+curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
+```
+
+### 1.3. WSL && Windows
 
 1. Windows PowerShell を管理者権限で起動し、次のコマンドを実行して WSL をセットアップする。
 
@@ -42,11 +79,11 @@ README 冒頭のコマンドを実行する。
 
 3. [.wslconfig](.config/WSL/.wslconfig) を `%UserProfile%` ( `C:\Users\[username]` ) へ配置する。
 
-4. WSL 環境 のホームディレクトリ上で README 冒頭のコマンドを実行する。
+4. WSL 環境のホームディレクトリ上で各環境ごとのセットアップ手順を実行する。
 
 5. [setup/windows/](setup/windows) 配下のスクリプトを順次実行する。
 
-### 1.3. MacOS
+### 1.4. MacOS
 
 次触った時に書く。
 
