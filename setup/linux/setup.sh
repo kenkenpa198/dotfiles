@@ -10,25 +10,16 @@ set -euo pipefail
 function init {
     : Initialize
 
-    # パッケージアップデートと Git インストール
-    : Update packages and install Git
+    # パッケージアップデート
+    : Update packages
     if (type "pacman"); then
         : Exists pacman
-
         : Update packages
-        sudo pacman -Syyu
-
-        : Install Git
-        sudo pacman -S --noconfirm git
-
+        sudo pacman -Syu
     elif (type "apt-get"); then
         : Exists apt-get
-
         : Update packages
         sudo apt-get update && sudo apt-get upgrade -y
-
-        : Install Git
-        sudo apt-get install -y git
     else
         : Supported package managers not exists
         : Abort setup
