@@ -84,6 +84,8 @@ function main {
         : Exists apt-get
         : add packages for apt
         local packages+=(
+            "g++"                        # require install kems-clew
+            "libz-dev"                   # require install ruby
             "openssh-server"
             "software-properties-common"
         )
