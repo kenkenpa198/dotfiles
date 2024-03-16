@@ -37,7 +37,7 @@ function install_with_pacman {
 }
 
 function main {
-    # インストールするパッケージの配列を定義
+    # 環境共通でインストールするパッケージ
     local packages=(
         "cppcheck"
         "curl"
@@ -55,7 +55,7 @@ function main {
     )
 
     # 利用するパッケージマネージャの分岐
-    if (type "pacman" > /dev/null 2>&1); then
+    if (type "pacman"); then
         : Exists pacman
         : add packages for pacman
         local packages+=(
@@ -63,32 +63,25 @@ function main {
             "pacman-contrib"
             "which"
         )
-
         # Manjaro Linux の場合のみ yay を追加
         # Arch Linux では pacman のリポジトリに存在しないため
         # https://furuya7.hatenablog.com/entry/2020/05/06/180426
         #
         case `cat /etc/issue` in
             Manjaro*)
+                # Manjaro は pacman でサポートされているので配列へ追加する
                 : Manjaro Linux
-                : Add more install packages
+                : Add yay to install packages
                 local packages+=(
                     "yay"
-
-                    # ついでにデスクトップ環境でのみ使用するパッケージも追加
-                    "bitwarden"
-                    "obsidian"
-                    "powertop"
-                    "tlp"
-                    "tlp-rdw"
                 )
             ;;
         esac
-
         : Install with pacman
         install_with_pacman
-    else
-        : Not exists some package managers
+
+    elif (type "apt-get"); then
+        : Exists apt-get
         : add packages for apt
         local packages+=(
             "openssh-server"
@@ -96,6 +89,11 @@ function main {
         )
         : Install with apt
         install_with_apt
+
+    else
+        : Supported package managers not exists
+        : Abort setup
+        exit
     fi
 
     set +x
