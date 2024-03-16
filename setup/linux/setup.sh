@@ -69,6 +69,9 @@ function make_dir {
     local XDG_STATE_HOME="$HOME/.local/state"
     mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
 
+    # zsh history
+    mkdir -p "$XDG_STATE_HOME/zsh/"
+
     # My directory
     mkdir -p ~/works/develop
 }
