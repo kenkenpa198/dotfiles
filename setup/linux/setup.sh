@@ -12,7 +12,7 @@ function init {
 
     # パッケージアップデートと Git インストール
     : Update packages and install Git
-    if (type "pacman" > /dev/null 2>&1); then
+    if (type "pacman"); then
         : Exists pacman
 
         : Update packages
@@ -21,7 +21,7 @@ function init {
         : Install Git
         sudo pacman -S --noconfirm git
 
-    elif (type "apt-get" > /dev/null 2>&1); then
+    elif (type "apt-get"); then
         : Exists apt-get
 
         : Update packages
@@ -60,7 +60,7 @@ function show_environment {
     whoami
 
     : Show current shell
-    echo $SHELL
+    echo "$SHELL"
 
     : Show environment variables
     env
@@ -69,19 +69,14 @@ function show_environment {
     pwd
 }
 
-# XDG Base Directory Specification
-function export_xdg {
-    export XDG_CONFIG_HOME="$HOME/.config"
-    export XDG_CACHE_HOME="$HOME/.cache"
-    export XDG_DATA_HOME="$HOME/.local/share"
-    export XDG_STATE_HOME="$HOME/.local/state"
-}
-
 # ディレクトリを作成
 function make_dir {
     # XDG Base Directory Specification
-    mkdir -p "$XDG_STATE_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
-    mkdir -p "$XDG_STATE_HOME/zsh"
+    local XDG_CONFIG_HOME="$HOME/.config"
+    local XDG_CACHE_HOME="$HOME/.cache"
+    local XDG_DATA_HOME="$HOME/.local/share"
+    local XDG_STATE_HOME="$HOME/.local/state"
+    mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
 
     # My directory
     mkdir -p ~/works/develop
@@ -100,9 +95,6 @@ function main {
 
     # 環境情報を表示
     show_environment
-
-    # XDG Base Directory Specification
-    export_xdg
 
     # ディレクトリを作成
     make_dir
