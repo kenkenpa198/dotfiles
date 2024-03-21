@@ -10,8 +10,8 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 
 - [1. Setup](#1-setup)
     - [1.1. Ubuntu](#11-ubuntu)
-    - [1.2. Arch || Manjaro Linux](#12-arch--manjaro-linux)
-    - [1.3. WSL \&\& Windows](#13-wsl--windows)
+    - [1.2. Arch Linux](#12-arch-linux)
+    - [1.3. Windows and WSL](#13-windows-and-wsl)
     - [1.4. MacOS](#14-macos)
 - [2. Tips](#2-tips)
     - [2.1. ホワイトリスト形式の .gitignore](#21-ホワイトリスト形式の-gitignore)
@@ -42,7 +42,7 @@ sudo apt-get install -y git
 curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
 ```
 
-### 1.2. Arch || Manjaro Linux
+### 1.2. Arch Linux
 
 ```shell
 # 必須パッケージの存在を確認する
@@ -62,7 +62,7 @@ sudo pacman -S --noconfirm git
 curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
 ```
 
-### 1.3. WSL && Windows
+### 1.3. Windows and WSL
 
 1. Windows PowerShell を管理者権限で起動し、次のコマンドを実行して WSL をセットアップする。
 
