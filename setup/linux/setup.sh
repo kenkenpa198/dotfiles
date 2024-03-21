@@ -15,7 +15,7 @@ function init {
     if (type "pacman"); then
         : Exists pacman
         : Update packages
-        sudo pacman -Syu
+        sudo pacman -Syu --noconfirm
     elif (type "apt-get"); then
         : Exists apt-get
         : Update packages
