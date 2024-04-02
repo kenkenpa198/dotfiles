@@ -24,7 +24,7 @@ function main {
     echo "  $ pyenv install X.Y.Z"
     echo "  $ pyenv versions"
     echo
-    echo "Set global version and check settings:
+    echo "Set global version and check:
     echo
     echo "  $ pyenv global X.Y.Z"
     echo "  $ python --version"

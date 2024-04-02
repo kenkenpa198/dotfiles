@@ -32,7 +32,7 @@ function main {
     echo "  $ rbenv install X.Y.Z"
     echo "  $ rbenv versions"
     echo
-    echo "Set global version and check settings:
+    echo "Set global version and check:
     echo
     echo "  $ rbenv global X.Y.Z"
     echo "  $ ruby --version"
