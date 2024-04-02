@@ -38,12 +38,11 @@ export LS_COLORS='ow=01;32:ex=01;00:';
 
 
 ########################################
-# nvm
+# nodenv
 ########################################
-# https://github.com/nvm-sh/nvm?tab=readme-ov-file#git-install
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# https://github.com/nodenv/nodenv-installer#nodenv-installer
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init - zsh)"
 
 
 ########################################
