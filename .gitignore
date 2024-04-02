@@ -47,7 +47,7 @@
 !setup/linux/install-packages-from-yay.sh
 !setup/linux/install-jekyll.sh
 !setup/linux/install-language-pack-ja.sh
-!setup/linux/install-node-js.sh
+!setup/linux/install-nvm.sh
 !setup/linux/install-pyenv.sh
 !setup/linux/install-rbenv.sh
 !setup/linux/install-scripts.sh
