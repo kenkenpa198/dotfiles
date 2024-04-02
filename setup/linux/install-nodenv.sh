@@ -21,15 +21,15 @@ function main {
     echo
     echo "Finished: $0"
     echo
-    echo "Please install and set node for global:"
+    echo "Please install Node.js:
     echo
     echo "  $ nodenv install -l"
     echo "  $ nodenv install X.Y.Z"
-    echo "  $ nodenv global X.Y.Z"
-    echo
-    echo "After that, check settings:"
-    echo
     echo "  $ nodenv versions"
+    echo
+    echo "Set global version and check settings:
+    echo
+    echo "  $ nodenv global X.Y.Z"
     echo "  $ node --version"
 }
 

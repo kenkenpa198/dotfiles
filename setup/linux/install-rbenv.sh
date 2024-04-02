@@ -26,15 +26,15 @@ function main {
     echo
     echo "Finished: $0"
     echo
-    echo "Please install and set ruby for global:"
+    echo "Please install Ruby:
     echo
     echo "  $ rbenv install -l"
     echo "  $ rbenv install X.Y.Z"
-    echo "  $ rbenv global X.Y.Z"
-    echo
-    echo "After that, check settings:"
-    echo
     echo "  $ rbenv versions"
+    echo
+    echo "Set global version and check settings:
+    echo
+    echo "  $ rbenv global X.Y.Z"
     echo "  $ ruby --version"
 }
 

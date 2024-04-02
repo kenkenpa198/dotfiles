@@ -18,15 +18,15 @@ function main {
     echo
     echo "Finished: $0"
     echo
-    echo "Please install and set ruby for global:"
+    echo "Please install Python:
     echo
     echo "  $ pyenv install -l"
     echo "  $ pyenv install X.Y.Z"
-    echo "  $ pyenv global X.Y.Z"
-    echo
-    echo "After that, check settings:"
-    echo
     echo "  $ pyenv versions"
+    echo
+    echo "Set global version and check settings:
+    echo
+    echo "  $ pyenv global X.Y.Z"
     echo "  $ python --version"
 }
 
