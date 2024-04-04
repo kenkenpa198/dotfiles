@@ -69,6 +69,13 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=243"
 
 
 ########################################
+# Volta
+########################################
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+
+########################################
 # Load by environment
 ########################################
 case ${OSTYPE} in

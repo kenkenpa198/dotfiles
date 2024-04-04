@@ -53,6 +53,7 @@
 !setup/linux/install-scripts.sh
 !setup/linux/install-vscode-extensions.sh
 !setup/linux/install-sheldon.sh
+!setup/linux/install-volta.sh
 !setup/linux/link-systemd.sh
 !setup/linux/link.sh
 !setup/linux/notice.sh
