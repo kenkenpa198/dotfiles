@@ -35,5 +35,6 @@ F13 & Space::      ; Search
 }
 
 ;;; Include ;;;
+#include "alt-ime.ahk"
 #include "emacs.ahk"
 #include "excel.ahk"

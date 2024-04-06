@@ -1,0 +1,16 @@
+#Requires AutoHotkey v2.0
+#Include libs/IMEv2.ahk
+
+;;; メニューバー起動を抑制する ;;;
+; 未予約のキー (vkE8) を Alt down 時に同時に送信して Alt キー単体機能であるメニューバー起動を無効化する
+; https://ahkscript.github.io/ja/docs/v2/lib/A_MenuMaskKey.htm
+; https://ahkscript.github.io/ja/docs/v2/lib/Send.htm#blind
+; https://ahkscript.github.io/ja/docs/v2/Hotkeys.htm#Tilde
+~LAlt::Send "{Blind}{vkE8}"
+~RAlt::Send "{Blind}{vkE8}"
+
+;;; Alt to switch IME ;;;
+; IME OFF
+LAlt up::IME_SET(0)
+; IME ON
+RAlt up::IME_SET(1)

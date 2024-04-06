@@ -24,11 +24,6 @@ cd ~\Downloads
 # https://forest.watch.impress.co.jp/library/software/changekey/
 curl.exe -OL https://dforest.watch.impress.co.jp/library/c/changekey/10668/ChgKey15.LZH
 
-# US-AltIME.ahk v0.1
-# https://github.com/kskmori/US-AltIME.ahk
-# https://github.com/kskmori/US-AltIME.ahk/releases
-curl.exe -OL https://github.com/kskmori/US-AltIME.ahk/releases/download/v0.1/US-AltIME-0.1.zip
-
 # サクラエディタ v2.4.2
 # https://sakura-editor.github.io/
 # https://github.com/sakura-editor/sakura/releases
