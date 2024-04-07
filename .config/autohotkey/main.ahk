@@ -1,5 +1,10 @@
 #Requires AutoHotkey v2.0
 
+; 押しっぱなし病の抑制
+; https://qiita.com/draganmaistir/items/0bf4a2ff484523a2dee9
+InstallKeybdHook
+#UseHook
+
 ;;; Function keys ;;;
 F13 & 1::F1
 F13 & 2::F2
