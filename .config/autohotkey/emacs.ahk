@@ -2,37 +2,37 @@
 
 ;;; Emacs keybindings ;;;
 ; Cursor
-F13 & f::Send "{Blind}{Right}"
-F13 & b::Send "{Blind}{Left}"
-F13 & p::Send "{Blind}{Up}"
-F13 & n::Send "{Blind}{Down}"
+F13 & f::Right
+F13 & b::Left
+F13 & p::Up
+F13 & n::Down
 ; Beginning/End of line
-F13 & a::Send "{Blind}{HOME}"
-F13 & e::Send "{Blind}{END}"
+F13 & a::HOME
+F13 & e::END
 ; Page Up/Down
-F13 & u::Send "{Blind}{PgUp}"
-F13 & v::Send "{Blind}{PgDn}"
+F13 & u::PgUp
+F13 & v::PgDn
 ; Newline
-F13 & m::Send "{Blind}{Enter}"
-F13 & j::Send "{Blind}{Enter}"
+F13 & m::Enter
+F13 & j::Enter
 F13 & o::
 {
-    Send "{Blind}{End}"
-    Send "{Blind}{Enter}"
-    Send "{Blind}{Home}"
-    Send "{Blind}{Left}"
+    Send "{End}"
+    Send "{Enter}"
+    Send "{Home}"
+    Send "{Left}"
     return
 }
 ; Copy
-F13 & w::Send "{Blind}^x"
-F13 & y::Send "{Blind}^v"
+F13 & w::^x
+F13 & y::^v
 ; Delete
-F13 & d::Send "{Blind}{Del}"
-F13 & h::Send "{Blind}{BS}"
+F13 & d::Del
+F13 & h::BS
 ; Kill line
 F13 & k::
 {
-    Send "{Blind}+{END}"
-    Send "{Blind}^x"
+    Send "+{END}"
+    Send "^x"
     return
 }
