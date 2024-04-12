@@ -15,6 +15,7 @@
 !.config/Microsoft.WindowsTerminal/LocalState/settings.json
 !.config/VIA/nuphy_air60_v2.layout.json
 !.config/WSL/.wslconfig
+!.config/WinMerge/wmignore.flt
 !.config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 !.config/autohotkey/libs/IMEv2.ahk
 !.config/autohotkey/alt-ime.ahk
