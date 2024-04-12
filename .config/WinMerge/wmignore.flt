@@ -17,3 +17,5 @@ def: include
 f: \.ext$ ## Filter for filename
 
 d: \\subdir$ ## Filter for directory
+d: \\.git$ ## Filter for directory
+d: \\node_modules$ ## Filter for directory
