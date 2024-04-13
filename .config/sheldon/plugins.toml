@@ -13,42 +13,37 @@
 shell = "zsh"
 
 # Deferred loading
-# Referenced by
-# - https://sheldon.cli.rs/Examples.html
-# - https://ktrysmt.github.io/blog/migrate-zinit-to-sheldon/
-apply = ["defer"]
-
-[templates]
-defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
-fzf-install = "{{ dir }}/install --bin > /dev/null \n[[ ! $PATH =~ {{ dir }} ]] && export PATH=\"$PATH:{{ dir }}/bin\"\n"
-fzf-source = "{% for file in files %}source \"{{ file }}\"\n{% endfor %}"
-
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
+# https://sheldon.cli.rs/Examples.html#deferred-loading-of-plugins-in-zsh
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
-apply = ["source"]
 
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
 
 [plugins.zsh-abbr]
 github = "olets/zsh-abbr"
+apply = ["defer"]
 
 [plugins.fzf]
 github = "junegunn/fzf"
-apply = ['fzf-install', 'fzf-source']
+apply = ["defer", "fzf-install", "fzf-source"]
 
 [plugins.dotfiles-defers]
 local = "~/.config/zsh"
 use = ["{!sync,*}.zsh"]
+apply = ["defer"]
 
 [plugins.dotfiles-sync]
 local = "~/.config/zsh"
 use = ["sync.zsh"]
-apply = ["source"]
+
+[templates]
+PATH = 'export PATH="$PATH:{{ dir }}"'
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+fzf-install = "{{ dir }}/install --bin > /dev/null \n[[ ! $PATH =~ {{ dir }} ]] && export PATH=\"$PATH:{{ dir }}/bin\"\n"
+fzf-source = "{% for file in files %}source \"{{ file }}\"\n{% endfor %}"
