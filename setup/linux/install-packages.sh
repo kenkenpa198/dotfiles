@@ -41,11 +41,9 @@ function main {
     local packages=(
         "cppcheck"
         "curl"
-        "gcc"
         "git"
         "jq"
         "neofetch"
-        "make"
         "pwgen"
         "patch"
         "tree"
@@ -59,6 +57,7 @@ function main {
         : Exists pacman
         : add packages for pacman
         local packages+=(
+            "base-devel"
             "openssh"
             "pacman-contrib"
             "which"
@@ -84,8 +83,7 @@ function main {
         : Exists apt-get
         : add packages for apt
         local packages+=(
-            "g++"                        # require install kems-clew
-            "libz-dev"                   # require install ruby
+            "build-essential"
             "openssh-server"
             "software-properties-common"
         )
