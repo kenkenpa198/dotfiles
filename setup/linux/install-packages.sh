@@ -15,7 +15,7 @@ function install_with_apt {
     # Git は PPA からインストールし直す
     # https://loumo.jp/archives/23149
     sudo add-apt-repository -y ppa:git-core/ppa
-    sudo apt-get install -y git
+    sudo apt-get update && sudo apt-get upgrade -y
 
     # パッケージのキャッシュを削除
     sudo apt-get autoclean -y
