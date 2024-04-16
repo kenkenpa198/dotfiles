@@ -7,6 +7,7 @@ davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 ecmel.vscode-html-css
 editorconfig.editorconfig
+esbenp.prettier-vscode
 github.github-vscode-theme
 github.vscode-github-actions
 glitchbl.laravel-create-view
