@@ -49,6 +49,9 @@
     ////////////////////////////////////////
     // Extensions
     ////////////////////////////////////////
+    "code-eol.crlfCharacter": "↲",
+    "code-eol.newlineCharacter": "↓",
+    "code-eol.returnCharacter": "←",
     "cSpell.userWords": [
         "archlinux",
         "autoload",

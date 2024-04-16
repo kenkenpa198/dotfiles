@@ -87,5 +87,9 @@
     {
         "key": "ctrl+alt+g",
         "command": "git.openChange"
+    },
+    {
+        "key": "alt+x",
+        "command": "extension.toggleLineEndings"
     }
 ]
