@@ -24,6 +24,7 @@
 !.config/autohotkey/kems-ahk.ahk
 !.config/azuredatastudio/User/settings.json
 !.config/brewfile/Brewfile
+!.config/crossnote/style.less
 !.config/git/config
 !.config/git/ignore
 !.config/git/local.example
@@ -43,7 +44,6 @@
 !.local/bin/ffmpeg-all
 !.local/bin/hr
 !.local/bin/moda
-!.local/state/crossnote/style.less
 
 !setup/linux/header.sh
 !setup/linux/install-packages.sh
