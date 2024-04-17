@@ -136,27 +136,28 @@ alias drmn="docker image prune -f" # <none> イメージを一括削除 https://
 ########################################
 # Git
 ########################################
-alias ga="git add -v"               # -v, --verbos      : add の内容を表示する
-alias gaa="git add -vA"             # -A, --all         : 変更のあるファイルをすべてステージングする
-alias gap="git add -vp"             # -p, --patch       : add の内容を表示する
+alias ga="git add -v"                # -v, --verbos      : add の内容を表示する
+alias gaa="git add -vA"              # -A, --all         : 変更のあるファイルをすべてステージングする
+alias gap="git add -vp"              # -p, --patch       : add の内容を表示する
 alias gb="git branch"
-alias gba="git branch -a"           # -a, --all         : リモートブランチも表示する
-alias gcm="git commit -m"           # -m, --message     : コミットメッセージを作成する
-alias gcma="git commit --amend -m"  # --amend           : 新しいブランチを作成してカレントブランチと入れ替える。-m オプションでメッセージも新たに設定する
+alias gba="git branch -a"            # -a, --all         : リモートブランチも表示する
+alias gcm="git commit -m"            # -m, --message     : コミットメッセージを作成する
+alias gcma="git commit --amend -m"   # --amend           : 新しいブランチを作成してカレントブランチと入れ替える。-m オプションでメッセージも新たに設定する
 alias gd="git diff"
-alias gds="git diff --stat"         # --stat            : 差分のあるファイル名のみを表示
+alias gdn="git add -N . && git diff" # diff new files https://reasonable-code.com/git-add-n/
+alias gds="git diff --stat"          # --stat            : 差分のあるファイル名のみを表示
 alias gf="git fetch"
-alias gfp="git fetch -p"            # -p, --prune       : リモートに存在しない追跡ブランチを削除する
+alias gfp="git fetch -p"             # -p, --prune       : リモートに存在しない追跡ブランチを削除する
 alias gl="git log --graph --all"
 alias gll="git log --graph --all --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(auto)%h %C(cyan)%ad%C(auto)%d %s %C(#666666)by\"%an\"%Creset'"
-alias gri="git rebase -i"           # -i, --interactive : 過去のコミットをまとめる $ git rebase -i HEAD~~
-alias grs="git restore --staged ."  # -S, --staged      : ステージングを解除する。. をあらかじめ指定しておきカレント配下のステージングをすべて解除する
+alias gri="git rebase -i"            # -i, --interactive : 過去のコミットをまとめる $ git rebase -i HEAD~~
+alias grs="git restore --staged ."   # -S, --staged      : ステージングを解除する。. をあらかじめ指定しておきカレント配下のステージングをすべて解除する
 alias gpl="git pull"
-alias gpoh="git push origin HEAD"   # https://git-scm.com/docs/git-push > git push origin HEAD
+alias gpoh="git push origin HEAD"    # https://git-scm.com/docs/git-push > git push origin HEAD
 alias gs="git status"
-alias gss="git status -s"           # -s, --short       : ステータスの短縮表示
+alias gss="git status -s"            # -s, --short       : ステータスの短縮表示
 alias gsw="git switch"
-alias gswc="git switch -c"          # -c, --create      : 新しいブランチを作成して切り替える
+alias gswc="git switch -c"           # -c, --create      : 新しいブランチを作成して切り替える
 
 
 ########################################
