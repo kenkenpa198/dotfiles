@@ -1,164 +1,160 @@
 {
-    ////////////////////////////////////////
-    // VS Code Settings
-    ////////////////////////////////////////
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.copyWithSyntaxHighlighting": false,
-    "editor.cursorSurroundingLines": 16,
-    "editor.dragAndDrop": false,
-    "editor.fontFamily": "'HackGen', Consolas, 'Courier New', monospace",
-    "editor.fontSize": 15,
-    "editor.lineHeight": 1.3,
-    "editor.linkedEditing": true,
-    "editor.minimap.renderCharacters": false,
-    "editor.minimap.showSlider": "always",
-    "editor.minimap.size": "fit",
-    "editor.mouseWheelZoom": true,
-    "editor.renderWhitespace": "trailing",
-    "editor.stickyScroll.enabled": true,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.sortOrderLexicographicOptions": "unicode",
-    "extensions.autoUpdate": "onlyEnabledExtensions",
-    "files.autoGuessEncoding": true,
-    "files.eol": "\n",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "search.showLineNumbers": true,
-    "security.allowedUNCHosts": [
-        // WSL 環境での起動時に表示される警告メッセージを抑制する
-        // https://code.visualstudio.com/docs/setup/windows#_working-with-unc-paths
-        "wsl.localhost"
-    ],
-    "security.workspace.trust.untrustedFiles": "open",
-    "terminal.integrated.fontFamily": "'HackGen Console'",
-    "workbench.activityBar.location": "top",
-    "workbench.colorTheme": "GitHub Dark",
-    "workbench.editor.empty.hint": "hidden",
-    "workbench.editor.revealIfOpen": true,
-    "workbench.editor.tabSizing": "shrink",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.layoutControl.enabled": false,
-    "workbench.startupEditor": "newUntitledFile",
-    "window.commandCenter": false,
-    "window.menuBarVisibility": "compact",
-    "window.newWindowDimensions": "inherit",
-    "window.restoreWindows": "none",
+  ////////////////////////////////////////
+  // VS Code Settings
+  ////////////////////////////////////////
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.cursorSurroundingLines": 16,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.dragAndDrop": false,
+  "editor.fontFamily": "'HackGen', Consolas, 'Courier New', monospace",
+  "editor.fontSize": 15,
+  "editor.formatOnSave": true,
+  "editor.lineHeight": 1.3,
+  "editor.linkedEditing": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.size": "fit",
+  "editor.mouseWheelZoom": true,
+  "editor.renderWhitespace": "trailing",
+  "editor.stickyScroll.enabled": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.sortOrderLexicographicOptions": "unicode",
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "files.autoGuessEncoding": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "search.showLineNumbers": true,
+  "security.allowedUNCHosts": [
+    // WSL 環境での起動時に表示される警告メッセージを抑制する
+    // https://code.visualstudio.com/docs/setup/windows#_working-with-unc-paths
+    "wsl.localhost"
+  ],
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.fontFamily": "'HackGen Console'",
+  "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.revealIfOpen": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "window.commandCenter": false,
+  "window.menuBarVisibility": "compact",
+  "window.newWindowDimensions": "inherit",
+  "window.restoreWindows": "none",
 
+  ////////////////////////////////////////
+  // Extensions
+  ////////////////////////////////////////
+  "code-eol.crlfCharacter": "↲",
+  "code-eol.newlineCharacter": "↓",
+  "code-eol.returnCharacter": "←",
+  "cSpell.userWords": [
+    "archlinux",
+    "autoload",
+    "Consolas",
+    "datetime",
+    "dircolors",
+    "dont",
+    "dotfiles",
+    "drawio",
+    "excludesfile",
+    "fuga",
+    "hediet",
+    "hoge",
+    "kenkenpa",
+    "kenknepa198",
+    "laravel",
+    "lastmod",
+    "markdowntable",
+    "mcfs",
+    "moda",
+    "Modane",
+    "mume",
+    "noconfirm",
+    "pacman",
+    "pagedown",
+    "pageup",
+    "piyo",
+    "psql",
+    "Qiita",
+    "rgba",
+    "todos",
+    "vsnotes",
+    "vuejs",
+    "wslconfig",
+    "xremap"
+  ],
+  "hediet.vscode-drawio.resizeImages": null,
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
+  "markdown.extension.list.indentationSize": "inherit",
+  "markdown-preview-enhanced.breakOnSingleNewLine": false,
+  "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
+  "markdown-preview-enhanced.previewTheme": "one-dark.css",
+  "markdownlint.focusMode": false,
+  "markdownlint.config": {
+    "default": true,
+    "MD007": {
+      "indent": 4
+    }
+  },
+  "markdowntable.showMenu.csvToTable": true,
+  "mcfs.notifications": {
+    "hasOpenedConnectionManager": false,
+    "hasConnectedToMC": false,
+    "dontShowConnectionManagerAlert": false,
+    "hasShownChangelog": false,
+    "hasSeenPromoForVersion": "3.0"
+  },
+  "sql-formatter.uppercase": true,
+  "trailing-spaces.backgroundColor": "rgba(255,255,0,0.3)",
+  "trailing-spaces.borderColor": "rgba(255,255,100,0.15)",
+  "vsnotes.defaultNoteName": "new-note",
+  "vsnotes.defaultNotePath": "~/works/notes/notes",
+  "vsnotes.defaultNoteTitle": "{dt}-{title}.{ext}",
+  "vsnotes.noteTitleConvertSpaces": "-",
+  "vsnotes.templates": ["simple"],
+  "vsnotes.tokens": [
+    {
+      "type": "datetime",
+      "token": "{dt}",
+      "format": "YYYY-MM-DD",
+      "description": "Insert formatted datetime."
+    },
+    {
+      "type": "title",
+      "token": "{title}",
+      "description": "Insert note title from input box.",
+      "format": "Untitled"
+    },
+    {
+      "type": "extension",
+      "token": "{ext}",
+      "description": "Insert file vsnotes.",
+      "format": "md"
+    }
+  ],
 
-    ////////////////////////////////////////
-    // Extensions
-    ////////////////////////////////////////
-    "code-eol.crlfCharacter": "↲",
-    "code-eol.newlineCharacter": "↓",
-    "code-eol.returnCharacter": "←",
-    "cSpell.userWords": [
-        "archlinux",
-        "autoload",
-        "Consolas",
-        "datetime",
-        "dircolors",
-        "dont",
-        "dotfiles",
-        "drawio",
-        "excludesfile",
-        "fuga",
-        "hediet",
-        "hoge",
-        "kenkenpa",
-        "kenknepa198",
-        "laravel",
-        "lastmod",
-        "markdowntable",
-        "mcfs",
-        "moda",
-        "Modane",
-        "mume",
-        "noconfirm",
-        "pacman",
-        "pagedown",
-        "pageup",
-        "piyo",
-        "psql",
-        "Qiita",
-        "rgba",
-        "todos",
-        "vsnotes",
-        "vuejs",
-        "wslconfig",
-        "xremap"
-    ],
-    "hediet.vscode-drawio.resizeImages": null,
-    "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
-    "markdown.extension.list.indentationSize": "inherit",
-    "markdown-preview-enhanced.breakOnSingleNewLine": false,
-    "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
-    "markdown-preview-enhanced.previewTheme": "one-dark.css",
-    "markdownlint.focusMode": false,
-    "markdownlint.config": {
-        "default": true,
-        "MD007": {
-            "indent": 4
-        }
-    },
-    "markdowntable.showMenu.csvToTable": true,
-    "mcfs.notifications": {
-        "hasOpenedConnectionManager": false,
-        "hasConnectedToMC": false,
-        "dontShowConnectionManagerAlert": false,
-        "hasShownChangelog": false,
-        "hasSeenPromoForVersion": "3.0"
-    },
-    "sql-formatter.uppercase": true,
-    "trailing-spaces.backgroundColor": "rgba(255,255,0,0.3)",
-    "trailing-spaces.borderColor": "rgba(255,255,100,0.15)",
-    "vsnotes.defaultNoteName": "new-note",
-    "vsnotes.defaultNotePath": "~/works/notes/notes",
-    "vsnotes.defaultNoteTitle": "{dt}-{title}.{ext}",
-    "vsnotes.noteTitleConvertSpaces": "-",
-    "vsnotes.templates": [
-        "simple"
-    ],
-    "vsnotes.tokens": [
-        {
-            "type": "datetime",
-            "token": "{dt}",
-            "format": "YYYY-MM-DD",
-            "description": "Insert formatted datetime."
-        },
-        {
-            "type": "title",
-            "token": "{title}",
-            "description": "Insert note title from input box.",
-            "format": "Untitled"
-        },
-        {
-            "type": "extension",
-            "token": "{ext}",
-            "description": "Insert file vsnotes.",
-            "format": "md"
-        }
-    ],
-
-
-    ////////////////////////////////////////
-    // Language-Specific Settings
-    ////////////////////////////////////////
-    "[html]": {
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true
-    },
-    "[javascript]": {
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true
-    },
-    "[markdown]": {
-        "files.trimTrailingWhitespace": false,
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
-        "editor.formatOnSave": false
-    },
-    "[python]": {
-        "editor.formatOnType": false
-    },
-    "markdown-preview-enhanced.revealjsTheme": "none.css",
+  ////////////////////////////////////////
+  // Language-Specific Settings
+  ////////////////////////////////////////
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[python]": {
+    "editor.formatOnType": false
+  }
 }
