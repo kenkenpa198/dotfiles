@@ -1,14 +1,20 @@
 ########################################
-# .gitignore ホワイトリスト
+# 初期化
 ########################################
-# 全てのファイルを除外する
+# すべてのファイルを除外する
 *
 */
 
-# 全てのディレクトリをホワイトリストへ追加する
+
+########################################
+# .gitignore ホワイトリスト
+########################################
+# 以下へ追跡対象のファイルを記述する
+
+# すべてのディレクトリ
 !*/
 
-# 追跡対象のファイルを記述する
+# .config/
 !.config/Code/extensions
 !.config/Code/User/snippets/markdown.json
 !.config/Code/User/keybindings.json
@@ -36,8 +42,10 @@
 !.config/zsh/env.zsh
 !.config/zsh/sync.zsh
 
+# .github/
 !.github/workflows/ci.yml
 
+# .local/
 !.local/bin/acd
 !.local/bin/cj
 !.local/bin/code-export
@@ -45,6 +53,7 @@
 !.local/bin/hr
 !.local/bin/moda
 
+# setup/
 !setup/linux/header.sh
 !setup/linux/install-packages.sh
 !setup/linux/install-packages-from-yay.sh
@@ -62,7 +71,6 @@
 !setup/linux/notice.sh
 !setup/linux/setup.sh
 !setup/linux/setup-ja.sh
-
 !setup/windows/capslock-to-f13-revert.reg
 !setup/windows/capslock-to-f13.reg
 !setup/windows/get-apps.ps1
@@ -71,6 +79,7 @@
 !setup/windows/install-apps-from-winget.ps1
 !setup/windows/link.ps1
 
+# /
 !.gitignore
 !.zshenv
 !README.md

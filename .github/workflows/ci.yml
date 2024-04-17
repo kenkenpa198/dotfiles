@@ -1,8 +1,8 @@
 # Reference:
-  # - [ようこそdotfilesの世界へ \#Vim - Qiita](https://qiita.com/yutkat/items/c6c7584d9795799ee164)
-  # - [dotfilesのすゝめ | kouki’s blog](https://blog.kmdkuk.com/2022/07/16/dotfilesのすゝめ.html)
-  # - [GitHub Actionsを使って、自分用にカスタムしたArch LinuxのISOイメージを作る](https://zenn.dev/inkohx/articles/3dbe67c0db1322)
-  # - [コンテナ内でのジョブの実行 - GitHub Docs](https://docs.github.com/ja/actions/using-jobs/running-jobs-in-a-container)
+# - [ようこそdotfilesの世界へ \#Vim - Qiita](https://qiita.com/yutkat/items/c6c7584d9795799ee164)
+# - [dotfilesのすゝめ | kouki’s blog](https://blog.kmdkuk.com/2022/07/16/dotfilesのすゝめ.html)
+# - [GitHub Actionsを使って、自分用にカスタムしたArch LinuxのISOイメージを作る](https://zenn.dev/inkohx/articles/3dbe67c0db1322)
+# - [コンテナ内でのジョブの実行 - GitHub Docs](https://docs.github.com/ja/actions/using-jobs/running-jobs-in-a-container)
 name: CI
 
 on: push
