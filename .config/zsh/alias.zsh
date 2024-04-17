@@ -197,6 +197,15 @@ alias sail="./vendor/bin/sail"
 
 
 ########################################
+# npm
+########################################
+alias nrd="npm run dev"
+alias nrb="npm run build"
+alias nrs="npm run start"
+alias nrl="npm run lint"
+
+
+########################################
 # pwgen
 ########################################
 alias pg="pwgen -cnyB1" # $ pg 20 4 ... 20 桁のパスワード文字列を 4 行表示する
