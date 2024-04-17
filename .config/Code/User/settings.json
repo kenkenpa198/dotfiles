@@ -117,7 +117,7 @@
   "vsnotes.defaultNotePath": "~/works/notes/notes",
   "vsnotes.defaultNoteTitle": "{dt}-{title}.{ext}",
   "vsnotes.noteTitleConvertSpaces": "-",
-  "vsnotes.templates": ["simple"],
+  "vsnotes.templates": ["simple", "log"],
   "vsnotes.tokens": [
     {
       "type": "datetime",
