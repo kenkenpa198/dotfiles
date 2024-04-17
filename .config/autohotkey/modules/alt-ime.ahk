@@ -3,6 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Include
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#Include ../libs/SendKey.ahk
 #Include ../libs/IMEv2.ahk
 
 
@@ -14,8 +15,8 @@
 ; https://ahkscript.github.io/ja/docs/v2/lib/A_MenuMaskKey.htm
 ; https://ahkscript.github.io/ja/docs/v2/lib/Send.htm#blind
 ; https://ahkscript.github.io/ja/docs/v2/Hotkeys.htm#Tilde
-~LAlt::Send "{Blind}{vkE8}"
-~RAlt::Send "{Blind}{vkE8}"
+~LAlt::SendKey("{Blind}{vkE8}")
+~RAlt::SendKey("{Blind}{vkE8}")
 
 ; IME OFF
 LAlt up::IME_SET(0)

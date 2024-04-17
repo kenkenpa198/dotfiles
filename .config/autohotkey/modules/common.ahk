@@ -1,58 +1,64 @@
 #Requires AutoHotkey v2.0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Include
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#Include ../libs/SendKey.ahk
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Function keys
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-F13 & 1::Send "{Blind}{F1}"
-F13 & 2::Send "{Blind}{F2}"
-F13 & 3::Send "{Blind}{F3}"
-F13 & 4::Send "{Blind}{F4}"
-F13 & 5::Send "{Blind}{F5}"
-F13 & 6::Send "{Blind}{F6}"
-F13 & 7::Send "{Blind}{F7}"
-F13 & 8::Send "{Blind}{F8}"
-F13 & 9::Send "{Blind}{F9}"
-F13 & 0::Send "{Blind}{F10}"
-F13 & -::Send "{Blind}{F11}"
-F13 & =::Send "{Blind}{F12}"
+F13 & 1::SendKey("{F1}")
+F13 & 2::SendKey("{F2}")
+F13 & 3::SendKey("{F3}")
+F13 & 4::SendKey("{F4}")
+F13 & 5::SendKey("{F5}")
+F13 & 6::SendKey("{F6}")
+F13 & 7::SendKey("{F7}")
+F13 & 8::SendKey("{F8}")
+F13 & 9::SendKey("{F9}")
+F13 & 0::SendKey("{F10}")
+F13 & -::SendKey("{F11}")
+F13 & =::SendKey("{F12}")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Emacs keybindings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Cursor
-F13 & f::Send "{Blind}{Right}"
-F13 & b::Send "{Blind}{Left}"
-F13 & p::Send "{Blind}{Up}"
-F13 & n::Send "{Blind}{Down}"
+F13 & f::SendKey("{Right}")
+F13 & b::SendKey("{Left}")
+F13 & p::SendKey("{Up}")
+F13 & n::SendKey("{Down}")
 ; Beginning/End of line
-F13 & a::Send "{Blind}{HOME}"
-F13 & e::Send "{Blind}{END}"
+F13 & a::SendKey("{HOME}")
+F13 & e::SendKey("{END}")
 ; Page Up/Down
-F13 & u::Send "{Blind}{PgUp}"
-F13 & v::Send "{Blind}{PgDn}"
+F13 & u::SendKey("{PgUp}")
+F13 & v::SendKey("{PgDn}")
 ; Newline
-F13 & m::Send "{Blind}{Enter}"
-F13 & j::Send "{Blind}{Enter}"
+F13 & m::SendKey("{Enter}")
+F13 & j::SendKey("{Enter}")
 F13 & o::
 {
-    Send "{Blind}{End}"
-    Send "{Blind}{Enter}"
-    Send "{Blind}{Home}"
-    Send "{Blind}{Left}"
+    SendKey("{End}")
+    SendKey("{Enter}")
+    SendKey("{Home}")
+    SendKey("{Left}")
     return
 }
 ; Copy
-F13 & w::Send "{Blind}^x"
-F13 & y::Send "{Blind}^v"
+F13 & w::SendKey("^x")
+F13 & y::SendKey("^v")
 ; Delete
-F13 & d::Send "{Blind}{Del}"
-F13 & h::Send "{Blind}{BS}"
+F13 & d::SendKey("{Del}")
+F13 & h::SendKey("{BS}")
 ; Kill line
 F13 & k::
 {
-    Send "{Blind}+{END}"
-    Send "{Blind}^x"
+    SendKey("+{END}")
+    SendKey("^x")
     return
 }
 
@@ -61,8 +67,8 @@ F13 & k::
 ; for 60% Layout
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 F13 & '::`
-F13 & \::Send "{Blind}{PrintScreen}"
-F13 & BS::Send "{Blind}{Del}"
+F13 & \::SendKey("{PrintScreen}")
+F13 & BS::SendKey("{Del}")
 !BS::Del
 
 
@@ -70,16 +76,16 @@ F13 & BS::Send "{Blind}{Del}"
 ; Shortcuts
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Convert to Katakana
-F13 & i::Send "{Blind}{F7}"
+F13 & i::SendKey("{F7}")
 ; Kill
-!q::Send "{Blind}!F4"
+!q::SendKey("!F4")
 ; Search
 F13 & Space::
 {
-    Send "{Blind}#s"
+    SendKey("#s")
     return
 }
 ; fzf
-F13 & t::Send "{Blind}^t" ; fzf-file-widget
-F13 & r::Send "{Blind}^r" ; fzf-history-widget
-F13 & c::Send "{Blind}!c" ; fzf-cd-widget
+F13 & t::SendKey("^t") ; fzf-file-widget
+F13 & r::SendKey("^r") ; fzf-history-widget
+F13 & c::SendKey("!c") ; fzf-cd-widget
