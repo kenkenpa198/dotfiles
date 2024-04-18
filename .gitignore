@@ -23,6 +23,12 @@
 !.config/WSL/.wslconfig
 !.config/WinMerge/wmignore.flt
 !.config/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+!.config/autohotkey/libs/IMEv2.ahk
+!.config/autohotkey/libs/SendKey.ahk
+!.config/autohotkey/modules/alt-ime.ahk
+!.config/autohotkey/modules/app.ahk
+!.config/autohotkey/modules/common.ahk
+!.config/autohotkey/kems-ahk.ahk
 !.config/azuredatastudio/User/settings.json
 !.config/brewfile/Brewfile
 !.config/crossnote/style.less
