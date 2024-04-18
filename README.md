@@ -223,20 +223,6 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 - [.gitconfigにinclude書くと捗る - 時計を壊せ](https://techblog.karupas.org/entry/2012/07/19/190313)
 
 <!-- omit in toc -->
-### AutoHotKey v2
-
-- [クイックリファレンス｜AutoHotkey v2](https://ahkscript.github.io/ja/docs/v2/)
-- [AutoHotKey : Google Chrome専用スクリプト - imani-cの日記](https://imani-c.hatenablog.com/entry/2023/01/29/141328)
-- [WindowsのAlt空打ちで日本語入力(IME)を切り替えるツールを作った - karakaram-blog](https://www.karakaram.com/alt-ime-on-off/)
-- [Autohotkey v2.0のIME制御用 関数群 IMEv2.ahk \#AutoHotkey - Qiita](https://qiita.com/kenichiro_ayaki/items/d55005df2787da725c6f)
-    - [k-ayaki/IMEv2.ahk: Autohotkey v2.0 でIMEを制御する関数群](https://github.com/k-ayaki/IMEv2.ahk/tree/master)
-- [kskmori/US-AltIME.ahk: AutoHotKey script for JIS2US keyboard conversion and IME controls by Alt keys](https://github.com/kskmori/US-AltIME.ahk/tree/main)
-- [快適キーボード操作のためのキーカスタマイズ 〜AutoHotKeyのキー押しっぱなし問題とScrollLockの非推奨～ \| さくらのナレッジ](https://knowledge.sakura.ad.jp/25827/)
-- [AutoHotkey：キー押しっぱなし病・ホットキーすり抜け病対策の研究](https://did2memo.net/2013/10/03/autohotkey-ctrl-key-is-stuck/)
-- [快適キーボード操作のためのキーカスタマイズ 〜AutoHotKeyのキー押しっぱなし問題とScrollLockの非推奨～ \| さくらのナレッジ](https://knowledge.sakura.ad.jp/25827/#F13F24)
-- [快適キーボード操作のためのキーカスタマイズ 〜Windows編〜 \| さくらのナレッジ](https://knowledge.sakura.ad.jp/23305/)
-
-<!-- omit in toc -->
 ### xremap
 
 - [k0kubun/xremap: Key remapper for X11 and Wayland](https://github.com/k0kubun/xremap)
