@@ -226,15 +226,15 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 ### AutoHotKey v2
 
 - [クイックリファレンス｜AutoHotkey v2](https://ahkscript.github.io/ja/docs/v2/)
+- [k-ayaki/IMEv2.ahk](https://github.com/k-ayaki/IMEv2.ahk/tree/master)
 - [AutoHotKey : Google Chrome専用スクリプト - imani-cの日記](https://imani-c.hatenablog.com/entry/2023/01/29/141328)
-- [WindowsのAlt空打ちで日本語入力(IME)を切り替えるツールを作った - karakaram-blog](https://www.karakaram.com/alt-ime-on-off/)
+- [IME制御 - eamat @Cabinet - atwiki（アットウィキ）](https://w.atwiki.jp/eamat/pages/17.html)
 - [Autohotkey v2.0のIME制御用 関数群 IMEv2.ahk \#AutoHotkey - Qiita](https://qiita.com/kenichiro_ayaki/items/d55005df2787da725c6f)
-    - [k-ayaki/IMEv2.ahk: Autohotkey v2.0 でIMEを制御する関数群](https://github.com/k-ayaki/IMEv2.ahk/tree/master)
-- [kskmori/US-AltIME.ahk: AutoHotKey script for JIS2US keyboard conversion and IME controls by Alt keys](https://github.com/kskmori/US-AltIME.ahk/tree/main)
-- [快適キーボード操作のためのキーカスタマイズ 〜AutoHotKeyのキー押しっぱなし問題とScrollLockの非推奨～ \| さくらのナレッジ](https://knowledge.sakura.ad.jp/25827/)
+- [WindowsのAlt空打ちで日本語入力(IME)を切り替えるツールを作った - karakaram-blog](https://www.karakaram.com/alt-ime-on-off/)
+- [kskmori/US-AltIME.ahk](https://github.com/kskmori/US-AltIME.ahk/tree/main)
 - [AutoHotkey：キー押しっぱなし病・ホットキーすり抜け病対策の研究](https://did2memo.net/2013/10/03/autohotkey-ctrl-key-is-stuck/)
 - [快適キーボード操作のためのキーカスタマイズ 〜AutoHotKeyのキー押しっぱなし問題とScrollLockの非推奨～ \| さくらのナレッジ](https://knowledge.sakura.ad.jp/25827/#F13F24)
-- [快適キーボード操作のためのキーカスタマイズ 〜Windows編〜 \| さくらのナレッジ](https://knowledge.sakura.ad.jp/23305/)
+- [AutoHotkey スレッド part30](https://egg.5ch.net/test/read.cgi/software/1644313099/) > `>>770`
 
 <!-- omit in toc -->
 ### xremap
