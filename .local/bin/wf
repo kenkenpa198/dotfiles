@@ -8,7 +8,7 @@ set -euo pipefail # エラーや未定義の変数が呼び出された場合プ
 # ヘルプを表示する
 function print_usage {
     cat << help_msg
-fw v0.1.0
+word-finder v0.1.0
 This is the dictionary tool with fzf.
 
 USAGE:

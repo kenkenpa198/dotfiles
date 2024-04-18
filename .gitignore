@@ -51,9 +51,9 @@
 !.local/bin/cj
 !.local/bin/code-export
 !.local/bin/ffmpeg-all
-!.local/bin/fw
 !.local/bin/hr
 !.local/bin/moda
+!.local/bin/wf
 
 # setup/
 !setup/linux/header.sh
