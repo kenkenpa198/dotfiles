@@ -50,10 +50,10 @@
 !.local/bin/acd
 !.local/bin/cj
 !.local/bin/code-export
+!.local/bin/ew
 !.local/bin/ffmpeg-all
 !.local/bin/hr
 !.local/bin/moda
-!.local/bin/wf
 
 # setup/
 !setup/linux/header.sh

@@ -8,15 +8,15 @@ set -euo pipefail # エラーや未定義の変数が呼び出された場合プ
 # ヘルプを表示する
 function print_usage {
     cat << help_msg
-word-finder v0.1.0
-This is the dictionary tool with fzf.
+Ei-Wa Dict v0.1.0
+This is the English and Japanese dictionary with fzf.
 
 USAGE:
-    fw            Find word with fzf.
+    fw            Look up word.
 
 OPTIONS:
-    --init        Make dict file.
-    -h, --help    Display usage.
+    --init        Make dict file
+    -h, --help    Display usage
 
 SOURCE:
     https://github.com/kujirahand/EJDict
@@ -49,9 +49,10 @@ function download_dict {
 
 # 単語を検索する
 function find_word {
+    local word=${1:-""}
     local dict_file="$HOME/.fw/dict.txt"
 
-    cat "$dict_file" | fzf --exact --tiebreak=begin --prompt="📖 >"
+    cat "$dict_file" | fzf --exact --tiebreak=begin --prompt="📖 > "  --query="$word"
 }
 
 
@@ -75,7 +76,7 @@ function main() {
             ;;
 
         * )
-            find_word
+            find_word "$1"
             ;;
     esac
 }
