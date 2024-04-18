@@ -51,7 +51,7 @@ function download_dict {
 function find_word {
     local dict_file="$HOME/.fw/dict.txt"
 
-    cat "$dict_file" | fzf -e --no-sort
+    cat "$dict_file" | fzf --exact --tiebreak=begin --prompt="📖 >"
 }
 
 
