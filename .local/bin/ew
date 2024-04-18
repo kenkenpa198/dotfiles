@@ -8,7 +8,7 @@ set -euo pipefail # エラーや未定義の変数が呼び出された場合プ
 # ヘルプを表示する
 function print_usage {
     cat << help_msg
-Ei-Wa Dict v0.1.0
+Ei-Wa v0.1.0
 This is the English and Japanese dictionary with fzf.
 
 USAGE:
