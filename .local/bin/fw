@@ -1,0 +1,83 @@
+#!/bin/bash
+set -euo pipefail # エラーや未定義の変数が呼び出された場合プロセスを終了する
+
+
+###################################
+# 関数定義
+###################################
+# ヘルプを表示する
+function print_usage {
+    cat << help_msg
+fw v0.1.0
+This is the dictionary tool with fzf.
+
+USAGE:
+    fw            Find word with fzf.
+
+OPTIONS:
+    --init        Make dict file.
+    -h, --help    Display usage.
+
+SOURCE:
+    https://github.com/kujirahand/EJDict
+help_msg
+}
+
+# 辞書ファイルを作成する
+function download_dict {
+    local input_dir="https://raw.githubusercontent.com/kujirahand/EJDict/master/src/"
+    local out_dir="$HOME/.fw"
+    local out_file="dict.txt"
+
+    echo "make dict file to:"
+    echo "$out_dir/$out_file"
+    echo
+
+    sleep 2
+
+    mkdir "$out_dir"
+    touch "$out_dir/$out_file"
+
+    for file in {a..z}.txt; do
+        curl "$input_dir$file" >> "$out_dir/$out_file"
+    done
+
+    echo
+    echo "made dict file:"
+    echo "$out_dir/$out_file"
+}
+
+# 単語を検索する
+function find_word {
+    local dict_file="$HOME/.fw/dict.txt"
+
+    cat "$dict_file" | fzf -e --no-sort
+}
+
+
+###################################
+# メイン処理
+###################################
+function main() {
+    if (( $# == 0 )); then
+        find_word
+        exit 0
+    fi
+
+    # 引数で処理を分岐する
+    case "$1" in
+        -h | --help )
+            print_usage
+            ;;
+
+        --init )
+            download_dict
+            ;;
+
+        * )
+            find_word
+            ;;
+    esac
+}
+
+main "$@"
