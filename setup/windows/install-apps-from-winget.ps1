@@ -10,7 +10,6 @@ function main {
         'Bitwarden.Bitwarden'
         'BlenderFoundation.Blender'
         'Brave.Brave'
-        'chanplecai.smarttaskbar'
         'Discord.Discord'
         'Docker.DockerDesktop'
         'Elgato.4KCaptureUtility'
