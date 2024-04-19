@@ -6,6 +6,7 @@ function main {
     $APPS = @(
         '7zip.7zip'
         'Apple.iTunes'
+        'AutoHotkey.AutoHotkey'
         'Avidemux.Avidemux'
         'Bitwarden.Bitwarden'
         'BlenderFoundation.Blender'
@@ -17,7 +18,6 @@ function main {
         'Git.Git'
         'Google.Chrome'
         'Google.GoogleDrive'
-        'Lexikos.AutoHotkey'
         'LINE.LINE'
         'Logitech.OptionsPlus'
         'Microsoft.AzureDataStudio'
