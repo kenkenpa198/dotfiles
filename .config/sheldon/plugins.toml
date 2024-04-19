@@ -17,6 +17,15 @@ shell = "zsh"
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 
+[plugins.dotfiles-sync]
+local = "~/.config/zsh"
+use = ["sync.zsh"]
+
+[plugins.dotfiles-defers]
+local = "~/.config/zsh"
+use = ["{!sync,*}.zsh"]
+apply = ["defer"]
+
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
@@ -32,15 +41,6 @@ apply = ["defer"]
 [plugins.fzf]
 github = "junegunn/fzf"
 apply = ["defer", "fzf-install", "fzf-source"]
-
-[plugins.dotfiles-defers]
-local = "~/.config/zsh"
-use = ["{!sync,*}.zsh"]
-apply = ["defer"]
-
-[plugins.dotfiles-sync]
-local = "~/.config/zsh"
-use = ["sync.zsh"]
 
 [templates]
 PATH = 'export PATH="$PATH:{{ dir }}"'
