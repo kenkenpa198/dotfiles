@@ -8,25 +8,26 @@ set -euo pipefail # エラーや未定義の変数が呼び出された場合プ
 # ヘルプを表示する
 function print_usage {
     cat << help_msg
-Ei-Wa v0.1.0
-This is the English and Japanese dictionary with fzf.
+fzf-eng-dict v0.1.0
+This is the English-Japanese dictionary with fzf.
 
 USAGE:
-    fw            Look up word.
+    fe            Look up word
+    fe [word]     Look up word with input
 
 OPTIONS:
-    --init        Make dict file
+    --init        Download dict file
     -h, --help    Display usage
 
-SOURCE:
+DICT SOURCE:
     https://github.com/kujirahand/EJDict
 help_msg
 }
 
 # 辞書ファイルを作成する
-function download_dict {
+function make_dict {
     local input_dir="https://raw.githubusercontent.com/kujirahand/EJDict/master/src/"
-    local out_dir="$HOME/.fw"
+    local out_dir="$HOME/.fed"
     local out_file="dict.txt"
 
     echo "make dict file to:"
@@ -35,7 +36,7 @@ function download_dict {
 
     sleep 2
 
-    mkdir "$out_dir"
+    mkdir -p "$out_dir"
     touch "$out_dir/$out_file"
 
     for file in {a..z}.txt; do
@@ -50,7 +51,7 @@ function download_dict {
 # 単語を検索する
 function find_word {
     local word=${1:-""}
-    local dict_file="$HOME/.fw/dict.txt"
+    local dict_file="$HOME/.fed/dict.txt"
 
     cat "$dict_file" | fzf --exact --tiebreak=begin --prompt="📖 > "  --query="$word"
 }
@@ -72,7 +73,7 @@ function main() {
             ;;
 
         --init )
-            download_dict
+            make_dict
             ;;
 
         * )
