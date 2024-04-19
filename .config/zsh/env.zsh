@@ -2,6 +2,7 @@
 # fzf
 ########################################
 export FZF_DEFAULT_OPTS="--height 80% --reverse --border"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 
 ########################################
