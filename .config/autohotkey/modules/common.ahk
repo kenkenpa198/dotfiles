@@ -27,10 +27,10 @@ F13 & =::SendKey("{F12}")
 ; Emacs keybindings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Cursor
-F13 & f::SendKey("{Right}")
 F13 & b::SendKey("{Left}")
-F13 & p::SendKey("{Up}")
 F13 & n::SendKey("{Down}")
+F13 & p::SendKey("{Up}")
+F13 & f::SendKey("{Right}")
 ; Beginning/End of line
 F13 & a::SendKey("{HOME}")
 F13 & e::SendKey("{END}")
@@ -66,9 +66,15 @@ F13 & k::
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; for 60% Layout
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+F13 & Left::SendKey("{HOME}")
+F13 & Down::SendKey("{PgDn}")
+F13 & Up::SendKey("{PgUp}")
+F13 & Right::SendKey("{END}")
+
 F13 & '::`
 F13 & \::SendKey("{PrintScreen}")
 F13 & BS::SendKey("{Del}")
+
 !BS::Del
 
 
