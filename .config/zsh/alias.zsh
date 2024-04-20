@@ -157,8 +157,9 @@ alias gpoh="git push origin HEAD"    # https://git-scm.com/docs/git-push > git p
 alias gs="git status"
 alias gss="git status -s"            # -s, --short       : ステータスの短縮表示
 alias gsw="git switch"
-alias gsf="git branch -a | fzf | xargs git switch"
 alias gswc="git switch -c"           # -c, --create      : 新しいブランチを作成して切り替える
+
+alias fsw="git branch -a | fzf | xargs git switch"
 
 
 ########################################
