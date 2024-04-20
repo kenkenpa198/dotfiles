@@ -84,7 +84,7 @@ F13 & BS::SendKey("{Del}")
 ; Convert to Katakana
 F13 & i::SendKey("{F7}")
 ; Kill
-!q::SendKey("!F4")
+!q::SendKey("!{F4}")
 ; Search
 F13 & Space::
 {
