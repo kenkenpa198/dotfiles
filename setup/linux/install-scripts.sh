@@ -9,7 +9,7 @@ function main {
     mkdir -p "$LOCAL_BIN"
 
     # Neos21/google-translator
-    curl https://raw.githubusercontent.com/Neos21/google-translator/master/gtr.bash > "$LOCAL_BIN/gtr"
+    # curl https://raw.githubusercontent.com/Neos21/google-translator/master/gtr.bash > "$LOCAL_BIN/gtr"
 
     # すべて実行権限を付与
     chmod -R +x "$LOCAL_BIN"

@@ -46,6 +46,7 @@ function main {
         "neofetch"
         "pwgen"
         "patch"
+        "translate-shell"
         "tree"
         "vim"
         "wget"

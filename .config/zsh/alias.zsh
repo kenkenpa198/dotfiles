@@ -163,24 +163,6 @@ alias fsw="git branch -a | fzf | xargs git switch"
 
 
 ########################################
-# google-translator
-########################################
-# https://github.com/Neos21/google-translator
-
-alias gt="gtr"
-
-# Japanese => English
-#   $ gtr -s 'ja' -t 'en' 'こんにちは世界'
-#   Hello World
-alias gtje="gtr -s 'ja' -t 'en'"
-
-# English => Japanese
-#   $ gtr -s 'en' -t 'ja' 'Hello World'
-#   こんにちは世界
-alias gtej="gtr -s 'en' -t 'ja'"
-
-
-########################################
 # Jekyll
 ########################################
 alias jkls="\
@@ -219,6 +201,13 @@ alias pg="pwgen -cnyB1" # $ pg 20 4 ... 20 桁のパスワード文字列を 4 �
 # rbenv-doctor
 # https://github.com/rbenv/rbenv-installer?tab=readme-ov-file#rbenv-doctor
 alias rbenv-doctor="curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-doctor | bash"
+
+
+########################################
+# Translate Shell
+########################################
+alias tj="trans -b :ja"
+alias te="trans -b :en"
 
 
 ########################################
