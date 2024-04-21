@@ -79,6 +79,14 @@ F13 & BS::SendKey("{Del}")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Mouse
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Back & Forward
+F13 & LButton::SendKey("{XButton1}")
+F13 & RButton::SendKey("{XButton2}")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Shortcuts
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Convert to Katakana
