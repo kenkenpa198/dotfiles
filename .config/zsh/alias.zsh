@@ -159,7 +159,14 @@ alias gss="git status -s"            # -s, --short       : ステータスの短
 alias gsw="git switch"
 alias gswc="git switch -c"           # -c, --create      : 新しいブランチを作成して切り替える
 
-alias fsw="git branch -a | fzf | xargs git switch"
+# fzf-switch
+function fsw() {
+    local selected
+    selected=$(git branch -a | fzf)
+    if [[ -n "$selected" ]]; then
+        git switch $selected
+    fi
+}
 
 
 ########################################
