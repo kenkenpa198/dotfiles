@@ -89,6 +89,10 @@
     "wslconfig",
     "xremap"
   ],
+  "gitlens.currentLine.format": "${author, }${agoOrDateShort}${' via 'pullRequest}${ // message|50?}",
+  "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
+  "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+  "gitlens.defaultTimeFormat": "hh:mm",
   "hediet.vscode-drawio.resizeImages": null,
   "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
   "markdown.extension.list.indentationSize": "inherit",
