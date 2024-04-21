@@ -150,7 +150,7 @@ alias gds="git diff --stat"          # --stat            : 差分のあるファ
 alias gf="git fetch"
 alias gfp="git fetch -p"             # -p, --prune       : リモートに存在しない追跡ブランチを削除する
 alias gl="git log --graph --all"
-alias gll="git log --graph --all --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(auto)%h %C(cyan)%ad%C(auto)%d %s %C(#666666)by\"%an\"%Creset'"
+alias gll="git log --graph --all --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(auto)%h %C(cyan)%ad%C(auto)%d %s %C(#666666)by\"%an\"%Creset'"
 alias gri="git rebase -i"            # -i, --interactive : 過去のコミットをまとめる $ git rebase -i HEAD~~
 alias grs="git restore --staged ."   # -S, --staged      : ステージングを解除する。. をあらかじめ指定しておきカレント配下のステージングをすべて解除する
 alias gpl="git pull"
