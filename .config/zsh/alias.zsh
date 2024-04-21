@@ -144,6 +144,7 @@ alias gba="git branch -a"            # -a, --all         : リモートブラン
 alias gcm="git commit -m"            # -m, --message     : コミットメッセージを作成する
 alias gcma="git commit --amend -m"   # --amend           : 新しいブランチを作成してカレントブランチと入れ替える。-m オプションでメッセージも新たに設定する
 alias gd="git diff"
+alias gdc="git diff --cached"
 alias gdn="git add -N . && git diff" # diff new files https://reasonable-code.com/git-add-n/
 alias gds="git diff --stat"          # --stat            : 差分のあるファイル名のみを表示
 alias gf="git fetch"
