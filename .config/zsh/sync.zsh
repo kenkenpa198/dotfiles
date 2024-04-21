@@ -48,11 +48,14 @@ setopt no_beep
 # 小文字でも大文字のディレクトリ・ファイルを補完できるようにする
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+# 近似補完を有効にする
+zstyle ':completion:*' completer _complete _approximate
+
 # 補完一覧のカーソル選択
 # zstyle ':completion:*' menu select
 
 # rm の引数の時にはメニュー補完をしない
-zstyle ':completion:*:rm:*' menu false
+# zstyle ':completion:*:rm:*' menu false
 
 # 補完時の色設定
 # zstyle ':completion:*:default' list-colors di=4
