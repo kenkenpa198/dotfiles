@@ -78,6 +78,7 @@
     "moda",
     "Modane",
     "mume",
+    "nextjs",
     "noconfirm",
     "pacman",
     "pagedown",
@@ -87,6 +88,8 @@
     "psql",
     "Qiita",
     "rgba",
+    "Roboto",
+    "tailwindcss",
     "todos",
     "vsnotes",
     "vuejs",
@@ -158,11 +161,23 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
+  "[javascriptreact]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
   "[markdown]": {
     "files.trimTrailingWhitespace": false,
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "[python]": {
     "editor.formatOnType": false
+  },
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   }
 }
