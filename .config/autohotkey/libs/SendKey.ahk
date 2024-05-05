@@ -11,7 +11,7 @@
 ; >>770
 
 SendKey(str){
-    Send(str)
+    Send("{Blind}" str)
     Sleep(5)
 
     if InStr(str, "#")
