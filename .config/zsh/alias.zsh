@@ -23,7 +23,7 @@ show-env-ver() {
 
 # cd
 alias dev="cd ~/works/develop"
-alias dot="cd ~/dotfiles"
+alias d="cd ~/dotfiles"
 alias note="cd ~/works/notes"
 alias gr='cd "$(git rev-parse --show-toplevel)"'
 
@@ -124,13 +124,13 @@ alias a="./a.out"
 ########################################
 # Docker
 ########################################
-alias dst="sudo service docker status"                              # Docker デーモンの起動状況を確認
-alias dsta="sudo service docker start ; sudo service docker status" # Docker デーモンを起動
-alias dsto="sudo service docker stop ; sudo service docker status"  # Docker デーモンを停止
+alias dcst="sudo service docker status"                              # Docker デーモンの起動状況を確認
+alias dcsta="sudo service docker start ; sudo service docker status" # Docker デーモンを起動
+alias dcsto="sudo service docker stop ; sudo service docker status"  # Docker デーモンを停止
 
-alias d="docker"
-alias dc="docker compose"
-alias drmn="docker image prune -f" # <none> イメージを一括削除 https://codechord.com/2019/08/docker-images-none-dangling/
+alias dc="docker"
+alias dcc="docker compose"
+alias dcrmn="docker image prune -f" # <none> イメージを一括削除 https://codechord.com/2019/08/docker-images-none-dangling/
 
 
 ########################################
