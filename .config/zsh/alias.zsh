@@ -22,7 +22,7 @@ show-env-ver() {
 }
 
 # cd
-alias dev="cd ~/works/develop"
+alias dv="cd ~/works/develop"
 alias d="cd ~/dotfiles"
 alias note="cd ~/works/notes"
 alias gr='cd "$(git rev-parse --show-toplevel)"'
