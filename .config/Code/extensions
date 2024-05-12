@@ -1,8 +1,10 @@
 amiralizadeh9480.laravel-extra-intellisense
 bpruitt-goddard.mermaid-markdown-syntax-highlighting
 bradlc.vscode-tailwindcss
+christian-kohler.path-intellisense
 chrmarti.regex
 codingyu.laravel-goto-view
+csstools.postcss
 davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 ecmel.vscode-html-css
@@ -49,6 +51,7 @@ ms-vscode.cmake-tools
 ms-vscode.cpptools
 ms-vscode.cpptools-extension-pack
 ms-vscode.cpptools-themes
+ms-vscode.js-debug-nightly
 ms-vscode.powershell
 naoray.laravel-goto-components
 njpwerner.autodocstring
@@ -71,6 +74,7 @@ streetsidesoftware.code-spell-checker
 takumii.markdowntable
 timonwong.shellcheck
 twxs.cmake
+unifiedjs.vscode-mdx
 usernamehw.errorlens
 vue.volar
 yzane.markdown-pdf
