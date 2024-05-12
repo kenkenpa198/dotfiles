@@ -57,22 +57,21 @@
 
 # setup/
 !setup/linux/header.sh
-!setup/linux/install-packages.sh
-!setup/linux/install-packages-from-yay.sh
+!setup/linux/install-code-dependency.sh
 !setup/linux/install-jekyll.sh
 !setup/linux/install-language-pack-ja.sh
 !setup/linux/install-nvm.sh
+!setup/linux/install-packages-from-yay.sh
+!setup/linux/install-packages.sh
 !setup/linux/install-pyenv.sh
 !setup/linux/install-rbenv.sh
 !setup/linux/install-scripts.sh
-!setup/linux/install-vscode-extensions.sh
 !setup/linux/install-sheldon.sh
 !setup/linux/install-volta.sh
+!setup/linux/install-vscode-extensions.sh
 !setup/linux/link-systemd.sh
 !setup/linux/link.sh
-!setup/linux/notice.sh
 !setup/linux/setup.sh
-!setup/linux/setup-ja.sh
 !setup/windows/capslock-to-f13-revert.reg
 !setup/windows/capslock-to-f13.reg
 !setup/windows/get-apps.ps1

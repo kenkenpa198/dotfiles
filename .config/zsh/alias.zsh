@@ -129,6 +129,12 @@ alias a="./a.out"
 
 
 ########################################
+# code-dependency
+########################################
+alias dp="code-dependency --source ./"
+
+
+########################################
 # Docker
 ########################################
 alias dcst="sudo service docker status"                              # Docker デーモンの起動状況を確認
