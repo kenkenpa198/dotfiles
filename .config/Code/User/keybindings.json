@@ -91,5 +91,10 @@
   {
     "key": "alt+x",
     "command": "extension.toggleLineEndings"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "svg.showPreviewToSide",
+    "when": "editorLangId == 'xml'"
   }
 ]
