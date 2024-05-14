@@ -395,8 +395,8 @@ esac
 # alias.zsh の読み込み毎に $ABBR_USER_ABBREVIATIONS_FILE の記述をリセットする
 # https://memo.yammer.jp/posts/zsh-abbr
 # https://syohex.hatenablog.com/entry/20121006/1349487493
-type "abbr" &>/dev/null && \
-if [ -e "$ABBR_USER_ABBREVIATIONS_FILE" ]; then
-    rm "$ABBR_USER_ABBREVIATIONS_FILE"
-fi && \
-abbr -q import-aliases
+# type "abbr" &>/dev/null && \
+# if [ -e "$ABBR_USER_ABBREVIATIONS_FILE" ]; then
+#     rm "$ABBR_USER_ABBREVIATIONS_FILE"
+# fi && \
+# abbr -q import-aliases
