@@ -337,6 +337,7 @@ case ${OSTYPE} in
             alias op="open"
             alias opr="open README.md"
             alias pwsh="powershell.exe"
+            alias wsl="powershell.exe wsl"
 
             # ググる
             # https://osa.hatenablog.jp/entry/2020/02/24/121725
