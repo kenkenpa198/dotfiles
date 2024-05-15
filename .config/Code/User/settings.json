@@ -167,6 +167,11 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
+  "[ini]": {
+    // ファイルを ini として自動認識しない
+    // https://neos21.net/blog/2023/05/25-01.html
+    "workbench.editor.languageDetection": false
+  },
   "[javascript]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true
