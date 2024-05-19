@@ -32,11 +32,13 @@
   },
   {
     "key": "alt+left",
-    "command": "markdowntable.moveLeft"
+    "command": "markdowntable.moveLeft",
+    "when": "editorLangId == 'markdown' || editorLangId == 'mdx'"
   },
   {
     "key": "alt+right",
-    "command": "markdowntable.moveRight"
+    "command": "markdowntable.moveRight",
+    "when": "editorLangId == 'markdown' || editorLangId == 'mdx'"
   },
   {
     "key": "ctrl+tab",
