@@ -10,7 +10,7 @@
   {
     "key": "ctrl+p",
     "command": "markdown-preview-enhanced.openPreviewToTheSide",
-    "when": "editorLangId == 'markdown'"
+    "when": "editorLangId == 'markdown' || editorLangId == 'mdx'"
   },
   {
     "key": "ctrl+shift+oem_2",
@@ -96,5 +96,15 @@
     "key": "ctrl+p",
     "command": "svg.showPreviewToSide",
     "when": "editorLangId == 'xml'"
+  },
+  {
+    "key": "ctrl+k v",
+    "command": "markdown-preview-enhanced.openPreviewToTheSide",
+    "when": "editorLangId == 'markdown' || editorLangId == 'mdx'"
+  },
+  {
+    "key": "ctrl+k v",
+    "command": "-markdown-preview-enhanced.openPreviewToTheSide",
+    "when": "editorLangId == 'markdown'"
   }
 ]
