@@ -18,28 +18,50 @@ OPTIONS:
 help_msg
 }
 
+# 以下 "$(docker container ls -aq)" とすると 404 で実行できないため shellcheck を無視している
+
 # Docker コンテナを削除する関数
 remove_containers() {
-    # "$(docker container ls -aq)" とすると 404 で実行できないため shellcheck を無視している
+    local containers
+    containers=$(docker container ls -aq)
 
-    # 起動中のコンテナが存在する場合削除ができないため先に停止する
-    # shellcheck disable=SC2046
-    docker container stop $(docker container ls -aq)
-
-    # shellcheck disable=SC2046
-    docker container rm $(docker container ls -aq)
+    if [ -n "$containers" ]; then
+        # shellcheck disable=SC2086
+        docker container stop $containers
+        # shellcheck disable=SC2086
+        docker container rm $containers
+    else
+        echo
+        echo "No containers to remove."
+    fi
 }
 
 # Docker イメージを削除する関数
 remove_images() {
-    # shellcheck disable=SC2046
-    docker image rm $(docker image ls -aq)
+    local images
+    images=$(docker image ls -aq)
+
+    if [ -n "$images" ]; then
+        # shellcheck disable=SC2086
+        docker image rm $images
+    else
+        echo
+        echo "No image to remove."
+    fi
 }
 
 # Docker ボリュームを削除する関数
 remove_volumes() {
-    # shellcheck disable=SC2046
-    docker volume rm $(docker volume ls -q)
+    local volumes
+    volumes=$(docker volume ls -q)
+
+    if [ -n "$volumes" ]; then
+        # shellcheck disable=SC2086
+        docker volume rm $volumes
+    else
+        echo
+        echo "No volumes to remove."
+    fi
 }
 
 # Docker コンテナ・イメージ・ボリュームを一覧表示する関数
