@@ -1,0 +1,67 @@
+#!/bin/bash
+set -euo pipefail # エラーや未定義の変数が呼び出された場合プロセスを終了する
+
+
+###################################
+# 関数定義
+###################################
+# ヘルプを表示する
+function print_usage {
+    cat << help_msg
+docker-ls-all v0.1.0
+List All Docker containers, images and volumes.
+
+OPTIONS:
+    -h, --help    Display usage
+
+help_msg
+}
+
+# Docker コンテナ・イメージ・ボリュームを一覧表示する関数
+display_resources() {
+    echo
+    echo "Current containers:"
+    docker container ls -a
+
+    echo
+    echo "Current images:"
+    docker image ls -a
+
+    echo
+    echo "Current volumes:"
+    docker volume ls
+}
+
+
+###################################
+# メイン処理
+###################################
+function main() {
+    # 引数を命名する
+    # 未定義（引数なし）の場合は空文字を代入する
+    local option
+    option=${1:-""}
+
+    # 引数チェック
+    case "$option" in
+        -h | --help )
+            # -h / --help があればヘルプメッセージを表示する
+            print_usage
+            exit 0
+            ;;
+        "" | -v )
+            # 引数なしか対応している引数であれば処理を続行する
+            ;;
+        * )
+            echo
+            echo "Invalid option: $option"
+            echo "Usage: $(basename "$0") [-h|--help]"
+            exit 1
+            ;;
+    esac
+
+    # 一覧表示
+    display_resources "$option"
+}
+
+main "$@"
