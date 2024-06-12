@@ -1,0 +1,134 @@
+#!/bin/bash
+set -euo pipefail # エラーや未定義の変数が呼び出された場合プロセスを終了する
+
+
+###################################
+# 関数定義
+###################################
+# ヘルプを表示する
+function print_usage {
+    cat << help_msg
+docker-clean v0.1.0
+Remove All Docker containers and images.
+
+OPTIONS:
+    -v            Include removing volumes
+    -h, --help    Display usage
+
+help_msg
+}
+
+# Docker コンテナを削除する関数
+remove_containers() {
+    # "$(docker container ls -aq)" とすると 404 で実行できないため shellcheck を無視している
+
+    # 起動中のコンテナが存在する場合削除ができないため先に停止する
+    # shellcheck disable=SC2046
+    docker container stop $(docker container ls -aq)
+
+    # shellcheck disable=SC2046
+    docker container rm $(docker container ls -aq)
+}
+
+# Docker イメージを削除する関数
+remove_images() {
+    # shellcheck disable=SC2046
+    docker image rm $(docker image ls -aq)
+}
+
+# Docker ボリュームを削除する関数
+remove_volumes() {
+    # shellcheck disable=SC2046
+    docker volume rm $(docker volume ls -q)
+}
+
+# Docker コンテナ・イメージ・ボリュームを一覧表示する関数
+display_resources() {
+    echo
+    echo "Current containers:"
+    docker container ls -a
+
+    echo
+    echo "Current images:"
+    docker image ls -a
+
+    if [ "$1" == "-v" ]; then
+        echo
+        echo "Current volumes:"
+        docker volume ls
+    fi
+}
+
+# 削除するリソースの確認メッセージを表示する関数
+confirm_deletion() {
+    echo
+    read -p "Do you want to proceed with deletion? (Y/n): " answer
+    case "$answer" in
+        [Yy]|[Yy][Ee][Ss])
+            echo "Proceeding with deletion..."
+            ;;
+        [Nn]|[Nn][Oo])
+            echo "Deletion cancelled."
+            exit 0
+            ;;
+        *)
+            echo "Invalid input. Exiting."
+            exit 1
+            ;;
+    esac
+}
+
+
+###################################
+# メイン処理
+###################################
+function main() {
+    # 引数を命名する
+    # 未定義（引数なし）の場合は空文字を代入する
+    local option
+    option=${1:-""}
+
+    # 引数チェック
+    case "$option" in
+        -h | --help )
+            # -h / --help があればヘルプメッセージを表示する
+            print_usage
+            exit 0
+            ;;
+        "" | -v )
+            # 引数なしか対応している引数であれば処理を続行する
+            ;;
+        * )
+            echo
+            echo "Invalid option: $option"
+            echo "Usage: $(basename "$0") [-v] [-h|--help]"
+            exit 1
+            ;;
+    esac
+
+    # 削除前の一覧表示
+    display_resources "$option"
+
+    # 削除処理を行う前に確認メッセージを表示する
+    confirm_deletion
+
+    # 引数に応じて処理を分岐する
+    case "$option" in
+        -v )
+            remove_containers
+            remove_images
+            remove_volumes
+            ;;
+        * )
+            remove_containers
+            remove_images
+            ;;
+    esac
+
+    # 削除後の一覧表示
+    display_resources "$option"
+
+    exit 0
+}
+
+main "$@"
