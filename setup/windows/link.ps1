@@ -52,7 +52,7 @@ function main {
     $linkHash["${DOTFILES_HOME}\.config\zsh\alias.zsh"] = '~\.bashrc'
 
     # develop
-    $linkHash["${WSL_HOME}\works\develop"] = '~\works\develop'
+    # $linkHash["${WSL_HOME}\works\develop"] = '~\works\develop'
 
     # Code
     $linkHash["${DOTFILES_HOME}\.config\Code\User\snippets"]         = '~\AppData\Roaming\Code\User\snippets'
