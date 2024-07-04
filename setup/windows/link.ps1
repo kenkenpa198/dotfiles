@@ -49,7 +49,7 @@ function main {
     $DOTFILES_HOME = "$WSL_HOME\dotfiles"
 
     # .bashrc
-    $linkHash["${WSL_HOME}\.bashrc"] = '~\.bashrc'
+    $linkHash["${DOTFILES_HOME}\.config\zsh\alias.zsh"] = '~\.bashrc'
 
     # develop
     $linkHash["${WSL_HOME}\works\develop"] = '~\works\develop'
