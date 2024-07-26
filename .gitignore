@@ -83,6 +83,7 @@
 !setup/windows/link.ps1
 
 # /
+!.gitattributes
 !.gitignore
 !.zshenv
 !README.md

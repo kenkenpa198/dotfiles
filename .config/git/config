@@ -1,7 +1,4 @@
 [core]
-        # コミット・チェックアウト時に改行コードの変換を行わない
-        autocrlf = false
-
         # デフォルトのエディタを Vim に設定する
         editor = vim
 
@@ -11,9 +8,6 @@
         # 2 バイト文字列のエスケープ処理を行わない
         # git status 送信時に日本語のファイル名を正常に表示させるため
         quotepath = false
-
-        # 改行コードが混在している場合に変換しない
-        safecrlf = true
 
 [credential]
         # ID, PASS を聞かれる頻度を減らすためキャッシュしておく設定
