@@ -411,7 +411,7 @@
       "KC_NO",
       "KC_NO",
       "KC_HAEN",
-      "MO(4)",
+      "KC_RGUI",
       "KC_NO",
       "KC_NO",
       "KC_NO",
@@ -503,7 +503,7 @@
       "KC_NO",
       "KC_TRNS",
       "KC_NO",
-      "KC_PGUP",
+      "KC_TRNS",
       "KC_NO",
       "KC_TRNS",
       "KC_TRNS",
@@ -519,9 +519,9 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "KC_HOME",
-      "KC_PGDN",
-      "KC_END"
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS"
     ],
     [
       "KC_TRNS",
