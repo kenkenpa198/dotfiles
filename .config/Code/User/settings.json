@@ -2,8 +2,10 @@
   ////////////////////////////////////////
   // VS Code Settings
   ////////////////////////////////////////
+  // diffEditor.*
   "diffEditor.ignoreTrimWhitespace": false,
 
+  // editor.*
   "editor.copyWithSyntaxHighlighting": false,
   "editor.cursorSurroundingLines": 16,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -20,20 +22,28 @@
   "editor.renderWhitespace": "trailing",
   "editor.stickyScroll.enabled": true,
 
+  // explorer.*
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmPasteNative": false,
   "explorer.sortOrderLexicographicOptions": "unicode",
 
+  // extensions.*
   "extensions.autoUpdate": "onlyEnabledExtensions",
 
+  // files.*
   "files.autoGuessEncoding": true,
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
 
+  // markdown.*
+  "markdown.extension.list.indentationSize": "inherit",
+
+  // search.*
   "search.showLineNumbers": true,
 
+  // security.*
   "security.allowedUNCHosts": [
     // WSL 環境での起動時に表示される警告メッセージを抑制する
     // https://code.visualstudio.com/docs/setup/windows#_working-with-unc-paths
@@ -41,8 +51,10 @@
   ],
   "security.workspace.trust.untrustedFiles": "open",
 
+  // terminal.*
   "terminal.integrated.fontFamily": "'HackGen Console'",
 
+  // workbenchc.*
   "workbench.activityBar.location": "top",
   "workbench.colorTheme": "GitHub Dark",
   "workbench.editor.empty.hint": "hidden",
@@ -53,6 +65,7 @@
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "newUntitledFile",
 
+  // window.*
   "window.commandCenter": false,
   "window.menuBarVisibility": "compact",
   "window.newWindowDimensions": "inherit",
@@ -61,10 +74,12 @@
   ////////////////////////////////////////
   // Extensions
   ////////////////////////////////////////
+  // code-eol.*
   "code-eol.crlfCharacter": "↲",
   "code-eol.newlineCharacter": "↓",
   "code-eol.returnCharacter": "←",
 
+  // cSpell.*
   "cSpell.userWords": [
     "archlinux",
     "autoload",
@@ -119,21 +134,24 @@
     "xremap"
   ],
 
+  // gitlens.*
   "gitlens.currentLine.format": "${author, }${agoOrDateShort}${' via 'pullRequest}${ // message|50?}",
   "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
   "gitlens.defaultTimeFormat": "hh:mm",
 
+  // hediet.*
   "hediet.vscode-drawio.resizeImages": null,
 
+  // liveServer.*
   "liveServer.settings.AdvanceCustomBrowserCmdLine": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
 
-  "markdown.extension.list.indentationSize": "inherit",
-
+  // markdown-preview-enhanced.*
   "markdown-preview-enhanced.breakOnSingleNewLine": false,
   "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
   "markdown-preview-enhanced.previewTheme": "one-dark.css",
 
+  // markdownlint.*
   "markdownlint.focusMode": false,
   "markdownlint.config": {
     "default": true,
@@ -142,8 +160,10 @@
     }
   },
 
+  // markdowntable.*
   "markdowntable.showMenu.csvToTable": true,
 
+  // mcfs.*
   "mcfs.notifications": {
     "hasOpenedConnectionManager": false,
     "hasConnectedToMC": false,
@@ -152,13 +172,17 @@
     "hasSeenPromoForVersion": "3.0"
   },
 
+  // prettier.*
   "prettier.singleQuote": true,
 
+  // sql-formatter.*
   "sql-formatter.uppercase": true,
 
+  // trailing-spaces.*
   "trailing-spaces.backgroundColor": "rgba(255,255,0,0.3)",
   "trailing-spaces.borderColor": "rgba(255,255,100,0.15)",
 
+  // vsnotes.*
   "vsnotes.defaultNoteName": "new-note",
   "vsnotes.defaultNotePath": "~/works/notes/notes",
   "vsnotes.defaultNoteTitle": "{dt}-{title}.{ext}",
