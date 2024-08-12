@@ -4,6 +4,7 @@ $ErrorActionPreference = 'Stop'
 function main {
     # インストールするアプリケーションのハッシュテーブルを定義
     $APPS = @(
+        '9NSBB9XTJW86'   # A5:SQL Mk-2
         'XPDP32QDDFL4PK' # CLIP STUDIO PAINT
         '9PGCV4V3BK4W'   # DevToys
         '9P1TBXR6QDCX'   # HyperX NGENUITY
