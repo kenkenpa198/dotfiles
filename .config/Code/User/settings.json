@@ -84,6 +84,7 @@
     "archlinux",
     "autoload",
     "Consolas",
+    "cooldown",
     "Corocoro",
     "daisyui",
     "datetime",
@@ -149,7 +150,7 @@
   // markdown-preview-enhanced.*
   "markdown-preview-enhanced.breakOnSingleNewLine": false,
   "markdown-preview-enhanced.frontMatterRenderingOption": "code block",
-  "markdown-preview-enhanced.previewTheme": "one-dark.css",
+  "markdown-preview-enhanced.previewTheme": "one-light.css",
 
   // markdownlint.*
   "markdownlint.focusMode": false,
