@@ -7,6 +7,7 @@ codingyu.laravel-goto-view
 csstools.postcss
 davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
+dsznajder.es7-react-js-snippets
 ecmel.vscode-html-css
 editorconfig.editorconfig
 esbenp.prettier-vscode
@@ -54,6 +55,7 @@ ms-vscode.cpptools-themes
 ms-vscode.js-debug-nightly
 ms-vscode.powershell
 naoray.laravel-goto-components
+nidu.copy-json-path
 njpwerner.autodocstring
 nmrmsys.vscode-sql-formatter-mod
 onecentlin.laravel-blade
@@ -62,6 +64,8 @@ onecentlin.laravel5-snippets
 patricklee.vsnotes
 pgl.laravel-jump-controller
 pkief.material-icon-theme
+redhat.java
+richie5um2.vscode-sort-json
 ritwickdey.liveserver
 ryannaddy.laravel-artisan
 sergey-agadzhanov.ampscript
@@ -76,6 +80,15 @@ timonwong.shellcheck
 twxs.cmake
 unifiedjs.vscode-mdx
 usernamehw.errorlens
+visualstudioexptteam.intellicode-api-usage-examples
+visualstudioexptteam.vscodeintellicode
+vitaliymaz.vscode-svg-previewer
+vitest.explorer
+vscjava.vscode-java-debug
+vscjava.vscode-java-dependency
+vscjava.vscode-java-pack
+vscjava.vscode-java-test
+vscjava.vscode-maven
 vue.volar
 yzane.markdown-pdf
 yzhang.markdown-all-in-one
