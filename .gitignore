@@ -41,7 +41,8 @@
 !.config/zsh/.zshrc
 !.config/zsh/alias.zsh
 !.config/zsh/env.zsh
-!.config/zsh/sync.zsh
+!.config/zsh/option.sync.zsh
+!.config/zsh/theme.sync.zsh
 
 # .github/
 !.github/workflows/ci.yml

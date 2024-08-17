@@ -19,11 +19,11 @@ github = "romkatv/zsh-defer"
 
 [plugins.dotfiles-sync]
 local = "~/.config/zsh"
-use = ["sync.zsh"]
+use = ["*.sync.zsh"]
 
 [plugins.dotfiles-defers]
 local = "~/.config/zsh"
-use = ["{!sync,*}.zsh"]
+use = ["{!*.sync,*}.zsh"]
 apply = ["defer"]
 
 [plugins.zsh-syntax-highlighting]
