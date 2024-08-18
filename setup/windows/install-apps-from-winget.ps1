@@ -26,6 +26,7 @@ function main {
         'Microsoft.VisualStudioCode'
         'nepnep.neofetch-win'
         'NickeManarin.ScreenToGif'
+        'Postman.Postman'
         'Obsidian.Obsidian'
         'OBSProject.OBSStudio'
         'Oracle.VirtualBox'
