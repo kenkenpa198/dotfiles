@@ -38,6 +38,10 @@
   "files.trimTrailingWhitespace": true,
 
   // markdown
+  "markdown.copyFiles.destination": {
+    "/notes/**/*": "/assets/${documentBaseName}/",
+    "/**/*": "images/"
+  },
   "markdown.extension.list.indentationSize": "inherit",
 
   // search
