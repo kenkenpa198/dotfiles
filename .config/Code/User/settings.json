@@ -224,6 +224,9 @@
     // https://neos21.net/blog/2023/05/25-01.html
     "workbench.editor.languageDetection": false
   },
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
   "[javascript]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true
