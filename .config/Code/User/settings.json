@@ -186,7 +186,7 @@
   },
 
   // prettier
-  "prettier.singleQuote": true,
+  // "prettier.singleQuote": true,
 
   // sql-formatter
   "sql-formatter.uppercase": true,
