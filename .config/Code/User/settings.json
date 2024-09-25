@@ -89,6 +89,7 @@
   // cSpell
   "cSpell.userWords": [
     "archlinux",
+    "AUTOINCREMENT",
     "autoload",
     "Cacheable",
     "Consolas",
@@ -107,16 +108,20 @@
     "Haru",
     "hediet",
     "Heroicons",
+    "himari",
     "Hiyori",
     "hoge",
     "importmap",
+    "jtalkvox",
     "kenkenpa",
     "kenknepa198",
+    "kotaro",
     "laravel",
     "lastmod",
     "lucide",
     "markdowntable",
     "mcfs",
+    "metan",
     "moda",
     "Modane",
     "mume",
@@ -135,16 +140,20 @@
     "Qiita",
     "rgba",
     "Roboto",
+    "ryusei",
     "shortcodes",
     "tailwindcss",
     "Tileset",
     "todos",
     "tseslint",
+    "tsumughi",
     "udemy",
+    "VOICEVOX",
     "vsnotes",
     "vuejs",
     "wslconfig",
-    "xremap"
+    "xremap",
+    "zundamon"
   ],
 
   // gitlens
@@ -248,6 +257,9 @@
   "[markdown]": {
     "files.trimTrailingWhitespace": false,
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
   },
   "[python]": {
     "editor.formatOnType": false
