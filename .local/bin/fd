@@ -26,7 +26,7 @@ function make_dict {
     local out_dir="$HOME/.fd"
     local out_file="dict.txt"
 
-    echo "make dict file to:"
+    echo "Make dict file to:"
     echo "$out_dir/$out_file"
     echo
 
@@ -40,7 +40,7 @@ function make_dict {
     done
 
     echo
-    echo "made dict file:"
+    echo "Made dict file:"
     echo "$out_dir/$out_file"
 }
 
