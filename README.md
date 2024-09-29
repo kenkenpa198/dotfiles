@@ -8,21 +8,21 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 <!-- omit in toc -->
 ## TOC
 
-- [1. Setup](#1-setup)
-    - [1.1. Ubuntu](#11-ubuntu)
-    - [1.2. Arch Linux](#12-arch-linux)
-    - [1.3. Windows and WSL](#13-windows-and-wsl)
-    - [1.4. MacOS](#14-macos)
-- [2. Tips](#2-tips)
-    - [2.1. ホワイトリスト形式の .gitignore](#21-ホワイトリスト形式の-gitignore)
-    - [2.2. Git のキャッシュ削除手順](#22-git-のキャッシュ削除手順)
-    - [2.3. PowerShell でスクリプトを実行する](#23-powershell-でスクリプトを実行する)
-    - [2.4. Windows Terminal の GUID 復元手順](#24-windows-terminal-の-guid-復元手順)
-- [3. Reference](#3-reference)
+- [Setup](#setup)
+    - [Ubuntu](#ubuntu)
+    - [Arch Linux](#arch-linux)
+    - [Windows and WSL](#windows-and-wsl)
+    - [MacOS](#macos)
+- [Tips](#tips)
+    - [ホワイトリスト形式の .gitignore](#ホワイトリスト形式の-gitignore)
+    - [Git のキャッシュ削除手順](#git-のキャッシュ削除手順)
+    - [PowerShell でスクリプトを実行する](#powershell-でスクリプトを実行する)
+    - [Windows Terminal の GUID 復元手順](#windows-terminal-の-guid-復元手順)
+- [Reference](#reference)
 
-## 1. Setup
+## Setup
 
-### 1.1. Ubuntu
+### Ubuntu
 
 ```shell
 # 必須パッケージの存在を確認する
@@ -42,7 +42,7 @@ sudo apt-get install -y git
 curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
 ```
 
-### 1.2. Arch Linux
+### Arch Linux
 
 ```shell
 # 必須パッケージの存在を確認する
@@ -62,7 +62,7 @@ sudo pacman -S --noconfirm git
 curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/linux/setup.sh | bash
 ```
 
-### 1.3. Windows and WSL
+### Windows and WSL
 
 1. Windows PowerShell を管理者権限で起動し、次のコマンドを実行して WSL をセットアップする。
 
@@ -81,13 +81,13 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 
 5. [setup/windows/](setup/windows) 配下のスクリプトを順次実行する。
 
-### 1.4. MacOS
+### MacOS
 
 次触った時に書く。
 
-## 2. Tips
+## Tips
 
-### 2.1. ホワイトリスト形式の .gitignore
+### ホワイトリスト形式の .gitignore
 
 ```shell
 .
@@ -98,7 +98,7 @@ curl -fsSL https://raw.githubusercontent.com/kenkenpa198/dotfiles/main/setup/lin
 
 こうすることで、新しく追加したファイルに秘匿すべき情報が含まれていた際に、誤ってコミットしてしまうミスを防げる。
 
-### 2.2. Git のキャッシュ削除手順
+### Git のキャッシュ削除手順
 
 - `.gitignore_global` を設定する前にコミットをしてしまった。
 - 過去に追跡対象としてコミットしたファイルを `.gitignore` で追跡対象外にしたい。
@@ -125,7 +125,7 @@ git status -s
 git commit -m '[commit comments]'
 ```
 
-### 2.3. PowerShell でスクリプトを実行する
+### PowerShell でスクリプトを実行する
 
 PowerShell はネットワークから取得したスクリプトファイル `***.ps1` がデフォルトで実行できない。このため、スクリプトの実行前に実行ポリシーの変更が必要となる。
 
@@ -162,7 +162,7 @@ PowerShell はネットワークから取得したスクリプトファイル `*
     > hoge.ps1
     ```
 
-### 2.4. Windows Terminal の GUID 復元手順
+### Windows Terminal の GUID 復元手順
 
 Windows Terminal の設定ファイルを上書きする際、環境によっては WSL を Windows Terminal で実行できなくなる場合がある。Ubuntu のバージョンに紐づけられた GUID が上書き前後で変わってしまったため。（※ 理解が正確でないかも）
 
@@ -173,7 +173,7 @@ Windows Terminal の設定ファイルを上書きする際、環境によって
 3. `プロファイルを複製する` から `Ubuntu` など目的のプロファイルを選んで `複製` をクリックする。
 4. 複製されたプロファイルの GUID を既存のプロファイルへ記述する。
 
-## 3. Reference
+## Reference
 
 <!-- omit in toc -->
 ### dotfiles
