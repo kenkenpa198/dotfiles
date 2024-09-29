@@ -6,7 +6,7 @@ DICT_DIR="$HOME/.fd"
 DICT_FILE="$DICT_DIR/dict.txt"
 
 # ヘルプを表示する関数
-function print_usage {
+function print_usage() {
     cat << help_msg
 fzf-dictionary v0.1.0
 This is the English-Japanese dictionary with fzf.
@@ -25,7 +25,7 @@ help_msg
 }
 
 # 辞書ファイルを作成する関数
-function make_dict {
+function make_dict() {
     echo "Make dict file to:"
     echo "$DICT_FILE"
     echo
@@ -44,7 +44,7 @@ function make_dict {
 }
 
 # 単語を検索する関数
-function find_word {
+function find_word() {
     local word=${1:-""}
 
     # 辞書ファイルが存在しない場合は作成する
