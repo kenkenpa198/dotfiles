@@ -264,8 +264,10 @@ alias zmvnw="noglob zmv -nW" # 置換プレビュー
 # - 表示するディレクトリパスをカレントディレクトリのみにする。
 #
 # 戻すときは ss で .zshrc を再読み込みする。
-alias strmd='PROMPT="%F{179m%}****@****%F{black}%B:%F{white}%1~%b
-%F{087m%}$%F{white} "'
+strmd() {
+    export PROMPT='%F{179m%}****@**%F{black}%B:%F{white}%1~%b
+%F{087m%}$%F{white} '
+}
 
 # zsh で使用できる色を一覧表示
 # [zsh で全 256 色を試しに表示みたい #Zsh - Qiita](https://qiita.com/k_ui/items/b02b93e3af13023c0bfd)
