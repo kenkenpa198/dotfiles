@@ -26,7 +26,7 @@ help_msg
 
 # 辞書ファイルを作成する関数
 function create_dict() {
-    echo "Make dict file to:"
+    echo "Create dict file to:"
     echo "$DICT_FILE"
     echo
 
