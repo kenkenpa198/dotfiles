@@ -28,7 +28,7 @@ help_msg
 function create_dict() {
     echo "Create dict file to:"
     echo "$DICT_FILE"
-    echo
+    echo ""
 
     mkdir -p "$DICT_DIR"
 
@@ -43,7 +43,7 @@ function create_dict() {
         fi
     done
 
-    echo
+    echo ""
     echo "Created dict file:"
     echo "$DICT_FILE"
 }
