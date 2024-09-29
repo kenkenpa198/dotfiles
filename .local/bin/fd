@@ -56,7 +56,7 @@ function find_word() {
         make_dict
     fi
 
-    cat "$DICT_FILE" | fzf --exact --tiebreak=begin --prompt="📖 > "  --query="$word"
+    fzf --exact --tiebreak=begin --prompt="📖 > " --query="$word" < "$DICT_FILE"
 }
 
 # メイン関数
