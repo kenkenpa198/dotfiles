@@ -32,6 +32,9 @@ function create_dict() {
 
     mkdir -p "$DICT_DIR"
 
+    # 既存の辞書ファイルを削除する
+    rm --force "$DICT_FILE"
+
     for file in {a..z}.txt; do
         # curl が失敗したらエラーメッセージを表示する
         if ! curl --fail "${DICT_URL}${file}" >> "$DICT_FILE"; then
