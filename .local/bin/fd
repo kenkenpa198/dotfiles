@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# ヘルプを表示する
+# ヘルプを表示する関数
 function print_usage {
     cat << help_msg
 fzf-dictionary v0.1.0
@@ -20,7 +20,7 @@ DICT SOURCE:
 help_msg
 }
 
-# 辞書ファイルを作成する
+# 辞書ファイルを作成する関数
 function make_dict {
     local input_dir="https://raw.githubusercontent.com/kujirahand/EJDict/master/src/"
     local out_dir="$HOME/.fd"
@@ -44,7 +44,7 @@ function make_dict {
     echo "$out_dir/$out_file"
 }
 
-# 単語を検索する
+# 単語を検索する関数
 function find_word {
     local word=${1:-""}
     local dict_file="$HOME/.fd/dict.txt"
@@ -58,13 +58,14 @@ function find_word {
     cat "$dict_file" | fzf --exact --tiebreak=begin --prompt="📖 > "  --query="$word"
 }
 
+# メイン関数
 function main() {
     if (( $# == 0 )); then
         find_word
         exit 0
     fi
 
-    # コマンドライン引数で処理を分岐する
+    # 渡された引数で処理を分岐する
     case "$1" in
         -h | --help )
             print_usage
