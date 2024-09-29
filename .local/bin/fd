@@ -52,16 +52,16 @@ function create_dict() {
 function find_word() {
     local word=${1:-""}
 
-    # 辞書ファイルが存在しない場合は --init を促す
-    if [[ ! -f "$DICT_FILE" ]]; then
-        echo "Error: The dictionary file was not found. Please run 'fd --init' to create the dictionary file."
-        exit 1
-    fi
-
     # fzf がインストールされているか確認する
     if ! command -v fzf &> /dev/null; then
         echo "Error: fzf is not installed."
         echo "Please install fzf: https://github.com/junegunn/fzf"
+        exit 1
+    fi
+
+    # 辞書ファイルが存在しない場合は --init を促す
+    if [[ ! -f "$DICT_FILE" ]]; then
+        echo "Error: The dictionary file was not found. Please run 'fd --init' to create the dictionary file."
         exit 1
     fi
 
