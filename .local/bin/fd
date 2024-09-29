@@ -25,7 +25,7 @@ help_msg
 }
 
 # 辞書ファイルを作成する関数
-function make_dict() {
+function create_dict() {
     echo "Make dict file to:"
     echo "$DICT_FILE"
     echo
@@ -52,7 +52,7 @@ function find_word() {
     # 辞書ファイルが存在しない場合は作成する
     if [[ ! -f "$DICT_FILE" ]]; then
         echo "The dictionary file was not found. Creating the dictionary file..."
-        make_dict
+        create_dict
     fi
 
     fzf --exact --tiebreak=begin --prompt="📖 > " --query="$word" < "$DICT_FILE"
@@ -72,7 +72,7 @@ function main() {
             ;;
 
         --init )
-            make_dict
+            create_dict
             ;;
 
         * )
