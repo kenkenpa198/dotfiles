@@ -30,11 +30,10 @@ function make_dict() {
     echo "$DICT_FILE"
     echo
 
-    sleep 2
-
     mkdir -p "$DICT_DIR"
 
     for file in {a..z}.txt; do
+        # curl が失敗したらエラーメッセージを表示する
         if ! curl --fail "${DICT_URL}${file}" >> "$DICT_FILE"; then
             echo "Error: Failed to download ${file}. Exiting."
             exit 1
