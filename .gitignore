@@ -53,7 +53,7 @@
 !.local/bin/code-export
 !.local/bin/docker-clean
 !.local/bin/docker-ls-all
-!.local/bin/fe
+!.local/bin/fd
 !.local/bin/ffmpeg-all
 !.local/bin/hr
 !.local/bin/moda
