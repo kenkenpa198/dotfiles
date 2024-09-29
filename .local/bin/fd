@@ -35,7 +35,10 @@ function make_dict() {
     mkdir -p "$DICT_DIR"
 
     for file in {a..z}.txt; do
-        curl --fail "${DICT_URL}${file}" >> "$DICT_FILE"
+        if ! curl --fail "${DICT_URL}${file}" >> "$DICT_FILE"; then
+            echo "Error: Failed to download ${file}. Exiting."
+            exit 1
+        fi
     done
 
     echo
