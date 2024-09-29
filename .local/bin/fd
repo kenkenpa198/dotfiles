@@ -58,6 +58,13 @@ function find_word() {
         exit 1
     fi
 
+    # fzf がインストールされているか確認する
+    if ! command -v fzf &> /dev/null; then
+        echo "Error: fzf is not installed."
+        echo "Please install fzf: https://github.com/junegunn/fzf"
+        exit 1
+    fi
+
     fzf --exact --tiebreak=begin --prompt="📖 > " --query="$word" < "$DICT_FILE"
 }
 
