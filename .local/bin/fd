@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+DICT_URL="https://raw.githubusercontent.com/kujirahand/EJDict/master/src/"
+DICT_DIR="$HOME/.fd"
+DICT_FILE="$DICT_DIR/dict.txt"
+
 # ヘルプを表示する関数
 function print_usage {
     cat << help_msg
@@ -22,40 +26,34 @@ help_msg
 
 # 辞書ファイルを作成する関数
 function make_dict {
-    local input_dir="https://raw.githubusercontent.com/kujirahand/EJDict/master/src/"
-    local out_dir="$HOME/.fd"
-    local out_file="dict.txt"
-
     echo "Make dict file to:"
-    echo "$out_dir/$out_file"
+    echo "$DICT_FILE"
     echo
 
     sleep 2
 
-    mkdir -p "$out_dir"
-    touch "$out_dir/$out_file"
+    mkdir -p "$DICT_DIR"
 
     for file in {a..z}.txt; do
-        curl --fail "$input_dir$file" >> "$out_dir/$out_file"
+        curl --fail "${DICT_URL}${file}" >> "$DICT_FILE"
     done
 
     echo
     echo "Made dict file:"
-    echo "$out_dir/$out_file"
+    echo "$DICT_FILE"
 }
 
 # 単語を検索する関数
 function find_word {
     local word=${1:-""}
-    local dict_file="$HOME/.fd/dict.txt"
 
     # 辞書ファイルが存在しない場合は作成する
-    if [[ ! -f "$dict_file" ]]; then
+    if [[ ! -f "$DICT_FILE" ]]; then
         echo "The dictionary file was not found. Creating the dictionary file..."
         make_dict
     fi
 
-    cat "$dict_file" | fzf --exact --tiebreak=begin --prompt="📖 > "  --query="$word"
+    cat "$DICT_FILE" | fzf --exact --tiebreak=begin --prompt="📖 > "  --query="$word"
 }
 
 # メイン関数
