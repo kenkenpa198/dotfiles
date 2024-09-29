@@ -36,7 +36,7 @@ function make_dict {
     touch "$out_dir/$out_file"
 
     for file in {a..z}.txt; do
-        curl "$input_dir$file" >> "$out_dir/$out_file"
+        curl --fail "$input_dir$file" >> "$out_dir/$out_file"
     done
 
     echo
