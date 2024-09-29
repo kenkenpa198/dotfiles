@@ -12,15 +12,15 @@ fzf-dictionary v0.1.0
 This is the English-Japanese dictionary with fzf.
 
 USAGE:
-    fd            Look up word
-    fd [word]     Look up word with input
+  fd            Look up word
+  fd [word]     Look up word with input
 
 OPTIONS:
-    --init        Download dict file
-    -h, --help    Display usage
+  --init        Download dict file
+  -h, --help    Display usage
 
 DICT SOURCE:
-    https://github.com/kujirahand/EJDict
+  https://github.com/kujirahand/EJDict
 help_msg
 }
 
