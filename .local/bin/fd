@@ -41,7 +41,7 @@ function create_dict() {
     done
 
     echo
-    echo "Made dict file:"
+    echo "Created dict file:"
     echo "$DICT_FILE"
 }
 
