@@ -49,10 +49,10 @@ function find_word {
     local word=${1:-""}
     local dict_file="$HOME/.fd/dict.txt"
 
-    # 辞書ファイルが存在しない場合は --init を促す
+    # 辞書ファイルが存在しない場合は作成する
     if [[ ! -f "$dict_file" ]]; then
-        echo "The dictionary file was not found. Please run 'fd --init' to create the dictionary file."
-        exit 1
+        echo "The dictionary file was not found. Creating the dictionary file..."
+        make_dict
     fi
 
     cat "$dict_file" | fzf --exact --tiebreak=begin --prompt="📖 > "  --query="$word"
