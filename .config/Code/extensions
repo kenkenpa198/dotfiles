@@ -25,11 +25,8 @@ ms-azuretools.vscode-docker
 ms-ceintl.vscode-language-pack-ja
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-wsl
-ms-vscode.js-debug-nightly
 ms-vscode.powershell
 nidu.copy-json-path
-njpwerner.autodocstring
-nmrmsys.vscode-sql-formatter-mod
 patricklee.vsnotes
 pkief.material-icon-theme
 prisma.prisma
