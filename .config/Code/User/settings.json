@@ -264,6 +264,9 @@
   "[python]": {
     "editor.formatOnType": false
   },
+  "[sql]": {
+    "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
+  },
   "[typescript]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true
