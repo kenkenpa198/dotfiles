@@ -27,6 +27,7 @@ mark-wiemer.vscode-autohotkey-plus-plus
 mechatroner.rainbow-csv
 mhutchie.git-graph
 mikestead.dotenv
+moshfeu.compare-folders
 ms-azuretools.vscode-docker
 ms-ceintl.vscode-language-pack-ja
 ms-dotnettools.csdevkit
@@ -65,6 +66,8 @@ patricklee.vsnotes
 pgl.laravel-jump-controller
 pkief.material-icon-theme
 prisma.prisma
+redhat.fabric8-analytics
+redhat.java
 richie5um2.vscode-sort-json
 ritwickdey.liveserver
 ryannaddy.laravel-artisan
@@ -84,11 +87,17 @@ visualstudioexptteam.intellicode-api-usage-examples
 visualstudioexptteam.vscodeintellicode
 vitaliymaz.vscode-svg-previewer
 vitest.explorer
+vmware.vscode-boot-dev-pack
+vmware.vscode-spring-boot
+vscjava.vscode-gradle
 vscjava.vscode-java-debug
 vscjava.vscode-java-dependency
 vscjava.vscode-java-pack
 vscjava.vscode-java-test
 vscjava.vscode-maven
+vscjava.vscode-spring-boot-dashboard
+vscjava.vscode-spring-initializr
 vue.volar
+yoavbls.pretty-ts-errors
 yzane.markdown-pdf
 yzhang.markdown-all-in-one
