@@ -255,8 +255,8 @@
     "editor.insertSpaces": true
   },
   "[markdown]": {
-    "files.trimTrailingWhitespace": false,
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "files.trimTrailingWhitespace": false
   },
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
