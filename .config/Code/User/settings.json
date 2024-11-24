@@ -256,7 +256,7 @@
   },
   "[markdown]": {
     "files.trimTrailingWhitespace": false,
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
