@@ -61,7 +61,7 @@
   // terminal
   "terminal.integrated.fontFamily": "'HackGen Console'",
 
-  // workbenchc
+  // workbench
   "workbench.activityBar.location": "top",
   "workbench.colorTheme": "GitHub Dark",
   "workbench.editor.empty.hint": "hidden",
