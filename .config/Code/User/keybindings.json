@@ -8,7 +8,7 @@
     "when": "editorLangId == 'markdown' && editorTextFocus"
   },
   {
-    "key": "ctrl+p",
+    "key": "alt+p",
     "command": "markdown-preview-enhanced.openPreviewToTheSide",
     "when": "editorLangId == 'markdown' || editorLangId == 'mdx'"
   },
@@ -65,14 +65,6 @@
     "key": "ctrl+shift+tab",
     "command": "workbench.action.previousSideBarView",
     "when": "sideBarFocus"
-  },
-  {
-    "key": "ctrl+o",
-    "command": "workbench.action.quickOpen"
-  },
-  {
-    "key": "ctrl+p",
-    "command": "-workbench.action.quickOpen"
   },
   {
     "key": "ctrl+oem_4",
