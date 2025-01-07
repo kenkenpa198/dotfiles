@@ -72,7 +72,7 @@ F13 & Up::SendKey("{PgUp}")
 F13 & Right::SendKey("{END}")
 
 F13 & '::`
-F13 & \::SendKey("{PrintScreen}")
+; F13 & \::SendKey("{PrintScreen}")
 F13 & BS::SendKey("{Del}")
 
 !BS::Del
