@@ -4,6 +4,7 @@
 ; Include
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #Include ../libs/SendKey.ahk
+#Include ../libs/IMEv2.ahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Change right side keys
@@ -27,3 +28,15 @@ sc02B:: {
 #HotIf GetKeyState("F13", "P")
 sc02B:: Send "\"
 #HotIf
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Switch IME
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+sc07B:: IME_SET(0)   ; 無変換キーで IME を OFF
+sc079:: IME_SET(1)   ; 変換キーで IME を ON
+sc070:: IME_SET(1)   ; ひらがなカタカナキーで IME を ON
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Shortcuts
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+sc07B & Tab::AltTab ; 無変換キーでも AltTab
