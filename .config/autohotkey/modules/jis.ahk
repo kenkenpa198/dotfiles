@@ -11,6 +11,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; ¥ で Backspace を送信
 sc07D:: SendKey("{BS}")
+
 ; \ で右の Shift を送信
 sc073:: SendKey("{RShift down}")
 sc073 up:: SendKey("{RShift up}")
