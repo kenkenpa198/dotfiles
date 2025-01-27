@@ -17,12 +17,12 @@ sc073:: SendKey("{RShift down}")
 sc073 up:: SendKey("{RShift up}")
 
 sc02B:: {
-    if (GetKeyState("Shift")) {
-        ; Shift + ] でパイプを送信
-        Send "|"
+    if (GetKeyState("Shift", "P")) {
+        ; Shift + ] で Shift + Enter を送信
+        Send("+{Enter}")
     } else {
         ; ] で Enter を送信
-        Send "{Enter}"
+        Send("{Enter}")
     }
 }
 
