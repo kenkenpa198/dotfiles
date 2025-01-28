@@ -47,7 +47,7 @@ F13 & o::
     return
 }
 ; Copy
-F13 & w:: SendKey("^x")
+; F13 & w:: SendKey("^x")
 F13 & y:: SendKey("^v")
 ; Delete
 F13 & d:: SendKey("{Del}")
@@ -80,6 +80,8 @@ F13 & BS:: SendKey("{Del}")
 ; Back & Forward
 F13 & LButton:: SendKey("{XButton1}")
 F13 & RButton:: SendKey("{XButton2}")
+F13 & q:: SendKey("{XButton1}")
+F13 & w:: SendKey("{XButton2}")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Shortcuts
