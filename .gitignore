@@ -44,6 +44,7 @@
 !.config/zsh/.zshrc
 !.config/zsh/alias.zsh
 !.config/zsh/env.zsh
+!.config/zsh/local.zsh.example
 !.config/zsh/option.sync.zsh
 !.config/zsh/theme.sync.zsh
 

@@ -1,0 +1,6 @@
+########################################
+# alias
+########################################
+alias wip='cd ~/dotfiles && \
+echo "Working directory:\n$(pwd)" && echo && \
+echo "Current Branch:\n$(git branch  --show-current"'
