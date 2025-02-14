@@ -3,4 +3,8 @@
 ########################################
 alias wip='cd ~/dotfiles && \
 echo "Working directory:\n$(pwd)" && echo && \
-echo "Current Branch:\n$(git branch  --show-current"'
+echo "Current Branch:\n$(git branch --show-current)"'
+
+alias wip2='cd ~/works/develop && \
+echo "Working directory:\n$(pwd)" && echo && \
+echo "Current branch:\n$(git -C ./kems-clew branch --show-current)"'
